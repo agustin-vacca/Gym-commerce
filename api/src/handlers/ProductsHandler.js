@@ -1,6 +1,6 @@
 //const {Op} = require("sequelize");
 
-const getMachinesHandler = async(req,res) => {
+const getProductsHandler = async(req,res) => {
     try {
         res.status(200).send("GET MACHINES");
     } catch (error) {
@@ -8,7 +8,7 @@ const getMachinesHandler = async(req,res) => {
     }
 };
 
-const postMachinesHandler = async (req,res) => {
+const postProductsHandler = async (req,res) => {
     try {
         res.status(201).send("Post MACHINES");
     } catch (error) {
@@ -17,6 +17,6 @@ const postMachinesHandler = async (req,res) => {
 }
 
 module.exports = {
-    getMachinesHandler,
-    postMachinesHandler
+    getProductsHandler,
+    postProductsHandler
 }
