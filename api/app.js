@@ -4,11 +4,7 @@ const bodyParser = require("body-parser");
 const morgan = require("morgan");
 var path = require("path");
 const cookieParser = require("cookie-parser");
-// const {body, validationResult} = require("express-validator");
-
 require("./db.js");
-const verifyJwt=require('./middleware/Autenticacion');
-const secure=require('./middleware/middlewareToken');
 const app = express();
 
 
@@ -40,19 +36,15 @@ app.use((req, res, next) => {
   next();
 });
 
-// verifyJwt.unless({path:['/']})
-// app.use(verifyJwt);
-//app.use('/', secure,routes);
 app.use('/', routes);
 
-
-   app.use(async (req, res, next) => {
-    const error = new Error("Not found");
-    error.status = 404;
-    error.status = 403;
-    error.status = 401;
-    next(error);
-    });
+app.use(async (req, res, next) => {
+  const error = new Error("Not found");
+  error.status = 404;
+  error.status = 403;
+  error.status = 401;
+  next(error);
+});
 
 // Error catching endware.
 app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
