@@ -15,13 +15,4 @@ const router = Router();
 router.use("/usuarios", rUsuarios);
 router.use("/productos", rProductos);
 
-
-///////////////////////////////////////////////////////
-
-/*    SET CLIENT_ENCODING TO 'utf8';    */
-/*        SELECT * FROM country;        */
-/*        SELECT * FROM countries;        */
-/*        SELECT * FROM activity;        */
-/*        SELECT * FROM activities;        */
-/*        SELECT * FROM activity_country;        */
 module.exports = router;
