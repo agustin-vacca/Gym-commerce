@@ -1,6 +1,6 @@
 const { Router } = require('express');
-const  rProductos = require("./rProductos")
-const  rUsuarios = require("./rUsuarios")
+const ProductsRoutes = require('./ProductsRoutes');
+const CategoryRoutes = require('./CategoryRoutes');
 
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
@@ -12,16 +12,7 @@ const router = Router();
 // Ejemplo: router.use('/auth', authRouter);
 
 
-router.use("/usuarios", rUsuarios);
-router.use("/productos", rProductos);
+router.use("/categorias", CategoryRoutes);
+router.use("/productos", ProductsRoutes);
 
-
-///////////////////////////////////////////////////////
-
-/*    SET CLIENT_ENCODING TO 'utf8';    */
-/*        SELECT * FROM country;        */
-/*        SELECT * FROM countries;        */
-/*        SELECT * FROM activity;        */
-/*        SELECT * FROM activities;        */
-/*        SELECT * FROM activity_country;        */
 module.exports = router;
