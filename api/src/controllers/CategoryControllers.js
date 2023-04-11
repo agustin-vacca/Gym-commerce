@@ -1,7 +1,7 @@
 const {Categoria} = require('../db');
 
-const createCategory =  (id, name, description) =>
-    Categoria.create({id, name, description});
+const createCategory =  ( name, description) =>
+    Categoria.create({ name, description});
 
 const getCategory = () => {
     const category = Categoria.findAll();
