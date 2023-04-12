@@ -1,5 +1,6 @@
 
 
+const { DATE } = require("sequelize");
 const { getProducts, createProducts, getProductsById } = require("../controllers/ProductsController")
 
 
@@ -16,9 +17,9 @@ const getProductsHandler = async(req,res) => {
 
 const postProductsHandler = async (req,res) => {
     try {
-        const { name, price, weight, description, image, stock, create_date, category} = req.body;
+        const { name, price, weight, description, image, stock, create_date, category, isactive, offer, color} = req.body;
 
-        const newProd = await createProducts( name, price, weight, description, image, category, stock, create_date)
+        const newProd = await createProducts( name, price, weight, description, image, category, stock, create_date, isactive, offer, color)
         await newProd.addCategoria(category) 
 
         res.status(201).json(`Nuevo producto implementado: ${newProd.name}`);
