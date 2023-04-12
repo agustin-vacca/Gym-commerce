@@ -1,3 +1,6 @@
+import styled from "styled-components";
+
+export const NavBarDiv = styled.div`
 .input{
     background-color: rgba(255, 255, 255, 0.712);
     height: 2.5rem;
@@ -14,3 +17,4 @@
     height: fit-content;
     border: none;
   }
+`;

@@ -1,10 +1,12 @@
 import React from "react";
 import style from "./Footer.module.css"
+import { FoterDiv } from "../../Layouts/Footerstyle";
+
 
 export default function Footer(){
 
     return (
-        <div className={style.allFooter}>
+        <FoterDiv>
             <div className={style.Informacion}>
             <h3>Informacion</h3>
             <h6>politicas de Envio</h6>
@@ -27,7 +29,7 @@ export default function Footer(){
             <div className={style.MantenteInformado}>
             <h3>Mantente Informado</h3>
             </div>
-        </div>
+        </FoterDiv>
     )
 
 }

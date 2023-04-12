@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Detail from "./componentes/Detail/Detail";
 import Error from "./componentes/Error/Error";
-import Home from "./componentes/Home/Home";
+import Home from "./Views/Home/Home";
 import Landing from "./componentes/Landing/Landing";
 
 function App() {

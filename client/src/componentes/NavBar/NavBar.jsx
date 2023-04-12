@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./NavBar.module.css"
 import { useState } from "react";
+import { NavBarDiv } from "./NavbarStyle";
 
 
 export default function NavBar(){
@@ -18,23 +19,22 @@ export default function NavBar(){
         dispatch(searchCountryName(name)) */
     } 
 
-
     return (
-        <div>
-            <div className={style.divOne}>
-            <input 
-            className={style.input}
-            type="text"
-            placeholder="Search..."
-            onChange={(e) => handleInputChange(e)}
-            />
-            <button 
-            className={style.button}
-            type="submit" 
-            onClick={(event) => handleSubmit(event)} >
-            Search</button>
-            </div>
+    <NavBarDiv>
+        <div className={style.divOne}>
+        <input 
+        className={style.input}
+        type="text"
+        onChange={(e) => handleInputChange(e)}
+        />
+        <button 
+        className={style.button}
+        type="submit" 
+        onClick={(event) => handleSubmit(event)} >
+        Search</button>
         </div>
+    </NavBarDiv>
+    
     
 
 

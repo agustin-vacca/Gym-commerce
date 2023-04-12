@@ -19,7 +19,6 @@
 .ThisIsLog{
     color: aliceblue;
 }
-
 .FooterDiv{
     background-color: black;
 }
@@ -37,10 +36,10 @@
     width: 40%;
     cursor: pointer;
     transition: 1s;
+    padding: 0;
 }
 .navButton:hover{
     color: rgb(255, 238, 0);
-    transform: scale(105%);
 }
 
 .Layout{
