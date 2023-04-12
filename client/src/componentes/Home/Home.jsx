@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCharacters } from "../../redux/actions";
+import { getProducts } from "../../redux/actions";
 import Card from "../Card/Card";
 import style from "./Home.module.css";
 import NavBar from "../NavBar/NavBar";
@@ -9,10 +9,10 @@ import { Layout } from "../common/styled_components/commonStyles";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const allCharacters = useSelector((state) => state.characters);
+  const allProducts = useSelector((state) => state.products);
 
   useEffect(() => {
-    dispatch(getCharacters());
+    dispatch(getProducts());
   }, [dispatch]);
 
   return (
@@ -35,9 +35,9 @@ const Home = () => {
       </div>
 
       <div className={style.cardDisplayer}>
-        {allCharacters.map((el) => {
+        {allProducts.map((el) => {
           return (
-            <Card key={el.id} id={el.id} name={el.name} email={el.email} />
+            <Card key={el.id} id={el.id} name={el.name} price={el.price} image={el.image}/>
           );
         })}
       </div>
