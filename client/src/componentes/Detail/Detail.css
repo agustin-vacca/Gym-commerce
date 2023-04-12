@@ -1,0 +1,31 @@
+.head {
+  display: flex;
+  flex-direction: row;
+  border: 2px solid black;
+  justify-content: space-evenly;
+}
+
+.headimg {
+  width: 600px;
+  height: 500px;
+  border: 2px solid black;
+  margin: 1rem;
+}
+
+.title {
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 2rem;
+}
+
+.description {
+  border: 2px solid black;
+  margin: 2rem;
+}
+
+.review {
+  border: 2px solid black;
+  margin: 2rem;
+}
