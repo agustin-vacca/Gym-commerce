@@ -7,12 +7,6 @@ import Landing from "./componentes/Landing/Landing";
 
 function App() {
 
-  console.log("hola");
-  console.log("hola");
-  console.log("hola");
-  console.log("como");
-  console.log("andas");
-  console.log("hola");
   return (
     <div className="App">
       <Routes>
