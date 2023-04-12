@@ -1,0 +1,13 @@
+.allFooter{
+    background-color: black;
+    color: aliceblue;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+
+    gap: 6rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+ h3{
+    text-decoration-line:underline;
+ }

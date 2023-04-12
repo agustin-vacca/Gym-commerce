@@ -1,0 +1,44 @@
+.cardDisplayer{
+    display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2.5rem;
+    font-size: larger;
+    margin: 3rem 6rem;
+    transition: 1s;
+}
+
+.NavBarDiv{
+    background-color: black;
+    display: flex;
+    justify-content:space-around;
+    align-items:center;
+}
+.ThisIsHome{
+    color: aliceblue;
+}
+.ThisIsLog{
+    color: aliceblue;
+}
+
+.FooterDiv{
+    background-color: black;
+}
+
+.divTwo {
+    margin-top: 0;
+    display: flex;
+    align-items: flex-start;
+}
+
+.navButton{
+    background-color: black;
+    color: white;
+    height: 2rem;
+    width: 40%;
+    cursor: pointer;
+    transition: 1s;
+}
+.navButton:hover{
+    color: rgb(255, 238, 0);
+    transform: scale(105%);
+}
