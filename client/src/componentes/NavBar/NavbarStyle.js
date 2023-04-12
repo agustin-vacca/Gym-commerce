@@ -1,20 +1,37 @@
 import styled from "styled-components";
 
-export const NavBarDiv = styled.div`
-.input{
-    background-color: rgba(255, 255, 255, 0.712);
-    height: 2.5rem;
-    width: 16rem;
-    border-radius: 10px;
-    font-weight: 700;
-    border: none;
+export const Layout = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .SearchBarDiv{
+    background-color: black;
+    display: flex;
+    justify-content:space-around;
+    align-items:center;
+}
+.ThisIsLog{
+    color: aliceblue;
 }
 
-.button{
-    background-color: rgba(167, 167, 167, 0.849);
-    border-radius: 10px;
-    font-weight: 900;
-    height: fit-content;
-    border: none;
-  }
-`;
+.divTwo {
+    margin-top: 0;
+    display: flex;
+    align-items: flex-start;
+}
+
+.navButton{
+    background-color: black;
+    color: white;
+    height: 2rem;
+    width: 40%;
+    cursor: pointer;
+    transition: 1s;
+    padding: 0;
+}
+.navButton:hover{
+    color: rgb(255, 238, 0);
+}
+
+`

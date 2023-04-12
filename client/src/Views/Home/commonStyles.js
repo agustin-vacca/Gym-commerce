@@ -6,20 +6,14 @@ export const Layout = styled.div`
   justify-content: space-between;
   height: 100vh;
 
-  .NavBarDiv{
+  .SearchBarDiv{
     background-color: black;
     display: flex;
     justify-content:space-around;
     align-items:center;
 }
-.ThisIsHome{
-    color: aliceblue;
-}
 .ThisIsLog{
     color: aliceblue;
-}
-.FooterDiv{
-    background-color: black;
 }
 
 .divTwo {
