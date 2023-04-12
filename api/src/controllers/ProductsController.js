@@ -1,8 +1,14 @@
 const {Producto, Categoria} = require('../db');
 const {Op} = require("sequelize");
 
-const createProducts =  ( name, price, weight, description, image, category, stock, create_date) =>
-    Producto.create({ name, price, weight, description, image, category, stock, create_date});
+const createProducts =  ( name, price, weight, description, image, category, stock, create_date, isactive, offer, color) =>{
+    create_date = new Date();
+    offer = false;
+    isactive = true;
+    const newProd = Producto.create({ name, price, weight, description, image, category, stock, create_date, isactive, offer, color});
+    return newProd;
+}
+    
 
 const getProducts = (name) => {
     if (name) {
