@@ -37,7 +37,7 @@ const Home = () => {
       <div className={style.cardDisplayer}>
         {allProducts.map((el) => {
           return (
-            <Card key={el.id} id={el.id} name={el.name} price={el.price} />
+            <Card key={el.id} id={el.id} name={el.name} price={el.price} image={el.image}/>
           );
         })}
       </div>
