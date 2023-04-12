@@ -1,13 +1,13 @@
 import axios from "axios";
-import { GET_CHARACTERS} from "./action-types";
+import { GET_PRODUCTS} from "./action-types";
 
 
-export function getCharacters(){
+export function getProducts(){
     return async function(dispatch) {
         try {
-        let json = await axios.get("https://jsonplaceholder.typicode.com/users");
+        let json = await axios.get("http://localhost:3001/productos");
         return dispatch({
-            type: GET_CHARACTERS,
+            type: GET_PRODUCTS,
             payload: json.data
         })
     } catch (error){

@@ -12,7 +12,6 @@ export default function Footer() {
         <h3>Contacto</h3>
         <h6>Tangamandapio 500</h6>
         <h6>Jamememes 2000</h6>
-        <h4></h4>
       </div>
       <div className={style.Siguenos}>
         <h3>Siguenos</h3>
