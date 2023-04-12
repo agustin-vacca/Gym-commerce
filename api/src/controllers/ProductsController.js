@@ -29,8 +29,22 @@ const getProductsById = (id) => {
     return product;
 }
 
+const getProductsByName = (name) => {
+    const product = Producto.findByPk(name, {
+        include: [
+            {
+                model: Categoria,
+                attributes: ["name"],
+                through: { attributes: [] },
+            } 
+        ]
+    })
+    return product;
+}
+
 module.exports = {
     createProducts,
     getProducts,
-    getProductsById
+    getProductsById,
+    getProductsByName
 }
