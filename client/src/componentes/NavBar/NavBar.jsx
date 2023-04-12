@@ -20,7 +20,8 @@ export default function NavBar(){
 
 
     return (
-        <div className={style.allNavBar}>
+        <div>
+            <div className={style.divOne}>
             <input 
             className={style.input}
             type="text"
@@ -32,7 +33,10 @@ export default function NavBar(){
             type="submit" 
             onClick={(event) => handleSubmit(event)} >
             Search</button>
-    
+            </div>
         </div>
+    
+
+
     )
 }
