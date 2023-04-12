@@ -1,0 +1,11 @@
+.allFooter{
+    background-color: black;
+    color: aliceblue;
+
+    gap: 4rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}

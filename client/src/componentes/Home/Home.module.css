@@ -1,0 +1,27 @@
+.cardDisplayer{
+    display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2.5rem;
+    font-size: larger;
+    margin: 3rem 6rem;
+    transition: 1s;
+}
+
+.NavBarDiv{
+    background-color: black;
+    display: flex;
+    justify-content:space-around;
+    align-items:center;
+}
+.ThisIsHome{
+    color: aliceblue;
+}
+.ThisIsLog{
+    color: aliceblue;
+}
+
+.FooterDiv{
+    background-color: black;
+}
+
+
