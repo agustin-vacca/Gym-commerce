@@ -6,3 +6,22 @@
     margin: 3rem 6rem;
     transition: 1s;
 }
+
+.NavBarDiv{
+    background-color: black;
+    display: flex;
+    justify-content:space-around;
+    align-items:center;
+}
+.ThisIsHome{
+    color: aliceblue;
+}
+.ThisIsLog{
+    color: aliceblue;
+}
+
+.FooterDiv{
+    background-color: black;
+}
+
+
