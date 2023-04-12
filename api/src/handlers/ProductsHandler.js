@@ -1,9 +1,11 @@
-//const {Op} = require("sequelize");
+
 const { getProducts, createProducts, getProductsById } = require("../controllers/ProductsController")
 
 const getProductsHandler = async(req,res) => {
     try {
-        const all = await getProducts();
+        const { name } = req.query;
+
+        let all = await getProducts(name);
         res.status(200).json(all);
     } catch (error) {
         res.status(400).json( {error: error.message} );
