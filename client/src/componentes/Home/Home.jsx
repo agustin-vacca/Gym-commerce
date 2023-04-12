@@ -18,7 +18,7 @@ useEffect(() => {
 
   return (
     <div>
-      
+<div className={style.allNavBars}>
     <div className={style.NavBarDiv}>
       <h1 className={style.ThisIsHome} >Home</h1>
       <div>
@@ -27,6 +27,13 @@ useEffect(() => {
       <NavBar/>
       <h3 className={style.ThisIsLog}>INGRESAR/REGISTRARSE</h3>
     </div>
+    <div className={style.divTwo}>
+      <button className={style.navButton}>Inicio</button>
+      <button className={style.navButton}>Productos</button>
+      <button className={style.navButton}>Preguntas Frecuentes</button>
+      <button className={style.navButton}>Nosotros</button>
+    </div>
+</div>
 
     <div className={style.cardDisplayer}>
     {
