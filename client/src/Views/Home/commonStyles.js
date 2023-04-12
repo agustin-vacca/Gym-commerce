@@ -1,27 +1,19 @@
-.cardDisplayer{
-    display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2.5rem;
-    font-size: larger;
-    margin: 3rem 6rem;
-    transition: 1s;
-}
+import styled from "styled-components";
 
-.NavBarDiv{
+export const Layout = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+
+  .SearchBarDiv{
     background-color: black;
     display: flex;
     justify-content:space-around;
     align-items:center;
 }
-.ThisIsHome{
-    color: aliceblue;
-}
 .ThisIsLog{
     color: aliceblue;
-}
-
-.FooterDiv{
-    background-color: black;
 }
 
 .divTwo {
@@ -37,10 +29,10 @@
     width: 40%;
     cursor: pointer;
     transition: 1s;
+    padding: 0;
 }
 .navButton:hover{
     color: rgb(255, 238, 0);
-    transform: scale(105%);
 }
 
 .Layout{
@@ -49,3 +41,7 @@
     height: 100vh;
     justify-content: space-between;
 }
+`;
+
+
+
