@@ -34,21 +34,9 @@ const getProductsDetailHandler = async (req,res) => {
     }
 }
 
-const getProductsSearchBar = async (req,res) => {
-    try {
-        const { name } = req.query;
-        const prodByName = await getProductsByName(name);
-
-        res.status(201).json(prodByName);
-    } catch (error) {
-        res.status(400).json( {error: error.message });
-    }
-}
-
 
 module.exports = {
     getProductsHandler,
     postProductsHandler,
     getProductsDetailHandler,
-    getProductsSearchBar
 }
