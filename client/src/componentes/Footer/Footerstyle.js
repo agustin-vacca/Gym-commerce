@@ -8,5 +8,7 @@ export const FoterDiv = styled.div`
     gap: 6rem;
     display: flex;
     align-items: flex-start;
-    justify-content: center;    
+    justify-content: center;
+
+    
 `;

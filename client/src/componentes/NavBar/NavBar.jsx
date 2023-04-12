@@ -1,8 +1,8 @@
 import React from "react";
 import { Layout } from "./NavBarStyle";
 import SearchBar from "../SearchBar/SearchBar"
-import logo from "../../images/Logo.png"
-
+import logo from "../../cardigan.png"
+import { BiUserCircle } from "react-icons/bi";
 
 export default function NavBar(){
     return (
@@ -10,7 +10,7 @@ export default function NavBar(){
         <div className="SearchBarDiv">
           <img src={logo} alt="." width="70px"/>
           <SearchBar />
-          <h3 className="ThisIsLog">INGRESAR/REGISTRARSE</h3>
+          <h3 className="ThisIsLog">INGRESAR/REGISTRARSE <BiUserCircle size={40}/> </h3> 
         </div>
         <div className="divTwo">
           <div className="navButton">Inicio</div>
