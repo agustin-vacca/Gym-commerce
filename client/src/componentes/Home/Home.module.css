@@ -42,3 +42,10 @@
     color: rgb(255, 238, 0);
     transform: scale(105%);
 }
+
+.Layout{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+}

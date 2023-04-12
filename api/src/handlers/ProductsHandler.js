@@ -1,5 +1,6 @@
 //const {Op} = require("sequelize");
-const { getProducts, createProducts } = require("../controllers/ProductsController")
+const { getProducts, createProducts, getProductsById } = require("../controllers/ProductsController")
+
 const getProductsHandler = async(req,res) => {
     try {
         const all = await getProducts();
@@ -22,7 +23,19 @@ const postProductsHandler = async (req,res) => {
     }
 }
 
+const getProductsDetailHandler = async (req,res) => {
+    try {
+        const { id } = req.params;
+        const prodById = await getProductsById(id);
+
+        res.status(201).json(prodById);
+    } catch (error) {
+        res.status(400).json( {error: error.message });
+    }
+}
+
 module.exports = {
     getProductsHandler,
-    postProductsHandler
+    postProductsHandler,
+    getProductsDetailHandler
 }

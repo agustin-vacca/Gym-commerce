@@ -6,6 +6,7 @@ import Home from "./componentes/Home/Home";
 import Landing from "./componentes/Landing/Landing";
 
 function App() {
+
   return (
     <div className="App">
       <Routes>
