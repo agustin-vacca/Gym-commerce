@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Detail from "./componentes/Detail/Detail";
+import Detail from "./Views/Detail/Detail";
 import Error from "./componentes/Error/Error";
 import Home from "./Views/Home/Home";
-import Landing from "./componentes/Landing/Landing";
+import Landing from "./Views/Landing/Landing";
 
 function App() {
 

@@ -19,7 +19,7 @@ switch(action.type){
     return{
       ...state,
       detail: action.payload
-    };
+}
 
   default:
   return{...state}; 

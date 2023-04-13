@@ -5,21 +5,21 @@ import { useEffect } from "react";
 import { getProductById } from "../../redux/actions";
 
 const Detail = () => {
-
   const dispatch = useDispatch();
-  const {id} = useParams();
-  console.log(id)
-  const product = useSelector( state => state.detail);
+  const { id } = useParams();
 
-  useEffect( () => {
-    dispatch(getProductById(1))
-  },[dispatch,id])
-
+  
+  useEffect(() => {
+    dispatch(getProductById(id));
+  }, [dispatch, id]);
+  
+  const product = useSelector((state) => state.detail);
+  
   return (
     <div>
       <div className="head">
         <div className="headimg">
-          <img src={product.image} alt="img" />
+          <img src={product.image} alt="img" width="500px" height="500"/>
         </div>
         <div className="title">
           <h1> {product.name} </h1>
