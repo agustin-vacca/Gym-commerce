@@ -9,3 +9,8 @@ export const CardsDisplayer = styled.div`
     margin: 3rem 6rem;
     transition: 1s;
 `;
+
+export const Layout = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+`;

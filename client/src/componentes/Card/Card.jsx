@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { CardsDiv } from "./CardsStyle";
 
-
 function Card({ id, name, price, image }) {
 
   return (

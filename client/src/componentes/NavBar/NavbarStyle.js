@@ -22,9 +22,11 @@ export const Layout = styled.div`
 }
 
 .navButton{
+    display: grid;
+    place-content: center;
     background-color: black;
     color: white;
-    height: 2rem;
+    height: 3rem;
     width: 40%;
     cursor: pointer;
     transition: 1s;

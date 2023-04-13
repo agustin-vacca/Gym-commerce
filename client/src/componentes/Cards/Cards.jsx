@@ -2,9 +2,8 @@ import React, {useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../../redux/actions";
 import Card from "../Card/Card";
-import { CardsDisplayer } from "./CardsStyle";
-
-
+import { CardsDisplayer, Layout } from "./CardsStyle";
+import OrderAndFilters from "../Filters/OrderAndFilters"
 
 export default function Cards() {
     const dispatch = useDispatch();
@@ -16,13 +15,19 @@ export default function Cards() {
 
 
 return (
+
+  <Layout>
+    <OrderAndFilters />
     <CardsDisplayer>
         {allProducts.map((el) => {
           return (
             <Card key={el.id} id={el.id} name={el.name} price={el.price} image={el.image}/>
           );
         })}
-  </CardsDisplayer>
+    </CardsDisplayer>
+
+
+  </Layout>
 )
 
 
