@@ -1,5 +1,5 @@
-//const {Op} = require("sequelize");
-const { getCategory, createCategory } = require("../controllers/CategoryControllers")
+const { getCategory, createCategory } = require("../controllers/CategoryControllers");
+const category = require("../precharge/precharge")
 
 const getCategoryHandler = async(req,res) => {
     try {
@@ -12,10 +12,12 @@ const getCategoryHandler = async(req,res) => {
 
 const postCategoryHandler = async (req,res) => {
     try {
-        const { name, description} = req.body;
+        //const { name, description} = req.body;
+        for ( let i = 0; i < category.length; i++){
+            const newCat = await createCategory(category[i].name, category[i].description);
+        }
 
-        const newCat = await createCategory( name, description);
-        res.status(201).json(`Nueva categoria implementada: ${newCat.name}`);
+        res.status(201).json("Categorias preestablecidas cargadas");
     } catch (error) {
         res.status(400).json( {error: error.message });
     }

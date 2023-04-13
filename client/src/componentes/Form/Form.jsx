@@ -7,7 +7,7 @@ import { createProducts } from "../../redux/actions";
 const Formulario = () => {
   const dispatch = useDispatch();
   const [sendForm, setSendForm] = useState(false);
-  const [product, setProduct] = useState({});
+  const [product, setProduct] = useState();
   const send = () => {
     dispatch(createProducts(product));
   };

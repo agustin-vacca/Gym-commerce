@@ -33,6 +33,19 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING
     },
 
+    color:{
+      type: DataTypes.STRING
+    },
+
+    isactive:{
+      type: DataTypes.BOOLEAN
+    },
+
+    offer:{
+      type: DataTypes.BOOLEAN
+    },
+
+
     stock: {
       type: DataTypes.INTEGER,
       allowNull: false

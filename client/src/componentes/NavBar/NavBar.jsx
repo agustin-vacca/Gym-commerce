@@ -1,42 +1,23 @@
 import React from "react";
-import style from "./NavBar.module.css"
-import { useState } from "react";
+import { Layout } from "./NavBarStyle";
+import SearchBar from "../SearchBar/SearchBar"
+import logo from "../../images/Logo.png"
 
 
 export default function NavBar(){
-/*  const dispatch = useDispatch() */
-    const [name, setName] = useState("")
-
-    function handleInputChange(e) {
-        e.preventDefault()
-        setName(e.target.value)
-    }
-
-
-     function handleSubmit(event) {
-/*         event.preventDefault()
-        dispatch(searchCountryName(name)) */
-    } 
-
-
     return (
-        <div>
-            <div className={style.divOne}>
-            <input 
-            className={style.input}
-            type="text"
-            placeholder="Search..."
-            onChange={(e) => handleInputChange(e)}
-            />
-            <button 
-            className={style.button}
-            type="submit" 
-            onClick={(event) => handleSubmit(event)} >
-            Search</button>
-            </div>
+    <Layout>
+        <div className="SearchBarDiv">
+          <img src={logo} alt="." width="70px"/>
+          <SearchBar />
+          <h3 className="ThisIsLog">INGRESAR/REGISTRARSE</h3>
         </div>
-    
-
-
+        <div className="divTwo">
+          <div className="navButton">Inicio</div>
+          <div className="navButton">Productos</div>
+          <div className="navButton">Preguntas Frecuentes</div>
+          <div className="navButton">Nosotros</div>
+        </div>
+    </Layout>
     )
-}
+} 

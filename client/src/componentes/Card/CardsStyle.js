@@ -1,30 +1,20 @@
 import styled from "styled-components";
 
-export const Layout = styled.div`
+export const CardsDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
-`;
-
-export const Cards = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100vh;
-  border: 2px solid black;
   width: 17rem;
   height: fit-content;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   border-radius: 10px;
-  background-color:rgba(200, 200, 200, 0.2) ;
   font-weight: 500;
   cursor: pointer;
+  font-family: "Plus Jakarta Sans";
   transition: 1s;
-
   :hover{
     scale: 103%;
   }
-
 `;
-
 

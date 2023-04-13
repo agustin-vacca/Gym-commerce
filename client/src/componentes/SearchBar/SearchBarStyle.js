@@ -1,10 +1,13 @@
+import styled from "styled-components";
+
+export const SearchBarDiv = styled.div`
 .input{
     background-color: rgba(255, 255, 255, 0.712);
     height: 2.5rem;
     width: 16rem;
     border-radius: 10px;
     font-weight: 700;
-
+    border: none;
 }
 
 .button{
@@ -12,7 +15,6 @@
     border-radius: 10px;
     font-weight: 900;
     height: fit-content;
-}
-
-
-
+    border: none;
+  }
+`;

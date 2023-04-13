@@ -9,7 +9,6 @@ const { getProductsHandler,postProductsHandler, getProductsDetailHandler, getPro
 ProductsRoutes.get('/', getProductsHandler);
 ProductsRoutes.post('/create', postProductsHandler);
 ProductsRoutes.get('/:id', getProductsDetailHandler);
-ProductsRoutes.get('/', getProductsSearchBar);
 
 
 module.exports = ProductsRoutes;
