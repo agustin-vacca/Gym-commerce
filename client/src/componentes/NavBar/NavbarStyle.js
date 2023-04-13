@@ -11,6 +11,9 @@ export const Layout = styled.div`
     justify-content:space-around;
     align-items:center;
 }
+
+
+
 .ThisIsLog{
     color: aliceblue;
 }
@@ -36,4 +39,8 @@ export const Layout = styled.div`
     color: rgb(255, 238, 0);
 }
 
+`
+
+export const ThisIsLog = styled.div`
+    color: aliceblue;
 `
