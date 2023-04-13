@@ -5,14 +5,15 @@ import { useEffect } from "react";
 import { getProductById } from "../../redux/actions";
 
 const Detail = () => {
-  const dispatch = useDispatch();
   const { id } = useParams();
+  console.log(id);
+  const dispatch = useDispatch()
 
-  
-  useEffect(() => {
-    dispatch(getProductById(id));
-  }, [dispatch, id]);
-  
+  useEffect(() =>{
+    dispatch(getProductById(id))
+},[dispatch, id])
+
+
   const product = useSelector((state) => state.detail);
   
   return (
