@@ -1,10 +1,10 @@
 import React from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
+import Home from "../src/Views/Home/Home";
 import "./App.css";
 import Detail from "./componentes/Detail/Detail";
 import Error from "./componentes/Error/Error";
 import Formulario from "./componentes/Form/Form";
-import Home from "./componentes/Home/Home";
 import Landing from "./componentes/Landing/Landing";
 //import NavBar from "./componentes/NavBar/NavBar";
 
