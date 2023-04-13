@@ -11,6 +11,7 @@ export const Layout = styled.div`
     justify-content: space-around;
     align-items: center;
   }
+
   .ThisIsLog {
     color: aliceblue;
   }

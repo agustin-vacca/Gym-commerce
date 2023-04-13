@@ -3,9 +3,9 @@ import { Route, Routes } from "react-router-dom";
 import Formulario from "../src/Views/Form/Form";
 import Home from "../src/Views/Home/Home";
 import "./App.css";
+import Landing from "./Views/Landing/Landing";
 import Detail from "./componentes/Detail/Detail";
 import Error from "./componentes/Error/Error";
-import Landing from "./componentes/Landing/Landing";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Home />} />
         <Route path="/form" element={<Formulario />} />
-        <Route path="/detail/:detailId" element={<Detail />} />
+        <Route path="/detail/:id" element={<Detail />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </div>
