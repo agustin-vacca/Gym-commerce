@@ -1,4 +1,10 @@
-import { GET_PRODUCTS, GET_PRODUCT_BY_ID, ORDER_BY_NAME,ORDER_BY_PRICE,FILTER_BY_CATEGORY } from "./action-types";
+import {
+  FILTER_BY_CATEGORY,
+  GET_PRODUCTS,
+  GET_PRODUCT_BY_ID,
+  ORDER_BY_NAME,
+  ORDER_BY_PRICE,
+} from "./action-types";
 
 const initialState = {
   products: [],
@@ -44,10 +50,10 @@ const reducer = (state = initialState, action) => {
             });
       return {
         ...state,
-        products: sortedArr
+        products: sortedArr,
       };
     case ORDER_BY_PRICE:
-  console.log(state.products);
+      console.log(state.products);
       let sortedArr2 =
         action.payload === "asc"
           ? state.products.sort(function (a, b) {
@@ -70,17 +76,18 @@ const reducer = (state = initialState, action) => {
             });
       return {
         ...state,
-        products: sortedArr2
+        products: sortedArr2,
       };
     case FILTER_BY_CATEGORY:
-        const allProducts = state.allProducts
-        const categoryFiltered = action.payload === "All"
-        ? allProducts 
-        : allProducts.filter(el => el.categoria[0].name === action.payload)
-        return {
-            ...state,
-            products: categoryFiltered
-    }
+      const allProducts = state.allProducts;
+      const categoryFiltered =
+        action.payload === "All"
+          ? allProducts
+          : allProducts.filter((el) => el.categoria[0].name === action.payload);
+      return {
+        ...state,
+        products: categoryFiltered,
+      };
     default:
       return { ...state };
   }
