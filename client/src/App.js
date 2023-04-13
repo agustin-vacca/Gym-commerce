@@ -1,20 +1,15 @@
 import React from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import Formulario from "../src/Views/Form/Form";
 import Home from "../src/Views/Home/Home";
 import "./App.css";
 import Detail from "./componentes/Detail/Detail";
 import Error from "./componentes/Error/Error";
-import Formulario from "./componentes/Form/Form";
 import Landing from "./componentes/Landing/Landing";
-//import NavBar from "./componentes/NavBar/NavBar";
 
 function App() {
-  const location = useLocation();
   return (
     <div className="App">
-      {/* este linea es para fijar la navBar e todos las paginas menos en Landing */}
-      {/* {location.pathname !== "/" ? <NavBar /> : null} */}
-
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Home />} />

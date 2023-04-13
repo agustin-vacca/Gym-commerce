@@ -2,7 +2,7 @@ import React from "react";
 import { BiUserCircle } from "react-icons/bi";
 import logo from "../../cardigan.png";
 import SearchBar from "../SearchBar/SearchBar";
-import { Layout } from "./NavBarStyle";
+import { Layout } from "./NavbarStyle";
 
 export default function NavBar() {
   return (
