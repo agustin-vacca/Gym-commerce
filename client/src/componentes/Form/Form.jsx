@@ -1,6 +1,8 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
+import { createProducts } from "../../redux/actions";
 
 const Formulario = () => {
   const dispatch = useDispatch();
@@ -14,125 +16,138 @@ const Formulario = () => {
     <Wall>
       <Formik
         initialValues={{
-          nombre: "",
-          precio: "",
-          peso: "",
-          descripcion: "",
-          imagen: "",
-          categoria: "",
+          name: "",
+          price: "",
+          weight: "",
+          description: "",
+          image: "",
+          category: "",
           stock: "",
-          create_date: "",
         }}
-        validate={(value) => {
-          let errores = {};
-
-          //validaciones
-          if (!value.nombre) {
-            errores.nombre = "Ingrese un nombre";
-          } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(value.nombre)) {
-            errores.nombre = "El nombre solo puede contener letras y espacios";
+        validate={(values) => {
+          let errors = {};
+          // Validación de nombre
+          if (!values.name) {
+            errors.name = "Ingrese un nombre";
+          } else if (/^[a-zA-Z0-9]+$/.test(values.name)) {
+            errors.name = "El nombre solo puede contener letras y números";
           }
-
-          /* if (!value.correo) {
-            errores.correo = "Ingrese un correo";
-          } else if (
-            !/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(
-              value.correo
-            )
-          ) {
-            errores.correo =
-              "El correo solo puede contener letras, numeros, puntos y guiones";
-          } */
-          return errores;
+          // Validación de precio
+          if (!values.price) {
+            errors.price = "Ingrese un precio";
+          } else if (!/^[0-9]+$/.test(values.price)) {
+            errors.price = "El precio solo puede contener números";
+          }
+          // Validación de peso
+          if (!values.weight) {
+            errors.weight = "Ingrese un peso";
+          } else if (/^[a-zA-Z0-9]+([a-zA-Z0-9]+)$/.test(values.weight)) {
+            errors.weight = "El peso solo puede contener cantidad y medida";
+          }
+          if (!values.category) {
+            errors.category = "Ingrese un categoria";
+          } else if (values.category === "default") {
+            errors.category = "Debe Eligir una categoria";
+          }
+          // Validación de descripción
+          if (!values.description) {
+            errors.description = "Ingrese una descripción";
+          } else if (/^[a-zA-Z0-9]+$/.test(values.description)) {
+            errors.description =
+              "La descripción solo puede contener letras y números";
+          }
+          // Validación de imagen
+          if (!values.image) {
+            errors.image = "Ingrese una imagen";
+          } else if (!/\.(gif|jpg|jpeg|png)$/i.test(values.image)) {
+            errors.image =
+              "La imagen debe ser un archivo de imagen válido (gif, jpg, jpeg o png)";
+          }
+          // Validación de stock
+          if (!values.stock) {
+            errors.stock = "Ingrese un stock";
+          } else if (!/^[0-9]+$/.test(values.stock)) {
+            errors.stock = "El stock solo puede contener números";
+          }
+          return errors;
         }}
-        onSubmit={(value, { resetForm }) => {
+        onSubmit={(values, { resetForm }) => {
+          setProduct(values);
+          send();
+          setSendForm(true);
+          setTimeout(() => setSendForm(false), 5000);
           resetForm();
-          setForms(true);
-          setTimeout(() => setForms(false), 5000);
         }}
       >
         {({ errors }) => (
           <Form className="formulario">
             <div>
-              <Label htmlFor="nombre">Nombre: </Label>
+              <Label htmlFor="name">Nombre: </Label>
               <Field
                 type="text"
-                id="nombre"
-                name="nombre"
-                placeholder="Escriba su nombre "
+                id="name"
+                name="name"
+                placeholder="Nombre del producto"
               />
               <ErrorMessage
-                name="nombre"
-                component={() => <div className="error">{errors.nombre}</div>}
+                name="name"
+                component={() => <div className="error">{errors.name}</div>}
               />
             </div>
             <div>
-              <Label htmlFor="precio">Precio: </Label>
+              <Label htmlFor="price">Precio: </Label>
               <Field
                 type="text"
-                id="precio"
-                name="precio"
-                placeholder="Escriba su precio "
+                id="price"
+                name="price"
+                placeholder="Escriba el precio"
               />
               <ErrorMessage
-                name="precio"
-                component={() => <div className="error">{errors.precio}</div>}
+                name="price"
+                component={() => <div className="error">{errors.price}</div>}
               />
             </div>
             <div>
-              <Label htmlFor="peso">Peso: </Label>
+              <Label htmlFor="weight">Peso: </Label>
               <Field
                 type="text"
-                id="peso"
-                name="peso"
-                placeholder="Escriba su peso "
+                id="weight"
+                name="weight"
+                placeholder="Escriba el peso"
               />
               <ErrorMessage
-                name="peso"
-                component={() => <div className="error">{errors.peso}</div>}
+                name="weight"
+                component={() => <div className="error">{errors.weight}</div>}
               />
             </div>
             <div>
-              <Label htmlFor="descripcion">Descripcion: </Label>
+              <Label htmlFor="image">Imagen: </Label>
               <Field
                 type="text"
-                id="descripcion"
-                name="descripcion"
-                placeholder="Escriba su descripcion "
+                id="image"
+                name="image"
+                placeholder="Ingrese la imagen"
               />
               <ErrorMessage
-                name="descripcion"
-                component={() => (
-                  <div className="error">{errors.descripcion}</div>
-                )}
+                name="image"
+                component={() => <div className="error">{errors.image}</div>}
               />
             </div>
             <div>
-              <Label htmlFor="imagen">Imagen: </Label>
-              <Field
-                type="text"
-                id="imagen"
-                name="imagen"
-                placeholder="Escriba su imagen "
-              />
+              <Label htmlFor="category">Categoria: </Label>
+              <Field name="category" as="select">
+                <option value="default" disable="true">
+                  -Eliga una categoria-
+                </option>
+                <option value="Mancuernas">Mancuernas</option>
+                <option value="Maquinas">Maquinas</option>
+                <option value="Rack">Rack</option>
+                <option value="Discos y Barras">Discos y Barras</option>
+                <option value="Accesorios">Accesorios</option>
+              </Field>
               <ErrorMessage
-                name="imagen"
-                component={() => <div className="error">{errors.imagen}</div>}
-              />
-            </div>
-            <div>
-              <Label htmlFor="categoria">Categoria: </Label>
-              <Field
-                type="text"
-                id="categoria"
-                name="categoria"
-                placeholder="Escriba su categoria "
-              />
-              <ErrorMessage
-                name="categoria"
-                component={() => (
-                  <div className="error">{errors.categoria}</div>
-                )}
+                name="category"
+                component={() => <div className="error">{errors.category}</div>}
               />
             </div>
             <div>
@@ -149,41 +164,25 @@ const Formulario = () => {
               />
             </div>
             <div>
-              <Label htmlFor="create_date">Fecha de creacion: </Label>
               <Field
-                type="text"
-                id="create_date"
-                name="create_date"
-                placeholder="Escriba su create_date "
+                name="description"
+                as="textarea"
+                placeholder="Descripcion"
               />
               <ErrorMessage
-                name="create_date"
+                name="description"
                 component={() => (
-                  <div className="error">{errors.create_date}</div>
+                  <div className="error">{errors.description}</div>
                 )}
               />
             </div>
-            <div>
-              <Field name="pais" as="select">
-                <option value="mexico">Mexico</option>
-                <option value="argentina">Argentina</option>
-                <option value="colombia">Colombia</option>
-              </Field>
-            </div>
-            <div>
-              <Label>
-                <Field type="radio" name="sexo" value="hombre" />
-                Hombre
-              </Label>
-              <Label>
-                <Field type="radio" name="sexo" value="mujer" />
-                Mujer
-              </Label>
-            </div>
-            <div>
-              <Field name="mensaje" as="textarea" placeholder="Descripcion" />
-            </div>
-            <Button type="submit">Enviar </Button>
+            <Button
+              type="submit"
+              disabled={Object.keys(errors).length === 0 ? false : true}
+            >
+              Enviar
+            </Button>
+            {sendForm && <Par>"Producto agregado con exito"</Par>}
           </Form>
         )}
       </Formik>
@@ -193,21 +192,24 @@ const Formulario = () => {
 
 export default Formulario;
 
-const Wall = styled.form`
-  background: #33312f;
+const Wall = styled.div`
+  background: #f3f1f1;
   width: 80%;
   height: 80%;
   display: flex;
   justify-content: center;
   align-content: center;
+
+  .error {
+    color: #830404;
+  }
 `;
 const Label = styled.label`
   margin: 20px 20px;
 `;
-const Input = styled.input`
-  margin: 20px 20px;
-`;
-
 const Button = styled.button`
   margin: 20px;
+`;
+const Par = styled.p`
+  color: #3a5e04;
 `;
