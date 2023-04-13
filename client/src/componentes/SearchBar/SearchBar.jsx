@@ -13,10 +13,11 @@ export default function SearchBar(){
     }
 
 
-     function handleSubmit(event) {
-/*         event.preventDefault()
-        dispatch(searchCountryName(name)) */
+/* function handleSubmit(event) {
+            event.preventDefault()
+    dispatch(searchCountryName(name))  
     } 
+    */
     return (
     <SearchBarDiv>
     <div>
@@ -25,11 +26,11 @@ export default function SearchBar(){
         type="text"
         onChange={(e) => handleInputChange(e)}
         />
-        <button 
+{/*         <button 
         className="button"
         type="submit" 
         onClick={(event) => handleSubmit(event)} >
-        Search</button>
+        Search</button> */}
     </div>
     </SearchBarDiv>
     )
