@@ -9,23 +9,40 @@ export const CardsDiv = styled.div`
   width: 17rem;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   border-radius: 10px;
-  font-weight: 500;
   cursor: pointer;
   font-family: "Plus Jakarta Sans";
+  font-weight: 800;
   transition: 1s;
-
-p, img{
-  border: 1px solid black;
-  max-width: 20rem;
-  max-height: 12rem;
-  object-fit: cover;
-}
-
   :hover{
     scale: 103%;
   }
+  a:link{
+  text-decoration: none!important;
+}
 `;
 
 export const TextPrice = styled.div`
-  border: 1px solid black;
+  font-size: medium;
+`;
+
+export const TextName = styled.div`
+  font-size: large;
+  font-family: "Plus Jakarta Sans";  
+`;
+export const ProductImage = styled.img`
+  width: 15rem;
+  height: 10rem;  
+`;
+
+export const LinkText = styled.div`
+  color: black;
+  font-size: medium;
+  padding: 10px;
+  box-shadow: rgba(50, 50, 93, 0.5) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  border-radius: 20px;
+  font-weight: bold;
+  transition: 2s;
+  :hover{
+    box-shadow: rgba(54, 138, 73) 0px 7px 5px -1px, rgba(95, 73, 171, 0.7) 12px 12px 12px -1px;
+  }
 `;

@@ -5,6 +5,7 @@
 .frame {
   display: inline-flex;
   margin: 12%;
+  cursor: pointer;
 }
 
 .mapimg {

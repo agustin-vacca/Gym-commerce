@@ -19,7 +19,7 @@ export function getProducts(){
 export function getProductById(id){
     return async function(dispatch){
         try {
-            const json = await axios.get(`http://localhost:3001/productos/${id}`);
+            let json = await axios.get("http://localhost:3001/productos/"+ id);
             return dispatch({
                 type: GET_PRODUCT_BY_ID,
                 payload: json.data

@@ -12,8 +12,6 @@ export const Layout = styled.div`
     align-items:center;
 }
 
-
-
 .ThisIsLog{
     color: aliceblue;
 }
