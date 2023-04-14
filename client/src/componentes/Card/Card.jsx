@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import { CardsDiv, LinkText, ProductImage, TextName, TextPrice } from "./CardsStyle";
 

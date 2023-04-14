@@ -15,3 +15,7 @@
 .mapimg :hover {
   background-color: antiquewhite;
 }
+
+.landing {
+  background-color: rgb(0, 0, 0);
+}
