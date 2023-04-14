@@ -1,0 +1,21 @@
+.landing {
+  background-color: rgb(0, 0, 0);
+}
+
+.frame {
+  display: inline-flex;
+  margin: 12%;
+  cursor: pointer;
+}
+
+.mapimg {
+  border-radius: 100%;
+}
+
+.mapimg :hover {
+  background-color: antiquewhite;
+}
+
+.landing {
+  background-color: rgb(0, 0, 0);
+}
