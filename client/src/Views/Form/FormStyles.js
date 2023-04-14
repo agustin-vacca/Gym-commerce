@@ -4,7 +4,7 @@ export const FormStyle = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 70vh;
+  height: 50vh;
 
   .formulario {
     background-color: #f5f5f5;

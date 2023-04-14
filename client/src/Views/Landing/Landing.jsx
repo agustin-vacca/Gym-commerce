@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import imagen from "../../cardigan.png";
-import style from "./Landing.module.css";
+import style from "./Landing.css";
 
 function Landing() {
   const navigate = useNavigate();
