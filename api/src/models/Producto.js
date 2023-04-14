@@ -5,9 +5,8 @@ module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('producto', {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING(3),
       allowNull: false,
-      autoIncrement: true,
       primaryKey: true
     },
 
@@ -33,18 +32,10 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING
     },
 
-    color:{
-      type: DataTypes.STRING
+    category:{
+      type: DataTypes.STRING,
+      allowNull: false
     },
-
-    isactive:{
-      type: DataTypes.BOOLEAN
-    },
-
-    offer:{
-      type: DataTypes.BOOLEAN
-    },
-
 
     stock: {
       type: DataTypes.INTEGER,
