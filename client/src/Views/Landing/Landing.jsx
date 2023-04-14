@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import imagen from "../../cardigan.png";
-import style from "./Landing.css";
+import { LandingContainer, Frame, MapImg } from "./LandingStyle";
 
 function Landing() {
   const navigate = useNavigate();
@@ -9,15 +9,14 @@ function Landing() {
     navigate("/home");
   };
   return (
-    <div className={style.landing}>
-      <div className={style.frame}>
-        <img
-          className={style.mapimg}
+    <LandingContainer>
+      <Frame>
+        <MapImg
           src={imagen}
           alt="Logo Cardigan"
           useMap="#workmap"
         />
-        <map name="workmap" className={style.workmap}>
+        <map name="workmap">
           <area
             shape="circle"
             coords="180,150,130"
@@ -26,8 +25,8 @@ function Landing() {
             onClick={myFunction}
           ></area>
         </map>
-      </div>
-    </div>
+      </Frame>
+    </LandingContainer>
   );
 }
 export default Landing;

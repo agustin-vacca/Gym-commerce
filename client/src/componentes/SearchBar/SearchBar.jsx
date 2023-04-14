@@ -3,6 +3,7 @@ import { SearchBarDiv } from "./SearchBarStyle";
 
 export default function SearchBar() {
   /*  const dispatch = useDispatch() */
+  // eslint-disable-next-line
   const [name, setName] = useState("");
 
   function handleInputChange(e) {

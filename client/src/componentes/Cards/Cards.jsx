@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../../redux/actions";
 import Card from "../Card/Card";
@@ -8,14 +8,17 @@ import OrderAndFilters from "../Filters/OrderAndFilters";
 export default function Cards() {
   const dispatch = useDispatch();
   const allProducts = useSelector((state) => state.products);
+  const [orden, setOrden] = useState("");
+
 
   useEffect(() => {
     dispatch(getProducts());
-  }, [dispatch]);
+  }, []);
+  console.log(allProducts);
 
   return (
     <Layout>
-      <OrderAndFilters />
+      <OrderAndFilters setOrden={setOrden}/>
       <CardsDisplayer>
         {allProducts.map((el) => {
           return (
@@ -27,7 +30,8 @@ export default function Cards() {
               image={el.image}
             />
           );
-        })}
+        })        
+        }
       </CardsDisplayer>
     </Layout>
   );
