@@ -153,6 +153,15 @@ const Formulario = () => {
                 name="image"
                 placeholder="Ingrese la imagen"
               />
+              {/* Este codigo hace que la prop de imagen tenga el boton examinar para cargar las imagenes*/}
+              {/* 
+              <Field
+                type="file"
+                name="image"
+                onChange={(event) => {
+                  setFieldValue("image", event.currentTarget.files[0]);
+                }}
+              /> */}
               <ErrorMessage
                 name="image"
                 component={() => <div className="error">{errors.image}</div>}

@@ -1,10 +1,10 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import Detail from "../src/Views/Detail/Detail";
 import Formulario from "../src/Views/Form/Form";
 import Home from "../src/Views/Home/Home";
 import "./App.css";
 import Landing from "./Views/Landing/Landing";
-import Detail from "./componentes/Detail/Detail";
 import Error from "./componentes/Error/Error";
 
 function App() {
