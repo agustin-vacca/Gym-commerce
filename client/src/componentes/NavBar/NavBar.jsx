@@ -1,13 +1,9 @@
-//import React, { useEffect, useState } from "react";
 import React, { useState } from "react";
-//import { Layout } from "./NavbarStyle";
 import SearchBar from "../SearchBar/SearchBar"
 import logo from "../../cardigan.png"
 import { BiUserCircle } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import './NavBar.css';
-//import  style  from "./NavBar.module.css"
-//import axios from "axios";
 
 export default function NavBar(){
     // DIV EMERGENTE
@@ -15,8 +11,8 @@ export default function NavBar(){
 
     //NAVBAR
     return (
-    <div className="Layout">
-        <div className="SearchBarDiv">
+    <div className="LayoutNavbar">
+        <div className="divOne">
           <Link to={`/`}>
           <img src={logo} alt="." width="70px"/>
           </Link>
@@ -25,10 +21,9 @@ export default function NavBar(){
         </div>
         <div className="divTwo">
           <div className="navButton">Inicio</div>
-
           <div>
             <div className="navButton" onClick={ () => {setOpen(!open)}}>
-              <p>Productos</p>
+              Productos
             </div>
             <div className={`dropdown-menu ${open? 'active' : 'inactive'}`}>
               <ul>
