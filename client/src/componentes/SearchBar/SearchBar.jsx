@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { BiSearch } from "react-icons/bi";
 import { SearchBarDiv } from "./SearchBarStyle";
 
 export default function SearchBar() {
@@ -19,10 +20,11 @@ export default function SearchBar() {
     <SearchBarDiv>
       <div>
         <input
-          className="input"
+          className="search"
           type="text"
           onChange={(e) => handleInputChange(e)}
         />
+        <BiSearch className="lupa" size={40} />
         {/*         <button 
         className="button"
         type="submit" 
