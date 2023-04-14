@@ -5,14 +5,13 @@ module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('categoria', {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING(3),
       allowNull: false,
-      autoIncrement: true,
       primaryKey: true
     },
 
     name: {
-      type: DataTypes.ENUM( "Mancuernas", "Maquinas", "Rack", "Discos y Barras", "Accesorios"),
+      type: DataTypes.STRING,
       allowNull: false,
     },
 
