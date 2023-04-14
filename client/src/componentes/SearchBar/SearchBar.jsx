@@ -1,37 +1,34 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { SearchBarDiv } from "./SearchBarStyle";
 
+export default function SearchBar() {
+  /*  const dispatch = useDispatch() */
+  const [name, setName] = useState("");
 
-export default function SearchBar(){
-/*  const dispatch = useDispatch() */
-    const [name, setName] = useState("")
+  function handleInputChange(e) {
+    e.preventDefault();
+    setName(e.target.value);
+  }
 
-    function handleInputChange(e) {
-        e.preventDefault()
-        setName(e.target.value)
-    }
-
-
-/* function handleSubmit(event) {
+  /* function handleSubmit(event) {
             event.preventDefault()
     dispatch(searchCountryName(name))  
     } 
     */
-    return (
+  return (
     <SearchBarDiv>
-    <div>
-        <input 
-        className="input"
-        type="text"
-        onChange={(e) => handleInputChange(e)}
+      <div>
+        <input
+          className="input"
+          type="text"
+          onChange={(e) => handleInputChange(e)}
         />
-{/*         <button 
+        {/*         <button 
         className="button"
         type="submit" 
         onClick={(event) => handleSubmit(event)} >
         Search</button> */}
-    </div>
+      </div>
     </SearchBarDiv>
-    )
+  );
 }

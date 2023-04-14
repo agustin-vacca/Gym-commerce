@@ -1,6 +1,6 @@
 import React from "react";
+import { SiFacebook, SiInstagram } from "react-icons/si";
 import { FoterDiv } from "./Footerstyle";
-import { SiInstagram, SiFacebook } from "react-icons/si";
 
 export default function Footer() {
   return (

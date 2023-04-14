@@ -1,6 +1,7 @@
+import React from "react";
 import Cards from "../../componentes/Cards/Cards";
-import NavBar from "../../componentes/NavBar/NavBar";
 import Footer from "../../componentes/Footer/Footer";
+import NavBar from "../../componentes/NavBar/NavBar";
 
 import { Layout } from "./commonStyles";
 
