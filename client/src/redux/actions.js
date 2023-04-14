@@ -5,6 +5,7 @@ import {
   GET_PRODUCT_BY_ID,
   ORDER_BY_NAME,
   ORDER_BY_PRICE,
+  POST_PRODUCTS
 } from "./action-types";
 
 export function getProducts() {
@@ -46,7 +47,7 @@ export const createProducts = (obj) => {
       console.log(response);
       return dispatch({
         type: POST_PRODUCTS,
-        payload: json.data,
+        payload: response.data,
       });
     } catch (error) {
       console.log(error);
