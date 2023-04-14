@@ -4,10 +4,28 @@ import logo from "../../cardigan.png"
 import { BiUserCircle } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import './NavBar.css';
+import { filterProductsByCategories } from "../../redux/actions.js"
+import { useDispatch } from "react-redux";
 
 export default function NavBar(){
     // DIV EMERGENTE
     const [open, setOpen] = useState(false);
+
+    // FILTROS CATEGORIA
+    const dispatch = useDispatch()
+
+    const handleFilterCategories = (event) => {
+      dispatch(filterProductsByCategories(event.target.value))
+     }
+     
+    // FUNCION DROP 
+    function DropDownItem(props){
+      return(
+      <li className="dropdownItem" > 
+        <option onClick={ e => handleFilterCategories(e)} > {props.text} </option>
+      </li>
+      )
+    }
 
     //NAVBAR
     return (
@@ -27,7 +45,8 @@ export default function NavBar(){
             </div>
             <div className={`dropdown-menu ${open? 'active' : 'inactive'}`}>
               <ul>
-                <DropDownItem text = {"Maquienas"} />
+                <DropDownItem text = {"All"} />
+                <DropDownItem text = {"Maquinas"} />
                 <DropDownItem text = {"Mancuernas"} />
                 <DropDownItem text = {"Rack"} />
                 <DropDownItem text = {"Discos y Barras"} />
@@ -43,12 +62,4 @@ export default function NavBar(){
     </div>
     )
 } 
-
-function DropDownItem(props){
-  return(
-    <li className="dropdownItem" > 
-      <p> {props.text} </p>
-    </li>
-  )
-}
 

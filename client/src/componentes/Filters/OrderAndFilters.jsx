@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch} from "react-redux";
 import { FiltersStyled } from "./Order&FilterStyled.js";
-import {orderByName, orderByPrice, filterProductsByCategories} from "../../redux/actions.js"
+import {orderByName, orderByPrice} from "../../redux/actions.js"
 
 export default function OrderAndFilters() {
   const dispatch = useDispatch();
@@ -15,10 +15,9 @@ export default function OrderAndFilters() {
     e.preventDefault()
     dispatch(orderByPrice(e.target.value))
    }
-   function handleFilterCategories(event){
-    dispatch(filterProductsByCategories(event.target.value))
-   }
-  
+  //  function handleFilterCategories(event){
+  //   dispatch(filterProductsByCategories(event.target.value))
+  //  }
   
   return (
     <FiltersStyled>
@@ -33,7 +32,7 @@ export default function OrderAndFilters() {
         <option value="desc">Decrease price</option>
       </select>
 
-      <select onChange={e=> handleFilterCategories(e)}>
+      {/* <select onChange={e=> handleFilterCategories(e)}>
         <option value="All">All Categories</option>
         <option value="Mancuernas">Mancuernas</option>
         <option value="Maquinas">Maquinas</option>
@@ -41,7 +40,7 @@ export default function OrderAndFilters() {
         <option value="Rack">Rack</option>
         <option value="Discos y Barras">Discos y Barras</option>
 
-      </select>
+      </select> */}
     </FiltersStyled>
   );
 }
