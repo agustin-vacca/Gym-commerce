@@ -1,10 +1,10 @@
-.Layout{
+.LayoutNavbar{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    width: 100vw;
 }
 
-.SearchBarDiv{
+.divOne{
     background-color: black;
     display: flex;
     justify-content:space-around;
@@ -13,41 +13,42 @@
 
 .ThisIsLog{
     color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 .divTwo {
     margin-top: 0;
     display: flex;
-    align-items: flex-start;
+    justify-content: space-between;
+
+    background-color: black;
+    height: 35px;
+    align-content: center;
+    align-items: center;
+    padding: 0px 20px;
 }
 
 .navButton{
-    display: grid;
-    place-content: center;
-    background-color: black;
-    color: white;
-    height: 3rem;
-    width: 40%;
     cursor: pointer;
+    color: white;
+    background-color: black;
     transition: 1s;
-    padding: 0;
+
 }
 .navButton:hover{
     color: rgb(255, 238, 0);
 }
 
-.ThisIsLog{
-    color: aliceblue;
-}
-
 .dropdown-menu {
+    position: absolute;
     display: flex;
-    top: 12vh;
-    left: 53.5vh;
+    top: 11.8vh;
     color: white;
     background-color: black;
-    border-radius: var(--border-radius);
-    padding: 5px;
+    border-radius: var(--border-radius);   
     width: 200px;
 }
 
@@ -65,7 +66,7 @@
     transition: var(--speed) ease;
 }
 
-/* .dropdown-menu::before{
+  .dropdown-menu::before{
     position: absolute;
     top: -5px;
     right: 20px;
@@ -73,7 +74,7 @@
     width: 20px;
     background: var(--secondary-bg);
     transform: rotate(45deg);
-} */
+}  
 
 .dropdown-menu ul li{
     padding: 10px 0;
