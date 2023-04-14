@@ -1,18 +1,22 @@
-import React, { useState } from "react";
+
+//import React, { useEffect, useState } from "react";
+import React, { useState } from , { useState };
+from "react";
+//import { Layout } from "./NavbarStyle";
 import { BiUserCircle, BiX } from "react-icons/bi";
 import Modal from "react-modal";
 import { Link } from "react-router-dom";
+import logo from "../../cardigan.png";
 import Popup from "../Ingreso_registro/Popup";
 import SearchBar from "../SearchBar/SearchBar";
-import { Layout } from "./NavbarStyle";
 
-export default function NavBar() {
-  const [popup, setPopup] = useState(false);
-  return (
-    <Layout>
-      <div className="BarDiv">
-        <Link to={`/`}>{/* <img src={logo} alt="." width="70px" /> */}</Link>
-        <div className="search">
+    //NAVBAR
+    return (
+    <div className="Layout">
+        <div className="SearchBarDiv">
+          <Link to={`/`}>
+          <img src={logo} alt="." width="70px"/>
+          </Link>
           <SearchBar />
         </div>
         <div className="ThisIsLog" onClick={() => setPopup(true)}>
@@ -28,21 +32,37 @@ export default function NavBar() {
             />
           </Modal>
         </div>
-      </div>
-      <div className="divTwo">
-        <Link className="link" to="/home">
+        <div className="divTwo">
           <div className="navButton">Inicio</div>
-        </Link>
-        <Link className="link" to="/home">
-          <div className="navButton">Productos</div>
-        </Link>
-        <Link className="link" to="/home">
+
+          <div>
+            <div className="navButton" onClick={ () => {setOpen(!open)}}>
+              <p>Productos</p>
+            </div>
+            <div className={`dropdown-menu ${open? 'active' : 'inactive'}`}>
+              <ul>
+                <DropDownItem text = {"Maquienas"} />
+                <DropDownItem text = {"Mancuernas"} />
+                <DropDownItem text = {"Rack"} />
+                <DropDownItem text = {"Discos y Barras"} />
+                <DropDownItem text = {"Accesorios"} />
+              </ul>
+            </div>
+          </div>
+          
+          
           <div className="navButton">Preguntas Frecuentes</div>
-        </Link>
-        <Link className="link" to="/home">
           <div className="navButton">Nosotros</div>
-        </Link>
-      </div>
-    </Layout>
-  );
+        </div>
+    </div>
+    )
+} 
+
+function DropDownItem(props){
+  return(
+    <li className="dropdownItem" > 
+      <p> {props.text} </p>
+    </li>
+  )
 }
+
