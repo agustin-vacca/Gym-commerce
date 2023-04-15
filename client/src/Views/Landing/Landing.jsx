@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import imagen from "../../cardigan.png";
-import {style} from "./LandingStyle";
+import "./Landing.css";
 
 function Landing() {
   const navigate = useNavigate();
@@ -10,7 +10,7 @@ function Landing() {
   };
   return (
     <div className="landing">
-      <div className={style.frame}>
+      <div className="frame">
       <div className="background">
         <img
           className="map_img"
