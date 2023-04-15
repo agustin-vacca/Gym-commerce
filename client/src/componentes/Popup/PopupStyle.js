@@ -11,40 +11,52 @@ export const Popstyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  transition-duration: 500ms;
 
-  .popup {
+  .Form {
+    width: 500px;
+    height: 500px;
     background-color: white;
-    padding: 20px;
-    border: 1px solid black;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    max-width: 300px;
-    max-height: 400px;
-    width: 100%;
-    height: 100%;
-    display: inline-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    align-content: space-between;
+    border-radius: 15px;
+  }
+
+  .inputs {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 27px;
+    background-color: white;
+    border: 0.5px solid #333;
+    margin-bottom: 5px;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
   }
 
   /* Estilo del botón para abrir el popup */
 
-  .btn-open {
+  .btn-submit {
+    border: none;
     padding: 10px 20px;
     background-color: #4caf50;
-    color: white;
-    border: none;
+    color: #fff;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 15px;
+    margin-left: 30px;
   }
 
   .btn-close {
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
     border: none;
-    border-radius: 5px;
+    padding: 2px 2px;
+    background-color: #333;
+    color: red;
+    border-radius: 50%;
     cursor: pointer;
+    transform: translatex(499px) translatey(-232px);
   }
 `;
 /* 
@@ -69,5 +81,8 @@ export const Popstyled = styled.div`
     max-width: 500px;
     width: 100%;
   }
-  
+
+  height: 100vh;
+  width: 100vw;
+
 */

@@ -4,12 +4,14 @@ export const Layout = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background: black;
 
-  .BarDiv {
+  .divOne {
     background-color: black;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-direction: row;
   }
 
   .ThisIsLog {
