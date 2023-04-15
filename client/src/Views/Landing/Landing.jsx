@@ -9,7 +9,7 @@ function Landing() {
     navigate("/home");
   };
   return (
-    <div className={style.landing}>
+    <div className="landing">
       <div className={style.frame}>
         <img
           className={style.mapimg}
@@ -17,7 +17,7 @@ function Landing() {
           alt="Logo Cardigan"
           useMap="#workmap"
         />
-        <map name="workmap" className={style.workmap}>
+        <map name="workmap" className="workmap">
           <area
             shape="circle"
             coords="180,150,130"
