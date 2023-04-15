@@ -1,33 +1,34 @@
 import React, { useState } from "react";
+import { BiSearch } from "react-icons/bi";
+import { useDispatch } from "react-redux";
+import { getProductsbyName } from "../../redux/actions";
 import { SearchBarDiv } from "./SearchBarStyle";
 
 export default function SearchBar() {
-  /*  const dispatch = useDispatch() */
+  const dispatch = useDispatch();
   const [name, setName] = useState("");
 
-  function handleInputChange(e) {
+  const handleChange = (e) => {
     e.preventDefault();
     setName(e.target.value);
-  }
+  };
 
-  /* function handleSubmit(event) {
-            event.preventDefault()
-    dispatch(searchCountryName(name))  
-    } 
-    */
+  const handleSubmit = (e) => {
+    dispatch(getProductsbyName(name));
+    setName(" ");
+  };
+
   return (
     <SearchBarDiv>
-      <div>
+      <div className="comb">
+        <button className="btn" type="submit" onClick={(e) => handleSubmit(e)}>
+          <BiSearch className="lupa" size={30} />
+        </button>
         <input
-          className="input"
+          className="search"
           type="text"
-          onChange={(e) => handleInputChange(e)}
+          onChange={(e) => handleChange(e)}
         />
-        {/*         <button 
-        className="button"
-        type="submit" 
-        onClick={(event) => handleSubmit(event)} >
-        Search</button> */}
       </div>
     </SearchBarDiv>
   );

@@ -1,6 +1,7 @@
 import {
   FILTER_BY_CATEGORY,
   GET_PRODUCTS,
+  GET_PRODUCTS_BY_NAME,
   GET_PRODUCT_BY_ID,
   ORDER_BY_NAME,
   ORDER_BY_PRICE,
@@ -87,6 +88,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         products: categoryFiltered,
+      };
+    case GET_PRODUCTS_BY_NAME:
+      return {
+        ...state,
+        products: action.payload,
       };
     default:
       return { ...state };
