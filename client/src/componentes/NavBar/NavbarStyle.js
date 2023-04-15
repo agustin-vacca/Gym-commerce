@@ -4,36 +4,47 @@ export const Layout = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background: black;
 
-  .SearchBarDiv {
+  .divOne {
     background-color: black;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-direction: row;
   }
 
   .ThisIsLog {
+    display: block;
     color: aliceblue;
+    transition: 1s;
+    cursor: pointer;
+  }
+
+  .ThisIsLog:hover {
+    color: rgb(255, 238, 0);
   }
 
   .divTwo {
     margin-top: 0;
     display: flex;
-    align-items: flex-start;
+    justify-content: space-evenly;
+    background-color: black;
   }
 
   .navButton {
     display: grid;
     place-content: center;
-    background-color: black;
     color: white;
     height: 3rem;
     width: 40%;
-    cursor: pointer;
     transition: 1s;
     padding: 0;
   }
   .navButton:hover {
     color: rgb(255, 238, 0);
+  }
+  .link {
+    text-decoration: none;
   }
 `;
