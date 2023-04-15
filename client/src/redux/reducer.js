@@ -88,7 +88,9 @@ const reducer = (state = initialState, action) => {
         ...state,
         products: categoryFiltered,
       };
-    default:
+    
+    
+      default:
       return { ...state };
   }
 };
