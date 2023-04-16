@@ -9,10 +9,12 @@ export default function OrderAndFilters({setOrden}) {
   function handleOrderByName(e){
     e.preventDefault()
     dispatch(orderByName(e.target.value))
+    setOrden(`Ordenado ${e.target.value}`)
    }
    function handleOrderByPrice(e){
     e.preventDefault()
     dispatch(orderByPrice(e.target.value))
+    setOrden(`Ordenado ${e.target.value}`)
    }
    
   //  function handleFilterCategories(event){

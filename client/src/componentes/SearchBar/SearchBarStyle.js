@@ -10,7 +10,8 @@ export const SearchBarDiv = styled.div`
     width: 335px;
     cursor: pointer;
     font-size: larger;
-  }
+  }    
+
   .search:focus {
     width: 300px;
     padding-left: 40px;

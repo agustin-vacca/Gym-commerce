@@ -101,6 +101,7 @@
 }
 .nosotros{
     color: white;
+    text-decoration: none;
 }
 .nosotros:hover{
     color:rgb(255, 238, 0);

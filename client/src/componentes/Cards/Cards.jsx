@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../../redux/actions";
 import Card from "../Card/Card";
-import { CardsDisplayer, Layout, Container } from "./CardsStyle";
+import { CardsDisplayer, Layout, Container, LoadingIMG } from "./CardsStyle";
 import OrderAndFilters from "../Filters/OrderAndFilters";
 import InfiniteScroll from "react-infinite-scroll-component";
 
@@ -42,8 +42,9 @@ const addPage = () =>{
       dataLength={currentProducts.length}
       next={() => addPage()}
       hasMore={true}
-      loader={currentProducts.length <= allProducts.length ? "" : <h4>Loading...</h4>}
+      loader={currentProducts.length >= allProducts.length ? "" : <LoadingIMG><div class="lds-ring"><div></div><div></div><div></div><div></div></div></LoadingIMG>}
     >
+      
       <Container>
       {currentProducts.map((el) => {
           return (
