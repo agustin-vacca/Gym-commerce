@@ -4,6 +4,8 @@ import logo from "../../cardigan.png";
 import SearchBar from "../SearchBar/SearchBar";
 import UserButton from "../UserButton/UserButton";
 import { Layout } from "./NavbarStyle";
+import { Link } from "react-router-dom";
+import "./NavBar.css";
 
 export default function NavBar() {
   return (
@@ -21,7 +23,7 @@ export default function NavBar() {
         <div className="navButton">Inicio</div>
         <div className="navButton">Productos</div>
         <div className="navButton">Preguntas Frecuentes</div>
-        <div className="navButton">Nosotros</div>
+        <div className="navButton"><Link to ="/nosotros" className="nosotros">Nosotros</Link></div>
       </div>
     </Layout>
   );
