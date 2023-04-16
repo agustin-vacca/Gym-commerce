@@ -4,6 +4,7 @@ import imagen from "../../cardigan.png";
 import "./Landing.css";
 import { LandingDiv } from "./LandingStyle.js";
 
+
 function Landing() {
   const navigate = useNavigate();
   const myFunction = () => {
