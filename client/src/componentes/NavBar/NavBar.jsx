@@ -58,7 +58,6 @@ export default function NavBar(){
         <div className="navButton">Preguntas Frecuentes</div>
         <div className="navButton">Nosotros</div>
       </div>
-    </div>
   );
 }
 
