@@ -98,7 +98,6 @@
     max-width: 100px;
     margin-left: 10px;
     transition: var(--speed);
-<<<<<<< HEAD
 }
 .nosotros{
     color: white;
@@ -106,6 +105,4 @@
 .nosotros:hover{
     color:rgb(255, 238, 0);
     transition: 1s;
-=======
->>>>>>> 531c3b52f3cf62661d178815589e0c41ad287216
 }
