@@ -99,3 +99,10 @@
     margin-left: 10px;
     transition: var(--speed);
 }
+.nosotros{
+    color: white;
+}
+.nosotros:hover{
+    color:rgb(255, 238, 0);
+    transition: 1s;
+}
