@@ -1,6 +1,7 @@
 import {
   FILTER_BY_CATEGORY,
   GET_PRODUCTS,
+  GET_PRODUCTS_BY_NAME,
   GET_PRODUCT_BY_ID,
   ORDER_BY_NAME,
   ORDER_BY_PRICE,
@@ -9,6 +10,7 @@ import {
 const initialState = {
   products: [],
   allProducts: [],
+  productsOrder: [],
   detail: [],
 };
 
@@ -27,7 +29,6 @@ const reducer = (state = initialState, action) => {
         detail: action.payload,
       };
     case ORDER_BY_NAME:
-      console.log(state.products);
       let sortedArr =
         action.payload === "asc"
           ? state.products.sort(function (a, b) {
@@ -87,6 +88,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         products: categoryFiltered,
+      };
+    case GET_PRODUCTS_BY_NAME:
+      return {
+        ...state,
+        products: action.payload,
       };
     default:
       return { ...state };

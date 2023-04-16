@@ -2,9 +2,12 @@ import axios from "axios";
 import {
   FILTER_BY_CATEGORY,
   GET_PRODUCTS,
+  GET_PRODUCTS_BY_NAME,
   GET_PRODUCT_BY_ID,
   ORDER_BY_NAME,
   ORDER_BY_PRICE,
+  POST_PRODUCTS,
+  POST_PRODUCTS,
 } from "./action-types";
 
 export function getProducts() {
@@ -46,7 +49,7 @@ export const createProducts = (obj) => {
       console.log(response);
       return dispatch({
         type: POST_PRODUCTS,
-        payload: json.data,
+        payload: response.data,
       });
     } catch (error) {
       console.log(error);
@@ -71,5 +74,21 @@ export function filterProductsByCategories(payload) {
   return {
     type: FILTER_BY_CATEGORY,
     payload,
+  };
+}
+
+export function getProductsbyName(name) {
+  return async function (dispatch) {
+    try {
+      let json = await axios.get(
+        `http://localhost:3001/productos/?name=${name}`
+      );
+      return dispatch({
+        type: GET_PRODUCTS_BY_NAME,
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 }
