@@ -7,7 +7,6 @@ import {
   ORDER_BY_NAME,
   ORDER_BY_PRICE,
   POST_PRODUCTS,
-  POST_PRODUCTS,
 } from "./action-types";
 
 export function getProducts() {
