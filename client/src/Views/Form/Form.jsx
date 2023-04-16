@@ -43,7 +43,7 @@ const Formulario = () => {
           // Validación de nombre
           if (!values.name) {
             errors.name = "Ingrese un nombre";
-          } else if (/^[a-zA-Z0-9]+$/.test(values.name)) {
+          } else if (/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.name)) {
             errors.name = "El nombre solo puede contener letras y números";
           }
           // Validación de precio

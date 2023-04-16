@@ -1,10 +1,9 @@
-import React from "react";
-import { UserBtnDiv } from "./UserButtonStyled";
+import React, { useState } from "react";
 import { HiMenu, HiOutlineUserCircle } from "react-icons/hi";
-import { useState } from "react";
-import Popup from "../Popup/Popup";
-import { Link } from "react-router-dom";
 import Modal from "react-modal";
+import { Link } from "react-router-dom";
+import Popup from "../Popup/Popup";
+import { UserBtnDiv } from "./UserButtonStyled";
 
 const UserButton = () => {
   const [active, setActive] = useState(false);
@@ -26,11 +25,15 @@ const UserButton = () => {
             </div>
             <hr />
             <Link to="/dashboard">
-              <li className="Li">Dashboard</li>
+              <li className="Li" onClick={() => setActive(!active)}>
+                Dashboard
+              </li>
             </Link>
             <hr />
             <li className="Li">
-              <Link to="/form">Crear producto</Link>
+              <Link to="/form" onClick={() => setActive(!active)}>
+                Crear producto
+              </Link>
             </li>
             <li className="Li">
               <Link to="/home" onClick={() => SetAuthenticated(false)}>
@@ -40,7 +43,13 @@ const UserButton = () => {
           </ul>
         ) : (
           <ul className="Ul">
-            <li className="Li" onClick={() => setPopup(true)}>
+            <li
+              className="Li"
+              onClick={() => {
+                setPopup(!popup);
+                setActive(false);
+              }}
+            >
               <Modal isOpen={popup} onRequestClose={() => setPopup(false)}>
                 <Popup popup={popup} setPopup={setPopup} />
               </Modal>

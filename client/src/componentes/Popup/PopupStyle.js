@@ -26,8 +26,8 @@ export const Popstyled = styled.div`
   .inputs {
     display: flex;
     flex-direction: column;
-    width: 200px;
-    height: 27px;
+    width: 275px;
+    height: 30px;
     background-color: white;
     border: 0.5px solid #333;
     margin-bottom: 5px;
@@ -46,7 +46,7 @@ export const Popstyled = styled.div`
     border-radius: 5px;
     cursor: pointer;
     margin-top: 15px;
-    margin-left: 30px;
+    width: 100px;
   }
 
   .btn-close {
@@ -56,7 +56,20 @@ export const Popstyled = styled.div`
     color: red;
     border-radius: 50%;
     cursor: pointer;
-    transform: translatex(499px) translatey(-232px);
+  }
+  .icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: fit-content;
+    width: 200px;
+  }
+  .formulario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 `;
 /* 
@@ -76,7 +89,6 @@ export const Popstyled = styled.div`
   .ReactModal__Content {
     background-color: white;
     padding: 20px;
-    border: 1px solid black;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     max-width: 500px;
     width: 100%;

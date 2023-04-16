@@ -4,9 +4,11 @@ import {
   GET_PRODUCTS,
   GET_PRODUCTS_BY_NAME,
   GET_PRODUCT_BY_ID,
+  GET_USERS,
   ORDER_BY_NAME,
   ORDER_BY_PRICE,
   POST_PRODUCTS,
+  POST_USERS,
 } from "./action-types";
 
 export function getProducts() {
@@ -91,3 +93,36 @@ export function getProductsbyName(name) {
     }
   };
 }
+
+export function getUsers() {
+  return async function (dispatch) {
+    try {
+      let json = await axios.get("http://localhost:3001/usuarios");
+      return dispatch({
+        type: GET_USERS,
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export const createUsers = (obj) => {
+  console.log(obj);
+  return async function (dispatch) {
+    try {
+      let response = await axios.post(
+        "http://localhost:3001/usuarios/create",
+        obj
+      );
+      console.log(response);
+      return dispatch({
+        type: POST_USERS,
+        payload: response.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
