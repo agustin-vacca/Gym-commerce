@@ -40,6 +40,7 @@ export const Layout = styled.div`
     width: 40%;
     transition: 1s;
     padding: 0;
+    cursor:pointer;
   }
   .navButton:hover {
     color: rgb(255, 238, 0);
@@ -47,4 +48,9 @@ export const Layout = styled.div`
   .link {
     text-decoration: none;
   }
+.searchBarDiv{
+  width: 375px;
+  height: auto;
+}
+
 `;

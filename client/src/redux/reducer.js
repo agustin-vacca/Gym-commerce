@@ -12,6 +12,7 @@ const initialState = {
   allProducts: [],
   productsOrder: [],
   detail: [],
+  user: [],
 };
 
 const reducer = (state = initialState, action) => {
