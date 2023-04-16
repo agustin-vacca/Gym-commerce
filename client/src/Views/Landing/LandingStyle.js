@@ -29,3 +29,10 @@ export const LandingDiv = styled.div`
     cursor: pointer;
   }
 `;
+
+export const MapImg = styled.img`
+    border-radius: 100%;
+    :hover {
+  background-color: antiquewhite;
+}
+`;
