@@ -10,6 +10,7 @@ import {
 const initialState = {
   products: [],
   allProducts: [],
+  productsOrder: [],
   detail: [],
   user: [],
 };
@@ -29,7 +30,6 @@ const reducer = (state = initialState, action) => {
         detail: action.payload,
       };
     case ORDER_BY_NAME:
-      console.log(state.products);
       let sortedArr =
         action.payload === "asc"
           ? state.products.sort(function (a, b) {

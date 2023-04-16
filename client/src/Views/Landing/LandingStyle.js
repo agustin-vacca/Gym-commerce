@@ -65,3 +65,10 @@ export const LandingDiv = styled.div`
     transform: perspective(600px) rotateY(360deg);
   }
 `;
+
+export const MapImg = styled.img`
+    border-radius: 100%;
+    :hover {
+  background-color: antiquewhite;
+}
+`;
