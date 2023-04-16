@@ -1,15 +1,17 @@
 .contenedor{
-    background-color: black;
+    background-color: rgb(252, 252, 252);
     padding: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
 }
-.nosotros{
-    margin-top: auto;
-    margin-left: 100px;
-}
+/* .somos{
+    color: #fff;
+    text-align:center;
+    align-items: center;
+    margin: 0%;
+} */
 .contenedor1{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -20,21 +22,21 @@
     align-items: center;
 }
 .card{
-    height: 250px;
-    width: 300px;
+    height: 200px;
+    width: 200px;
     overflow: hidden;
     margin: auto;
     padding: 10px 30px;
     border-radius: 2%;
-    border: 1px solid #fff;
+    border: 1px solid #c0c0c0;
     transition: all .4s ease-in-out;
     box-shadow: 0px 1px 5px rgba(0,0, 0,0);
     text-align: center;
-    background: linear-gradient(-135deg, #d429c8, #392fed);
+    background: linear-gradient(-135deg, #9a9a9a, #a1a1a1);
 }
 
 .card:hover{
-    height: 500px;
+    height: 350px;
     width: 300px;
     border-radius: 5px;
     box-shadow: 0px 2px 10px rgba(0,0, 0,5);
@@ -43,8 +45,8 @@
     position: relative;
     border-radius: 50%;
     display: block;
-    height: 200px;
-    width: 200px;
+    height: 150px;
+    width: 150px;
     border-top: 8px solid #fff;
     border-bottom: 8px solid #fff;
     object-fit: cover;

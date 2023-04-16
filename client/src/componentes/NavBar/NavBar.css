@@ -96,6 +96,9 @@
     transition: var(--speed);
 }
 .nosotros{
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: white;
+}
+.nosotros:hover{
+    color:rgb(255, 238, 0);
+    transition: 1s;
 }

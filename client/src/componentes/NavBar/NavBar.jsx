@@ -22,7 +22,7 @@ export default function NavBar() {
       <div className="divTwo">
         <div className="navButton">Inicio</div>
         <div className="navButton">Productos</div>
-        <div className="navButton">Preguntas Frecuentes</div>
+        <div className="navButton"><Link to="/consultas" className="nosotros">Preguntas frecuentes</Link></div>
         <div className="navButton"><Link to ="/nosotros" className="nosotros">Nosotros</Link></div>
       </div>
     </Layout>
