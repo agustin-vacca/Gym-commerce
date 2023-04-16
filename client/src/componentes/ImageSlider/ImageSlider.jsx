@@ -26,7 +26,7 @@ const sliderStyles={
 
 const slideStyles={
     width: "100%",
-    height: "200px",
+    height: "300px",
     borderRadius: "10px",
     backgroundPosition: "center",
     backgroundSize: "cover",

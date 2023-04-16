@@ -2,10 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../../redux/actions";
 import Card from "../Card/Card";
-import { CardsDisplayer, Layout } from "./CardsStyle";
+import { CardsDisplayer, Layout, Container } from "./CardsStyle";
 import OrderAndFilters from "../Filters/OrderAndFilters";
-
-import styled from "styled-components";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 
@@ -14,7 +12,6 @@ export default function Cards() {
   const allProducts = useSelector((state) => state.products);
   // eslint-disable-next-line
   const [orden, setOrden] = useState("");
-
   const [currentPage, setCurrentPage] = useState(1);  
   // eslint-disable-next-line
   const [productsPerPage, setProductsPerPage] = useState(4);
@@ -61,10 +58,3 @@ export default function Cards() {
 
   );
 }
-
-const Container = styled.section`
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2em;`
-;
