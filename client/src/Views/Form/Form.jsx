@@ -111,6 +111,7 @@ const Formulario = () => {
         // }}
 
         onSubmit={async (values, { resetForm }) => {
+          values.image = file;
           dispatch(createProducts(values));
           setSendForm(true);
           setTimeout(() => setSendForm(false), 5000);
