@@ -57,6 +57,7 @@
     visibility: visible;
     transform: translateY(0px);
     transition: var(--speed) ease;
+    z-index: 1;
 }
 
 .dropdown-menu.inactive{
@@ -97,4 +98,12 @@
     max-width: 100px;
     margin-left: 10px;
     transition: var(--speed);
+}
+.nosotros{
+    color: white;
+    text-decoration: none;
+}
+.nosotros:hover{
+    color:rgb(255, 238, 0);
+    transition: 1s;
 }

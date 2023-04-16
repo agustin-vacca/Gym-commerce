@@ -2,6 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import imagen from "../../cardigan.png";
 import "./Landing.css";
+import { LandingDiv } from "./LandingStyle.js";
+
 
 function Landing() {
   const navigate = useNavigate();
@@ -9,8 +11,27 @@ function Landing() {
     navigate("/home");
   };
   return (
-    <div className="landing">
-      <div className="frame">
+    <LandingDiv>
+      <div className="card">
+        <div class="face front">
+          <img className="map_img" src={imagen} alt="Logo Cardigan" />
+        </div>
+        <div class="face back">
+          <div className="letters">
+            <h3 className="entrar" onClick={myFunction}>
+              ENTRAR
+            </h3>
+          </div>
+        </div>
+      </div>
+    </LandingDiv>
+  );
+}
+export default Landing;
+
+/*  
+    
+    <LandingDiv>
       <div className="background">
         <img
           className="map_img"
@@ -27,8 +48,5 @@ function Landing() {
           ></area>
         </map>
       </div>
-    </div>
-  </div>
-  );
-}
-export default Landing;
+    </LandingDiv>
+    */
