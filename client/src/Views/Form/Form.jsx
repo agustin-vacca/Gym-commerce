@@ -6,16 +6,29 @@ import Footer from "../../componentes/Footer/Footer";
 import NavBar from "../../componentes/NavBar/NavBar";
 import { createProducts } from "../../redux/actions";
 import { FormStyle } from "./FormStyles";
+import { uploadFile } from "../../firebase/config"
 
 const Formulario = () => {
   const dispatch = useDispatch();
   const [categoria, setCategoria] = useState("");
   const [sendForm, setSendForm] = useState(false);
+  const [file, setFile] = useState(null);
 
   const Handlercategory = async () => {
     const categoria = await axios(`http://localhost:3001/categorias`);
     setCategoria(categoria.data);
   };
+
+  const handlerImage = async(e) => {
+    try {
+      const result = await uploadFile(e);
+      console.log(result)
+      setFile(result)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   useEffect(() => {
     Handlercategory();
   }, []);
@@ -43,7 +56,7 @@ const Formulario = () => {
           // Validación de nombre
           if (!values.name) {
             errors.name = "Ingrese un nombre";
-          } else if (/^[a-zA-Z0-9]+$/.test(values.name)) {
+          } else if (!/^[a-zA-Z0-9]+$/.test(values.name)) {
             errors.name = "El nombre solo puede contener letras y números";
           }
           // Validación de precio
@@ -71,12 +84,12 @@ const Formulario = () => {
               "La descripción solo puede contener letras y números";
           }
           // Validación de imagen
-          if (!values.image) {
-            errors.image = "Ingrese una imagen";
-          } else if (!/\.(gif|jpg|jpeg|png)$/i.test(values.image)) {
-            errors.image =
-              "La imagen debe ser un archivo de imagen válido (gif, jpg, jpeg o png)";
-          }
+          // if (!values.image) {
+          //   errors.image = "Ingrese una imagen";
+          // } else if (!/\.(gif|jpg|jpeg|png)$/i.test(values.image)) {
+          //   errors.image =
+          //     "La imagen debe ser un archivo de imagen válido (gif, jpg, jpeg o png)";
+          // }
           // Validación de stock
           if (!values.stock) {
             errors.stock = "Ingrese un stock";
@@ -85,12 +98,25 @@ const Formulario = () => {
           }
           return errors;
         }}
-        onSubmit={(values, { resetForm }) => {
+
+        // handlerImage={async(e,values) => {
+        //   try {
+        //     const result = await uploadFile(e);
+        //     console.log(result)
+        //     setFile(result)
+        //     values.image = file
+        //   } catch (error) {
+        //     console.log(error)
+        //    }
+        // }}
+
+        onSubmit={async (values, { resetForm }) => {
           dispatch(createProducts(values));
           setSendForm(true);
           setTimeout(() => setSendForm(false), 5000);
           resetForm();
         }}
+
       >
         {({ errors }) => (
           <Form className="formulario">
@@ -146,22 +172,21 @@ const Formulario = () => {
               <label className="label" htmlFor="image">
                 Imagen:{" "}
               </label>
-              <Field
+              {/* <Field
                 className="input"
                 type="text"
                 id="image"
                 name="image"
                 placeholder="Ingrese la imagen"
-              />
+              /> */}
               {/* Este codigo hace que la prop de imagen tenga el boton examinar para cargar las imagenes*/}
-              {/* 
               <Field
                 type="file"
                 name="image"
-                onChange={(event) => {
-                  setFieldValue("image", event.currentTarget.files[0]);
-                }}
-              /> */}
+                className="input"
+                id="image"
+                onChange = {  e => handlerImage(e.target.files[0])}
+              />
               <ErrorMessage
                 name="image"
                 component={() => <div className="error">{errors.image}</div>}
