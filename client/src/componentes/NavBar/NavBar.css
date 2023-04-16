@@ -9,6 +9,7 @@
     display: flex;
     justify-content:space-around;
     align-items:center;
+ 
 }
 
 .ThisIsLog{
@@ -66,25 +67,27 @@
     transition: var(--speed) ease;
 }
 
-  .dropdown-menu::before{
-    position: absolute;
-    top: -5px;
-    right: 20px;
-    height: 20px;
-    width: 20px;
-    background: var(--secondary-bg);
-    transform: rotate(45deg);
-}  
+
+    /* .dropdown-menu::before{
+        position: absolute;
+        top: -5px;
+        right: 20px;
+        height: 20px;
+        width: 20px;
+        background: var(--secondary-bg);
+        transform: rotate(45deg);
+    }   */
 
 .dropdown-menu ul li{
     padding: 10px 0;
     border-top: 1px solid rgba(255, 255, 255, 0.5);
+
 }
 
-.dropdown-menu:hover p{
+/* .dropdown-menu:hover p{
     color: rgb(212, 33, 9);
     cursor: pointer;
-}
+} */
 
 .dropdownItem{
     display: flex;
