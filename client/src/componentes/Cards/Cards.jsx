@@ -12,15 +12,14 @@ import InfiniteScroll from "react-infinite-scroll-component";
 export default function Cards() {
   const dispatch = useDispatch();
   const allProducts = useSelector((state) => state.products);
+  // eslint-disable-next-line
   const [orden, setOrden] = useState("");
-
 
   const [currentPage, setCurrentPage] = useState(1);  
   // eslint-disable-next-line
   const [productsPerPage, setProductsPerPage] = useState(4);
-  /* eslint-disable jsx-a11y/anchor-is-valid */ 
-  // eslint-disable-next-line
   const indexOfLastCountry = currentPage * productsPerPage
+  // eslint-disable-next-line
   const indexOfFirstCountry=  indexOfLastCountry - productsPerPage
   const currentProducts = allProducts.slice(0, (currentPage * productsPerPage))
   
@@ -29,7 +28,7 @@ export default function Cards() {
   useEffect(() => {
     dispatch(getProducts());
   }, []);
-  console.log(currentProducts);
+
 
 
   return (
@@ -40,7 +39,7 @@ export default function Cards() {
       dataLength={currentProducts.length}
       next={() => setCurrentPage(currentPage + 1)}
       hasMore={true}
-      loader={currentProducts.length >= allProducts ? "" : <h4>Loading...</h4>}
+      loader={currentProducts.length <= allProducts.length ? "" : <h4>Loading...</h4>}
     >
       <Container>
       {currentProducts.map((el) => {
