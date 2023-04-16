@@ -24,7 +24,6 @@
     margin-top: 0;
     display: flex;
     justify-content: space-between;
-
     background-color: black;
     height: 35px;
     align-content: center;
@@ -67,7 +66,6 @@
     transition: var(--speed) ease;
 }
 
-
     /* .dropdown-menu::before{
         position: absolute;
         top: -5px;
@@ -92,6 +90,7 @@
 .dropdownItem{
     display: flex;
     margin: 10px auto;
+    cursor: pointer;
 }
 
 .dropdownItem p{

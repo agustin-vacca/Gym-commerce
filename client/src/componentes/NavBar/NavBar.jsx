@@ -54,9 +54,9 @@ export default function NavBar(){
               </ul>
             </div>
           </div>
+          <div className="navButton">Preguntas Frecuentes</div>
+          <div className="navButton">Nosotros</div>
         </div>
-        <div className="navButton">Preguntas Frecuentes</div>
-        <div className="navButton">Nosotros</div>
       </div>
   );
 }
