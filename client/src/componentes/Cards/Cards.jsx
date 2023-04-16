@@ -21,6 +21,12 @@ export default function Cards() {
   const currentProducts = allProducts.slice(0, (currentPage * productsPerPage))
   
 
+const addPage = () =>{
+  setTimeout(()=>{
+    setCurrentPage(currentPage + 1)
+  },500)
+}
+
 
   useEffect(() => {
     dispatch(getProducts());
@@ -34,7 +40,7 @@ export default function Cards() {
        <CardsDisplayer>
        <InfiniteScroll
       dataLength={currentProducts.length}
-      next={() => setCurrentPage(currentPage + 1)}
+      next={() => addPage()}
       hasMore={true}
       loader={currentProducts.length <= allProducts.length ? "" : <h4>Loading...</h4>}
     >
