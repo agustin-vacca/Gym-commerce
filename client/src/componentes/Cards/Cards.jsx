@@ -14,7 +14,7 @@ export default function Cards() {
   const [orden, setOrden] = useState("");
   const [currentPage, setCurrentPage] = useState(1);  
   // eslint-disable-next-line
-  const [productsPerPage, setProductsPerPage] = useState(4);
+  const [productsPerPage, setProductsPerPage] = useState(6);
   const indexOfLastCountry = currentPage * productsPerPage
   // eslint-disable-next-line
   const indexOfFirstCountry=  indexOfLastCountry - productsPerPage
@@ -54,8 +54,7 @@ const addPage = () =>{
               price={el.price}
               image={el.image}
             />
-          );
-        })        
+          );})    
         }
       </Container>
     </InfiniteScroll>
