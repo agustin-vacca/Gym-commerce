@@ -18,7 +18,7 @@ const Home = () => {
     <Layout>
       <NavBar />
       <ContainerStyles>
-          <ImageSlider slides={slides}/>
+          <ImageSlider slides={slides} />
       </ContainerStyles>
       <Cards />
       <Footer />

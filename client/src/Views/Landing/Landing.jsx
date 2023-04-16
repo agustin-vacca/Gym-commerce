@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import imagen from "../../cardigan.png";
 import "./Landing.css";
+import { LandingDiv } from "./LandingStyle.js";
 
 function Landing() {
   const navigate = useNavigate();
