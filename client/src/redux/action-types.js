@@ -1,0 +1,9 @@
+export const GET_PRODUCTS = "GET_PRODUCTS";
+export const GET_PRODUCT_BY_ID = "GET_PRODUCT_BY_ID";
+export const ORDER_BY_NAME = "ORDER_BY_NAME";
+export const ORDER_BY_PRICE = "ORDER_BY_PRICE";
+export const FILTER_BY_CATEGORY = "FILTER_BY_CATEGORY";
+export const POST_PRODUCTS = "POST_PRODUCTS";
+export const GET_PRODUCTS_BY_NAME = "GET_PRODUCTS_BY_NAME";
+export const POST_USERS = "POST_USERS";
+export const GET_USERS = "GET_USERS";
