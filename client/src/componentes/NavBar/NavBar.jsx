@@ -25,8 +25,7 @@ export default function NavBar() {
     return (
       <li className="dropdownItem">
         <option onClick={(e) => handleFilterCategories(e)}>
-          {" "}
-          {props.text}{" "}
+          {props.text}
         </option>
       </li>
     );
