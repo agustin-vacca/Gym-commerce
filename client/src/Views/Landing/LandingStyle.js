@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const LandingDiv = styled.div`
   height: 100vh;
   width: 100vw;
-  background: white;
+  background: black;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
