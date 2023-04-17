@@ -7,6 +7,7 @@ import "./App.css";
 import Landing from "./Views/Landing/Landing";
 import Error from "./componentes/Error/Error";
 import Nosotros1 from "./componentes/Nosotros/Nosotros1";
+import Preguntas from "./PreguntasFrecuentes/Preguntas.jsx";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/form" element={<Formulario />} />
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="/nosotros" element={<Nosotros1/>} />
+        <Route path="/preguntasfrecuentes" element={<Preguntas/>} />
         <Route path="*" element={<Error />} />
       </Routes>
     </div>

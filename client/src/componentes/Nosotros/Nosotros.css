@@ -21,7 +21,7 @@
     justify-items:center;
     align-items: center;
 }
-.card{
+.card1{
     height: 200px;
     width: 200px;
     overflow: hidden;
@@ -35,7 +35,7 @@
     background: linear-gradient(-135deg, #9a9a9a, #a1a1a1);
 }
 
-.card:hover{
+.card1:hover{
     height: 350px;
     width: 300px;
     border-radius: 5px;

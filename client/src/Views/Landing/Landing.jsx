@@ -9,7 +9,6 @@ function Landing() {
     navigate("/home");
   };
   return (
-    <LandingDiv>
       <div className="card">
         <div class="face front">
           <img className="map_img" src={imagen} alt="Logo Cardigan" />
@@ -22,7 +21,6 @@ function Landing() {
           </div>
         </div>
       </div>
-    </LandingDiv>
   );
 }
 export default Landing;
