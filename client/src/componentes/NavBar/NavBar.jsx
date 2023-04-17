@@ -6,7 +6,6 @@ import "./NavBar.css";
 import { filterProductsByCategories } from "../../redux/actions.js";
 import { useDispatch } from "react-redux";
 import logo from "../../cardigan.png";
-import "./NavBar.css";
 
 export default function NavBar() {
   // DIV EMERGENTE
@@ -35,12 +34,16 @@ export default function NavBar() {
   //NAVBAR
   return (
     <div className="LayoutNavbar">
+
         <div className="divOne">
           <Link to={`/`}>
           <img src={logo} alt="." width="70px"/>
           </Link>
-          <SearchBar />
-          <h3 className="ThisIsLog" >INGRESAR/REGISTRARSE <BiUserCircle size={40}/> </h3> 
+
+          <div className="searchBarDiv">{ location.pathname === "/home" && <SearchBar /> }
+          </div>
+
+          <h3 className="ThisIsLog" >INGRESAR/REGISTRARSE <BiUserCircle size={40}/> </h3>
         </div>
         <div className="divTwo">
           <div className="navButton"><Link to="/home" className="nosotros">Inicio</Link></div>
