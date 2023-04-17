@@ -8,54 +8,23 @@ export default function Preguntas(){
     return(
        <Layout>
         <NavBar/>
-        <div className="contenedor">
-        <div className="father">
-            <div className="row">
-                <div className="conteiner-faq">
-                    <div className="title-faq">
-                        <h3>Preguntas Frecuentes</h3>
-                    </div>
-                    <div className="item-faq">
-                        <div className="question">
-                            <h3>En esta seccion deberia ir la pregunta/consulta<span>Q</span></h3>
-                            <div className="more"><i>+</i></div>
-                        </div>
-                        <div className="answer">
-                            <p>En esta seccion debe estar la repuesta a la pregunta<span>A</span></p>
-                        </div>
-                    </div>
-                    <div className="item-faq">
-                        <div className="question">
-                            <h3>En esta seccion deberia ir la pregunta/consulta<span>Q</span></h3>
-                            <div className="more"><i>+</i></div>
-                        </div>
-                        <div className="answer">
-                            <p>En esta seccion debe estar la repuesta a la pregunta<span>A</span></p>
-                        </div>
-                    </div>
-                    <div className="item-faq">
-                        <div className="question">
-                            <h3>En esta seccion deberia ir la pregunta/consulta<span>Q</span></h3>
-                            <div className="more"><i>+</i></div>
-                        </div>
-                        <div className="answer">
-                            <p>En esta seccion debe estar la repuesta a la pregunta<span>A</span></p>
-                        </div>
-                    </div>
-                    <div className="item-faq">
-                        <div className="question">
-                            <h3>En esta seccion deberia ir la pregunta/consulta<span>Q</span></h3>
-                            <div className="more"><i>+</i></div>
-                        </div>
-                        <div className="answer">
-                            <p>En esta seccion debe estar la repuesta a la pregunta<span>A</span></p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        </div>
+        <div class="box">
+   <p class="heading">Preguntas Frecuentes</p>
+   <div class="faqs">
+      <details>
+         <summary>What is Lorem ipsum?</summary>
+         <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </details>
+      <details>
+         <summary>What is Lorem ipsum?</summary>
+         <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </details>
+      <details>
+         <summary>What is Lorem ipsum?</summary>
+         <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </details>
+   </div>
+</div>
         <Footer />
        </Layout>
     )
