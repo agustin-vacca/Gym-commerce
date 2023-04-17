@@ -43,7 +43,7 @@ export default function NavBar() {
           <h3 className="ThisIsLog" >INGRESAR/REGISTRARSE <BiUserCircle size={40}/> </h3> 
         </div>
         <div className="divTwo">
-          <div className="navButton">Inicio</div>
+          <div className="navButton"><Link to="/home" className="nosotros">Inicio</Link></div>
           <div>
             <div className="navButton" onClick={ () => {setOpen(!open)}}>
               Productos
