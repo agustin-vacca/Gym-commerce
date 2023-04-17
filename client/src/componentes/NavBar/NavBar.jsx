@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import logo from "../../cardigan.png";
-import { filterProductsByCategories } from "../../redux/actions";
 import SearchBar from "../SearchBar/SearchBar";
-import UserButton from "../UserButton/UserButton";
+import { BiUserCircle } from "react-icons/bi";
+import { Link, useLocation } from "react-router-dom";
+import "./NavBar.css";
+import { filterProductsByCategories } from "../../redux/actions.js";
+import { useDispatch } from "react-redux";
+import logo from "../../cardigan.png";
 import "./NavBar.css";
 
 export default function NavBar() {
@@ -13,6 +14,7 @@ export default function NavBar() {
 
   // FILTROS CATEGORIA
   const dispatch = useDispatch();
+  const location = useLocation();
 
   const handleFilterCategories = (event) => {
     dispatch(filterProductsByCategories(event.target.value));
