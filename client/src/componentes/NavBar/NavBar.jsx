@@ -59,7 +59,7 @@ export default function NavBar() {
               </ul>
             </div>
           </div>
-          <div className="navButton"><Link to="/consultas" className="nosotros">Preguntas frecuentes</Link></div>
+          <div className="navButton"><Link to="/preguntasfrecuentes" className="nosotros">Preguntas frecuentes</Link></div>
         <div className="navButton"><Link to ="/nosotros" className="nosotros">Nosotros</Link></div>
       
         </div>

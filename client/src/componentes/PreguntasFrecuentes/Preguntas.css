@@ -51,7 +51,7 @@
     position: relative;
     padding: 0 20px 0 80px;
     overflow: hidden;
-    height: 0;
+    /* height: 0; */
     transform: .4s;
 }
 .conteiner-faq .item-faq .answer p{

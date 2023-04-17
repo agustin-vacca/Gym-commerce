@@ -1,8 +1,8 @@
 import React from "react";
 import "./Preguntas.css";
-import { Layout } from "../componentes/NavBar/NavbarStyle";
-import NavBar from "../componentes/NavBar/NavBar";
-import Footer from "../componentes/Footer/Footer";
+import { Layout } from "../NavBar/NavbarStyle";
+import NavBar from "../NavBar/NavBar";
+import Footer from "../Footer/Footer";
 
 export default function Preguntas(){
 // let question= document.querySelector('.question');
