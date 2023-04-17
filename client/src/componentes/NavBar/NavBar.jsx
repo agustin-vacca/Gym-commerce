@@ -36,22 +36,15 @@ export default function NavBar() {
   return (
     <div className="LayoutNavbar">
       <div className="divOne">
-        <Link to={`/`}>
-          <img src={logo} alt="." width="70px" />
-        </Link>
-        <div className="searchBarDiv">
-          {location.pathname === "/home" && <SearchBar />}
+        <img src={logo} alt="." width="70px" />
+        <SearchBar />
+        <div className="ThisIsLog">
+          {/* <BiUserCircle size={40} /> */}
+          <UserButton />
         </div>
-        <h3 className="ThisIsLog">
-          INGRESAR/REGISTRARSE <BiUserCircle size={40} />{" "}
-        </h3>
       </div>
       <div className="divTwo">
-        <div className="navButton">
-          <Link to="/home" className="nosotros">
-            Inicio
-          </Link>
-        </div>
+        <div className="navButton">Inicio</div>
         <div>
           <div
             className="navButton"
