@@ -14,6 +14,11 @@
   flex-direction: row;
 }
 
+.searchBarDiv{
+  width: 400px;
+  height: fit-content;
+}
+
 .ThisIsLog {
   display: block;
   color: aliceblue;
@@ -21,7 +26,7 @@
   cursor: pointer;
 }
 .ThisIsLog:hover {
-  color: rgb(255, 238, 0);
+  color: rgba(255, 38, 0, 0.479);
 }
 
 .divTwo {
@@ -32,8 +37,7 @@
   height: 35px;
   align-content: center;
   align-items: center;
-  padding: 0px 20px;
-  
+  padding: 0px 10%;
 }
 
 .navButton {
@@ -41,10 +45,9 @@
   color: white;
   background-color: black;
   transition: 1s;
-  
 }
 .navButton:hover {
-  color: rgb(255, 238, 0);
+  color: rgba(255, 38, 0, 0.479);
 }
 
 .dropdown-menu {
@@ -108,6 +111,6 @@
 }
 
 .nosotros:hover {
-  color: rgb(255, 238, 0);
+  color: rgba(255, 38, 0, 0.479);
   transition: 1s;
 }

@@ -7,7 +7,6 @@ flex-direction: column;
 justify-content: flex-start;
 gap: 20px;
 margin: 1rem;
-border: 1px solid blue;
 
 select{
     background: transparent;
