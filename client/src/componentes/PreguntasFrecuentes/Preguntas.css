@@ -17,6 +17,25 @@
     margin-bottom: 20px;
     border-radius: 10px;
 }
+.conteiner-faq .item-faq{
+    height: 95px;
+    width: 80%;
+    overflow: hidden;
+    margin: auto;
+    padding: 10px 30px;
+    border-radius: 2%;
+    border: 1px solid #f5ecec;
+    transition: all .4s ease-in-out;
+    box-shadow: 0px 1px 5px rgba(0,0, 0,0);
+    text-align: center;
+    background: linear-gradient(-135deg, #f8f8f8, #a1a1a1);
+}
+.conteiner-faq .item-faq:hover{
+    height: 180px;
+    width: 90%;
+    border-radius: 5px;
+    box-shadow: 0px 2px 10px rgba(0,0, 0,5);
+}
 .conteiner-faq .item-faq .question{
     position: relative;
     display: flex;
