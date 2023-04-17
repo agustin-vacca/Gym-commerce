@@ -3,16 +3,22 @@ import styled from "styled-components";
 export const LandingDiv = styled.div`
   height: 100vh;
   width: 100vw;
-  background: white;
+  background: black;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  border: 1px solid red;
 
   .card {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 250px;
     height: 250px;
+    border-radius: 50%;
+    background: white;
   }
 
   .card .face {
@@ -23,9 +29,17 @@ export const LandingDiv = styled.div`
     border-radius: 50%;
     overflow: hidden;
     transition: 0.5s;
+    background: white;
   }
 
   .map_img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .entrada {
     position: relative;
     width: 100%;
     height: 100%;
@@ -64,11 +78,4 @@ export const LandingDiv = styled.div`
   .card:hover .back {
     transform: perspective(600px) rotateY(360deg);
   }
-`;
-
-export const MapImg = styled.img`
-    border-radius: 100%;
-    :hover {
-  background-color: antiquewhite;
-}
 `;

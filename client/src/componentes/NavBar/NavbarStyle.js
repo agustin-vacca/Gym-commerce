@@ -48,4 +48,9 @@ export const Layout = styled.div`
   .link {
     text-decoration: none;
   }
+.searchBarDiv{
+  width: 375px;
+  height: auto;
+}
+
 `;

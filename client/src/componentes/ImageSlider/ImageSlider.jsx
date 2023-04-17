@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 
 const ImageSlider = ({slides}) => {
@@ -18,6 +18,12 @@ const goToPrevious = () => {
   const goToSlide = (slideIndex) => {
     setCurrentIndex(slideIndex);
   };
+
+  useEffect(() => {
+    setTimeout(()=>{
+      goToNext()
+    }, 5000)
+  }, [currentIndex]);
 
 const sliderStyles={
     height: "100%",
