@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import SearchBar from "../SearchBar/SearchBar";
-import { BiUserCircle } from "react-icons/bi";
 import { Link, useLocation } from "react-router-dom";
 import "./NavBar.css";
-import { filterProductsByCategories } from "../../redux/actions.js";
+import { filterProductsByCategories } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 import logo from "../../cardigan.png";
 import "./NavBar.css";
+import UserButton from "../UserButton/UserButton";
 
 export default function NavBar() {
   // DIV EMERGENTE
@@ -37,9 +37,8 @@ export default function NavBar() {
     <div className="LayoutNavbar">
       <div className="divOne">
         <img src={logo} alt="." width="70px" />
-        <SearchBar />
+        {location.pathname === "/home" && <SearchBar />}
         <div className="ThisIsLog">
-          {/* <BiUserCircle size={40} /> */}
           <UserButton />
         </div>
       </div>
