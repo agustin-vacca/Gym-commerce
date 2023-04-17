@@ -6,7 +6,6 @@ import "./NavBar.css";
 import { filterProductsByCategories } from "../../redux/actions.js";
 import { useDispatch } from "react-redux";
 import logo from "../../cardigan.png";
-import "./NavBar.css";
 
 export default function NavBar() {
   // DIV EMERGENTE
