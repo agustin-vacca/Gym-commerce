@@ -53,7 +53,7 @@
   color: #61777f
 }
 .navButton:hover {
-  color: #ff26007a;
+  color: rgba(255, 38, 0, 0.479);
 }
 
 .dropdown-menu {

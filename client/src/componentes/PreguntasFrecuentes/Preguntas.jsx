@@ -3,11 +3,16 @@ import "./Preguntas.css";
 import { Layout } from "../NavBar/NavbarStyle";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
+import React from "react";
+import "./Preguntas.css";
+import { Layout } from "../NavBar/NavbarStyle";
+import NavBar from "../NavBar/NavBar";
+import Footer from "../Footer/Footer";
 
 export default function Preguntas(){
     return(
        <div>
-        <NavBar/>
+         <NavBar />
         <div class="box">
    <p class="heading">Preguntas Frecuentes</p>
    <div class="faqs">
@@ -25,7 +30,7 @@ export default function Preguntas(){
       </details>
    </div>
 </div>
-        <Footer />
-       </div>
+<Footer/>
+</div>
     )
 };
