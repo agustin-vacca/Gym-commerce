@@ -9,7 +9,6 @@ export default function Cards() {
   const dispatch = useDispatch();
   const allProducts = useSelector((state) => state.products);
   // eslint-disable-next-line
-
   const [currentPage, setCurrentPage] = useState(1);
   // eslint-disable-next-line
   const [productsPerPage, setProductsPerPage] = useState(6);
