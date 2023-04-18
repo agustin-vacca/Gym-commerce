@@ -43,9 +43,9 @@ export default function NavBar() {
           </div>
         </div>
         <div className="divTwo">
-          <Link to={"/home"}>
-            <div className="navButton">Inicio</div>
-          </Link>
+          <div className="navButton">
+            <Link to={"/home"}>Inicio</Link>
+          </div>
           <div>
             <div
               className="navButton"
@@ -66,12 +66,12 @@ export default function NavBar() {
               </ul>
             </div>
           </div>
-          <Link to="/consultas">
-            <div className="navButton">Preguntas frecuentes</div>
-          </Link>
-          <Link to="/nosotros">
-            <div className="navButton">Nosotros</div>
-          </Link>
+          <div className="navButton">
+            <Link to="/consultas">Preguntas frecuentes</Link>
+          </div>
+          <div className="navButton">
+            <Link to="/nosotros">Nosotros</Link>
+          </div>
         </div>
       </div>
     </div>
