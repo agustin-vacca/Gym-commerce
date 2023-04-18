@@ -27,7 +27,8 @@ const Detail = () => {
         </Headimg>
         <Title>
           <h1> {product.name} </h1>
-          <h3>Precio: {product.price} </h3>
+          <h3>Precio: {product.price} U$D</h3>
+          <h3>Color: {product.color} </h3>
           <button>Añadir al carrito </button>
           <button>Producto Disponible</button>
           <div>
