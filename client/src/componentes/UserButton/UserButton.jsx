@@ -13,7 +13,7 @@ const UserButton = () => {
   return (
     <UserBtnDiv>
       <div onClick={() => setActive(!active)}>
-        <HiOutlineUserCircle size={25} />
+        <HiOutlineUserCircle size={35} />
       </div>
       <div className="Menu" style={active ? null : { display: "none" }}>
         {isAuthenticated ? (
