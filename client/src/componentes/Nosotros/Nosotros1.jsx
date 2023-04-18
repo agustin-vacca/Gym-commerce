@@ -1,8 +1,8 @@
 import React from "react";
 import "./Nosotros.css";
 import { Layout } from "../../Views/Home/commonStyles";
-import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
+import NavBar from "../NavBar/NavBar";
 import imagen from "../../cardiganRectangulo.png";
 import styled from "styled-components";
 
@@ -47,7 +47,5 @@ export default function Nosotros1(){
     </AboutUsContainer>
       <Footer />
     </Layout>
-    
-        
-    )
-};
+  );
+}

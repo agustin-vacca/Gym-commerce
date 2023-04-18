@@ -3,13 +3,32 @@ import styled from "styled-components";
 export const Layout = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 100vh;
-`;
 
-export const ContainerStyles = styled.div`
-    width: 900px;
-    height: 300px;
-    margin: 0 auto ;
-`;
+  .content {
+    display: flex;
+    flex-direction: row;
+  }
 
+  .ContainerStyles {
+    padding: 1%;
+    width: 95%;
+    height: 325px;
+  }
+
+  .ContainerCards {
+    width: 97%;
+  }
+
+  .filtersComp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .imgCards {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+`;
