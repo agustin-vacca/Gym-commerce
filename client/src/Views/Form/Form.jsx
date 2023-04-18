@@ -96,6 +96,11 @@ const Formulario = () => {
           } else if (!/^[0-9]+$/.test(values.stock)) {
             errors.stock = "El stock solo puede contener números";
           }
+          if (!values.color) {
+            errors.color = "Ingrese un color";
+          } else if (!/^[ a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/.test(values.color)) {
+            errors.color = "El color solo puede contener letras";
+          }
           return errors;
         }}
 
@@ -191,6 +196,22 @@ const Formulario = () => {
               <ErrorMessage
                 name="image"
                 component={() => <div className="error">{errors.image}</div>}
+              />
+            </div>
+            <div>
+              <label className="label" htmlFor="color">
+                Color:{" "}
+              </label>
+              <Field
+                className="input"
+                type="text"
+                id="color"
+                name="color"
+                placeholder="Color del producto"
+              />
+              <ErrorMessage
+                name="color"
+                component={() => <div className="error">{errors.color}</div>}
               />
             </div>
             <div>

@@ -20,7 +20,6 @@ export const Title = styled.div`
   flex-direction: column;
   margin: 1rem;
   padding: 2rem;
-
   button{
     border: none;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
@@ -30,12 +29,10 @@ export const Title = styled.div`
     cursor: pointer;
     border-radius: 5px;
     transition: 1s;
-
     :hover{
       background-color: rgba(187, 65, 71, 0.8);
     }
   }
-
 `;
 
 export const Description = styled.div`
@@ -50,4 +47,3 @@ export const Review = styled.div`
   padding: 1rem;
   margin: 2rem;
 `;
-

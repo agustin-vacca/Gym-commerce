@@ -5,21 +5,18 @@ export const FormStyle = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 50vh;
-
   .formulario {
     background-color: #f5f5f5;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
   }
-
   .label {
     display: flex;
     margin-left: 200px;
     margin-bottom: 5px;
     font-weight: bold;
   }
-
   .input[type="text"],
   .textarea,
   .selector {
@@ -39,7 +36,6 @@ export const FormStyle = styled.div`
     color: #fff;
     background-color: #333;
   }
-
   .button[type="submit"]:not([disabled]) {
     background-color: #ff6600;
     color: #fff;
@@ -49,11 +45,9 @@ export const FormStyle = styled.div`
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
   }
-
   .button[type="submit"]:not([disabled]):hover {
     background-color: #ff8c1a;
   }
-
   .selector {
     background-color: #fff;
     appearance: none;

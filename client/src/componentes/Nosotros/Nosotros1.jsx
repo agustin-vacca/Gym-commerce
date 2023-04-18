@@ -12,70 +12,56 @@ export default function Nosotros1() {
       <div className="contenedor">
         {/* <div className="somos">¿Quienes somos?</div> */}
         <div className="contenedor1">
-            <div className="card">
-                <div className="conteiner2">
-                    <img src={img} alt ="img"></img>
-                </div>
-                <div className="card-iconos">
-                    <li className="agrandar"><a href=""><span>Iconos de redes sociales</span></a></li>   
-                    <li className="agrandar"><a href=""><span>Iconos de redes sociales</span></a></li>
-                    <li className="agrandar"><a href=""><span>Iconos de redes sociales</span></a></li>
-                </div>
-                <div className="info">
-                    <div>Nombre y descripcion.</div>
-                </div>
+          <div className="card">
+            <div className="conteiner2">
+              <img src={img} alt="img"></img>
             </div>
-            <div className="card1">
-                <div className="conteiner2">
-                    <img src={img} alt ="img"></img>
-                </div>
-                <div className="card-iconos">
-                    <li className="agrandar"><a href=""><span>Iconos de redes sociales</span></a></li>   
-                    <li className="agrandar"><a href=""><span>Iconos de redes sociales</span></a></li>
-                    <li className="agrandar"><a href=""><span>Iconos de redes sociales</span></a></li>
-                </div>
-                <div className="info">
-                    <div>Nombre y descripcion.</div>
-                </div>
-            </div>
-            <div className="card">
-                <div className="conteiner2">
-                  <img src={img} alt="img"></img>
-                </div>
-                <div className="card-iconos">
-                  <li className="agrandar">
-                    <a href="">
-                      <span>Iconos de redes sociales</span>
-                    </a>
-                  </li>
-                  <li className="agrandar">
-                    <a href="">
-                      <span>Iconos de redes sociales</span>
-                    </a>
-                  </li>
-                  <li className="agrandar">
-                    <a href="">
-                      <span>Iconos de redes sociales</span>
-                    </a>
-                  </li>
-                </div>
-                <div className="info">
-                  <div>Nombre y descripcion.</div>
-                </div>
-              </div>
-              <div className="card">
-                <div className="conteiner2">
-                  <img src={img} alt="img"></img>
-                </div>
-                <div className="card-iconos">
-                  {/* <li className="agrandar"><a href=""><span>Iconos de redes sociales</span></a></li>   
+            <div className="card-iconos">
+              {/* <li className="agrandar"><a href=""><span>Iconos de redes sociales</span></a></li>   
                     <li className="agrandar"><a href=""><span>Iconos de redes sociales</span></a></li>
                     <li className="agrandar"><a href=""><span>Iconos de redes sociales</span></a></li> */}
-                </div>
-                <div className="info">
-                  <div>Nombre y descripcion</div>
-                </div>
-              </div>
+            </div>
+            <div className="info">
+              <div>Nombre y descripcion.</div>
+            </div>
+          </div>
+          <div className="card1">
+            <div className="conteiner2">
+              <img src={img} alt="img"></img>
+            </div>
+            <div className="card-iconos">
+              {/* <li className="agrandar"><a href=""><span>Iconos de redes sociales</span></a></li>   
+                    <li className="agrandar"><a href=""><span>Iconos de redes sociales</span></a></li>
+                    <li className="agrandar"><a href=""><span>Iconos de redes sociales</span></a></li> */}
+            </div>
+            <div className="info">
+              <div>Nombre y descripcion.</div>
+            </div>
+          </div>
+          <div className="card">
+            <div className="conteiner2">
+              <img src={img} alt="img"></img>
+            </div>
+            <div className="card-iconos">
+              {/* <li className="agrandar"><a href=""><span>Iconos de redes sociales</span></a></li>   
+                    <li className="agrandar"><a href=""><span>Iconos de redes sociales</span></a></li>
+                    <li className="agrandar"><a href=""><span>Iconos de redes sociales</span></a></li> */}
+            </div>
+            <div className="info">
+              <div>Nombre y descripcion.</div>
+            </div>
+          </div>
+          <div className="card">
+            <div className="conteiner2">
+              <img src={img} alt="img"></img>
+            </div>
+            <div className="card-iconos">
+              {/* <li className="agrandar"><a href=""><span>Iconos de redes sociales</span></a></li>   
+                    <li className="agrandar"><a href=""><span>Iconos de redes sociales</span></a></li>
+                    <li className="agrandar"><a href=""><span>Iconos de redes sociales</span></a></li> */}
+            </div>
+            <div className="info">
+              <div>Nombre y descripcion</div>
             </div>
           </div>
         </div>
