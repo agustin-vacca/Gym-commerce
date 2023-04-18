@@ -6,8 +6,8 @@ import Footer from "../Footer/Footer";
 
 export default function Preguntas(){
     return(
-       <Layout>
-        <NavBar/>
+       <div>
+         <NavBar />
         <div class="box">
    <p class="heading">Preguntas Frecuentes</p>
    <div class="faqs">
@@ -25,7 +25,7 @@ export default function Preguntas(){
       </details>
    </div>
 </div>
-        <Footer />
-       </Layout>
+<Footer/>
+</div>
     )
 };
