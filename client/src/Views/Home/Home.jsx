@@ -12,7 +12,6 @@ const Home = () => {
       <NavBar />
       <Cards />
       <Footer />
-
     </Layout>
   );
 };

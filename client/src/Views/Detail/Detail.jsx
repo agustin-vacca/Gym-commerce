@@ -7,6 +7,12 @@ import Footer from "../../componentes/Footer/Footer";
 import NavBar from "../../componentes/NavBar/NavBar";
 import { getProductById } from "../../redux/actions";
 import { Description, Head, Headimg, Review, Title } from "./DetailStyles";
+import { initMercadoPago, Wallet } from '@mercadopago/sdk-react'
+initMercadoPago('TEST-f8550b3b-473d-4311-957c-5b5fd634b8fe');
+
+
+
+
 
 const Detail = () => {
   const { id } = useParams();
@@ -33,6 +39,8 @@ const Detail = () => {
           <div>
             <SiMercadopago size={30} />
             <BsPaypal size={30} />
+            <div id="wallet_container"></div>
+            <Wallet initialization={{ preferenceId: '<PREFERENCE_ID>' }} />
           </div>
         </Title>
       </Head>
