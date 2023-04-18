@@ -166,7 +166,7 @@ export default function Nosotros1(){
               <Link to="https://www.twitch.tv/slakun10">
                 <ImgGrande src={twitch}/>
               </Link>
-              <p>Piuk</p>
+              <p>Ñom ñom ñom</p>
             </div>
           </div>                     
         </div>
