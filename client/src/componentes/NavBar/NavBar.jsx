@@ -67,7 +67,7 @@ export default function NavBar() {
             </div>
           </div>
           <div className="navButton">
-            <Link to="/consultas">Preguntas frecuentes</Link>
+            <Link to="/preguntasfrecuentes">Preguntas frecuentes</Link>
           </div>
           <div className="navButton">
             <Link to="/nosotros">Nosotros</Link>
