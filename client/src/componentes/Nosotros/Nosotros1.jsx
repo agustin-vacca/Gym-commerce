@@ -1,6 +1,5 @@
 import React from "react";
 import "./Nosotros.css";
-import img from "./R.png";
 import { Layout } from "../../Views/Home/commonStyles";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";

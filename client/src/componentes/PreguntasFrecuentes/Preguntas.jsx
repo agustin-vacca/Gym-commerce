@@ -1,13 +1,8 @@
 import React from "react";
-import "./Preguntas.css";
-import { Layout } from "../NavBar/NavbarStyle";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
-import React from "react";
 import "./Preguntas.css";
-import { Layout } from "../NavBar/NavbarStyle";
-import NavBar from "../NavBar/NavBar";
-import Footer from "../Footer/Footer";
+
 
 export default function Preguntas(){
     return(

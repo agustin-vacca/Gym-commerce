@@ -13,9 +13,11 @@
   align-items: center;
   flex-direction: row;
 }
-
+.userButtondiv{
+  display: flex;
+}
 .searchBarDiv{
-  width: 400px;
+  display: flex;
   height: fit-content;
 }
 

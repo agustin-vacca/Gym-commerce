@@ -11,7 +11,7 @@ module.exports = (sequelize) => {
         primaryKey: true,
         autoIncrement: true,
       },
-      name: {
+      full_name: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -19,6 +19,18 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      country: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      phone: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      }
     },
     {
       timestamps: false,
