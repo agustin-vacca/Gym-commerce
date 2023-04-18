@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import SearchBar from "../SearchBar/SearchBar";
-import { Link, useLocation } from "react-router-dom";
-import "./NavBar.css";
-import { filterProductsByCategories } from "../../redux/actions";
 import { useDispatch } from "react-redux";
-import logo from "../../cardigan.png";
-import "./NavBar.css";
+import { Link } from "react-router-dom";
+import cardiganletras from "../../cardigan-letras.png";
+import { filterProductsByCategories } from "../../redux/actions.js";
+import SearchBar from "../SearchBar/SearchBar";
 import UserButton from "../UserButton/UserButton";
+import "./NavBar.css";
 
 export default function NavBar() {
   // DIV EMERGENTE
@@ -14,7 +13,6 @@ export default function NavBar() {
 
   // FILTROS CATEGORIA
   const dispatch = useDispatch();
-  const location = useLocation();
 
   const handleFilterCategories = (event) => {
     dispatch(filterProductsByCategories(event.target.value));
@@ -32,17 +30,21 @@ export default function NavBar() {
   //NAVBAR
   return (
     <div className="LayoutNavbar">
-      <div className="divOne">
-        <img src={logo} alt="." width="70px" />
-        {location.pathname === "/home" && <SearchBar />}
-        <div className="ThisIsLog">
-          <UserButton />
+      <div className="divLogo">
+        <Link to={"/home"}>
+          <img className="Logo" src={cardiganletras} alt="logoCardigan" />
+        </Link>
+      </div>
+      <div className="divconjuntos">
+        <div className="divOne">
+          <SearchBar />
+          <div className="ThisIsLog">
+            <UserButton />
+          </div>
         </div>
         <div className="divTwo">
           <div className="navButton">
-            <Link to="/home" className="nosotros">
-              Inicio
-            </Link>
+            <Link to={"/home"}>Inicio</Link>
           </div>
           <div>
             <div
@@ -65,14 +67,10 @@ export default function NavBar() {
             </div>
           </div>
           <div className="navButton">
-            <Link to="/preguntasfrecuentes" className="nosotros">
-              Preguntas frecuentes
-            </Link>
+            <Link to="/preguntasfrecuentes">Preguntas frecuentes</Link>
           </div>
           <div className="navButton">
-            <Link to="/nosotros" className="nosotros">
-              Nosotros
-            </Link>
+            <Link to="/nosotros">Nosotros</Link>
           </div>
         </div>
       </div>

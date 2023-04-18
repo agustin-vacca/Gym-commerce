@@ -5,44 +5,47 @@ export const CardDiv = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  height: 24rem;
-  width: 17rem;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  height: 20rem;
+  width: 15rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   border-radius: 10px;
   cursor: pointer;
   font-family: "Plus Jakarta Sans";
   font-weight: 800;
   transition: 1s;
-  :hover{
+  :hover {
     scale: 103%;
   }
-  a:link{
-  text-decoration: none!important;
-}
+  a:link {
+    text-decoration: none !important;
+  }
 `;
 
 export const TextPrice = styled.div`
-  font-size: medium;
+  font-size: small;
 `;
 
 export const TextName = styled.div`
   font-size: large;
-  font-family: "Plus Jakarta Sans";  
+  font-family: "Plus Jakarta Sans";
 `;
 export const ProductImage = styled.img`
-  width: 15rem;
-  height: 10rem;  
+  width: 13rem;
+  height: 10rem;
 `;
 
 export const LinkText = styled.div`
   color: black;
-  font-size: medium;
+  font-size: small;
   padding: 10px;
-  box-shadow: rgba(50, 50, 93, 0.5) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  box-shadow: rgba(50, 50, 93, 0.5) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   border-radius: 20px;
   font-weight: bold;
-  transition: 2s;
-  :hover{
-    box-shadow: rgba(54, 138, 73) 0px 7px 5px -1px, rgba(95, 73, 171, 0.7) 12px 12px 12px -1px;
+  transition: 1s;
+  :hover {
+    box-shadow: rgba(54, 138, 73) 0px 7px 5px -1px,
+      rgba(95, 73, 171, 0.7) 12px 12px 12px -1px;
   }
 `;

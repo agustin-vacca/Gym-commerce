@@ -1,29 +1,30 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { orderByName, orderByPrice } from "../../redux/actions.js";
 import { FiltersStyled } from "./Order&FilterStyled.js";
-import {orderByName, orderByPrice} from "../../redux/actions.js"
 
-export default function OrderAndFilters({setOrden}) {
+export default function OrderAndFilters({ setOrden }) {
   const dispatch = useDispatch();
 
-  function handleOrderByName(e){
-    e.preventDefault()
-    dispatch(orderByName(e.target.value))
-    setOrden(`Ordenado ${e.target.value}`)
-   }
-   function handleOrderByPrice(e){
-    e.preventDefault()
-    dispatch(orderByPrice(e.target.value))
-    setOrden(`Ordenado ${e.target.value}`)
-   }
-   
+  function handleOrderByName(e) {
+    e.preventDefault();
+    dispatch(orderByName(e.target.value));
+    setOrden(`Ordenado ${e.target.value}`);
+  }
+  function handleOrderByPrice(e) {
+    e.preventDefault();
+    dispatch(orderByPrice(e.target.value));
+    setOrden(`Ordenado ${e.target.value}`);
+  }
+
   //  function handleFilterCategories(event){
   //   dispatch(filterProductsByCategories(event.target.value))
   //  }
-  
+
   return (
     <FiltersStyled>
       <select onChange={(e) => handleOrderByName(e)}>
+        <option>Order by Name</option>
         <option value="asc">A-Z</option>
         <option value="desc">Z-A</option>
       </select>
@@ -44,7 +45,6 @@ export default function OrderAndFilters({setOrden}) {
         <option value="Discos y Barras">Discos y Barras</option>
 
       </select> */}
-
     </FiltersStyled>
   );
 }
