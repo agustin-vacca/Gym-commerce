@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import SearchBar from "../SearchBar/SearchBar";
-import { BiUserCircle } from "react-icons/bi";
 import { Link, useLocation } from "react-router-dom";
 import "./NavBar.css";
-import { filterProductsByCategories } from "../../redux/actions.js";
+import { filterProductsByCategories } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 import logo from "../../cardigan.png";
+import "./NavBar.css";
+import UserButton from "../UserButton/UserButton";
 
 export default function NavBar() {
   // DIV EMERGENTE
@@ -23,10 +24,7 @@ export default function NavBar() {
   function DropDownItem(props) {
     return (
       <li className="dropdownItem">
-        <option onClick={(e) => handleFilterCategories(e)}>
-          {" "}
-          {props.text}{" "}
-        </option>
+        <option onClick={(e) => handleFilterCategories(e)}>{props.text}</option>
       </li>
     );
   }
@@ -34,38 +32,50 @@ export default function NavBar() {
   //NAVBAR
   return (
     <div className="LayoutNavbar">
-
-        <div className="divOne">
-          <Link to={`/`}>
-          <img src={logo} alt="." width="70px"/>
-          </Link>
-
-          <div className="searchBarDiv">{ location.pathname === "/home" && <SearchBar /> }
-          </div>
-
-          <h3 className="ThisIsLog" >INGRESAR/REGISTRARSE <BiUserCircle size={40}/> </h3>
+      <div className="divOne">
+        <img src={logo} alt="." width="70px" />
+        {location.pathname === "/home" && <SearchBar />}
+        <div className="ThisIsLog">
+          <UserButton />
         </div>
         <div className="divTwo">
-          <div className="navButton"><Link to="/home" className="nosotros">Inicio</Link></div>
+          <div className="navButton">
+            <Link to="/home" className="nosotros">
+              Inicio
+            </Link>
+          </div>
           <div>
-            <div className="navButton" onClick={ () => {setOpen(!open)}}>
+            <div
+              className="navButton"
+              onClick={() => {
+                setOpen(!open);
+              }}
+            >
               Productos
             </div>
-            <div className={`dropdown-menu ${open? 'active' : 'inactive'}`}>
+            <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
               <ul>
-                <DropDownItem text = {"All"} />
-                <DropDownItem text = {"Maquinas"} />
-                <DropDownItem text = {"Mancuernas"} />
-                <DropDownItem text = {"Rack"} />
-                <DropDownItem text = {"Discos y Barras"} />
-                <DropDownItem text = {"Accesorios"} />
+                <DropDownItem text={"All"} />
+                <DropDownItem text={"Maquinas"} />
+                <DropDownItem text={"Mancuernas"} />
+                <DropDownItem text={"Rack"} />
+                <DropDownItem text={"Discos y Barras"} />
+                <DropDownItem text={"Accesorios"} />
               </ul>
             </div>
           </div>
-          <div className="navButton"><Link to="/preguntasfrecuentes" className="nosotros">Preguntas frecuentes</Link></div>
-        <div className="navButton"><Link to ="/nosotros" className="nosotros">Nosotros</Link></div>
-      
+          <div className="navButton">
+            <Link to="/preguntasfrecuentes" className="nosotros">
+              Preguntas frecuentes
+            </Link>
+          </div>
+          <div className="navButton">
+            <Link to="/nosotros" className="nosotros">
+              Nosotros
+            </Link>
+          </div>
         </div>
       </div>
+    </div>
   );
 }

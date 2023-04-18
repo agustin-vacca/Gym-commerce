@@ -85,7 +85,7 @@ const reducer = (state = initialState, action) => {
       const categoryFiltered =
         action.payload === "All"
           ? allProducts
-          : allProducts.filter((el) => el.categoria[0].name === action.payload);
+          : allProducts.filter(el => el.categoria[0].name === action.payload);
       return {
         ...state,
         products: categoryFiltered,

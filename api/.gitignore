@@ -6,6 +6,7 @@
 .pnp.js
 .env
 package.json
+env
 
 # testing
 /coverage

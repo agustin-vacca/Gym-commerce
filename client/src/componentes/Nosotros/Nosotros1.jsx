@@ -17,7 +17,7 @@ export default function Nosotros1(){
                     <img src={img} alt ="img"></img>
                 </div>
                 <div className="card-iconos">
-                   {/*  <li className="agrandar"><a href=""><span>Iconos de redes sociales</span></a></li>   
+                    {/* <li className="agrandar"><a href=""><span>Iconos de redes sociales</span></a></li>   
                     <li className="agrandar"><a href=""><span>Iconos de redes sociales</span></a></li>
                     <li className="agrandar"><a href=""><span>Iconos de redes sociales</span></a></li> */}
                 </div>
@@ -43,7 +43,7 @@ export default function Nosotros1(){
                     <img src={img} alt ="img"></img>
                 </div>
                 <div className="card-iconos">
-                   {/*  <li className="agrandar"><a href=""><span>Iconos de redes sociales</span></a></li>   
+                    {/* <li className="agrandar"><a href=""><span>Iconos de redes sociales</span></a></li>   
                     <li className="agrandar"><a href=""><span>Iconos de redes sociales</span></a></li>
                     <li className="agrandar"><a href=""><span>Iconos de redes sociales</span></a></li> */}
                 </div>
@@ -56,7 +56,7 @@ export default function Nosotros1(){
                     <img src={img} alt ="img"></img>
                 </div>
                 <div className="card-iconos">
-                   {/*  <li className="agrandar"><a href=""><span>Iconos de redes sociales</span></a></li>   
+                    {/* <li className="agrandar"><a href=""><span>Iconos de redes sociales</span></a></li>   
                     <li className="agrandar"><a href=""><span>Iconos de redes sociales</span></a></li>
                     <li className="agrandar"><a href=""><span>Iconos de redes sociales</span></a></li> */}
                 </div>
