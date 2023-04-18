@@ -12,7 +12,7 @@ export default function Nosotros1(){
     <div className="contenedor">
         {/* <div className="somos">¿Quienes somos?</div> */}
         <div className="contenedor1">
-            <div className="card">
+            <div className="card1">
                 <div className="conteiner2">
                     <img src={img} alt ="img"></img>
                 </div>
@@ -25,7 +25,7 @@ export default function Nosotros1(){
                     <div>Nombre y descripcion.</div>
                 </div>
             </div>
-            <div className="card">
+            <div className="card1">
                 <div className="conteiner2">
                     <img src={img} alt ="img"></img>
                 </div>
@@ -38,7 +38,7 @@ export default function Nosotros1(){
                     <div>Nombre y descripcion.</div>
                 </div>
             </div>
-            <div className="card">
+            <div className="card1">
                 <div className="conteiner2">
                     <img src={img} alt ="img"></img>
                 </div>
@@ -51,7 +51,7 @@ export default function Nosotros1(){
                     <div>Nombre y descripcion.</div>
                 </div>
             </div>
-            <div className="card">
+            <div className="card1">
                 <div className="conteiner2">
                     <img src={img} alt ="img"></img>
                 </div>

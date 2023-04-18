@@ -10,6 +10,12 @@ export const CardsDisplayer = styled.div`
     transition: 1s;
 `;
 
+export const SliderContainer = styled.div`
+    width: 100%;
+    height: 300px;
+    margin: 0 auto ;
+`;
+
 export const Layout = styled.div`
   display: grid;
   grid-template-columns: 1fr 5fr;
@@ -22,6 +28,7 @@ export const Container = styled.section`
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2em;
   overflow-x: hidden; 
+  margin: 0 px 0 0;
   `
 ;
 

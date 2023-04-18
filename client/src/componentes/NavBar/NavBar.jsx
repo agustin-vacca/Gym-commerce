@@ -40,40 +40,27 @@ export default function NavBar() {
         <div className="ThisIsLog">
           <UserButton />
         </div>
-      </div>
-      <div className="divTwo">
-        <div className="navButton">Inicio</div>
-        <div>
-          <div
-            className="navButton"
-            onClick={() => {
-              setOpen(!open);
-            }}
-          >
-            Productos
+        <div className="divTwo">
+          <div className="navButton"><Link to="/home" className="nosotros">Inicio</Link></div>
+          <div>
+            <div className="navButton" onClick={ () => {setOpen(!open)}}>
+              Productos
+            </div>
+            <div className={`dropdown-menu ${open? 'active' : 'inactive'}`}>
+              <ul>
+                <DropDownItem text = {"All"} />
+                <DropDownItem text = {"Maquinas"} />
+                <DropDownItem text = {"Mancuernas"} />
+                <DropDownItem text = {"Rack"} />
+                <DropDownItem text = {"Discos y Barras"} />
+                <DropDownItem text = {"Accesorios"} />
+              </ul>
+            </div>
           </div>
-          <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
-            <ul>
-              <DropDownItem text={"All"} />
-              <DropDownItem text={"Maquinas"} />
-              <DropDownItem text={"Mancuernas"} />
-              <DropDownItem text={"Rack"} />
-              <DropDownItem text={"Discos y Barras"} />
-              <DropDownItem text={"Accesorios"} />
-            </ul>
-          </div>
-        </div>
-        <div className="navButton">
-          <Link to="/consultas" className="nosotros">
-            Preguntas frecuentes
-          </Link>
-        </div>
-        <div className="navButton">
-          <Link to="/nosotros" className="nosotros">
-            Nosotros
-          </Link>
+          <div className="navButton"><Link to="/preguntasfrecuentes" className="nosotros">Preguntas frecuentes</Link></div>
+        <div className="navButton"><Link to ="/nosotros" className="nosotros">Nosotros</Link></div>
+      
         </div>
       </div>
-    </div>
   );
 }
