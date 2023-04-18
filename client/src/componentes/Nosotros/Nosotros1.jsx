@@ -5,7 +5,21 @@ import Footer from "../Footer/Footer";
 import NavBar from "../NavBar/NavBar";
 import imagen from "../../cardiganRectangulo.png";
 import styled from "styled-components";
+import img from "./R.png";
+import { Link } from "react-router-dom";
+import insta from "./imagenes/instagram.svg"
+import twitter from "./imagenes/twitter.svg"
+import twitch from "./imagenes/twitch.svg"
+import agus from "./imagenes/agus.png"
+import santi from "./imagenes/santi.png"
+import fred from "./imagenes/fred.png"
+import moa from "./imagenes/moa.png"
+import javier from "./imagenes/javier.png"
+import brian from "./imagenes/brian.png"
 
+const ImgGrande = styled.img`
+  width:15%;
+`
 const AboutUsContainer = styled.div`
    border: 30px solid #f6f6f6;
     background: #c7c7c7;    
@@ -45,7 +59,121 @@ export default function Nosotros1(){
         Proin posuere tortor at sem egestas pulvinar. Proin ut pellentesque nisi. Vestibulum mollis sodales facilisis. Cras eu orci ultrices, mollis ligula quis, congue ipsum. Quisque feugiat aliquet porta. In mollis, sem vel euismod ultricies, ligula lectus rutrum lorem, sit amet aliquam eros felis et neque. Duis commodo nec nibh ac auctor. Phasellus et nisl nisl. Aliquam vitae risus vitae dolor fringilla fermentum nec ac diam. Integer bibendum ante vestibulum, ornare urna ut, elementum libero. Vivamus nec congue lorem, in gravida ante. Nullam lobortis sollicitudin leo, non porta turpis luctus id. Nam ornare dui non elementum scelerisque.</p>
         </AboutUsText>        
     </AboutUsContainer>
+      <div className="contenedor">
+        <div className="contenedor1">         
+          <div className="card1">
+            <div className="conteiner2">
+              <img src={agus} alt="img"></img>
+            </div>            
+            <div className="info">
+              <p>Agustin Vacca</p>
+              <Link to="https://www.instagram.com/kunaguero/">
+                <ImgGrande src={insta}/>
+              </Link>
+              <Link to="https://twitter.com/aguerosergiokun">
+                <ImgGrande src={twitter}/>
+              </Link>
+              <Link to="https://www.twitch.tv/slakun10">
+                <ImgGrande src={twitch}/>
+              </Link>
+              <p>No rompan los huevos ni el codigo</p>
+            </div>
+          </div>
+          <div className="card1">
+            <div className="conteiner2">
+              <img src={santi} alt="img"></img>
+            </div>            
+            <div className="info">
+              <p>Santi Aguero</p>
+              <Link to="https://www.instagram.com/kunaguero/">
+                <ImgGrande src={insta}/>
+              </Link>
+              <Link to="https://twitter.com/aguerosergiokun">
+                <ImgGrande src={twitter}/>
+              </Link>
+              <Link to="https://www.twitch.tv/slakun10">
+                <ImgGrande src={twitch}/>
+              </Link>
+              <p>Un tipazo</p>
+            </div>
+          </div> 
+          <div className="card1">
+            <div className="conteiner2">
+              <img src={fred} alt="img"></img>
+            </div>            
+            <div className="info">
+              <p>Alfredo Egremy</p>
+              <Link to="https://www.instagram.com/kunaguero/">
+                <ImgGrande src={insta}/>
+              </Link>
+              <Link to="https://twitter.com/aguerosergiokun">
+                <ImgGrande src={twitter}/>
+              </Link>
+              <Link to="https://www.twitch.tv/slakun10">
+                <ImgGrande src={twitch}/>
+              </Link>
+              <p>Besto PM y ta mamadisimo</p>
+            </div>
+          </div> 
+          <div className="card1">
+            <div className="conteiner2">
+              <img src={moa} alt="img"></img>
+            </div>            
+            <div className="info">
+              <p>Mateo Ossorio Arana</p>
+              <Link to="https://www.instagram.com/kunaguero/">
+                <ImgGrande src={insta}/>
+              </Link>
+              <Link to="https://twitter.com/aguerosergiokun">
+                <ImgGrande src={twitter}/>
+              </Link>
+              <Link to="https://www.twitch.tv/slakun10">
+                <ImgGrande src={twitch}/>
+              </Link>
+              <p>No es lo mismo tomar una clase en linea, que tomarse una linea en clase</p>
+            </div>
+          </div> 
+          <div className="card1">
+            <div className="conteiner2">
+              <img src={javier} alt="img"></img>
+            </div>            
+            <div className="info">
+              <p>Javier</p>
+              <Link to="https://www.instagram.com/kunaguero/">
+                <ImgGrande src={insta}/>
+              </Link>
+              <Link to="https://twitter.com/aguerosergiokun">
+                <ImgGrande src={twitter}/>
+              </Link>
+              <Link to="https://www.twitch.tv/slakun10">
+                <ImgGrande src={twitch}/>
+              </Link>
+              <p>Hola tarolas</p>
+            </div>
+          </div> 
+          <div className="card1">
+            <div className="conteiner2">
+              <img src={brian} alt="img"></img>
+            </div>            
+            <div className="info">
+              <p>Brian</p>
+              <Link to="https://www.instagram.com/kunaguero/">
+                <ImgGrande src={insta}/>
+              </Link>
+              <Link to="https://twitter.com/aguerosergiokun">
+                <ImgGrande src={twitter}/>
+              </Link>
+              <Link to="https://www.twitch.tv/slakun10">
+                <ImgGrande src={twitch}/>
+              </Link>
+              <p>Piuk</p>
+            </div>
+          </div>                     
+        </div>
+      </div>
       <Footer />
     </Layout>
   );
 }
+   
+      
