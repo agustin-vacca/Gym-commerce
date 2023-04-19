@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import cardiganletras from "../../cardigan-letras.png";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import logo from "../../cardiganRectangulo.png";
 import { filterProductsByCategories } from "../../redux/actions.js";
 import SearchBar from "../SearchBar/SearchBar";
 import UserButton from "../UserButton/UserButton";
@@ -13,6 +13,7 @@ export default function NavBar() {
 
   // FILTROS CATEGORIA
   const dispatch = useDispatch();
+  const location = useLocation();
 
   const handleFilterCategories = (event) => {
     dispatch(filterProductsByCategories(event.target.value));
@@ -31,22 +32,24 @@ export default function NavBar() {
   return (
     <div className="LayoutNavbar">
       <div className="divLogo">
-        <Link to={"/home"}>
-          <img className="Logo" src={cardiganletras} alt="logoCardigan" />
+        <Link to={`/`}>
+          <img className="Logo" src={logo} alt="." />
         </Link>
       </div>
       <div className="divconjuntos">
         <div className="divOne">
-          <SearchBar />
-          <div className="ThisIsLog">
+          <div className="searchBarDiv">
+            {location.pathname === "/home" && <SearchBar />}
+          </div>
+          <div className="userButtondiv">
             <UserButton />
           </div>
         </div>
         <div className="divTwo">
           <div className="navButton">
-            <Link className="link" to={"/home"}>
+            <NavLink to="/home" className="nosotros">
               Inicio
-            </Link>
+            </NavLink>
           </div>
           <div>
             <div
@@ -69,14 +72,14 @@ export default function NavBar() {
             </div>
           </div>
           <div className="navButton">
-            <Link className="link" to="/preguntasfrecuentes">
+            <NavLink to="/preguntasfrecuentes" className="nosotros">
               Preguntas frecuentes
-            </Link>
+            </NavLink>
           </div>
           <div className="navButton">
-            <Link className="link" to="/nosotros">
+            <NavLink to="/nosotros" className="nosotros">
               Nosotros
-            </Link>
+            </NavLink>
           </div>
         </div>
       </div>
