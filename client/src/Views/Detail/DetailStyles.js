@@ -47,3 +47,43 @@ export const Review = styled.div`
   padding: 1rem;
   margin: 2rem;
 `;
+
+export const WalletContainer = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+
+.botonCompra{
+  margin: 10px;
+  padding: 15px 30px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+  display: block;
+  border: 0px;
+  font-weight: 700;
+  box-shadow: 0px 0px 14px -7px #0078d0;
+  background-image: linear-gradient(45deg, #1366d6 0%, #2f80ed  51%, #1366d6  100%);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.botonCompra:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.botonCompra:active {
+  transform: scale(0.95);
+}
+
+`;
+
+

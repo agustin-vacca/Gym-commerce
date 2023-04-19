@@ -6,7 +6,7 @@ import axios from "axios";
 import Footer from "../../componentes/Footer/Footer";
 import NavBar from "../../componentes/NavBar/NavBar";
 import { getProductById } from "../../redux/actions";
-import { Description, Head, Headimg, Review, Title } from "./DetailStyles";
+import { BotonCompra, Description, Head, Headimg, Review, Title, WalletContainer } from "./DetailStyles";
 import { initMercadoPago, Wallet } from '@mercadopago/sdk-react'
 initMercadoPago('TEST-f8550b3b-473d-4311-957c-5b5fd634b8fe');
 
@@ -43,14 +43,10 @@ const Detail = () => {
           <h1> {product.name} </h1>
           <h3>Precio: {product.price} U$D</h3>
           <h3>Color: {product.color} </h3>
-          <button>Añadir al carrito </button>
-          <button>Producto Disponible</button>
-          <div>
-            <div id="wallet_container">
-            <button onClick={buyClick} >Comprar</button>
-            {/* <Wallet   initialization={{ preferenceId: 3 }}  /> */}
-            </div>
-          </div>
+          <h2>Producto Disponible</h2>
+            <WalletContainer>
+            <button className="botonCompra" onClick={buyClick} >Comprar</button>
+            </WalletContainer>
         </Title>
       </Head>
       <Description>
