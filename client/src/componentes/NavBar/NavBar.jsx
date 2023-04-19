@@ -1,16 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import cardiganletras from "../../cardigan-letras.png";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import logo from "../../cardiganRectangulo.png";
 import { filterProductsByCategories } from "../../redux/actions.js";
 import SearchBar from "../SearchBar/SearchBar";
-import { Link, useLocation,NavLink } from "react-router-dom";
-import "./NavBar.css";
-import logo from "../../cardigan.png";
-import { BiUserCircle } from "react-icons/bi";
 import UserButton from "../UserButton/UserButton";
-import styled from "styled-components";
-
-
 import "./NavBar.css";
 
 export default function NavBar() {
@@ -19,6 +13,7 @@ export default function NavBar() {
 
   // FILTROS CATEGORIA
   const dispatch = useDispatch();
+  const location = useLocation();
 
   const handleFilterCategories = (event) => {
     dispatch(filterProductsByCategories(event.target.value));
@@ -36,29 +31,34 @@ export default function NavBar() {
   //NAVBAR
   return (
     <div className="LayoutNavbar">
+      <div className="divLogo">
+        <Link to={`/`}>
+          <img className="Logo" src={logo} alt="." />
+        </Link>
+      </div>
       <div className="divconjuntos">
         <div className="divOne">
-          <Link to={`/`}>
-            <img src={logo} alt="." width="70px"/>
-          </Link>        
           <div className="searchBarDiv">
-          {/*   {location.pathname === "/home" && <SearchBar />} */}
-          <SearchBar />
-          </div>  
+            {location.pathname === "/home" && <SearchBar />}
+          </div>
           <div className="userButtondiv">
             <UserButton />
-          </div>      
+          </div>
         </div>
         <div className="divTwo">
           <div className="navButton">
-            <NavLink to="/home" className="nosotros">Inicio</NavLink>
+            <NavLink to="/home" className="nosotros">
+              Inicio
+            </NavLink>
           </div>
           <div>
-            <div className="navButton"
-                onClick={() => {
-                  setOpen(!open);
-                }}>
-                Productos
+            <div
+              className="navButton"
+              onClick={() => {
+                setOpen(!open);
+              }}
+            >
+              Productos
             </div>
             <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
               <ul>
@@ -77,10 +77,10 @@ export default function NavBar() {
             </NavLink>
           </div>
           <div className="navButton">
-            <NavLink to ="/nosotros" className="nosotros">
+            <NavLink to="/nosotros" className="nosotros">
               Nosotros
             </NavLink>
-          </div>      
+          </div>
         </div>
       </div>
     </div>
