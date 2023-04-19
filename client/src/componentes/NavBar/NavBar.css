@@ -5,6 +5,10 @@
   background: black;
 }
 
+.link {
+  text-decoration: none;
+}
+
 .divLogo {
   display: flex;
   justify-content: center;
@@ -14,7 +18,8 @@
 }
 
 .Logo {
-  height: 60px;
+  padding: 1%;
+  height: 70px;
 }
 
 .divconjuntos {
@@ -32,15 +37,22 @@
   padding-left: 25%;
   padding-right: 6%;
 }
+.userButtondiv {
+  display: flex;
+}
+.searchBarDiv {
+  display: flex;
+  height: fit-content;
+}
 
-.ThisIsLog {
+.userButtondiv {
   display: block;
   color: aliceblue;
   transition: 1s;
   cursor: pointer;
 }
-.ThisIsLog:hover {
-  color: rgba(255, 38, 0, 0.479);
+.userButtondiv:hover {
+  color: rgb(238, 255, 88);
 }
 
 .divTwo {
@@ -68,14 +80,17 @@
   transition: 1s;
   text-decoration-line: none;
 }
+.navButton a.active {
+  color: #61777f;
+}
 .navButton:hover {
-  color: rgba(255, 38, 0, 0.479);
+  color: rgb(238, 255, 88);
 }
 
 .dropdown-menu {
   position: absolute;
   display: flex;
-  top: 11.8vh;
+  top: 15.5%;
   color: white;
   background-color: black;
   border-radius: var(--border-radius);

@@ -10,19 +10,19 @@ import Nosotros1 from "./componentes/Nosotros/Nosotros1";
 import Preguntas from "./componentes/PreguntasFrecuentes/Preguntas";
 
 function App() {
-  return (
-    <div className="App">
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/form" element={<Formulario />} />
-        <Route path="/detail/:id" element={<Detail />} />
-        <Route path="/nosotros" element={<Nosotros1/>} />
-        <Route path="/preguntasfrecuentes" element={<Preguntas/>} />
-        <Route path="*" element={<Error />} />
-      </Routes>
-    </div>
-  );
+	return (
+		<div className="App">
+			<Routes>
+				<Route path="/" element={<Landing />} />
+				<Route path="/home" element={<Home />} />
+				<Route path="/form" element={<Formulario />} />
+				<Route path="/detail/:id" element={<Detail />} />
+				<Route path="/nosotros" element={<Nosotros1 />} />
+				<Route path="/preguntasfrecuentes" element={<Preguntas />} />
+				<Route path="*" element={<Error />} />
+			</Routes>
+		</div>
+	);
 }
 
 export default App;
