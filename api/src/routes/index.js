@@ -14,6 +14,6 @@ const router = Router();
 router.use("/categorias", CategoryRoutes);
 router.use("/productos", ProductsRoutes);
 router.use("/usuarios", UserRoutes);
-router.use("/mercadoPago", Mercadopago);
+router.use("/mercadopago", Mercadopago);
 
 module.exports = router;
