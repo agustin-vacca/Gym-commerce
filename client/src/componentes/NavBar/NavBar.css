@@ -5,6 +5,10 @@
   background: black;
 }
 
+.link {
+  text-decoration: none;
+}
+
 .divLogo {
   display: flex;
   justify-content: center;
