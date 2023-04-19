@@ -1,13 +1,12 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Footer from "../../componentes/Footer/Footer";
 import NavBar from "../../componentes/NavBar/NavBar";
 import { getProductById } from "../../redux/actions";
-import { BotonCompra, Description, Head, Headimg, Review, Title, WalletContainer } from "./DetailStyles";
-import { initMercadoPago, Wallet } from '@mercadopago/sdk-react'
+import { Description, Head, Headimg, Review, Title, WalletContainer } from "./DetailStyles";
+import { initMercadoPago } from '@mercadopago/sdk-react'
 initMercadoPago('TEST-f8550b3b-473d-4311-957c-5b5fd634b8fe');
 
 
@@ -16,7 +15,6 @@ initMercadoPago('TEST-f8550b3b-473d-4311-957c-5b5fd634b8fe');
 
 const Detail = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const product = useSelector((state) => state.detail);
 
