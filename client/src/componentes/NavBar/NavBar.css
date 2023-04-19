@@ -40,7 +40,7 @@
   cursor: pointer;
 }
 .ThisIsLog:hover {
-  color: rgba(255, 38, 0, 0.479);
+  color: rgb(238, 255, 88);
 }
 
 .divTwo {
@@ -69,7 +69,7 @@
   text-decoration-line: none;
 }
 .navButton:hover {
-  color: rgba(255, 38, 0, 0.479);
+  color: rgb(238, 255, 88);
 }
 
 .dropdown-menu {
