@@ -45,13 +45,13 @@
   height: fit-content;
 }
 
-.ThisIsLog {
+.userButtondiv {
   display: block;
   color: aliceblue;
   transition: 1s;
   cursor: pointer;
 }
-.ThisIsLog:hover {
+.userButtondiv:hover {
   color: rgb(238, 255, 88);
 }
 
