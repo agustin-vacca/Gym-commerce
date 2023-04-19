@@ -10,6 +10,7 @@ import { BiUserCircle } from "react-icons/bi";
 import UserButton from "../UserButton/UserButton";
 import styled from "styled-components";
 
+
 import "./NavBar.css";
 
 export default function NavBar() {
@@ -41,7 +42,8 @@ export default function NavBar() {
             <img src={logo} alt="." width="70px"/>
           </Link>        
           <div className="searchBarDiv">
-            {location.pathname === "/home" && <SearchBar />}
+          {/*   {location.pathname === "/home" && <SearchBar />} */}
+          <SearchBar />
           </div>  
           <div className="userButtondiv">
             <UserButton />

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CardsDiv = styled.div`
+export const CardDiv = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
