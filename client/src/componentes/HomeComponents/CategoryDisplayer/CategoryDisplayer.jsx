@@ -7,7 +7,6 @@ import CategoryCard from "./CategoryCard.jsx";
 export default function CategoryDisplayer() {
   const dispatch = useDispatch();
   const allCategories = useSelector((state) => state.categories);
-  const allProducts = useSelector((state) => state.products);
 
   useEffect(() => {
     dispatch(getCategories());
@@ -15,7 +14,6 @@ export default function CategoryDisplayer() {
   }, []);
 
   
-  console.log(allProducts);
   return (
     <Container>
        {allCategories.map((el) => {
@@ -26,7 +24,6 @@ export default function CategoryDisplayer() {
                 name={el.name}
                 description={el.description}
                 image={el.productos[0].image}
-                
               />
             );
           })} 

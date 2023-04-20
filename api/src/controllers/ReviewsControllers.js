@@ -37,7 +37,7 @@ const createReview = (
         include: [
           {
             model: Producto,
-            attributes: ["name", "image"],
+            attributes: ["name", "image", "id"],
             through: { attributes: [] },
           },
         ],

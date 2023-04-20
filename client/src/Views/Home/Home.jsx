@@ -4,6 +4,7 @@ import ImageSlider from "../../componentes/ImageSlider/ImageSlider";
 import NavBar from "../../componentes/NavBar/NavBar";
 import { Layout } from "./commonStyles";
 import CategoryDisplayer from "../../componentes/HomeComponents/CategoryDisplayer/CategoryDisplayer";
+import ReviewDisplayer from "../../componentes/HomeComponents/Reviews/ReviewDisplayer";
 
 const Home = () => {
   const slides = [
@@ -26,7 +27,7 @@ const Home = () => {
           <br></br>
           <hr></hr>
           <h1>Proximamente: Reviews Displayer</h1>
-        
+          <ReviewDisplayer/>
       </div>
       <div className="footerDiv">
        <Footer />  
