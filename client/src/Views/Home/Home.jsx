@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import Cards from "../../componentes/Cards/Cards";
-import OrderAndFilters from "../../componentes/Filters/OrderAndFilters";
 import Footer from "../../componentes/Footer/Footer";
 import ImageSlider from "../../componentes/ImageSlider/ImageSlider";
 import NavBar from "../../componentes/NavBar/NavBar";
 import { Layout } from "./commonStyles";
+import CategoryDisplayer from "../../componentes/HomeComponents/CategoryDisplayer/CategoryDisplayer";
 
 const Home = () => {
   const slides = [
@@ -20,20 +19,18 @@ const Home = () => {
     <Layout>
       <NavBar />
       <div className="content">
-        <div className="filtersComp">
-          <h3>FILTROS</h3>
-          <OrderAndFilters setOrden={setOrden} />
-        </div>
-        <div className="imgCards">
-          <div className="ContainerStyles">
-            <ImageSlider slides={slides} />
-          </div>
-          <div className="ContainerCards">
-            <Cards />
-          </div>
-        </div>
+        <div className="ContainerStyles">
+          <ImageSlider slides={slides} /></div>
+          <h1>Nuestros Products</h1>
+          <CategoryDisplayer/>
+          <br></br>
+          <hr></hr>
+          <h1>Proximamente: Reviews Displayer</h1>
+        
       </div>
-      <Footer />
+      <div className="footerDiv">
+       <Footer />  
+       </div>
     </Layout>
   );
 };
