@@ -7,25 +7,43 @@ export const CardDiv = styled.div`
 	align-items: center;
 	height: 30rem;
 	width: 30%;
-	box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-		rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+	box-shadow: 2px 5px 10px rgba(0,0,0,0.3);
 	border-radius: 10px;
-	cursor: pointer;
 	font-family: "Plus Jakarta Sans";
 	font-weight: 800;
 	transition: 1s;
-	a:link {
-		text-decoration: none !important;
-	}
 
 	.text{
-		margin: 0px auto;
+	width: 100%;
+    text-align: center;
+	text-justify: center;
+		background-color: rgba(185, 186, 255, 0.38);
 	}
 
 	.img{
 		background-color: lightblue;
-		height: 80%;
-		width: 80%;
+		height: 70%;
+		width: 70%;
+		margin-bottom: 20px;
 	}
+
+.btn{
+    width: 100%;
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: rgba(185, 186, 255, 0.38);
+    color: blue;
+    text-decoration: none;
+    font-size: 20px;
+    transition: 0.4s ease;
+}
+
+.btn:hover{
+    background-color: blue;
+    color: #fff;
+}
+
 `;
 

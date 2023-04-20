@@ -21,7 +21,8 @@ export default function CategoryDisplayer() {
                 key={el.id}
                 id={el.id}
                 name={el.name}
-                image={el.productos[0].id}
+                description={el.description}
+                image={el.productos[0].image}
               />
             );
           })} 

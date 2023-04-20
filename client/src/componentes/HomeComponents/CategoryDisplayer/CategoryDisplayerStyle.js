@@ -7,7 +7,6 @@ export const Container = styled.div`
   flex-wrap: wrap;
   padding-bottom: 2em;
 
-  background-color: beige;
   place-content: center;
   
 `;

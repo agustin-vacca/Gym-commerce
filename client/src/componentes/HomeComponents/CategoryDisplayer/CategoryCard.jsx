@@ -1,15 +1,12 @@
 import React from "react";
 import { CardDiv } from "./CategoryCardStyle";
-import { Link } from "react-router-dom";
 
 function CategoryCard({ name, image  }) {
   return (
     <CardDiv>
-      <div className="text"><p>{name}</p></div>
-      <Link className="img" to={`/catalogue`}>
-      <p>{image}</p>
-       <div><h6>Aca va la imagen</h6></div>
-       </Link>
+      <div className="text"><h1>{name}</h1></div>
+        <img className="img" src={image} alt="foto"></img>
+       <a href="/catalogue" className="btn">Ver Mas</a>
     </CardDiv>
   );
 }
