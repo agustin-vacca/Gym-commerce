@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../cardiganRectangulo.png";
 import { filterProductsByCategories } from "../../redux/actions.js";
 import SearchBar from "../SearchBar/SearchBar";
@@ -14,9 +14,11 @@ export default function NavBar() {
   // FILTROS CATEGORIA
   const dispatch = useDispatch();
   const location = useLocation();
+  const navigate = useNavigate();
 
   const handleFilterCategories = (event) => {
     dispatch(filterProductsByCategories(event.target.value));
+    navigate("/catalogue")  
   };
 
   // FUNCION DROP
@@ -39,7 +41,7 @@ export default function NavBar() {
       <div className="divconjuntos">
         <div className="divOne">
           <div className="searchBarDiv">
-            {location.pathname === "/home" && <SearchBar />}
+            {location.pathname === "/catalogue" && <SearchBar />}
           </div>
           <div className="userButtondiv">
             <UserButton />

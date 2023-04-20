@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { useDispatch, useSelector } from "react-redux";
-import { getProducts } from "../../redux/actions";
+import { useSelector } from "react-redux";
 import Card from "../Card/Card";
 import { Container, LoadingIMG } from "./CardsStyle";
 
 export default function Cards() {
-  const dispatch = useDispatch();
+
   const allProducts = useSelector((state) => state.products);
   // eslint-disable-next-line
   const [currentPage, setCurrentPage] = useState(1);
@@ -23,9 +22,6 @@ export default function Cards() {
     }, 500);
   };
 
-  useEffect(() => {
-    dispatch(getProducts());
-  }, []);
 
   return (
     <div>
@@ -38,7 +34,7 @@ export default function Cards() {
             ""
           ) : (
             <LoadingIMG>
-              <div class="lds-ring">
+              <div className="lds-ring">
                 <div></div>
                 <div></div>
                 <div></div>
