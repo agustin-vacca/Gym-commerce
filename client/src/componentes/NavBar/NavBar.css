@@ -52,7 +52,7 @@
   cursor: pointer;
 }
 .userButtondiv:hover {
-  color: rgb(238, 255, 88);
+  color: rgba(255, 38, 0, 0.479);
 }
 
 .divTwo {
@@ -84,7 +84,7 @@
   color: #61777f;
 }
 .navButton:hover {
-  color: rgb(238, 255, 88);
+  color: rgba(255, 38, 0, 0.479);
 }
 
 .dropdown-menu {
