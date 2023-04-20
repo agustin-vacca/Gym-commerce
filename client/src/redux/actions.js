@@ -1,6 +1,7 @@
 import axios from "axios";
 import {
   FILTER_BY_CATEGORY,
+  GET_CATEGORIES,
   GET_PRODUCTS,
   GET_PRODUCTS_BY_NAME,
   GET_PRODUCT_BY_ID,
@@ -38,6 +39,21 @@ export function getProductById(id) {
     }
   };
 }
+
+export function getCategories() {
+  return async function (dispatch) {
+    try {
+      let json = await axios.get("http://localhost:3001/categorias");
+      return dispatch({
+        type: GET_CATEGORIES,
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
 
 export const createProducts = (obj) => {
   console.log(obj);

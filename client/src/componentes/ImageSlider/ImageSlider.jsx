@@ -31,7 +31,7 @@ const ImageSlider = ({ slides }) => {
 
   const slideStyles = {
     width: "100%",
-    height: "300px",
+    height: "500px",
     borderRadius: "10px",
     backgroundPosition: "center",
     backgroundSize: "cover",

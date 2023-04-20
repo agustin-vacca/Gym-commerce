@@ -1,7 +1,7 @@
 .LayoutNavbar {
   display: flex;
   flex-direction: row;
-  width: 100vw;
+  width: 100%;
   background: black;
 }
 
@@ -90,7 +90,7 @@
 .dropdown-menu {
   position: absolute;
   display: flex;
-  top: 15.5%;
+  margin-top: 0;
   color: white;
   background-color: black;
   border-radius: var(--border-radius);

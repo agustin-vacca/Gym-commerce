@@ -1,5 +1,6 @@
 import {
   FILTER_BY_CATEGORY,
+  GET_CATEGORIES,
   GET_PRODUCTS,
   GET_PRODUCTS_BY_NAME,
   GET_PRODUCT_BY_ID,
@@ -8,6 +9,7 @@ import {
 } from "./action-types";
 
 const initialState = {
+  categories:[],
   products: [],
   allProducts: [],
   productsOrder: [],
@@ -23,7 +25,11 @@ const reducer = (state = initialState, action) => {
         products: action.payload,
         allProducts: action.payload,
       };
-
+    case GET_CATEGORIES:
+        return{
+          ...state,
+          categories: action.payload,
+        };
     case GET_PRODUCT_BY_ID:
       return {
         ...state,
