@@ -24,6 +24,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         products: action.payload,
         allProducts: action.payload,
+        products: action.payload,
       };
     case GET_CATEGORIES:
         return{
@@ -92,6 +93,7 @@ const reducer = (state = initialState, action) => {
         action.payload === "All"
           ? allProducts
           : allProducts.filter(el => el.categoria[0].name === action.payload);
+          console.log(categoryFiltered);
       return {
         ...state,
         products: categoryFiltered,

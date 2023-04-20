@@ -24,7 +24,7 @@ export default function Cards() {
   };
 
   useEffect(() => {
-    dispatch(getProducts());
+    /* dispatch(getProducts()); */
   }, []);
 
   return (
@@ -38,7 +38,7 @@ export default function Cards() {
             ""
           ) : (
             <LoadingIMG>
-              <div class="lds-ring">
+              <div className="lds-ring">
                 <div></div>
                 <div></div>
                 <div></div>
