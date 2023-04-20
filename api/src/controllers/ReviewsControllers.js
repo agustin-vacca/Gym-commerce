@@ -1,10 +1,11 @@
-const { Producto, Reviews } = require("../db");
+const { Producto, Reviews, Usuario } = require("../db");
 const { Op } = require("sequelize");
 
 const createReview = (
     opinion,
     rating,
     item,
+    usuario,
   ) => {
     create_date = new Date();
     offer = false;
@@ -12,27 +13,13 @@ const createReview = (
     const newReview = Reviews.create({
         opinion,
         rating,
-        item
+        item,
+        usuario
     });
     return newReview;
   };
 
-  const getReviews = (id) => {
-    if (id) {
-      const reviews = Reviews.findAll({
-        where: {
-          id: { [Op.iLike]: `%${id}%` },
-        },
-        include: [
-          {
-            model: Producto,
-            attributes: ["name"],
-            through: { attributes: [] },
-          },
-        ],
-      });
-      return reviews;
-    } else {
+  const getReviews = () => {
       const reviews = Reviews.findAll({
         include: [
           {
@@ -40,10 +27,13 @@ const createReview = (
             attributes: ["name", "image", "id"],
             through: { attributes: [] },
           },
+          {
+            model: Usuario,
+            attributes: ["full_name"],
+          },
         ],
       });
       return reviews;
-    }
   };
 
   module.exports = {
