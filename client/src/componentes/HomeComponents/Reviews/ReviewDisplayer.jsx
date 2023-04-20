@@ -8,18 +8,21 @@ import {Container} from "./ReviewDisplayerStyle";
 export default function ReviewDisplayer() {
     const dispatch = useDispatch();
     const allReviews = useSelector((state) => state.reviews);
-  
+    const sliceReviews = allReviews.slice(0,4)
+
+
     useEffect(() => {
-      dispatch(getReviews());
+      dispatch ( getReviews());
     }, []);
   
     
     return (
       <Container>
-         {allReviews.map((el) => {
+         {sliceReviews.map((el) => {
               return (
                 <ReviewCard
                   key={el.id}
+                  user={el.usuarios[0].full_name}
                   rating={el.rating}
                   opinion={el.opinion}
                   producto={el.productos[0].name}
