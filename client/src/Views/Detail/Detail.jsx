@@ -8,9 +8,7 @@ import { getProductById, getReviews, getUsers } from "../../redux/actions";
 import { Description, Head, Headimg, Review, Title, WalletContainer } from "./DetailStyles";
 import { initMercadoPago } from '@mercadopago/sdk-react'
 import DetailReviews from "../../componentes/DetailComponents/DetailReviews/DetailReviews";
-import { useAuth0 } from "@auth0/auth0-react";
 initMercadoPago('TEST-f8550b3b-473d-4311-957c-5b5fd634b8fe');
-
 
 
 
@@ -19,8 +17,9 @@ const Detail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const product = useSelector((state) => state.detail);
-  const { user } = useAuth0();
-  const productReviews = useSelector((state) => state.reviews);
+  // eslint-disable-next-line
+
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -29,9 +28,6 @@ const Detail = () => {
     dispatch(getReviews());
   }, [dispatch, id]);
 
-  const ver = async () => {
-    console.log(user);
-  }
 
   const buyClick = async () => {
     const json = await axios.get(`http://localhost:3001/mercadopago/payment/${id}`)
@@ -61,7 +57,6 @@ const Detail = () => {
       </Description>
       <Review>
         <h3>Reviews</h3>
-        <button onClick={ver}>log detalles</button>
         <DetailReviews/>
       </Review>
       <Footer />

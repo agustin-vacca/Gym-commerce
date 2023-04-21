@@ -7,7 +7,7 @@ import {Container} from "./ReviewDisplayerStyle";
 
 export default function ReviewDisplayer() {
     const dispatch = useDispatch();
-    const allReviews = useSelector((state) => state.reviews);
+    const allReviews = useSelector((state) => state.allReviews);
     const sliceReviews = allReviews.slice(0,4)
 
     useEffect(() => {

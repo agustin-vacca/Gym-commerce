@@ -10,4 +10,7 @@ export const GET_USERS = "GET_USERS";
 export const GET_CATEGORIES = "GET_CATEGORIES";
 export const GET_REVIEWS = "GET_REVIEWS";
 export const FILTER_REVIEWS = "FILTER_REVIEWS";
+export const POST_REVIEW = "POST_REVIEW";
+
+
 

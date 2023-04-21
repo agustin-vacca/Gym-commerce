@@ -11,7 +11,8 @@ import {
   POST_PRODUCTS,
   POST_USERS,
   GET_REVIEWS,
-  FILTER_REVIEWS
+  FILTER_REVIEWS,
+  POST_REVIEW,
 } from "./action-types";
 
 export function getProducts() {
@@ -143,6 +144,25 @@ export function getUsers() {
     }
   };
 }
+
+export const createReview = (obj) => {
+  console.log(obj);
+  return async function (dispatch) {
+    try {
+      let response = await axios.post(
+        "http://localhost:3001/reviews/create",
+        obj
+      );
+      console.log(response);
+      return dispatch({
+        type: POST_REVIEW,
+        payload: response.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
 
 export const createUsers = (obj) => {
   console.log(obj);
