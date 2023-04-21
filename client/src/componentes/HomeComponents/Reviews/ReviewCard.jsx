@@ -11,7 +11,7 @@ function ReviewCard({ user, rating, opinion, producto, image, prodId }) {
       <img className="img" src={image} alt="foto" />
       <div  ><h5>{opinion}</h5></div>
       <div  ><h4>{rating}/5</h4></div>
-      <Link to={`/detail/${prodId}`}>Ver Producto</Link>
+      <Link className="verProd" to={`/detail/${prodId}`}>Ver Producto</Link>
 
     </CardDiv>
   );

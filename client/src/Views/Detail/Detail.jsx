@@ -4,10 +4,11 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Footer from "../../componentes/Footer/Footer";
 import NavBar from "../../componentes/NavBar/NavBar";
-import { getProductById } from "../../redux/actions";
+import { getProductById, getReviews, getUsers } from "../../redux/actions";
 import { Description, Head, Headimg, Review, Title, WalletContainer } from "./DetailStyles";
 import { initMercadoPago } from '@mercadopago/sdk-react'
 import DetailReviews from "../../componentes/DetailComponents/DetailReviews/DetailReviews";
+import { useAuth0 } from "@auth0/auth0-react";
 initMercadoPago('TEST-f8550b3b-473d-4311-957c-5b5fd634b8fe');
 
 
@@ -18,11 +19,19 @@ const Detail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const product = useSelector((state) => state.detail);
+  const { user } = useAuth0();
+  const productReviews = useSelector((state) => state.reviews);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     dispatch(getProductById(id));
+    dispatch(getUsers());
+    dispatch(getReviews());
   }, [dispatch, id]);
 
+  const ver = async () => {
+    console.log(user);
+  }
 
   const buyClick = async () => {
     const json = await axios.get(`http://localhost:3001/mercadopago/payment/${id}`)
@@ -48,10 +57,11 @@ const Detail = () => {
         </Title>
       </Head>
       <Description>
-        <h3> Descripcion: {product.description} </h3>
+        <h3> Descripcion: <h5 className="prodDescr">{product.description}</h5> </h3>
       </Description>
       <Review>
         <h3>Reviews</h3>
+        <button onClick={ver}>log detalles</button>
         <DetailReviews/>
       </Review>
       <Footer />
