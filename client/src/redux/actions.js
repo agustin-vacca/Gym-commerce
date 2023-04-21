@@ -10,6 +10,7 @@ import {
   ORDER_BY_PRICE,
   POST_PRODUCTS,
   POST_USERS,
+  GET_REVIEWS
 } from "./action-types";
 
 export function getProducts() {
@@ -53,7 +54,19 @@ export function getCategories() {
     }
   };
 }
-
+export function getReviews() {
+  return async function (dispatch) {
+    try {
+      let json = await axios.get("http://localhost:3001/reviews");
+      return dispatch({
+        type: GET_REVIEWS,
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
 
 export const createProducts = (obj) => {
   console.log(obj);

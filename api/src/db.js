@@ -50,6 +50,8 @@ Categoria.belongsToMany(Producto, { through: "producto_categoria" });
 
 Reviews.belongsToMany(Producto, { through: "producto_reviews" });
 Producto.belongsToMany(Reviews, { through: "producto_reviews" });
+Reviews.belongsToMany(Usuario, { through: "usuario_reviews" });
+Usuario.belongsToMany(Reviews, { through: "usuario_reviews" });
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
