@@ -10,7 +10,6 @@ export default function ReviewDisplayer() {
     const allReviews = useSelector((state) => state.reviews);
     const sliceReviews = allReviews.slice(0,4)
 
-
     useEffect(() => {
       dispatch ( getReviews());
     }, []);
@@ -31,7 +30,6 @@ export default function ReviewDisplayer() {
                 />
               );
             })} 
-  
       </Container>
     );
   };

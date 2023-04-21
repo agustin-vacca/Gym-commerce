@@ -7,6 +7,7 @@ import NavBar from "../../componentes/NavBar/NavBar";
 import { getProductById } from "../../redux/actions";
 import { Description, Head, Headimg, Review, Title, WalletContainer } from "./DetailStyles";
 import { initMercadoPago } from '@mercadopago/sdk-react'
+import DetailReviews from "../../componentes/DetailComponents/DetailReviews/DetailReviews";
 initMercadoPago('TEST-f8550b3b-473d-4311-957c-5b5fd634b8fe');
 
 
@@ -20,7 +21,6 @@ const Detail = () => {
 
   useEffect(() => {
     dispatch(getProductById(id));
-    console.log(id);
   }, [dispatch, id]);
 
 
@@ -52,6 +52,7 @@ const Detail = () => {
       </Description>
       <Review>
         <h3>Reviews</h3>
+        <DetailReviews/>
       </Review>
       <Footer />
     </div>
