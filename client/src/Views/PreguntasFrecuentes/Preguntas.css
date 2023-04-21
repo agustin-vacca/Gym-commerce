@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
 
-body{
-   background: #f6f6f6;
+.layout{
+   background: #fff;
+   width: 100%;
+   min-height: 70vh;
 }
 
 .box{
@@ -44,3 +46,8 @@ details{
 details summary{
    outline: none;
 }
+
+.footerDiv{
+   margin-bottom: 0;
+   width: 100%;
+   }

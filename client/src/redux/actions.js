@@ -1,6 +1,7 @@
 import axios from "axios";
 import {
   FILTER_BY_CATEGORY,
+  GET_CATEGORIES,
   GET_PRODUCTS,
   GET_PRODUCTS_BY_NAME,
   GET_PRODUCT_BY_ID,
@@ -9,6 +10,7 @@ import {
   ORDER_BY_PRICE,
   POST_PRODUCTS,
   POST_USERS,
+  GET_REVIEWS
 } from "./action-types";
 
 export function getProducts() {
@@ -31,6 +33,33 @@ export function getProductById(id) {
       const json = await axios.get(`http://localhost:3001/productos/${id}`);
       return dispatch({
         type: GET_PRODUCT_BY_ID,
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function getCategories() {
+  return async function (dispatch) {
+    try {
+      let json = await axios.get("http://localhost:3001/categorias");
+      return dispatch({
+        type: GET_CATEGORIES,
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+export function getReviews() {
+  return async function (dispatch) {
+    try {
+      let json = await axios.get("http://localhost:3001/reviews");
+      return dispatch({
+        type: GET_REVIEWS,
         payload: json.data,
       });
     } catch (error) {

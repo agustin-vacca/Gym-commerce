@@ -6,8 +6,9 @@ import Home from "../src/Views/Home/Home";
 import "./App.css";
 import Landing from "./Views/Landing/Landing";
 import Error from "./componentes/Error/Error";
-import Nosotros1 from "./componentes/Nosotros/Nosotros1";
-import Preguntas from "./componentes/PreguntasFrecuentes/Preguntas";
+import Nosotros1 from "./Views/Nosotros/Nosotros1";
+import Preguntas from "./Views/PreguntasFrecuentes/Preguntas";
+import Productos from "./Views/Productos/Productos";
 import AdminGral from "./Views/AdminViews/AdminGral";
 import AdminProducts from "./Views/AdminViews/AdminProducts";
 import AdminUsers from "./Views/AdminViews/AdminUsers";
@@ -18,6 +19,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Landing />} />
 				<Route path="/home" element={<Home />} />
+				<Route path="/catalogue" element={<Productos />} />
 				<Route path="/form" element={<Formulario />} />
 				<Route path="/detail/:id" element={<Detail />} />
 				<Route path="/nosotros" element={<Nosotros1 />} />

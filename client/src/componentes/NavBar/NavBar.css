@@ -1,8 +1,12 @@
 .LayoutNavbar {
   display: flex;
   flex-direction: row;
-  width: 100vw;
+  width: 100%;
   background: black;
+}
+
+.link {
+  text-decoration: none;
 }
 
 .divLogo {
@@ -14,7 +18,8 @@
 }
 
 .Logo {
-  height: 60px;
+  padding: 1%;
+  height: 70px;
 }
 
 .divconjuntos {
@@ -32,21 +37,21 @@
   padding-left: 25%;
   padding-right: 6%;
 }
-.userButtondiv{
+.userButtondiv {
   display: flex;
 }
-.searchBarDiv{
+.searchBarDiv {
   display: flex;
   height: fit-content;
 }
 
-.ThisIsLog {
+.userButtondiv {
   display: block;
   color: aliceblue;
   transition: 1s;
   cursor: pointer;
 }
-.ThisIsLog:hover {
+.userButtondiv:hover {
   color: rgba(255, 38, 0, 0.479);
 }
 
@@ -74,10 +79,9 @@
   background-color: black;
   transition: 1s;
   text-decoration-line: none;
-
 }
 .navButton a.active {
-  color: #61777f
+  color: #61777f;
 }
 .navButton:hover {
   color: rgba(255, 38, 0, 0.479);
@@ -86,7 +90,7 @@
 .dropdown-menu {
   position: absolute;
   display: flex;
-  top: 15.5%;
+  margin-top: 0;
   color: white;
   background-color: black;
   border-radius: var(--border-radius);
