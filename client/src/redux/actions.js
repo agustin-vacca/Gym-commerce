@@ -10,7 +10,8 @@ import {
   ORDER_BY_PRICE,
   POST_PRODUCTS,
   POST_USERS,
-  GET_REVIEWS
+  GET_REVIEWS,
+  FILTER_REVIEWS
 } from "./action-types";
 
 export function getProducts() {
@@ -103,6 +104,12 @@ export function orderByPrice(payload) {
 export function filterProductsByCategories(payload) {
   return {
     type: FILTER_BY_CATEGORY,
+    payload,
+  };
+}
+export function filterReviewsByProduct(payload) {
+  return {
+    type: FILTER_REVIEWS,
     payload,
   };
 }

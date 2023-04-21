@@ -1,6 +1,7 @@
 import React from "react";
 import { SiFacebook, SiInstagram } from "react-icons/si";
 import { FoterDiv } from "./Footerstyle";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -16,9 +17,14 @@ export default function Footer() {
       </div>
       <div className="Siguenos">
         <h3>Siguenos</h3>
+        <Link className="link" to="https://www.instagram.com/kunaguero/" target="blank">
         <SiInstagram size={25} />
+        </Link>
         <br></br>
+        <Link className="link" to="https://www.facebook.com/sergioelkunaguero/?locale=es_LA" target="blank">
         <SiFacebook size={25} />
+        </Link>
+
       </div>
       <div className="HorariosDeAtencion">
         <h3>HorariosDeAtencion</h3>
