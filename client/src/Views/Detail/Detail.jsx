@@ -56,7 +56,6 @@ const Detail = () => {
         <h3> Descripcion: <h5 className="prodDescr">{product.description}</h5> </h3>
       </Description>
       <Review>
-        <h3>Reviews</h3>
         <DetailReviews/>
       </Review>
       <Footer />

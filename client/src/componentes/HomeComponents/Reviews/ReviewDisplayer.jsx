@@ -21,7 +21,7 @@ export default function ReviewDisplayer() {
               return (
                 <ReviewCard
                   key={el.id}
-                  user={el.usuarios[0].full_name}
+                  user={el.user}
                   rating={el.rating}
                   opinion={el.opinion}
                   producto={el.productos[0].name}

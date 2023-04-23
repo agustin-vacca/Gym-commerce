@@ -11,17 +11,13 @@ export default function DetailReviews() {
     const {id} = useParams()
     const dispatch = useDispatch();
     const productReviews = useSelector((state) => state.reviews);
-
-
     
     const verReviews = async () => {
       dispatch ( filterReviewsByProduct(id));
-      console.log(productReviews);
     }
 
     useEffect(() => {
       dispatch ( filterReviewsByProduct(id));
-      console.log(productReviews);
       }, []);
 
 return ( 
@@ -32,7 +28,7 @@ return (
             return (
               <Detailcard
                 key={el.id}
-                usuario={el.usuarios[0].full_name}
+                usuario={el.user}
                 rating={el.rating}
                 opinion={el.opinion}
               />

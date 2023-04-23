@@ -6,11 +6,10 @@ export const Container = styled.section`
   flex-direction: column;
   width: 80%;
   height: fit-content;
-  flex-wrap: wrap;
   margin: 0 auto;
-  gap: 1em;
   padding-bottom: 2em;
   padding: 1%;
+
 
   
 `;

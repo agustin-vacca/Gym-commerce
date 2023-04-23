@@ -17,7 +17,12 @@ background-image: linear-gradient(45deg, #F5F5F5 0%, #F0F0F0  51%, #F5F5F5  100%
 box-shadow: 10 10 14px 4px rgba(160,160,160 0.55);
 backdrop-filter: blur(25px);
 	
-
+:nth-child(even){
+border-radius: 20px;
+background-image: linear-gradient(45deg, #BEBEBE 0%, #F0F0F0  51%, #BEBEBE  100%);
+box-shadow: 10 10 14px 4px rgba(160,160,160 0.55);
+backdrop-filter: blur(25px);
+}
 :hover{
 	background-color: rgba(130, 135, 135, 0.3);
 }
@@ -29,8 +34,8 @@ backdrop-filter: blur(25px);
 	}
 
 	.img{
-		height: 30%;
-		width: 30%;
+		height: 80%;
+		width: 80%;
 		margin-bottom: 20px;
 		border-radius: 50px;
 	}
