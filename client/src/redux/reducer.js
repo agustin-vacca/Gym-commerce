@@ -8,6 +8,7 @@ import {
   ORDER_BY_NAME,
   ORDER_BY_PRICE,
   FILTER_REVIEWS,
+  POST_REVIEW,
 } from "./action-types";
 
 const initialState = {
@@ -98,12 +99,13 @@ const reducer = (state = initialState, action) => {
       };
     case FILTER_REVIEWS:
       const allReviews = state.allReviews;
-      const reviewsFiltered =
-        allReviews.filter((el) => el.productos[0].id === Number(action.payload));
-          return {
-            ...state,
-            reviews: reviewsFiltered,
-          };
+      const reviewsFiltered = allReviews.filter(
+        (el) => el.productos[0].id === Number(action.payload)
+      );
+      return {
+        ...state,
+        reviews: reviewsFiltered,
+      };
     case FILTER_BY_CATEGORY:
       const allProducts = state.allProducts;
       const categoryFiltered =
@@ -118,6 +120,10 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         products: action.payload,
+      };
+    case POST_REVIEW:
+      return {
+        ...state,
       };
     default:
       return { ...state };

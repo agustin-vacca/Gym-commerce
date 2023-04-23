@@ -26,7 +26,7 @@ const Home = () => {
           <CategoryDisplayer/>
           <br></br>
           <hr></hr>
-          <h1>Proximamente: Reviews Displayer</h1>
+          <h1>Agunas Reviews</h1>
           <ReviewDisplayer/>
       </div>
       <div className="footerDiv">

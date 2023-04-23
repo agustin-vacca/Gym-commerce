@@ -4,8 +4,8 @@ const { Op } = require("sequelize");
 const createReview = (
     opinion,
     rating,
+    user,
     item,
-    usuario,
   ) => {
     create_date = new Date();
     offer = false;
@@ -13,8 +13,8 @@ const createReview = (
     const newReview = Reviews.create({
         opinion,
         rating,
+        user,
         item,
-        usuario
     });
     return newReview;
   };
@@ -27,14 +27,11 @@ const createReview = (
             attributes: ["name", "image", "id"],
             through: { attributes: [] },
           },
-          {
-            model: Usuario,
-            attributes: ["full_name"],
-          },
         ],
       });
       return reviews;
   };
+
 
   module.exports = {
     getReviews,

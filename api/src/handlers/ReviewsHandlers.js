@@ -1,4 +1,5 @@
-const { getReviews, createReview } = require("../controllers/ReviewsControllers")
+const { getReviews, createReview, deleteReview } = require("../controllers/ReviewsControllers")
+const { Reviews } = require("../db");
 
 const getReviewsHandler = async(req,res) => {
     try {
@@ -13,20 +14,36 @@ const getReviewsHandler = async(req,res) => {
 
 const postReviewHandler = async (req,res) => {
     try {
-        const { opinion, rating, item, usuario} = req.body;
+        const { opinion, rating, user, item } = req.body;
 
-        const newReview = await createReview( opinion, rating, item, usuario)
+        const newReview = await createReview( opinion, rating, user, item)
         await newReview.addProducto(item)
-        await newReview.addUsuario(usuario)
         res.status(201).json(`Nueva review añadida`);
     } catch (error) {
         res.status(400).json( {error: error.message });
     }
 }
 
+const deleteReviewHandler = async (req,res) => {
+    const {id} = req.params;
+    try {
+    if(id){
+        Reviews.destroy(
+        { where: { id: id }
+        });
+        res.status(200).send("Review deleted")
+    } else{
+        res.status(404).send("Can't find such review")
+    }
+} catch (error) {
+    console.log(error)
+}
+}; 
+
 
 
 module.exports = {
     getReviewsHandler,
     postReviewHandler,
+    deleteReviewHandler
 }
