@@ -1,4 +1,4 @@
-const { getReviews, createReview, deleteReview } = require("../controllers/ReviewsControllers")
+const { getReviews, createReview } = require("../controllers/ReviewsControllers")
 const { Reviews } = require("../db");
 
 const getReviewsHandler = async(req,res) => {
@@ -14,9 +14,9 @@ const getReviewsHandler = async(req,res) => {
 
 const postReviewHandler = async (req,res) => {
     try {
-        const { opinion, rating, user, item } = req.body;
+        const { opinion, rating, user, item, average } = req.body;
 
-        const newReview = await createReview( opinion, rating, user, item)
+        const newReview = await createReview( opinion, rating, user, item, average)
         await newReview.addProducto(item)
         res.status(201).json(`Nueva review añadida`);
     } catch (error) {
