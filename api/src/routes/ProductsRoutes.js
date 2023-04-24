@@ -9,7 +9,7 @@ const { getProductsHandler,postProductsHandler, getProductsDetailHandler, delete
 ProductsRoutes.get('/', getProductsHandler);
 ProductsRoutes.post('/create', postProductsHandler);
 ProductsRoutes.get('/:id', getProductsDetailHandler);
-ProductsRoutes.get('/delete', deleteProductsHandler);
+ProductsRoutes.delete('/:id', deleteProductsHandler);
 
 
 
