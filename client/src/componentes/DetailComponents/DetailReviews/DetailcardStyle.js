@@ -50,4 +50,17 @@ export const Container = styled.section`
   color: rgba(0, 0, 0, 0.25);
 }
 
+
+
+.starsRating{
+  display: flex;
+  flex-direction: row;
+  width: 10%;
+  cursor: pointer;
+
+  i{
+    color: black;
+  }
+}
+
 `;
