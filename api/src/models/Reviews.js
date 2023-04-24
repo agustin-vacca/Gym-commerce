@@ -30,10 +30,6 @@ module.exports = (sequelize) => {
         allowNull: false,
     },  
 
-    average: {
-      type: DataTypes.INTEGER(5)
-    },
-
     create_date: {
       type: DataTypes.DATEONLY,
     },
