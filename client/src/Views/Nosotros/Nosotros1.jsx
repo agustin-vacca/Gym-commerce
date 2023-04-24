@@ -1,8 +1,8 @@
 import React from "react";
 import "./Nosotros.css";
-import { Layout } from "../../Views/Home/commonStyles";
-import Footer from "../Footer/Footer";
-import NavBar from "../NavBar/NavBar";
+import { Layout } from "../Home/commonStyles";
+import Footer from "../../componentes/Footer/Footer";
+import NavBar from "../../componentes/NavBar/NavBar";
 import imagen from "../../cardiganRectangulo.png";
 import styled from "styled-components";
 import img from "./R.png";

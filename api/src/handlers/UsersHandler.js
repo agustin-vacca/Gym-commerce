@@ -1,4 +1,10 @@
-const { getUser, createUser, getUserById } = require("../controllers/UserController");
+const PostUserMailer = require("../NodeMailer/PostUserMailer");
+
+const {
+  getUser,
+  createUser,
+  getUserById,
+} = require("../controllers/UserController");
 
 const getUsersHandler = async (req, res) => {
   try {
@@ -12,14 +18,15 @@ const getUsersHandler = async (req, res) => {
 const postUsersHandler = async (req, res) => {
   try {
     const { full_name, email, password, country, phone } = req.body;
-    const all = await createUser(full_name, email, password, country, phone);
+    await createUser(full_name, email, password, country, phone);
+    await PostUserMailer(full_name, email, password);
     res.status(201).send("User creado exitosamente");
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
 };
 
-const getUserHandler = async (req,res) => {
+const getUserHandler = async (req, res) => {
   try {
     const { id } = req.params;
     const user = await getUserById(id);
@@ -27,10 +34,10 @@ const getUserHandler = async (req,res) => {
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
-}
+};
 
 module.exports = {
   getUsersHandler,
   postUsersHandler,
-  getUserHandler
+  getUserHandler,
 };

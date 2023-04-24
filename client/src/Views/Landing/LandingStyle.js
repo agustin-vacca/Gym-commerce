@@ -5,7 +5,6 @@ export const LandingDiv = styled.div`
   width: 100vw;
   background: black;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 
@@ -62,12 +61,12 @@ export const LandingDiv = styled.div`
 
   .card .front {
     transform: perspective(600px) rotateY(0deg);
-    box-shadow: 0 5px 10px black;
+    box-shadow: 0 5px 10px white;
   }
 
   .card .back {
     transform: perspective(600px) rotateY(180deg);
-    box-shadow: 0 5px 10px black;
+    box-shadow: 0 5px 10px white;
   }
 
   .card:hover .front {

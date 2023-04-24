@@ -1,6 +1,7 @@
 import axios from "axios";
 import {
   FILTER_BY_CATEGORY,
+  GET_CATEGORIES,
   GET_PRODUCTS,
   GET_PRODUCTS_BY_NAME,
   GET_PRODUCT_BY_ID,
@@ -9,6 +10,9 @@ import {
   ORDER_BY_PRICE,
   POST_PRODUCTS,
   POST_USERS,
+  GET_REVIEWS,
+  FILTER_REVIEWS,
+  POST_REVIEW,
 } from "./action-types";
 
 export function getProducts() {
@@ -31,6 +35,33 @@ export function getProductById(id) {
       const json = await axios.get(`http://localhost:3001/productos/${id}`);
       return dispatch({
         type: GET_PRODUCT_BY_ID,
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function getCategories() {
+  return async function (dispatch) {
+    try {
+      let json = await axios.get("http://localhost:3001/categorias");
+      return dispatch({
+        type: GET_CATEGORIES,
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+export function getReviews() {
+  return async function (dispatch) {
+    try {
+      let json = await axios.get("http://localhost:3001/reviews");
+      return dispatch({
+        type: GET_REVIEWS,
         payload: json.data,
       });
     } catch (error) {
@@ -77,6 +108,12 @@ export function filterProductsByCategories(payload) {
     payload,
   };
 }
+export function filterReviewsByProduct(payload) {
+  return {
+    type: FILTER_REVIEWS,
+    payload,
+  };
+}
 
 export function getProductsbyName(name) {
   return async function (dispatch) {
@@ -108,6 +145,25 @@ export function getUsers() {
   };
 }
 
+export const createReview = (obj) => {
+  console.log(obj);
+  return async function (dispatch) {
+    try {
+      let response = await axios.post(
+        "http://localhost:3001/reviews/create",
+        obj
+      );
+      console.log(response);
+      return dispatch({
+        type: POST_REVIEW,
+        payload: response.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
 export const createUsers = (obj) => {
   console.log(obj);
   return async function (dispatch) {
@@ -126,3 +182,14 @@ export const createUsers = (obj) => {
     }
   };
 };
+
+export function deleteReview(id){
+  return async function() {
+      try{       
+      const response = await axios.delete("http://localhost:3001/reviews/"+id)
+      return response
+  } catch (error){
+      console.log(error);
+  }
+  }
+} 

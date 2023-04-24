@@ -19,9 +19,11 @@ const ImageSlider = ({ slides }) => {
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      goToNext();
-    }, 5000);
+    let timer1 = setTimeout(() => {goToNext();}, 5000);
+    return ()=> {
+      clearTimeout(timer1)
+    }
+
   }, [currentIndex]);
 
   const sliderStyles = {
@@ -31,7 +33,7 @@ const ImageSlider = ({ slides }) => {
 
   const slideStyles = {
     width: "100%",
-    height: "300px",
+    height: "500px",
     borderRadius: "10px",
     backgroundPosition: "center",
     backgroundSize: "cover",

@@ -8,7 +8,7 @@ const getCategory = () => {
         include: [
             {
                 model: Producto,
-                attributes: ["id"],
+                attributes: ["id", "image"],
                 through:{attributes:[] }
             }
         ]

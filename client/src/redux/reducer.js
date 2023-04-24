@@ -1,13 +1,21 @@
 import {
   FILTER_BY_CATEGORY,
+  GET_CATEGORIES,
+  GET_REVIEWS,
   GET_PRODUCTS,
   GET_PRODUCTS_BY_NAME,
   GET_PRODUCT_BY_ID,
   ORDER_BY_NAME,
   ORDER_BY_PRICE,
+  FILTER_REVIEWS,
+  POST_REVIEW,
+  DELETE_REVIEW,
 } from "./action-types";
 
 const initialState = {
+  categories: [],
+  reviews: [],
+  allReviews: [],
   products: [],
   allProducts: [],
   productsOrder: [],
@@ -23,7 +31,17 @@ const reducer = (state = initialState, action) => {
         products: action.payload,
         allProducts: action.payload,
       };
-
+    case GET_CATEGORIES:
+      return {
+        ...state,
+        categories: action.payload,
+      };
+    case GET_REVIEWS:
+      return {
+        ...state,
+        reviews: action.payload,
+        allReviews: action.payload,
+      };
     case GET_PRODUCT_BY_ID:
       return {
         ...state,
@@ -80,12 +98,21 @@ const reducer = (state = initialState, action) => {
         ...state,
         products: sortedArr2,
       };
+    case FILTER_REVIEWS:
+      const allReviews = state.allReviews;
+      const reviewsFiltered = allReviews.filter(
+        (el) => el.productos[0].id === Number(action.payload)
+      );
+      return {
+        ...state,
+        reviews: reviewsFiltered,
+      };
     case FILTER_BY_CATEGORY:
       const allProducts = state.allProducts;
       const categoryFiltered =
         action.payload === "All"
           ? allProducts
-          : allProducts.filter(el => el.categoria[0].name === action.payload);
+          : allProducts.filter((el) => el.categoria[0].name === action.payload);
       return {
         ...state,
         products: categoryFiltered,
@@ -94,6 +121,16 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         products: action.payload,
+      };
+    case POST_REVIEW:
+      return {
+        ...state,
+      };
+    case DELETE_REVIEW:
+      return {
+        ...state,
+        reviews: action.payload,
+        allReviews: action.payload,
       };
     default:
       return { ...state };

@@ -1,7 +1,7 @@
 .LayoutNavbar {
   display: flex;
   flex-direction: row;
-  width: 100vw;
+  width: 100%;
   background: black;
 }
 
@@ -52,7 +52,7 @@
   cursor: pointer;
 }
 .userButtondiv:hover {
-  color: rgb(238, 255, 88);
+  color: rgba(255, 38, 0, 0.479);
 }
 
 .divTwo {
@@ -84,13 +84,13 @@
   color: #61777f;
 }
 .navButton:hover {
-  color: rgb(238, 255, 88);
+  color: rgba(255, 38, 0, 0.479);
 }
 
 .dropdown-menu {
   position: absolute;
   display: flex;
-  top: 15.5%;
+  margin-top: 0;
   color: white;
   background-color: black;
   border-radius: var(--border-radius);
