@@ -75,8 +75,17 @@ const getProductsById = (id) => {
   return product;
 };
 
+const deleteProductById = (id) => {
+    Producto.destroy(
+    { where: { id: id }
+    });
+};
+
 module.exports = {
   createProducts,
   getProducts,
   getProductsById,
+  deleteProductById
 };
+
+
