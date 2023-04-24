@@ -1,20 +1,19 @@
 const { Producto, Reviews, Usuario } = require("../db");
-const { Op } = require("sequelize");
 
 const createReview = (
     opinion,
     rating,
     user,
     item,
+    average,
   ) => {
     create_date = new Date();
-    offer = false;
-    isactive = true;
     const newReview = Reviews.create({
         opinion,
         rating,
         user,
         item,
+        average,
     });
     return newReview;
   };
