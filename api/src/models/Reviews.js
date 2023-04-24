@@ -25,11 +25,11 @@ module.exports = (sequelize) => {
         }
     },
     
-/*     user: {
+     user: {
         type: DataTypes.STRING,
         allowNull: false,
     },  
-  */
+
 
     create_date: {
       type: DataTypes.DATEONLY,

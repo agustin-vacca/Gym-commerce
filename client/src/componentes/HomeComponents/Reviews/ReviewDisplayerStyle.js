@@ -9,4 +9,6 @@ export const Container = styled.div`
   column-gap: 20px;
   place-content: center;
   
+
+
 `;

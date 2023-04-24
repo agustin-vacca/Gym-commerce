@@ -7,9 +7,8 @@ import {Container} from "./ReviewDisplayerStyle";
 
 export default function ReviewDisplayer() {
     const dispatch = useDispatch();
-    const allReviews = useSelector((state) => state.reviews);
-    const sliceReviews = allReviews.slice(0,4)
-
+    const allReviews = useSelector((state) => state.allReviews);
+    const sliceReviews = allReviews.slice(-5,-1)
 
     useEffect(() => {
       dispatch ( getReviews());
@@ -22,7 +21,7 @@ export default function ReviewDisplayer() {
               return (
                 <ReviewCard
                   key={el.id}
-                  user={el.usuarios[0].full_name}
+                  user={el.user}
                   rating={el.rating}
                   opinion={el.opinion}
                   producto={el.productos[0].name}
@@ -31,7 +30,6 @@ export default function ReviewDisplayer() {
                 />
               );
             })} 
-  
       </Container>
     );
   };

@@ -10,7 +10,9 @@ import {
   ORDER_BY_PRICE,
   POST_PRODUCTS,
   POST_USERS,
-  GET_REVIEWS
+  GET_REVIEWS,
+  FILTER_REVIEWS,
+  POST_REVIEW,
 } from "./action-types";
 
 export function getProducts() {
@@ -106,6 +108,12 @@ export function filterProductsByCategories(payload) {
     payload,
   };
 }
+export function filterReviewsByProduct(payload) {
+  return {
+    type: FILTER_REVIEWS,
+    payload,
+  };
+}
 
 export function getProductsbyName(name) {
   return async function (dispatch) {
@@ -137,6 +145,25 @@ export function getUsers() {
   };
 }
 
+export const createReview = (obj) => {
+  console.log(obj);
+  return async function (dispatch) {
+    try {
+      let response = await axios.post(
+        "http://localhost:3001/reviews/create",
+        obj
+      );
+      console.log(response);
+      return dispatch({
+        type: POST_REVIEW,
+        payload: response.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
 export const createUsers = (obj) => {
   console.log(obj);
   return async function (dispatch) {
@@ -155,3 +182,14 @@ export const createUsers = (obj) => {
     }
   };
 };
+
+export function deleteReview(id){
+  return async function() {
+      try{       
+      const response = await axios.delete("http://localhost:3001/reviews/"+id)
+      return response
+  } catch (error){
+      console.log(error);
+  }
+  }
+} 

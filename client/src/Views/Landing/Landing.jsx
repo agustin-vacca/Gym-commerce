@@ -11,10 +11,10 @@ function Landing() {
   return (
     <LandingDiv>
       <div className="card">
-        <div class="face front">
+        <div className="face front">
           <img className="map_img" src={imagen} alt="Logo Cardigan" />
         </div>
-        <div class="face back">
+        <div className="face back">
           <div className="letters">
             <h3 className="entrar" onClick={myFunction}>
               ENTRAR
