@@ -45,5 +45,20 @@ export const Container = styled.section`
   background-color: white;
   border-color: #333333;
 }
+
+}
+.stars{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  cursor: pointer;
+
+  i{
+    color: #e6e6e6
   }
+  .active{
+    color:#ff9c1a
+  }
+}
 `;

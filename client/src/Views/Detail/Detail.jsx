@@ -1,6 +1,6 @@
 import { initMercadoPago } from "@mercadopago/sdk-react";
 import axios from "axios";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import DetailReviews from "../../componentes/DetailComponents/DetailReviews/DetailReviews";
@@ -23,12 +23,28 @@ const Detail = () => {
   const product = useSelector((state) => state.detail);
   // eslint-disable-next-line
 
+  const [promedio, setPromedio] = useState(null);
+
+  const promedioHandler = () => {
+    let promedio = "";
+    const cantLargo = product.reviews?.length;
+    for (let i = 0; i < cantLargo; i++) {
+      promedio = Number(promedio) + Number(product.reviews[i].rating);
+    }
+    return promedio;
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
     dispatch(getProductById(id));
     dispatch(getUsers());
     dispatch(getReviews());
   }, [dispatch, id]);
+
+  useEffect(() => {
+    const result = promedioHandler();
+    setPromedio(result);
+  }, [product]);
 
   const buyClick = async () => {
     const json = await axios.get(
@@ -54,6 +70,7 @@ const Detail = () => {
           <h1> {product.name} </h1>
           <h3>Precio: {product.price} U$D</h3>
           <h3>Color: {product.color} </h3>
+          <h3>Promedio: {promedio / product.reviews?.length} </h3>
           <h2>Producto Disponible</h2>
           <WalletContainer>
             <button className="botonCompra" onClick={buyClick}>

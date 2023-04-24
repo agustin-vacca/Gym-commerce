@@ -5,7 +5,6 @@ const createReview = (
     rating,
     user,
     item,
-    average,
   ) => {
     create_date = new Date();
     const newReview = Reviews.create({
@@ -13,7 +12,6 @@ const createReview = (
         rating,
         user,
         item,
-        average,
     });
     return newReview;
   };
@@ -31,8 +29,21 @@ const createReview = (
       return reviews;
   };
 
+  const getReviewsbyId = (id) => {
+    const reviews = Reviews.findByPk(id,{
+      include: [
+        {
+          model: Producto,
+          attributes: ["name", "image", "id"],
+          through: { attributes: [] },
+        },
+      ],
+    });
+    return reviews;
+};
 
   module.exports = {
     getReviews,
-  createReview,
+    createReview,
+    getReviewsbyId
   };
