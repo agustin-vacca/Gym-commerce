@@ -9,8 +9,6 @@ import { UserBtnDiv } from "./UserButtonStyled";
 const UserButton = () => {
   const { user, isAuthenticated } = useAuth0();
   const [active, setActive] = useState(false);
-  // const [Authenticated, SetAuthenticated] = useState(false);
-  console.log("user", user);
   return (
     <UserBtnDiv>
       <div onClick={() => setActive(!active)}>
