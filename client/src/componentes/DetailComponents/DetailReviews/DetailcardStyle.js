@@ -20,7 +20,7 @@ export const Container = styled.section`
   .firtRow{
   display: flex;
   width: fit-content;
-  
+ 
 
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.45);
@@ -31,14 +31,23 @@ export const Container = styled.section`
 }
 
 .secondRow{
-    display: flex;
+  display: flex;
   flex-direction: row;
   margin-right: 5rem;
 
-
+  width: 80%;
   padding: 5px;
+}
 
-  
+.delButton{
+  margin-right: 10px;
+  border-radius: 90px;
+
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.25);
 }
 
 `;

@@ -9,6 +9,7 @@ import {
   ORDER_BY_PRICE,
   FILTER_REVIEWS,
   POST_REVIEW,
+  DELETE_REVIEW,
 } from "./action-types";
 
 const initialState = {
@@ -124,6 +125,12 @@ const reducer = (state = initialState, action) => {
     case POST_REVIEW:
       return {
         ...state,
+      };
+    case DELETE_REVIEW:
+      return {
+        ...state,
+        reviews: action.payload,
+        allReviews: action.payload,
       };
     default:
       return { ...state };

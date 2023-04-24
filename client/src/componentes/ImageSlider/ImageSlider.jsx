@@ -19,9 +19,11 @@ const ImageSlider = ({ slides }) => {
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      goToNext();
-    }, 5000);
+    let timer1 = setTimeout(() => {goToNext();}, 5000);
+    return ()=> {
+      clearTimeout(timer1)
+    }
+
   }, [currentIndex]);
 
   const sliderStyles = {
