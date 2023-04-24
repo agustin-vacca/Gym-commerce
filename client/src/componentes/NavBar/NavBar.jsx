@@ -1,8 +1,12 @@
+import { useAuth0 } from "@auth0/auth0-react";
 import React, { useState } from "react";
+import { BiCart } from "react-icons/bi";
+import Modal from "react-modal";
 import { useDispatch } from "react-redux";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../cardiganRectangulo.png";
 import { filterProductsByCategories } from "../../redux/actions.js";
+import Carrito from "../Carrito/Carrito";
 import SearchBar from "../SearchBar/SearchBar";
 import UserButton from "../UserButton/UserButton";
 import "./NavBar.css";
@@ -18,7 +22,7 @@ export default function NavBar() {
 
   const handleFilterCategories = (event) => {
     dispatch(filterProductsByCategories(event.target.value));
-    navigate("/catalogue")  
+    navigate("/catalogue");
   };
 
   // FUNCION DROP
@@ -29,6 +33,12 @@ export default function NavBar() {
       </li>
     );
   }
+  //CONSTANTE QUE RENDERIZA EL BTN DEL CARRITO
+  const { isAuthenticated } = useAuth0();
+
+  //CONSTANTE QUE ACTIVA O DESACTIVA EL BTN DEL CARRITO
+  const [popupActive, setPopupActive] = useState(false);
+  const [active, setActive] = useState(false);
 
   //NAVBAR
   return (
@@ -42,6 +52,27 @@ export default function NavBar() {
         <div className="divOne">
           <div className="searchBarDiv">
             {location.pathname === "/catalogue" && <SearchBar />}
+          </div>
+          <div className="userButtondiv" onClick={() => setActive(!active)}>
+            {isAuthenticated && (
+              <div
+                className="Li"
+                onClick={() => {
+                  setPopupActive(!popupActive);
+                }}
+              >
+                <BiCart size={35} />
+                <Modal
+                  isOpen={popupActive}
+                  onRequestClose={() => setPopupActive(false)}
+                >
+                  <Carrito
+                    popupActive={popupActive}
+                    setPopupActive={setPopupActive}
+                  />
+                </Modal>
+              </div>
+            )}
           </div>
           <div className="userButtondiv">
             <UserButton />
