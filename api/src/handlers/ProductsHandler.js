@@ -1,5 +1,3 @@
-
-
 const { DATE } = require("sequelize");
 const { getProducts, createProducts, getProductsById } = require("../controllers/ProductsController")
 
@@ -26,7 +24,7 @@ const postProductsHandler = async (req,res) => {
     } catch (error) {
         res.status(400).json( {error: error.message });
     }
-}
+};
 
 const getProductsDetailHandler = async (req,res) => {
     try {
@@ -37,11 +35,28 @@ const getProductsDetailHandler = async (req,res) => {
     } catch (error) {
         res.status(400).json( {error: error.message });
     }
+};
+
+const deleteProductsHandler = async (req,res) => {
+    const {id} = req.params;
+    try {
+    if(id){
+        Producto.destroy(
+        { where: { id: id }
+        });
+        res.status(200).send("Review deleted")
+    } else{
+        res.status(404).send("Can't find such review")
+    }
+} catch (error) {
+    console.log(error)
 }
+}; 
 
 
 module.exports = {
     getProductsHandler,
     postProductsHandler,
     getProductsDetailHandler,
+    deleteProductsHandler
 }
