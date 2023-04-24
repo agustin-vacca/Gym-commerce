@@ -28,6 +28,7 @@ return (
             return (
               <Detailcard
                 key={el.id}
+                id={el.id}
                 usuario={el.user}
                 rating={el.rating}
                 opinion={el.opinion}

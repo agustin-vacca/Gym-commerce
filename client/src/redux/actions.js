@@ -182,3 +182,14 @@ export const createUsers = (obj) => {
     }
   };
 };
+
+export function deleteReview(id){
+  return async function() {
+      try{       
+      const response = await axios.delete("http://localhost:3001/reviews/"+id)
+      return response
+  } catch (error){
+      console.log(error);
+  }
+  }
+} 
