@@ -1,4 +1,4 @@
-const { Producto, Categoria } = require("../db");
+const { Producto, Categoria, Reviews } = require("../db");
 const { Op } = require("sequelize");
 
 const createProducts = (
@@ -45,6 +45,11 @@ const getProducts = (name) => {
           attributes: ["name"],
           through: { attributes: [] },
         },
+        {
+          model: Reviews,
+          attributes: ["rating"],
+          through: { attributes: [] },
+        },
       ],
     });
     return product;
@@ -54,6 +59,11 @@ const getProducts = (name) => {
         {
           model: Categoria,
           attributes: ["name"],
+          through: { attributes: [] },
+        },
+        {
+          model: Reviews,
+          attributes: ["rating"],
           through: { attributes: [] },
         },
       ],
@@ -70,13 +80,27 @@ const getProductsById = (id) => {
         attributes: ["name"],
         through: { attributes: [] },
       },
+      {
+        model: Reviews,
+        attributes: ["rating"],
+        through: { attributes: [] },
+      },
     ],
   });
   return product;
+};
+
+const deleteProductById = (id) => {
+    Producto.destroy(
+    { where: { id: id }
+    });
 };
 
 module.exports = {
   createProducts,
   getProducts,
   getProductsById,
+  deleteProductById
 };
+
+

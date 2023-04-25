@@ -1,4 +1,4 @@
-const { getReviews, createReview, deleteReview } = require("../controllers/ReviewsControllers")
+const { getReviews, createReview, getReviewsbyId } = require("../controllers/ReviewsControllers")
 const { Reviews } = require("../db");
 
 const getReviewsHandler = async(req,res) => {
@@ -14,7 +14,7 @@ const getReviewsHandler = async(req,res) => {
 
 const postReviewHandler = async (req,res) => {
     try {
-        const { opinion, rating, user, item } = req.body;
+        const { opinion, rating, user, item} = req.body;
 
         const newReview = await createReview( opinion, rating, user, item)
         await newReview.addProducto(item)
@@ -40,10 +40,21 @@ const deleteReviewHandler = async (req,res) => {
 }
 }; 
 
+const getReviewByIdHandler = async (req,res) => {
+    try {
+        const { id } = req.params;
+        const reviewsById = await getReviewsbyId(id);
+
+        res.status(201).json(reviewsById);
+    } catch (error) {
+        res.status(400).json( {error: error.message });
+    }
+};
 
 
 module.exports = {
     getReviewsHandler,
     postReviewHandler,
-    deleteReviewHandler
+    deleteReviewHandler,
+    getReviewByIdHandler
 }

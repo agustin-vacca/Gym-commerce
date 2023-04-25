@@ -22,11 +22,11 @@ const Home = () => {
       <div className="content">
         <div className="ContainerStyles">
           <ImageSlider slides={slides} /></div>
-          <h1>Nuestros Products</h1>
+          <h1>Nuestros Productos</h1>
           <CategoryDisplayer/>
           <br></br>
           <hr></hr>
-          <h1>Agunas Reviews</h1>
+          <h1>Algunas Reviews</h1>
           <ReviewDisplayer/>
       </div>
       <div className="footerDiv">

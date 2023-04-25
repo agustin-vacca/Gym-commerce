@@ -44,24 +44,40 @@ const FormReview = () => {
     });
     window.location.reload();
   };
+
+  const stars = document.querySelectorAll(".stars i")
+
+  
+  function clicked1(event) {
+   stars.forEach((star, index1)=>{
+    star.addEventListener("click", ()=>{
+      setInput({
+        ...input,
+        rating: index1 + 1
+      })
+       stars.forEach((star,index2) =>{
+        index1 >= index2 ? star.classList.add("active") : star.classList.remove("active")
+      }) 
+    })
+  }) 
+}
+
   return (
     <div>
       <Container>
         <div className="title">
-          <p>Dejanos tu opinion</p>
         </div>
         <div className="califica">
           <label>Califica este producto</label>
-          <input
-            type="number"
-            value={input.rating}
-            name="rating"
-            onChange={(e) => handleChange(e)}
-            title="rating"
-            min="1"
-            max="5"
-            placeholder="1 to 5"
-          />
+
+<div className="stars">
+  <i className="fa-solid fa-star "  onClick={clicked1}></i>
+  <i className="fa-solid fa-star "  onClick={clicked1}></i>
+  <i className="fa-solid fa-star "  onClick={clicked1}></i>
+  <i className="fa-solid fa-star "  onClick={clicked1}></i>
+  <i className="fa-solid fa-star "  onClick={clicked1}></i>
+</div>
+
         </div>
         <div>
           <textarea

@@ -30,7 +30,6 @@ module.exports = (sequelize) => {
         allowNull: false,
     },  
 
-
     create_date: {
       type: DataTypes.DATEONLY,
     },

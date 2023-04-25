@@ -1,5 +1,4 @@
 const { Producto, Reviews, Usuario } = require("../db");
-const { Op } = require("sequelize");
 
 const createReview = (
     opinion,
@@ -8,8 +7,6 @@ const createReview = (
     item,
   ) => {
     create_date = new Date();
-    offer = false;
-    isactive = true;
     const newReview = Reviews.create({
         opinion,
         rating,
@@ -32,8 +29,21 @@ const createReview = (
       return reviews;
   };
 
+  const getReviewsbyId = (id) => {
+    const reviews = Reviews.findByPk(id,{
+      include: [
+        {
+          model: Producto,
+          attributes: ["name", "image", "id"],
+          through: { attributes: [] },
+        },
+      ],
+    });
+    return reviews;
+};
 
   module.exports = {
     getReviews,
-  createReview,
+    createReview,
+    getReviewsbyId
   };
