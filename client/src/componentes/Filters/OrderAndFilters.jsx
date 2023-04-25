@@ -23,17 +23,29 @@ export default function OrderAndFilters({ setOrden }) {
 
   return (
     <FiltersStyled>
-      <select onChange={(e) => handleOrderByName(e)}>
+
+    <h2>ORDENAR</h2>
+
+    <input type="radio" name="Order" id="nameAsc" onClick={(e) => handleOrderByName(e)} value="alfAsc" ></input>
+    <label for="nameAsc">A-Z</label>
+    <input type="radio" name="Order" id="nameDesc" onClick={(e) => handleOrderByName(e)} value="alfDesc" ></input>
+    <label for="nameDesc">Z-A</label>
+
+    <input type="radio" name="Order" id="priceAsc" onClick={(e) => handleOrderByPrice(e)} value="priceAsc" ></input>
+    <label for="priceAsc">Increase price</label>
+    <input type="radio" name="Order" id="priceDesc" onClick={(e) => handleOrderByPrice(e)} value="priceDesc" ></input>
+    <label for="priceDesc">Decrease price</label>
+{/*       <select onChange={(e) => handleOrderByName(e)}>
         <option>Order by Name</option>
         <option value="asc">A-Z</option>
         <option value="desc">Z-A</option>
-      </select>
+      </select> */}
 
-      <select onChange={(e) => handleOrderByPrice(e)}>
+{/*       <select onChange={(e) => handleOrderByPrice(e)}>
         <option>Order by Price</option>
         <option value="asc">Increase price</option>
         <option value="desc">Decrease price</option>
-      </select>
+      </select> */}
 
       {/* <select onChange={e=> handleFilterCategories(e)}>
 

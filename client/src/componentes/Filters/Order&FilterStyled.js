@@ -23,4 +23,20 @@ select{
     justify-content: center;
     gap: 0.5em;
 }
+
+
+input{
+    display: none;
+}
+label{
+    position: relative;
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+
+
 `;
