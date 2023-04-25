@@ -83,9 +83,8 @@ const Detail = () => {
         </Title>
       </Head>
       <Description>
-        <h3>
-          Descripcion: <h5 className="prodDescr">{product.description}</h5>
-        </h3>
+        <h3>Descripcion:</h3>
+        <p className="prodDescr">{product.description}</p>
       </Description>
       <Review>
         <DetailReviews />

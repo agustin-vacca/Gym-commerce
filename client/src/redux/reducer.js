@@ -1,15 +1,15 @@
 import {
+  DELETE_REVIEW,
   FILTER_BY_CATEGORY,
+  FILTER_REVIEWS,
   GET_CATEGORIES,
-  GET_REVIEWS,
   GET_PRODUCTS,
   GET_PRODUCTS_BY_NAME,
   GET_PRODUCT_BY_ID,
+  GET_REVIEWS,
   ORDER_BY_NAME,
   ORDER_BY_PRICE,
-  FILTER_REVIEWS,
   POST_REVIEW,
-  DELETE_REVIEW,
 } from "./action-types";
 
 const initialState = {
@@ -101,7 +101,7 @@ const reducer = (state = initialState, action) => {
     case FILTER_REVIEWS:
       const allReviews = state.allReviews;
       const reviewsFiltered = allReviews.filter(
-        (el) => el.productos[0].id === Number(action.payload)
+        (el) => el.productos[0]?.id === Number(action.payload)
       );
       return {
         ...state,
