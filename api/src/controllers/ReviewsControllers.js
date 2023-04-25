@@ -5,6 +5,7 @@ const createReview = (
     rating,
     user,
     item,
+    create_date
   ) => {
     create_date = new Date();
     const newReview = Reviews.create({
@@ -12,6 +13,7 @@ const createReview = (
         rating,
         user,
         item,
+        create_date
     });
     return newReview;
   };
