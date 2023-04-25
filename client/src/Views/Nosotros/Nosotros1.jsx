@@ -49,14 +49,14 @@ export default function Nosotros1(){
         
         <NameAndLogo>
             <ImgLogo className="LogoAboutUs" src={imagen} alt="Logo Cardigan" />
-            <h1>Sobre Nosotros</h1>
+            <h1>¡Bienvenidos a nuestra tienda de artículos de gimnasio!</h1>
         </NameAndLogo>
-        <AboutUsText>            
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque est nisi, venenatis sit amet urna quis, consectetur sagittis orci. Quisque id pharetra arcu. Suspendisse ornare, massa ac vehicula ultrices, mi lacus auctor leo, eu varius nibh ligula vel massa. Suspendisse sagittis nisl vel diam varius finibus. Aenean turpis est, tempor nec elementum vel, porttitor ac neque. Cras imperdiet a neque sit amet vulputate. Fusce iaculis tellus ut leo sollicitudin, id ornare ipsum sagittis. Curabitur ac tempor urna. Mauris blandit est ac commodo venenatis. Nunc eu sem ut sem mollis rhoncus. Sed a ultricies neque. Curabitur vel sagittis nisi. Quisque ut eleifend ligula.</p>
-        <p>
-        Pellentesque eu porta leo, id maximus lacus. Morbi eleifend suscipit massa. Sed ut viverra augue. Mauris vel bibendum felis, eu dictum purus. In fermentum ac dolor sit amet ullamcorper. Donec eu libero in magna maximus pellentesque vitae sed arcu. Fusce commodo elit vel aliquet laoreet. Integer eleifend consectetur orci ut eleifend. Duis tincidunt laoreet condimentum. Etiam ut iaculis massa, a laoreet enim.</p>
-        <p>
-        Proin posuere tortor at sem egestas pulvinar. Proin ut pellentesque nisi. Vestibulum mollis sodales facilisis. Cras eu orci ultrices, mollis ligula quis, congue ipsum. Quisque feugiat aliquet porta. In mollis, sem vel euismod ultricies, ligula lectus rutrum lorem, sit amet aliquam eros felis et neque. Duis commodo nec nibh ac auctor. Phasellus et nisl nisl. Aliquam vitae risus vitae dolor fringilla fermentum nec ac diam. Integer bibendum ante vestibulum, ornare urna ut, elementum libero. Vivamus nec congue lorem, in gravida ante. Nullam lobortis sollicitudin leo, non porta turpis luctus id. Nam ornare dui non elementum scelerisque.</p>
+        <AboutUsText>      
+          <p>En nuestro sitio web encontrarás una amplia variedad de productos diseñados para ayudarte a alcanzar tus metas de fitness. Desde máquinas de ejercicio hasta accesorios y suplementos, tenemos todo lo que necesitas para crear un gimnasio en casa o equipar tu gimnasio comercial.</p>
+          <p>Nos enorgullecemos de ofrecer productos de alta calidad que son duraderos, eficientes y asequibles. Todos nuestros productos son seleccionados cuidadosamente para asegurarnos de que cumplan con los más altos estándares de calidad.</p>
+          <p>Además, nuestro equipo de atención al cliente está siempre a tu disposición para ayudarte en todo lo que necesites. Nuestros expertos están disponibles para responder cualquier pregunta que tengas sobre nuestros productos y para ayudarte a encontrar la mejor solución para tus necesidades.</p>
+          <p>Sabemos que comprar equipo de gimnasio puede ser una inversión importante, pero también sabemos que es una inversión en tu salud y bienestar. Es por eso que ofrecemos opciones de financiamiento flexibles y envío gratuito para que puedas obtener el equipo que necesitas sin tener que preocuparte por los costos adicionales.</p>
+          <p>No esperes más para alcanzar tus metas de fitness. Compra en nuestra tienda en línea hoy y descubre por qué somos la mejor opción para tus necesidades de entrenamiento. ¡Confía en nuestros productos y no te arrepentirás!</p>
         </AboutUsText>        
     </AboutUsContainer>
       <div className="contenedor">
