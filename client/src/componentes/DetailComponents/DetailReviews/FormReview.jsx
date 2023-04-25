@@ -1,14 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Container} from "./FormReviewStyle";
 import {  useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { createReview } from "../../../redux/actions";
-import { useAuth0 } from "@auth0/auth0-react";
+import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 
 const FormReview = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const { user } = useAuth0();
+
+
+const [number, setNumbers] = useState(0)
+
+
+useEffect(() => {
+  setInput({
+    ...input,
+    rating: number,
+    user: "",
+    item: id,
+  });
+}, [number]);
+
 
   const [input, setInput] = useState({
     opinion: "",
@@ -16,10 +29,6 @@ const FormReview = () => {
     user: "",
     item: id,
   });
-  const ver = (e) => {
-    const santi = user.name;
-    console.log(santi);
-  };
 
   const handleChange = (e) => {
     setInput({
@@ -31,10 +40,13 @@ const FormReview = () => {
   const handleSubmit = (e) => {
     setInput({
       ...input,
+      rating: number,
       user: "",
       item: id,
+
     });
     e.preventDefault();
+    console.log(input);
     dispatch(createReview(input));
     setInput({
       opinion: "",
@@ -42,25 +54,9 @@ const FormReview = () => {
       user: "",
       item: "",
     });
-    window.location.reload();
+     window.location.reload(); 
   };
-
-  const stars = document.querySelectorAll(".stars i")
-
   
-  function clicked1(event) {
-   stars.forEach((star, index1)=>{
-    star.addEventListener("click", ()=>{
-      setInput({
-        ...input,
-        rating: index1 + 1
-      })
-       stars.forEach((star,index2) =>{
-        index1 >= index2 ? star.classList.add("active") : star.classList.remove("active")
-      }) 
-    })
-  }) 
-}
 
   return (
     <div>
@@ -69,14 +65,12 @@ const FormReview = () => {
         </div>
         <div className="califica">
           <label>Califica este producto</label>
-
-<div className="stars">
-  <i className="fa-solid fa-star "  onClick={clicked1}></i>
-  <i className="fa-solid fa-star "  onClick={clicked1}></i>
-  <i className="fa-solid fa-star "  onClick={clicked1}></i>
-  <i className="fa-solid fa-star "  onClick={clicked1}></i>
-  <i className="fa-solid fa-star "  onClick={clicked1}></i>
-</div>
+<br></br>
+{Array(5).fill().map((_,index)=>(
+number >= index +1 
+? (<AiFillStar key={(index+1)} style={{color:"orange"}} onClick={(e) => setNumbers(index+1)}/>) 
+: ( <AiOutlineStar  key={(index+1)} style={{color:"orange"}}  onClick={(e) => setNumbers(index+1)}/>)
+))}
 
         </div>
         <div>
@@ -91,7 +85,7 @@ const FormReview = () => {
           />
         </div>
         <div className="divSubmitButton">
-          {input.rating !== "" && input.opinion !== "" ? (
+          {number !== 0  && input.opinion !== "" ? (
             <button
               id="submitButton"
               onClick={(e) => handleSubmit(e)}
