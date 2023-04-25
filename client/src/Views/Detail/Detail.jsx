@@ -25,6 +25,7 @@ const Detail = () => {
 
   const [promedio, setPromedio] = useState(null);
 
+
   const promedioHandler = () => {
     let promedio = "";
     const cantLargo = product.reviews?.length;
@@ -38,8 +39,9 @@ const Detail = () => {
     window.scrollTo(0, 0);
     dispatch(getProductById(id));
     dispatch(getUsers());
-     dispatch(getReviews()); 
+    dispatch(getReviews()); 
   }, [dispatch, id]);
+
 
   useEffect(() => {
     const result = promedioHandler();
