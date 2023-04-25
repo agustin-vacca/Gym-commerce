@@ -69,7 +69,7 @@ const Detail = () => {
           <h1> {product.name} </h1>
           <h3>Precio: {product.price} U$D</h3>
           <h3>Color: {product.color} </h3>
-            <h3>Promedio: {promedio / product.reviews?.length} </h3>          
+            <h3>Promedio: { promedio / product.reviews?.length} </h3>   
        <h2>Producto Disponible</h2>
           <WalletContainer>
             <button className="botonCompra" onClick={buyClick}>

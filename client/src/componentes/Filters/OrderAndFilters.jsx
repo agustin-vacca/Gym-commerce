@@ -1,40 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { orderByName, orderByPrice } from "../../redux/actions.js";
 import { FiltersStyled } from "./Order&FilterStyled.js";
 
 export default function OrderAndFilters({ setOrden }) {
   const dispatch = useDispatch();
+  const [number, setNumber] = useState(false)
+
 
   function handleOrderByName(e) {
     e.preventDefault();
     dispatch(orderByName(e.target.value));
     setOrden(`Ordenado ${e.target.value}`);
+    setNumber(number=>e.target.value)
   }
   function handleOrderByPrice(e) {
     e.preventDefault();
     dispatch(orderByPrice(e.target.value));
     setOrden(`Ordenado ${e.target.value}`);
+    setNumber(number=>e.target.value)
   }
 
-  //  function handleFilterCategories(event){
-  //   dispatch(filterProductsByCategories(event.target.value))
-  //  }
+  let numberCheck = number
+
 
   return (
     <FiltersStyled>
 
     <h2>ORDENAR</h2>
+<button  
+className= {`${numberCheck=== String(1) ? "special" : ""}`}
+name="Order" id="1" onClick={(e) => handleOrderByName(e)} value="1" >A-Z</button>
+<button  
+className= {`${numberCheck=== String(2) ? "special" : ""}`}
+name="Order" id="2" onClick={(e) => handleOrderByName(e)} value="2" >Z-A</button>
+<button 
+className= {`${numberCheck=== String(3) ? "special" : ""}`}
+name="Order" id="3" onClick={(e) => handleOrderByPrice(e)} value="3" >Precio: mayor a menor</button>
+<button  
+className= {`${numberCheck=== String(4) ? "special" : ""}`}
+name="Order" id="4" onClick={(e) => handleOrderByPrice(e)} value="4" >Precio: menor a mayor</button>
 
-    <input type="radio" name="Order" id="nameAsc" onClick={(e) => handleOrderByName(e)} value="alfAsc" ></input>
-    <label for="nameAsc">A-Z</label>
-    <input type="radio" name="Order" id="nameDesc" onClick={(e) => handleOrderByName(e)} value="alfDesc" ></input>
-    <label for="nameDesc">Z-A</label>
-
-    <input type="radio" name="Order" id="priceAsc" onClick={(e) => handleOrderByPrice(e)} value="priceAsc" ></input>
-    <label for="priceAsc">Increase price</label>
-    <input type="radio" name="Order" id="priceDesc" onClick={(e) => handleOrderByPrice(e)} value="priceDesc" ></input>
-    <label for="priceDesc">Decrease price</label>
 {/*       <select onChange={(e) => handleOrderByName(e)}>
         <option>Order by Name</option>
         <option value="asc">A-Z</option>
