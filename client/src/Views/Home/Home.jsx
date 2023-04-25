@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "../../componentes/Footer/Footer";
 import ImageSlider from "../../componentes/ImageSlider/ImageSlider";
 import NavBar from "../../componentes/NavBar/NavBar";
 import { Layout } from "./commonStyles";
 import CategoryDisplayer from "../../componentes/HomeComponents/CategoryDisplayer/CategoryDisplayer";
 import ReviewDisplayer from "../../componentes/HomeComponents/Reviews/ReviewDisplayer";
+import { useDispatch } from "react-redux";
+import { getReviews } from "../../redux/actions";
 
 const Home = () => {
+  const dispatch = useDispatch();
+
   const slides = [
     { url: "http://localhost:3000/image-1.jpg", title: "beach" },
     { url: "http://localhost:3000/image-2.jpg", title: "boat" },
@@ -16,6 +20,11 @@ const Home = () => {
   ];
   // eslint-disable-next-line
   const [orden, setOrden] = useState("");
+
+  useEffect(() => {
+    dispatch ( getReviews());
+  }, []);
+
   return (
     <Layout>
       <NavBar />

@@ -1,18 +1,12 @@
-import React, { useEffect } from "react";
-import { getReviews } from "../../../redux/actions";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import ReviewCard from "./ReviewCard.jsx";
 import {Container} from "./ReviewDisplayerStyle";
 
 
 export default function ReviewDisplayer() {
-    const dispatch = useDispatch();
     const allReviews = useSelector((state) => state.allReviews);
-    const sliceReviews = allReviews.slice(-5,-1)
-
-    useEffect(() => {
-      dispatch ( getReviews());
-    }, []);
+    const sliceReviews = allReviews.slice(-4)
   
     
     return (
