@@ -50,7 +50,7 @@ const reducer = (state = initialState, action) => {
       };
     case ORDER_BY_NAME:
       let sortedArr =
-        action.payload === "asc"
+        action.payload === "1"
           ? state.products.sort(function (a, b) {
               if (a.name > b.name) {
                 return 1;
@@ -74,9 +74,8 @@ const reducer = (state = initialState, action) => {
         products: sortedArr,
       };
     case ORDER_BY_PRICE:
-      console.log(state.products);
       let sortedArr2 =
-        action.payload === "asc"
+        action.payload === "3"
           ? state.products.sort(function (a, b) {
               if (a.price > b.price) {
                 return 1;

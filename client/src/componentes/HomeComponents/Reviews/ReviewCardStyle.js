@@ -5,12 +5,12 @@ export const CardDiv = styled.div`
 	flex-direction: column;
 	justify-content: space-evenly;
 	align-items: center;
-	height: fit-content;
 	width: 15%;
 	padding: 0 20px;
 	font-family: "Plus Jakarta Sans";
 	font-weight: 800;
 	transition: 1s;
+
 
 border-radius: 20px;
 background-image: linear-gradient(45deg, #F5F5F5 0%, #F0F0F0  51%, #F5F5F5  100%);
@@ -90,7 +90,7 @@ backdrop-filter: blur(25px);
   -webkit-user-select: none;
   touch-action: manipulation;
   width: auto;
-  margin-bottom: 5px;
+  margin: 0 5% 10px 5%;
 }
 .verProd:hover {
 	background-color: #374151;

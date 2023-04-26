@@ -1,15 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Cards from "../../componentes/Cards/Cards";
 import OrderAndFilters from "../../componentes/Filters/OrderAndFilters";
 import Footer from "../../componentes/Footer/Footer";
 import NavBar from "../../componentes/NavBar/NavBar";
 import { Layout } from "./ProductosStyle";
+import { useDispatch } from "react-redux";
+import { getProducts } from "../../redux/actions";
 
 
 
 const Productos = () => {
     // eslint-disable-next-line
     const [orden, setOrden] = useState("");
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+      dispatch(getProducts());
+    }, [dispatch]);
 
     return (
       <Layout>
