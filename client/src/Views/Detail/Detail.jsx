@@ -25,7 +25,6 @@ const Detail = () => {
 
   const [promedio, setPromedio] = useState(null);
 
-
   const promedioHandler = () => {
     let promedio = "";
     const cantLargo = product.reviews?.length;
@@ -33,19 +32,18 @@ const Detail = () => {
       promedio = Number(promedio) + Number(product.reviews[i].rating);
     }
     return promedio;
-  }; 
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
     dispatch(getProductById(id));
     dispatch(getUsers());
-    dispatch(getReviews()); 
+    dispatch(getReviews());
   }, [dispatch, id]);
-
 
   useEffect(() => {
     const result = promedioHandler();
-    setPromedio(result); 
+    setPromedio(result);
   }, [product]);
 
   const buyClick = async () => {
@@ -61,6 +59,7 @@ const Detail = () => {
     console.log("este es el boton funcionando");
   };
 
+
   return (
     <div>
       <NavBar />
@@ -70,10 +69,19 @@ const Detail = () => {
         </Headimg>
         <Title>
           <h1> {product.name} </h1>
-          <h3>Precio: {product.price} U$D</h3>
+          <h3>Precio: {product.price} $ Arg</h3>
           <h3>Color: {product.color} </h3>
-          <h3>Promedio: {promedio / product.reviews?.length} </h3>       
-      <h2>Producto Disponible</h2>
+          {/*  {`${numberCheck=== String(2) ? "special" : ""}`} */}
+          <h3>
+            Promedio:{" "}
+            {`${
+              !promedio
+                ? "Se el primero en valorar este producto"
+                : promedio / product.reviews?.length + "/5"
+            }`}{" "}
+          </h3>
+          {/*           <h3>Promedio: {promedio / product.reviews?.length} </h3>       */}
+          <h2>Producto Disponible</h2>
           <WalletContainer>
             <button className="botonCompra" onClick={buyClick}>
               Comprar
@@ -85,9 +93,9 @@ const Detail = () => {
         </Title>
       </Head>
       <Description>
-        <h3>
-          Descripcion: <h5 className="prodDescr">{product.description}</h5>
-        </h3>
+        <h5>
+          Descripcion: <p className="prodDescr">{product.description}</p>
+        </h5>
       </Description>
       <Review>
         <DetailReviews />
