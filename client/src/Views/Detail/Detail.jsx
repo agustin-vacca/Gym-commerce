@@ -56,6 +56,7 @@ const Detail = () => {
   };
 
   const handleClickCarrito = () => {
+    product.cantidad = 1
     carrito.push(product);
     window.localStorage.setItem("carrito", JSON.stringify(carrito));
   };
