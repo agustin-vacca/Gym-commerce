@@ -21,6 +21,7 @@ const initialState = {
   productsOrder: [],
   detail: [],
   user: [],
+  carrito: [],
 };
 
 const reducer = (state = initialState, action) => {
