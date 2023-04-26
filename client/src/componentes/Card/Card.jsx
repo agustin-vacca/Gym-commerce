@@ -16,7 +16,7 @@ function Card({ id, name, price, image }) {
       <Link to={`/detail/${id}`}>
         <LinkText>VER MAS</LinkText>
       </Link>
-      <TextPrice>Precio : {price} U$D</TextPrice>
+      <TextPrice>Precio : {price} $</TextPrice>
     </CardDiv>
   );
 }
