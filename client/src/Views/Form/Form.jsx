@@ -50,13 +50,14 @@ const Formulario = () => {
           image: "",
           category: "",
           stock: "",
+          color: "",
         }}
         validate={(values) => {
           let errors = {};
           // Validación de nombre
           if (!values.name) {
             errors.name = "Ingrese un nombre";
-          } else if (!/^[a-zA-Z0-9]+$/.test(values.name)) {
+          } else if (!/^[a-zA-Z0-9_ ]{3,20}$/.test(values.name)) {
             errors.name = "El nombre solo puede contener letras y números";
           }
           // Validación de precio
@@ -79,17 +80,10 @@ const Formulario = () => {
           // Validación de descripción
           if (!values.description) {
             errors.description = "Ingrese una descripción";
-          } else if (/^[a-zA-Z0-9]+$/.test(values.description)) {
+          } else if (!/^[a-zA-Z0-9]+$/.test(values.description)) {
             errors.description =
               "La descripción solo puede contener letras y números";
           }
-          // Validación de imagen
-          // if (!values.image) {
-          //   errors.image = "Ingrese una imagen";
-          // } else if (!/\.(gif|jpg|jpeg|png)$/i.test(values.image)) {
-          //   errors.image =
-          //     "La imagen debe ser un archivo de imagen válido (gif, jpg, jpeg o png)";
-          // }
           // Validación de stock
           if (!values.stock) {
             errors.stock = "Ingrese un stock";
@@ -103,17 +97,6 @@ const Formulario = () => {
           }
           return errors;
         }}
-
-        // handlerImage={async(e,values) => {
-        //   try {
-        //     const result = await uploadFile(e);
-        //     console.log(result)
-        //     setFile(result)
-        //     values.image = file
-        //   } catch (error) {
-        //     console.log(error)
-        //    }
-        // }}
 
         onSubmit={async (values, { resetForm }) => {
           values.image = file;
@@ -178,25 +161,14 @@ const Formulario = () => {
               <label className="label" htmlFor="image">
                 Imagen:{" "}
               </label>
-              {/* <Field
-                className="input"
-                type="text"
-                id="image"
-                name="image"
-                placeholder="Ingrese la imagen"
-              /> */}
-              {/* Este codigo hace que la prop de imagen tenga el boton examinar para cargar las imagenes*/}
+              { file === null ? 
               <Field
-                type="file"
-                name="image"
-                className="input"
-                id="image"
-                onChange = {  e => handlerImage(e.target.files[0])}
-              />
-              <ErrorMessage
-                name="image"
-                component={() => <div className="error">{errors.image}</div>}
-              />
+              type="file"
+              name="image"
+              className="input"
+              id="image"
+              onChange = {  e => handlerImage(e.target.files[0])}
+            /> : <img src={file} alt="foto" width="500px"/>} 
             </div>
             <div>
               <label className="label" htmlFor="color">
