@@ -21,6 +21,7 @@ const Detail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const product = useSelector((state) => state.detail);
+  const carrito = useSelector((state) => state.carrito);
   // eslint-disable-next-line
 
   const [promedio, setPromedio] = useState(null);
@@ -55,10 +56,9 @@ const Detail = () => {
   };
 
   const handleClickCarrito = () => {
-    window.localStorage.setItem("carrito", JSON.stringify(product));
-    console.log("este es el boton funcionando");
+    carrito.push(product);
+    window.localStorage.setItem("carrito", JSON.stringify(carrito));
   };
-
 
   return (
     <div>
@@ -86,7 +86,7 @@ const Detail = () => {
             <button className="botonCompra" onClick={buyClick}>
               Comprar
             </button>
-            <button className="botonCompra" onClick={handleClickCarrito}>
+            <button className="botonCarrito" onClick={handleClickCarrito}>
               Agregar al Carrito
             </button>
           </WalletContainer>
