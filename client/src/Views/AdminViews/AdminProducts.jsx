@@ -1,5 +1,6 @@
 import React from "react";
 import NavBarAdmin from "../../componentes/NavBarAdmin/NavBarAdmin";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import "./Switch.css"
 import edit from "./pencil-square.svg"
@@ -36,7 +37,10 @@ const PStyledProduct = styled.p`
     color:black;
 `
 const ImgGrande = styled.img`
-width:2.5%;
+    width:150%;
+    background: #9f9f9f;
+    padding: 2px;
+    border-radius: 5px;
 `
 const Btn = styled.button`
     margin:12px;
@@ -45,7 +49,7 @@ const Btn = styled.button`
     border-radius:10px;
 `
 
-export default function(){
+export default function AdminProducts(){
     return(
         <>
             <NavBarAdmin/>
@@ -59,16 +63,19 @@ export default function(){
                     <p>Editar</p>
                 </Recuadros>
                 <Productos>   
-                    <PStyledProduct>Terraneitor</PStyledProduct>
-                    <PStyledProduct>$151</PStyledProduct>             
-                    <PStyledProduct>20</PStyledProduct>
-                    <PStyledProduct>Mancuernas</PStyledProduct>
+                    <PStyledProduct>Lorem</PStyledProduct>
+                    <PStyledProduct>Lorem</PStyledProduct>             
+                    <PStyledProduct>Lorem</PStyledProduct>
+                    <PStyledProduct>Lorem</PStyledProduct>
                     <label class="switch">
                         <input type="checkbox"/>
                         <span class="slider round"></span>
                     </label>
+                <Link to="/Admin/productos/editar">
                     <ImgGrande src={edit}/>
+                </Link>
                 </Productos>
+
                 <Btn>
                     <a href="/admin/productos/nuevo">Agregar producto</a>
                 </Btn>

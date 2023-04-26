@@ -2,12 +2,16 @@ import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import NavBarAdmin from "../../componentes/NavBarAdmin/NavBarAdmin";
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 const FormularioNewProduct = styled.div`
     background: #808080;
     margin-left:25%;
     margin-right:25%;
-    border-radius:50px;
-    height:625px;
+    border-radius:15px;
+    max-height: 600px;
+    min-height: 600px;
+    margin-left: 10%;
+    margin-right: 10%;
     display:flex;
     justify-content:center;
 `
@@ -27,7 +31,7 @@ const Confirmar = styled.button`
     padding:8px;
     border-radius:10px;
 `
-export default function FormularioNuevoProducto(){
+export default function FormularioEditarProducto(){
     return(
         <div >
             <NavBarAdmin/>
@@ -39,47 +43,32 @@ export default function FormularioNuevoProducto(){
                         peso: '',
                         descripcion: '',                    
                         color:'',
-                        stock:'',
-                        fecha:''
+                        stock:''
                     }}
                     validate={(valores) => {
                         let errores = {};		
                         
-                        if(!valores.nombre){
-                            errores.nombre = 'Por favor ingresa el nombre del producto'
-                        } else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.nombre)){
+                        if(!valores.nombre && !valores.precio && !valores.peso && !valores.descripcion && !valores.color && !valores.stock){
+                            errores.nombre = 'Por favor complete por lo menos un campo'
+                        } else if(!/^(|[a-zA-ZÀ-ÿ\s]{1,40})$/.test(valores.nombre)){
                             errores.nombre = 'El nombre solo puede contener letras, espacios y no mas de 40 caracteres'
                         }                   			
-                        if(!valores.precio){
-                            errores.precio = 'Por favor ingresa el precio del producto'
-                        } else if(!/^(0.|[1-9]|[1-9][0-9]{1,3}|[1-4][0-9]{3}|5000)$/.test(valores.precio)){
+                        if(!/^(0.|[1-9]|[1-9][0-9]{1,3}|[1-4][0-9]{3}|5000)?$/.test(valores.precio)){
                             errores.precio = 'El precio solo puede ser un numero del 1 al 9999.'
                         }
-                        if(!valores.peso){
-                            errores.peso = 'Por favor ingresa el peso del producto'
-                        } else if(!/^(0.|[1-9]|[1-9][0-9]{1,3}|[1-4][0-9]{3}|5000)$/.test(valores.peso)){
+                        if(!/^(0.|[1-9]|[1-9][0-9]{1,3}|[1-4][0-9]{3}|5000)?$/.test(valores.peso)){
                             errores.peso = 'El peso solo puede ser un numero del 1 al 9999.'
                         }
-                        if(!valores.descripcion){
-                            errores.descripcion = 'Por favor ingresa la descripcion'
-                        } else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.descripcion)){
+                        if(!/^(|[a-zA-ZÀ-ÿ\s]{1,40})$/.test(valores.descripcion)){
                             errores.descripcion = 'La descripcion solo puede contener letras, espacios y no mas de 40 caracteres'
                         }
-                        if(!valores.color){
-                            errores.color = 'Por favor ingresa el color'
-                        } else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.descripcion)){
+                        if(!/^(|[a-zA-ZÀ-ÿ\s]{1,40})$/.test(valores.descripcion)){
                             errores.color = 'El color solo puede contener letras, espacios y no mas de 40 caracteres'
                         }
-                        if(!valores.stock){
-                            errores.stock = 'Por favor ingresa el stock del producto'
-                        } else if(!/^(0.|[1-9]|[1-9][0-9]{1,3}|[1-4][0-9]{3}|5000)$/.test(valores.stock)){
+                        if(!/^(0.|[1-9]|[1-9][0-9]{1,3}|[1-4][0-9]{3}|5000)?$/.test(valores.stock)){
                             errores.stock = 'El stock solo puede ser un numero del 1 al 9999.'
                         }
-                        if(!valores.fecha){
-                            errores.fecha = 'Por favor ingresa la fecha de creacion'
-                        } else if(!/^(0[1-9]|[1-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/(20)\d{2}$/ .test(valores.fecha)){
-                            errores.fecha = 'La fecha debe ser formato DD/MM/AAAA.'
-                        }				
+                        				
                                         
                         return errores;
                     }}
@@ -87,7 +76,7 @@ export default function FormularioNuevoProducto(){
                 >
                     {( {errors} ) => (
                         <Form className="formulario">   
-                            <h2>Agregar Producto</h2>         
+                            <h2>Editar el Producto</h2>         
                             <div>
                                 <Campo>                                    
                                     <label htmlFor="nombre">Nombre del producto:</label>
@@ -172,21 +161,12 @@ export default function FormularioNuevoProducto(){
                                     <ErrorMessage name="stock" component={() => (<div className="error">{errors.stock}</div>)} />
                                 </ErrorMsje>
                             </div>
-                            <div>
-                                <Campo>                                    
-                                    <label htmlFor="fecha">Fecha de creacion:</label>
-                                    <Field className="stiloDmerga"
-                                        type="text" 
-                                        id="fecha" 
-                                        name="fecha" 
-                                        placeholder="DD/MM/AAAA"
-                                        />
-                                </Campo>
-                                <ErrorMsje>
-                                    <ErrorMessage name="fecha" component={() => (<div className="error">{errors.fecha}</div>)} />
-                                </ErrorMsje>
-                            </div>																		
+                            <ErrorMsje>
+                                    <ErrorMessage name="nombre" component={() => (<div className="error">{errors.nombre}</div>)} />
+                                </ErrorMsje>					
+
                             <Confirmar type="submit">Enviar</Confirmar>
+                            
                             
                         </Form>
                     )}

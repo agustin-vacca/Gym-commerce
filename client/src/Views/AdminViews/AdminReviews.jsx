@@ -1,8 +1,7 @@
 import React from "react";
-import NavBarAdmin from "../../componentes/NavBarAdmin/NavBarAdmin";
 import styled from "styled-components";
-import "./Switch.css"
-
+import NavBarAdmin from "../../componentes/NavBarAdmin/NavBarAdmin";
+import borrar from "./trash3.svg"
 const Container = styled.div`
   background: #808080;
   border-radius: 15px;
@@ -12,6 +11,7 @@ const Container = styled.div`
   margin-left: 10%;
   margin-right:10%;
 `
+
 const Recuadros = styled.div`
     display:flex;
     flex-direction:row;
@@ -33,29 +33,32 @@ const Productos =styled.div`
 `
 const PStyledProduct = styled.p`
     width: 5%;
-    color:black;
+`    
+const ImgGrande = styled.img`
+    width:3%;
+    background: #9f9f9f;
+    padding: 2px;
+    border-radius: 5px;
 `
-export default function AdminUsers(){
+
+export default function AdminReviews(){
     return(
         <>
-            <NavBarAdmin/>
+            <NavBarAdmin/>  
             <Container>
                 <Recuadros>
-                    <p>Id:</p>
-                    <p>Nombre:</p>
-                    <p>Mail:</p>
-                    <p>Admin:</p>
+                    <p>User:</p>
+                    <p>Opinion:</p>
+                    <p>Rating:</p>
+                    <p>Estado:</p>
                 </Recuadros>
                 <Productos>   
                     <PStyledProduct>Lorem</PStyledProduct>
                     <PStyledProduct>Lorem</PStyledProduct>             
                     <PStyledProduct>Lorem</PStyledProduct>
-                <label class="switch">
-                    <input type="checkbox"/>
-                    <span class="slider round"></span>
-                </label>
+                    <ImgGrande src={borrar}/>
                 </Productos>
-            </Container>
+            </Container>         
         </>
     )
 }
