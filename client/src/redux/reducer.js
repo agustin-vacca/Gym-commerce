@@ -1,4 +1,5 @@
 import {
+  DELETE_ITEM_CARRITO,
   DELETE_REVIEW,
   FILTER_BY_CATEGORY,
   FILTER_REVIEWS,
@@ -132,7 +133,12 @@ const reducer = (state = initialState, action) => {
         reviews: action.payload,
         allReviews: action.payload,
       };
-    default:
+      case DELETE_ITEM_CARRITO:
+        return {
+          ...state,
+          carrito: action.payload,
+        };
+      default:
       return { ...state };
   }
 };

@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import DetailReviews from "../../componentes/DetailComponents/DetailReviews/DetailReviews";
 import Footer from "../../componentes/Footer/Footer";
 import NavBar from "../../componentes/NavBar/NavBar";
-import { getProductById, getReviews, getUsers } from "../../redux/actions";
+import { deleteItemCarrito, getProductById, getReviews, getUsers } from "../../redux/actions";
 import {
   Description,
   Head,
@@ -21,10 +21,15 @@ const Detail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const product = useSelector((state) => state.detail);
+
+
   const carrito = useSelector((state) => state.carrito);
   // eslint-disable-next-line
-
+  const [orden, setOrden] = useState(0);
   const [promedio, setPromedio] = useState(null);
+
+
+  const [carritos, setCarritos] = useState(carrito);
 
   const promedioHandler = () => {
     let promedio = "";
@@ -55,19 +60,33 @@ const Detail = () => {
     return json;
   };
 
-
   const handleClickCarrito = (id) => {
-    console.log(carrito)
-    const found = carrito.find(elem => elem.id == id)
-    if(found){
-      console.log("Ya esta el producto")
+    const found = carrito.find((elem) => elem.id === id);
+    if (found) {
+      console.log("Ya esta el producto");
     } else {
-    product.cantidad = 1
-    carrito.push(product);
-    window.localStorage.setItem("carrito", JSON.stringify(carrito));
-    console.log("producto agregado")
+      product.cantidad = 1;
+      carrito.push(product);
+      window.localStorage.setItem("carrito", JSON.stringify(carrito));
+      console.log("producto agregado");
+      setOrden(orden+1)
     }
   };
+
+  const handleRemoveItem = (id) => {
+    const filtro = carrito.filter((elem) => elem.id !== id);
+    setCarritos(filtro)
+    setOrden(orden+1)
+    dispatch(deleteItemCarrito(filtro));
+    console.log(carritos, "carritos");
+    console.log(filtro, "filtro");
+  };
+
+  const ver = () => {
+    console.log(carrito, "carrito");
+    console.log(carritos,"carritos");
+  };
+
   return (
     <div>
       <NavBar />
@@ -76,6 +95,7 @@ const Detail = () => {
           <img src={product.image} alt="img" width="500px" height="500" />
         </Headimg>
         <Title>
+          <button onClick={()=> ver()}>VER </button>
           <h1> {product.name} </h1>
           <h3>Precio: {product.price} $ Arg</h3>
           <h3>Color: {product.color} </h3>
@@ -94,12 +114,22 @@ const Detail = () => {
             <button className="botonCompra" onClick={buyClick}>
               Comprar
             </button>
-            <button className="botonCarrito" onClick={() => handleClickCarrito(product.id)}>
-              Agregar al Carrito
-            </button>
+
+            {
+              carrito.find((elem) => elem.id == id) ? 
+              <button className="compradoBtn" onClick={() =>handleRemoveItem(product.id)}>
+              EN CARRITO
+            </button> : 
+            <button
+              className="botonCarrito"
+              onClick={() => handleClickCarrito(product.id)}
+            >Agregar al Carrito</button>
+            }
+          
           </WalletContainer>
         </Title>
       </Head>
+
       <Description>
         <h5>
           Descripcion: <p className="prodDescr">{product.description}</p>

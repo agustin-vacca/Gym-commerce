@@ -13,6 +13,7 @@ import {
   GET_REVIEWS,
   FILTER_REVIEWS,
   POST_REVIEW,
+  DELETE_ITEM_CARRITO,
 } from "./action-types";
 
 export function getProducts() {
@@ -192,4 +193,10 @@ export function deleteReview(id){
       console.log(error);
   }
   }
+} 
+export function deleteItemCarrito(items){
+  return ({
+    type: DELETE_ITEM_CARRITO,
+    payload: items,
+  });
 } 

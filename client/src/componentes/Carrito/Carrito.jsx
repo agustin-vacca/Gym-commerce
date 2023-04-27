@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import { BiMinus, BiPlus, BiTrashAlt, BiX } from "react-icons/bi";
-import { useDispatch, useSelector } from "react-redux";
+import { BiTrashAlt, BiX } from "react-icons/bi";
+import { useSelector } from "react-redux";
 import { MyCarrito } from "./CarritoStyle";
-import { getProductById } from "../../redux/actions";
 import axios from "axios";
 
 const Carrito = ({ popupActive, setPopupActive }) => {
-  const dispatch = useDispatch();
   const [Quantity, setQuantity] = useState(1);
 
   const carrito = useSelector((state) => state.carrito);
@@ -19,12 +17,16 @@ const Carrito = ({ popupActive, setPopupActive }) => {
   });
   //Funcion para eliminar un item del carrito
   const handlerDelete = (id) => {
-    setCarritos(carritos.filter((carro) => carro.id !== id));
+   const filtro = (carritos.filter((carro) => carro.id !== id));
+   setCarritos(filtro)
   };
 
+  const ver = () => {
+    console.log(carritos);
+  }
   
   const hanleSum = (num) => {
-    const found = carritos.find(elem => elem.id == num)
+    const found = carritos.find(elem => elem.id === Number(num))
     found.cantidad++
     setQuantity(Quantity + 1 )
     console.log(found.cantidad);
@@ -32,7 +34,7 @@ const Carrito = ({ popupActive, setPopupActive }) => {
 
   const hanleRest = (num) => {
     console.log(num);
-    const found = carritos.find(elem => elem.id == num)
+    const found = carritos.find(elem => elem.id === Number(num))
     if(found.cantidad > 1){
       found.cantidad--
       setQuantity(Quantity - 1 )
@@ -66,6 +68,7 @@ const Carrito = ({ popupActive, setPopupActive }) => {
           <BiX size={25} />
         </div>
         <h2 className="Header">Tu carrito</h2>
+        <button onClick={()=> ver()}>VER</button>
       </div>
       {carritos &&
         carritos.map(({ id, name, image, price, cantidad }) => (
