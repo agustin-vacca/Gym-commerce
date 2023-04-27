@@ -12,6 +12,7 @@ export const GET_REVIEWS = "GET_REVIEWS";
 export const FILTER_REVIEWS = "FILTER_REVIEWS";
 export const POST_REVIEW = "POST_REVIEW";
 export const DELETE_REVIEW= "DELETE_REVIEW"
+export const DELETE_ITEM_CARRITO= "DELETE_ITEM_CARRITO"
 
 
 
