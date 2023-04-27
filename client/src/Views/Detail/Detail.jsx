@@ -55,12 +55,19 @@ const Detail = () => {
     return json;
   };
 
-  const handleClickCarrito = () => {
+
+  const handleClickCarrito = (id) => {
+    console.log(carrito)
+    const found = carrito.find(elem => elem.id == id)
+    if(found){
+      console.log("Ya esta el producto")
+    } else {
     product.cantidad = 1
     carrito.push(product);
     window.localStorage.setItem("carrito", JSON.stringify(carrito));
+    console.log("producto agregado")
+    }
   };
-
   return (
     <div>
       <NavBar />
@@ -87,7 +94,7 @@ const Detail = () => {
             <button className="botonCompra" onClick={buyClick}>
               Comprar
             </button>
-            <button className="botonCarrito" onClick={handleClickCarrito}>
+            <button className="botonCarrito" onClick={() => handleClickCarrito(product.id)}>
               Agregar al Carrito
             </button>
           </WalletContainer>
