@@ -11,24 +11,33 @@ module.exports = (sequelize) => {
         primaryKey: true,
         autoIncrement: true,
       },
-      full_name: {
+      given_name: {
         type: DataTypes.STRING,
-        allowNull: false,
+      },
+      family_name: {
+        type: DataTypes.STRING,
+      },
+      name: {
+        type: DataTypes.STRING,
       },
       email: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      password: {
+      email_verified: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+      },
+      picture: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      country: {
+      sub: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      phone: {
-        type: DataTypes.INTEGER,
+      admin: {
+        type: DataTypes.BOOLEAN,
         allowNull: false,
       }
     },
