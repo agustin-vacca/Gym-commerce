@@ -13,7 +13,7 @@ const getProductForPurchase = async (id) => {
   return prod
 }
 
-Mercadopago.use("/create_preference/:id", async (req,res) => {
+Mercadopago.use("/create_preferences/:id", async (req,res) => {
   const {id} = req.params
   const prod = await getProductForPurchase(id)
 let preference = {
@@ -48,13 +48,13 @@ Mercadopago.post("/create_preference", (req, res) => {
   let preference = {
 		items: prodcuts.map((products) =>({
       id: products.id,
+      unit_price: products.unit_price,
+      quantity:products.cantidad,
 			title: products.name,
       currency_id:"ARS",
       picture_url: products.image,
       description: products.description,
       category_id:"gim",
-      quantity: 1,
-      unit_price: products.unit_price, 
     })),
 		back_urls: {
 			"success": "http://localhost:8080/feedback",
@@ -70,7 +70,7 @@ Mercadopago.post("/create_preference", (req, res) => {
   .catch((error) => res.status(400).send({error:error.message})); 
 });
 
- Mercadopago.get('/feedback', function (req, res) {
+Mercadopago.get('/feedback', function (req, res) {
 	res.json({
 		Payment: req.query.payment_id,
 		Status: req.query.status,

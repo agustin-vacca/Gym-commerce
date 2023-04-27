@@ -3,6 +3,7 @@ import { BiMinus, BiPlus, BiTrashAlt, BiX } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import { MyCarrito } from "./CarritoStyle";
 import { getProductById } from "../../redux/actions";
+import axios from "axios";
 
 const Carrito = ({ popupActive, setPopupActive }) => {
   const dispatch = useDispatch();
@@ -40,6 +41,24 @@ const Carrito = ({ popupActive, setPopupActive }) => {
   return found
   };
 
+  const hanleSell = async() => {
+  const items = carritos.map((elem) => ({
+    key:elem.id,
+    id:elem.id,
+    name: elem.name,
+    cantidad:elem.cantidad,
+    unit_price:elem.price,
+    image:elem.image,
+    description: elem.description,
+  }))
+  const headers = { "Content-Type": "text/plain" };
+
+  
+  const json = await axios.post(`http://localhost:3001/mercadopago/create_preference`,items, headers)
+  window.location.assign(json.data) 
+  return json; 
+};
+
   return (
     <MyCarrito>
       <div className="CarritoHeader">
@@ -73,7 +92,7 @@ const Carrito = ({ popupActive, setPopupActive }) => {
         <div className="fila">
           <strong>Total</strong>
           <span className="precioTotal">$ {PagoTotal * Quantity} ARS</span>
-          <button className="btnPagar">Pagar</button>
+          <button className="btnPagar" onClick={hanleSell} >Pagar</button>
         </div>
       </div>
     </MyCarrito>
