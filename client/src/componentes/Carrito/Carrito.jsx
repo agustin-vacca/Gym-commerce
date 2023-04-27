@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { BiTrashAlt, BiX } from "react-icons/bi";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { MyCarrito } from "./CarritoStyle";
 import axios from "axios";
+import { deleteItemCarrito } from "../../redux/actions";
 
 const Carrito = ({ popupActive, setPopupActive }) => {
-  const [Quantity, setQuantity] = useState(1);
+  const dispatch = useDispatch();
 
+  const [Quantity, setQuantity] = useState(1);
   const carrito = useSelector((state) => state.carrito);
   const [carritos, setCarritos] = useState(carrito);
 
@@ -19,11 +21,8 @@ const Carrito = ({ popupActive, setPopupActive }) => {
   const handlerDelete = (id) => {
    const filtro = (carritos.filter((carro) => carro.id !== id));
    setCarritos(filtro)
+   dispatch(deleteItemCarrito(filtro));
   };
-
-  const ver = () => {
-    console.log(carritos);
-  }
   
   const hanleSum = (num) => {
     const found = carritos.find(elem => elem.id === Number(num))
@@ -68,7 +67,6 @@ const Carrito = ({ popupActive, setPopupActive }) => {
           <BiX size={25} />
         </div>
         <h2 className="Header">Tu carrito</h2>
-        <button onClick={()=> ver()}>VER</button>
       </div>
       {carritos &&
         carritos.map(({ id, name, image, price, cantidad }) => (

@@ -82,11 +82,6 @@ const Detail = () => {
     console.log(filtro, "filtro");
   };
 
-  const ver = () => {
-    console.log(carrito, "carrito");
-    console.log(carritos,"carritos");
-  };
-
   return (
     <div>
       <NavBar />
@@ -95,7 +90,6 @@ const Detail = () => {
           <img src={product.image} alt="img" width="500px" height="500" />
         </Headimg>
         <Title>
-          <button onClick={()=> ver()}>VER </button>
           <h1> {product.name} </h1>
           <h3>Precio: {product.price} $ Arg</h3>
           <h3>Color: {product.color} </h3>
