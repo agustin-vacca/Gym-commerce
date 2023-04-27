@@ -10,6 +10,7 @@ import {
   FILTER_REVIEWS,
   POST_REVIEW,
   DELETE_REVIEW,
+  GET_USERS,
 } from "./action-types";
 
 const initialState = {
@@ -20,7 +21,7 @@ const initialState = {
   allProducts: [],
   productsOrder: [],
   detail: [],
-  user: [],
+  users: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -41,6 +42,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         reviews: action.payload,
         allReviews: action.payload,
+      };
+    case GET_USERS:
+      return {
+        ...state,
+        users: action.payload,
       };
     case GET_PRODUCT_BY_ID:
       return {
