@@ -2,7 +2,6 @@ import axios from "axios";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import Footer from "../../componentes/Footer/Footer";
 import NavBarAdmin from "../../componentes/NavBarAdmin/NavBarAdmin";
 import { createProducts } from "../../redux/actions";
 import { FormStyle } from "./FormStyles";

@@ -10,11 +10,9 @@ import {
   GET_REVIEWS,
   ORDER_BY_NAME,
   ORDER_BY_PRICE,
-  POST_REVIEW,
-  DELETE_REVIEW,
   GET_USERS,
-  PUT_ADMIN_USER,
-  GET_USER_BY_ID
+  GET_USER_BY_ID,
+  POST_REVIEW
 } from "./action-types";
 
 const initialState = {

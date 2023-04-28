@@ -1,23 +1,23 @@
 import React from "react";
-import accesorios from "../../accesorios.jpg";
+/* import accesorios from "../../accesorios.jpg";
 import box from "../../box.jpg";
 import cardiganRectangulo from "../../cardiganRectangulo.png";
 import casaGimnasio from "../../casaGimnasio.png";
 import discosRogue from "../../discosRogue.jpg";
-import gymMaquinas from "../../gymMaquinas.jpg";
+import gymMaquinas from "../../gymMaquinas.jpg"; */
 import { LandingDiv } from "./LandingStyle.js";
 
 function Landing() {
   //const navigate = useNavigate();
-  const myFunction = (e) => {
+/*   const myFunction = (e) => {
     const name = e.target.className;
     //if (name === "pelota")
     alert(`Click en la imagen ${name}`);
     //navigate("/productos/${id}`");
-  };
+  }; */
   return (
     <LandingDiv>
-      <div className="logo">
+{/*       <div className="logo">
         <img
           className="logoImg"
           src={cardiganRectangulo}
@@ -110,7 +110,7 @@ function Landing() {
             onClick={(e) => myFunction(e)}
           />
         </map>
-      </div>
+      </div> */}
     </LandingDiv>
   );
 }

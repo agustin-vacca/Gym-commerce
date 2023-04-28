@@ -14,7 +14,8 @@ import {
   FILTER_REVIEWS,
   POST_REVIEW,
   PUT_ADMIN_USER,
-  GET_USER_BY_ID
+  GET_USER_BY_ID,
+  DELETE_ITEM_CARRITO
 } from "./action-types";
 
 export function getProducts() {
@@ -209,7 +210,12 @@ export function deleteReview(id){
   }
   }
 } 
-
+export function deleteItemCarrito(items){
+  return ({
+    type: DELETE_ITEM_CARRITO,
+    payload: items,
+  });
+} 
 export function putAdminUser(id,admin){
   return async function(dispatch){
     try {
