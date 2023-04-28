@@ -7,11 +7,13 @@ const UserRoutes = Router();
 const {
   getUsersHandler,
   postUsersHandler,
-  getUserHandler
+  getUserHandler,
+  AdminUserHandler
 } = require("../handlers/UsersHandler");
 
 UserRoutes.get("/", getUsersHandler);
 UserRoutes.post("/create", postUsersHandler);
-UserRoutes.get("/:id", getUserHandler)
+UserRoutes.get("/:id", getUserHandler);
+UserRoutes.put("/:id", AdminUserHandler)
 
 module.exports = UserRoutes;

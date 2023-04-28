@@ -4,6 +4,7 @@ const {
   getUser,
   createUser,
   getUserById,
+  adminUserById
 } = require("../controllers/UserController");
 
 const getUsersHandler = async (req, res) => {
@@ -36,8 +37,20 @@ const getUserHandler = async (req, res) => {
   }
 };
 
+const AdminUserHandler = async (req,res) => {
+  try {
+    const { id } = req.params;
+    const { admin } = req.body
+    adminUserById(id, admin);
+    res.status(200).send("El usuario fue admitido como administrador");
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
 module.exports = {
   getUsersHandler,
   postUsersHandler,
   getUserHandler,
+  AdminUserHandler
 };
