@@ -62,10 +62,12 @@ export const Review = styled.div`
 
 export const WalletContainer = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 
   .botonCompra,
+  .seguirComprando,
   .botonCarrito {
     margin: 10px;
     padding: 15px 30px;
@@ -125,4 +127,6 @@ export const WalletContainer = styled.div`
     -webkit-user-select: none;
     touch-action: manipulation;
   }
+
+
 `;

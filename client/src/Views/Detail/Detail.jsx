@@ -6,7 +6,12 @@ import { useParams } from "react-router-dom";
 import DetailReviews from "../../componentes/DetailComponents/DetailReviews/DetailReviews";
 import Footer from "../../componentes/Footer/Footer";
 import NavBar from "../../componentes/NavBar/NavBar";
-import { deleteItemCarrito, getProductById, getReviews, getUsers } from "../../redux/actions";
+import {
+  deleteItemCarrito,
+  getProductById,
+  getReviews,
+  getUsers,
+} from "../../redux/actions";
 import {
   Description,
   Head,
@@ -22,12 +27,10 @@ const Detail = () => {
   const dispatch = useDispatch();
   const product = useSelector((state) => state.detail);
 
-
   const carrito = useSelector((state) => state.carrito);
   // eslint-disable-next-line
   const [orden, setOrden] = useState(0);
   const [promedio, setPromedio] = useState(null);
-
 
   const [carritos, setCarritos] = useState(carrito);
 
@@ -70,14 +73,14 @@ const Detail = () => {
       carrito.push(product);
       window.localStorage.setItem("carrito", JSON.stringify(carrito));
       console.log("producto agregado");
-      setOrden(orden+1)
+      setOrden(orden + 1);
     }
   };
 
   const handleRemoveItem = (id) => {
     const filtro = carrito.filter((elem) => elem.id !== id);
-    setCarritos(filtro)
-    setOrden(orden+1)
+    setCarritos(filtro);
+    setOrden(orden + 1);
     dispatch(deleteItemCarrito(filtro));
     console.log(carritos, "carritos");
     console.log(filtro, "filtro");
@@ -106,21 +109,32 @@ const Detail = () => {
           {/*           <h3>Promedio: {promedio / product.reviews?.length} </h3>       */}
           <h2>Producto Disponible</h2>
           <WalletContainer>
-            <button className="botonCompra" onClick={buyClick}>
-              Comprar
-            </button>
+            {!carrito.length ? (
+              <button className="botonCompra" onClick={buyClick}>
+                Comprar
+              </button>
+            ) : (
+              <button className="seguirComprando" onClick={buyClick}>
+                Seguir comprando
+              </button>
+            )}
+            {carrito.find((elem) => elem.id === Number(id)) ? (
+              <button
+                className="compradoBtn"
+                onClick={() => handleRemoveItem(product.id)}
+              >
+                EN CARRITO
+              </button>
+            ) : (
+              <button
+                className="botonCarrito"
+                onClick={() => handleClickCarrito(product.id)}
+              >
+                Agregar al Carrito
+              </button>
+            )}
 
-            {
-              carrito.find((elem) => elem.id === Number (id)) ? 
-              <button className="compradoBtn" onClick={() =>handleRemoveItem(product.id)}>
-              EN CARRITO
-            </button> : 
-            <button
-              className="botonCarrito"
-              onClick={() => handleClickCarrito(product.id)}
-            >Agregar al Carrito</button>
-            }
-          
+            <div></div>
           </WalletContainer>
         </Title>
       </Head>
