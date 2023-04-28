@@ -6,7 +6,8 @@ import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 
 function Detailcard({ rating, opinion, id }) {
   const dispatch = useDispatch();
-  
+
+  const [number, setNumbers] = useState(0);
 
   function closeReview(event) {
     event.preventDefault();
@@ -14,31 +15,17 @@ function Detailcard({ rating, opinion, id }) {
     window.location.reload();
   }
 
-   useEffect(()=> {
-    activeStars()
-    // eslint-disable-next-line
-  },[]
-  ) 
-
-
-  const stars = document.querySelectorAll(".starsRating i")
-  
-  
-  function activeStars() {
-        stars.forEach((star,aux) =>{
-          console.log(aux);
-          aux >= 0 ? star.classList.add("active") : star.classList.remove("active")
-       }) 
-     }
- 
-
   return (
     <Container>
-{Array(5).fill().map((_,index)=>(
-rating >= index +1 
-? (<AiFillStar key={(index+1)} style={{color:"orange"}}/>) 
-: ( <AiOutlineStar  key={(index+1)} style={{color:"gray"}}/>)
-))}
+      {Array(5)
+        .fill()
+        .map((_, index) =>
+          rating >= index + 1 ? (
+            <AiFillStar key={index + 1} style={{ color: "orange" }} />
+          ) : (
+            <AiOutlineStar key={index + 1} style={{ color: "gray" }} />
+          )
+        )}
 
       <div className="secondRow">
         <p>{opinion}</p>

@@ -13,7 +13,8 @@ import {
   GET_REVIEWS,
   FILTER_REVIEWS,
   POST_REVIEW,
-  DELETE_ITEM_CARRITO,
+  PUT_ADMIN_USER,
+  GET_USER_BY_ID
 } from "./action-types";
 
 export function getProducts() {
@@ -42,6 +43,20 @@ export function getProductById(id) {
       console.log(error);
     }
   };
+}
+
+export function getUserById(id) {
+  return async function (dispatch) {
+    try {
+      const json = await axios.get(`http://localhost:3001/usuarios/${id}`);
+      return dispatch({
+        type: GET_USER_BY_ID,
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
 
 export function getCategories() {
@@ -194,9 +209,18 @@ export function deleteReview(id){
   }
   }
 } 
-export function deleteItemCarrito(items){
-  return ({
-    type: DELETE_ITEM_CARRITO,
-    payload: items,
-  });
-} 
+
+export function putAdminUser(id,admin){
+  return async function(dispatch){
+    try {
+      const response = await axios.put("http://localhost:3001/usuarios/"+ id, admin)
+      console.log(response)
+      return dispatch({
+        type: PUT_ADMIN_USER,
+        payload: response.data
+      })
+    } catch (error) {
+      console.log(error);
+    }
+  }
+}
