@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Container } from "./DetailcardStyle";
 import { useDispatch } from "react-redux";
 import { deleteReview } from "../../../redux/actions";
@@ -7,8 +7,6 @@ import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 function Detailcard({ rating, opinion, id }) {
   const dispatch = useDispatch();
   
-  const [number, setNumbers] = useState(0)
-
 
   function closeReview(event) {
     event.preventDefault();
@@ -18,6 +16,7 @@ function Detailcard({ rating, opinion, id }) {
 
    useEffect(()=> {
     activeStars()
+    // eslint-disable-next-line
   },[]
   ) 
 

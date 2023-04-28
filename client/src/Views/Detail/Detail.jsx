@@ -50,6 +50,7 @@ const Detail = () => {
   useEffect(() => {
     const result = promedioHandler();
     setPromedio(result);
+    // eslint-disable-next-line
   }, [product]);
 
   const buyClick = async () => {

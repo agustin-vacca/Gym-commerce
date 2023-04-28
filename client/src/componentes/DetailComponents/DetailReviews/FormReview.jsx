@@ -20,6 +20,7 @@ useEffect(() => {
     user: "",
     item: id,
   });
+  // eslint-disable-next-line
 }, [number]);
 
 

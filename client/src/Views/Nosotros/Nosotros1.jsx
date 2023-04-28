@@ -5,7 +5,6 @@ import Footer from "../../componentes/Footer/Footer";
 import NavBar from "../../componentes/NavBar/NavBar";
 import imagen from "../../cardiganRectangulo.png";
 import styled from "styled-components";
-import img from "./R.png";
 import { Link } from "react-router-dom";
 import insta from "./imagenes/instagram.svg"
 import twitter from "./imagenes/twitter.svg"
