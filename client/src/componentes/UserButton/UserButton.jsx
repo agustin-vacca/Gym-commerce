@@ -5,10 +5,25 @@ import { Link } from "react-router-dom";
 import Login from "../Login/Login";
 import Logout from "../Logout/Logout";
 import { UserBtnDiv } from "./UserButtonStyled";
+import { createUsers, getUsers } from "../../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
 
 const UserButton = () => {
   const { user, isAuthenticated } = useAuth0();
   const [active, setActive] = useState(false);
+
+  const dispatch = useDispatch();
+  const usuarios = useSelector(state => state.users);
+
+  const ver = () => {
+    dispatch(createUsers(user));
+    dispatch(getUsers());
+  }
+
+  const mostrar = () => {
+    console.log("estos son los: ", usuarios)
+  }
+
   return (
     <UserBtnDiv>
       <div onClick={() => setActive(!active)}>
@@ -24,6 +39,10 @@ const UserButton = () => {
             <div className="profile">
               <h3 className="profileName">{user.given_name}</h3>
             </div>
+            <li>
+              <button onClick={() => ver()}> ver </button>
+              <button onClick={() => mostrar()}> ver2 </button>
+            </li>
             <li>
               <Link
                 className="Li"

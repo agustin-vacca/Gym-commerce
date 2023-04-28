@@ -8,6 +8,7 @@ import {
   GET_PRODUCTS_BY_NAME,
   GET_PRODUCT_BY_ID,
   GET_REVIEWS,
+  GET_USERS,
   ORDER_BY_NAME,
   ORDER_BY_PRICE,
   POST_REVIEW,
@@ -21,7 +22,7 @@ const initialState = {
   allProducts: [],
   productsOrder: [],
   detail: [],
-  user: [],
+  users: [],
   carrito: [],
 };
 
@@ -43,6 +44,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         reviews: action.payload,
         allReviews: action.payload,
+      };
+    case GET_USERS:
+      return {
+        ...state,
+        users: action.payload,
       };
     case GET_PRODUCT_BY_ID:
       return {
@@ -133,12 +139,12 @@ const reducer = (state = initialState, action) => {
         reviews: action.payload,
         allReviews: action.payload,
       };
-      case DELETE_ITEM_CARRITO:
-        return {
-          ...state,
-          carrito: action.payload,
-        };
-      default:
+    case DELETE_ITEM_CARRITO:
+      return {
+        ...state,
+        carrito: action.payload,
+      };
+    default:
       return { ...state };
   }
 };

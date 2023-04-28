@@ -1,6 +1,11 @@
 const { Usuario } = require("../db");
 
-const createUser = (full_name, email, password, country, phone) => Usuario.create({ full_name, email, password, country, phone });
+const createUser = (name, given_name, family_name, email, email_verified, picture, sub, admin) => {
+  admin = false;
+  const newUser = Usuario.create({ name, given_name, family_name, email, email_verified, picture, sub, admin });
+  return newUser;
+}
+
 
 const getUser = () => {
   const user = Usuario.findAll();
