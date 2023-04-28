@@ -110,7 +110,7 @@ const Detail = () => {
             </button>
 
             {
-              carrito.find((elem) => elem.id == id) ? 
+              carrito.find((elem) => elem.id === Number (id)) ? 
               <button className="compradoBtn" onClick={() =>handleRemoveItem(product.id)}>
               EN CARRITO
             </button> : 

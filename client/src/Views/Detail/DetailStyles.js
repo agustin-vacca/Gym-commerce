@@ -79,6 +79,7 @@ export const WalletContainer = styled.div`
     border: 0px;
     font-weight: 700;
     box-shadow: 0px 0px 14px -7px #0078d0;
+    width: 100%;
     background-image: linear-gradient(
       45deg,
       #1366d6 0%,
@@ -115,6 +116,7 @@ export const WalletContainer = styled.div`
     border-radius: 10px;
     display: block;
     border: 0px;
+    width: 100%;
     font-weight: 700;
     box-shadow: 0px 0px 14px -7px #0078d0;
     background-image: linear-gradient(109.6deg, rgb(162, 2, 63) 11.2%, rgb(231, 62, 68) 53.6%, rgb(255, 129, 79) 91.1%);
