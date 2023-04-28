@@ -1,19 +1,27 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import accesorios from "../../accesorios.jpg";
 import box from "../../box.jpg";
 import cardiganRectangulo from "../../cardiganRectangulo.png";
 import casaGimnasio from "../../casaGimnasio.png";
 import discosRogue from "../../discosRogue.jpg";
 import gymMaquinas from "../../gymMaquinas.jpg";
+//import { getProductsbyName } from "../../redux/actions";
 import { LandingDiv } from "./LandingStyle.js";
 
 function Landing() {
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
+
   const myFunction = (e) => {
-    const name = e.target.className;
-    //if (name === "pelota")
-    alert(`Click en la imagen ${name}`);
-    //navigate("/productos/${id}`");
+    const landName = e.target.className;
+    if (landName) {
+      window.localStorage.setItem("landingName", JSON.stringify(landName));
+      navigate("/catalogue");
+    }
+  };
+
+  const onClickButton = () => {
+    return navigate("/home");
   };
   return (
     <LandingDiv>
@@ -34,7 +42,9 @@ function Landing() {
         <div className="divs">
           <h1 className="h1CARDIGAN">CARDIGAN</h1>
           Ingresar a la tienda
-          <button className="button">GO!</button>
+          <button className="button" onClick={onClickButton}>
+            GO!
+          </button>
         </div>
         <map name="casaGimnasio" className="workmap">
           <area
