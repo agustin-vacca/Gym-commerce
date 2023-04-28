@@ -11,6 +11,8 @@ import {
   POST_REVIEW,
   DELETE_REVIEW,
   GET_USERS,
+  PUT_ADMIN_USER,
+  GET_USER_BY_ID
 } from "./action-types";
 
 const initialState = {
@@ -22,6 +24,7 @@ const initialState = {
   productsOrder: [],
   detail: [],
   users: [],
+  detailUser: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -52,6 +55,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         detail: action.payload,
+      };
+    case GET_USER_BY_ID:
+      return {
+        ...state,
+        detailUser: action.payload
       };
     case ORDER_BY_NAME:
       let sortedArr =

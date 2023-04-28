@@ -11,7 +11,9 @@ export const GET_CATEGORIES = "GET_CATEGORIES";
 export const GET_REVIEWS = "GET_REVIEWS";
 export const FILTER_REVIEWS = "FILTER_REVIEWS";
 export const POST_REVIEW = "POST_REVIEW";
-export const DELETE_REVIEW= "DELETE_REVIEW"
+export const DELETE_REVIEW= "DELETE_REVIEW";
+export const PUT_ADMIN_USER = "PUT_ADMIN_USER";
+export const GET_USER_BY_ID = "GET_USER_BY_ID";
 
 
 
