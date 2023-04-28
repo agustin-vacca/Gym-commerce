@@ -32,7 +32,7 @@ const Detail = () => {
   const [carritos, setCarritos] = useState(carrito);
 
   const promedioHandler = () => {
-    let promedio = "";
+    let promedio = 0;
     const cantLargo = product.reviews?.length;
     for (let i = 0; i < cantLargo; i++) {
       promedio = Number(promedio) + Number(product.reviews[i].rating);
@@ -100,7 +100,7 @@ const Detail = () => {
             {`${
               !promedio
                 ? "Se el primero en valorar este producto"
-                : promedio / product.reviews?.length + "/5"
+                : (promedio / product.reviews?.length).toFixed(2) /* + "/5"  */
             }`}{" "}
           </h3>
           {/*           <h3>Promedio: {promedio / product.reviews?.length} </h3>       */}
