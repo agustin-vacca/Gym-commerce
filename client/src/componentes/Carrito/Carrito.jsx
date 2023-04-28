@@ -28,16 +28,13 @@ const Carrito = ({ popupActive, setPopupActive }) => {
     const found = carritos.find(elem => elem.id === Number(num))
     found.cantidad++
     setQuantity(Quantity + 1 )
-    console.log(found.cantidad);
   };
 
   const hanleRest = (num) => {
-    console.log(num);
     const found = carritos.find(elem => elem.id === Number(num))
     if(found.cantidad > 1){
       found.cantidad--
       setQuantity(Quantity - 1 )
-     console.log(found.cantidad);
     } 
   return found
   };

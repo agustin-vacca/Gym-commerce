@@ -2,7 +2,7 @@ import { initMercadoPago } from "@mercadopago/sdk-react";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import DetailReviews from "../../componentes/DetailComponents/DetailReviews/DetailReviews";
 import Footer from "../../componentes/Footer/Footer";
 import NavBar from "../../componentes/NavBar/NavBar";
@@ -31,8 +31,9 @@ const Detail = () => {
   // eslint-disable-next-line
   const [orden, setOrden] = useState(0);
   const [promedio, setPromedio] = useState(null);
-
   const [carritos, setCarritos] = useState(carrito);
+  const navigate = useNavigate();
+
 
   const promedioHandler = () => {
     let promedio = 0;
@@ -55,6 +56,10 @@ const Detail = () => {
     setPromedio(result);
     // eslint-disable-next-line
   }, [product]);
+
+  const seguirComprando = () => {
+    navigate("/catalogue");
+  };
 
   const buyClick = async () => {
     const json = await axios.get(
@@ -114,7 +119,7 @@ const Detail = () => {
                 Comprar
               </button>
             ) : (
-              <button className="seguirComprando" onClick={buyClick}>
+              <button className="seguirComprando" onClick={seguirComprando}>
                 Seguir comprando
               </button>
             )}
