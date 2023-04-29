@@ -14,6 +14,7 @@ export const POST_REVIEW = "POST_REVIEW";
 export const DELETE_REVIEW= "DELETE_REVIEW";
 export const PUT_ADMIN_USER = "PUT_ADMIN_USER";
 export const GET_USER_BY_ID = "GET_USER_BY_ID";
+export const DELETE_ITEM_CARRITO= "DELETE_ITEM_CARRITO"
 
 
 

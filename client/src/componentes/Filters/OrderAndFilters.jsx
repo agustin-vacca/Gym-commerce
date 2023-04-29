@@ -5,7 +5,7 @@ import { FiltersStyled } from "./Order&FilterStyled.js";
 
 export default function OrderAndFilters({ setOrden }) {
   const dispatch = useDispatch();
-  const [number, setNumber] = useState(false)
+  const [number, setNumber] = useState("1")
 
 
   function handleOrderByName(e) {

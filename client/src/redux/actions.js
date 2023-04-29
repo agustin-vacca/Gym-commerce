@@ -13,6 +13,7 @@ import {
   GET_REVIEWS,
   FILTER_REVIEWS,
   POST_REVIEW,
+  DELETE_ITEM_CARRITO,
   PUT_ADMIN_USER,
   GET_USER_BY_ID
 } from "./action-types";
@@ -209,18 +210,3 @@ export function deleteReview(id){
   }
   }
 } 
-
-export function putAdminUser(id,admin){
-  return async function(dispatch){
-    try {
-      const response = await axios.put("http://localhost:3001/usuarios/"+ id, admin)
-      console.log(response)
-      return dispatch({
-        type: PUT_ADMIN_USER,
-        payload: response.data
-      })
-    } catch (error) {
-      console.log(error);
-    }
-  }
-}

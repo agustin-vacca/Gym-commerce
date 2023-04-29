@@ -6,7 +6,7 @@ import Footer from "../../componentes/Footer/Footer";
 import NavBarAdmin from "../../componentes/NavBarAdmin/NavBarAdmin";
 import { createProducts } from "../../redux/actions";
 import { FormStyle } from "./FormStyles";
-import { uploadFile } from "../../firebase/config"
+import { uploadFile } from "../../firebase/config";
 
 const Formulario = () => {
   const dispatch = useDispatch();
@@ -19,15 +19,15 @@ const Formulario = () => {
     setCategoria(categoria.data);
   };
 
-  const handlerImage = async(e) => {
+  const handlerImage = async (e) => {
     try {
       const result = await uploadFile(e);
-      console.log(result)
-      setFile(result)
+      console.log(result);
+      setFile(result);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   useEffect(() => {
     Handlercategory();
@@ -40,7 +40,7 @@ const Formulario = () => {
     <FormStyle>
       <div>
         <h1>
-          <u>Crea un producto</u>
+          <u>Añade un producto al catalogo</u>
         </h1>
       </div>
       <Formik
@@ -99,7 +99,6 @@ const Formulario = () => {
           }
           return errors;
         }}
-
         onSubmit={async (values, { resetForm }) => {
           values.image = file;
           dispatch(createProducts(values));
@@ -107,133 +106,153 @@ const Formulario = () => {
           setTimeout(() => setSendForm(false), 5000);
           resetForm();
         }}
-
       >
         {({ errors }) => (
           <Form className="formulario">
-            <div>
-              <label className="label" htmlFor="name">
-                Nombre:{" "}
-              </label>
-              <Field
-                className="input"
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Nombre del producto"
-              />
+            <div className="formSection">
+              <div className="sctionInput">
+                <label className="label" htmlFor="name">
+                  Nombre:{" "}
+                </label>
+                <Field
+                  className="input"
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Nombre del producto"
+                />
+              </div>
               <ErrorMessage
                 name="name"
                 component={() => <div className="error">{errors.name}</div>}
               />
             </div>
-            <div>
-              <label className="label" htmlFor="price">
-                Precio:{" "}
-              </label>
-              <Field
-                className="input"
-                type="text"
-                id="price"
-                name="price"
-                placeholder="Escriba el precio"
-              />
+
+            <div className="formSection">
+              <div className="sctionInput">
+                <label className="label" htmlFor="price">
+                  Precio:{" "}
+                </label>
+                <Field
+                  className="input"
+                  type="text"
+                  id="price"
+                  name="price"
+                  placeholder="Escriba el precio"
+                />
+              </div>
               <ErrorMessage
                 name="price"
                 component={() => <div className="error">{errors.price}</div>}
               />
             </div>
-            <div>
-              <label className="label" htmlFor="weight">
-                Peso:{" "}
-              </label>
-              <Field
-                className="input"
-                type="text"
-                id="weight"
-                name="weight"
-                placeholder="Escriba el peso"
-              />
+            <div className="formSection">
+              <div className="sctionInput">
+                <label className="label" htmlFor="weight">
+                  Peso:{" "}
+                </label>
+                <Field
+                  className="input"
+                  type="text"
+                  id="weight"
+                  name="weight"
+                  placeholder="Escriba el peso"
+                />
+              </div>
               <ErrorMessage
                 name="weight"
                 component={() => <div className="error">{errors.weight}</div>}
               />
             </div>
-            <div>
-              <label className="label" htmlFor="image">
-                Imagen:{" "}
-              </label>
-              { file === null ? 
-              <Field
-              type="file"
-              name="image"
-              className="input"
-              id="image"
-              onChange = {  e => handlerImage(e.target.files[0])}
-            /> : <img src={file} alt="foto" width="500px"/>} 
+            <div className="sectionImage">
+              <div className="sctionInput">
+                <label className="label" htmlFor="image">
+                  Imagen:{" "}
+                </label>
+                {file === null ? (
+                  <Field
+                    type="file"
+                    name="image"
+                    className="input"
+                    id="image"
+                    onChange={(e) => handlerImage(e.target.files[0])}
+                  />
+                ) : (
+                  <img className="imgPic" src={file} alt="foto" />
+                )}
+              </div>
             </div>
-            <div>
-              <label className="label" htmlFor="color">
-                Color:{" "}
-              </label>
-              <Field
-                className="input"
-                type="text"
-                id="color"
-                name="color"
-                placeholder="Color del producto"
-              />
+            <div className="formSection">
+              <div className="sctionInput">
+                <label className="label" htmlFor="color">
+                  Color:{" "}
+                </label>
+                <Field
+                  className="input"
+                  type="text"
+                  id="color"
+                  name="color"
+                  placeholder="Color del producto"
+                />
+              </div>
               <ErrorMessage
                 name="color"
                 component={() => <div className="error">{errors.color}</div>}
               />
             </div>
-            <div>
-              <label className="label" htmlFor="category">
-                Categoria:
-              </label>
-              <Field className="selector" name="category" as="select">
-                <option value="default" disable="true">
-                  -Eliga una categoria-
-                </option>
-                {categoria &&
-                  categoria.map((el) => (
-                    <option key={el.id} value={el.id}>
-                      {el.name}
-                    </option>
-                  ))}
-              </Field>
+
+            <div className="formSection">
+              <div className="sctionInput">
+                <label className="label" htmlFor="category">
+                  Categoria:
+                </label>
+                <Field className="selector" name="category" as="select">
+                  <option value="default" disable="true">
+                    -Eliga una categoria-
+                  </option>
+                  {categoria &&
+                    categoria.map((el) => (
+                      <option key={el.id} value={el.id}>
+                        {el.name}
+                      </option>
+                    ))}
+                </Field>
+              </div>
               <ErrorMessage
                 name="category"
                 component={() => <div className="error">{errors.category}</div>}
               />
             </div>
-            <div>
-              <label className="label" htmlFor="stock">
-                Stock:
-              </label>
-              <Field
-                className="input"
-                type="text"
-                id="stock"
-                name="stock"
-                placeholder="Escriba su stock "
-              />
+            <div className="formSection">
+              <div className="sctionInput">
+                <label className="label" htmlFor="stock">
+                  Stock:
+                </label>
+                <Field
+                  className="input"
+                  type="text"
+                  id="stock"
+                  name="stock"
+                  placeholder="Escriba su stock "
+                />
+              </div>
               <ErrorMessage
                 name="stock"
                 component={() => <div className="error">{errors.stock}</div>}
               />
             </div>
-            <div>
-              <label className="label" htmlFor="category">
-                Descripción:
-              </label>
-              <Field
-                className="textarea"
-                name="description"
-                as="textarea"
-                placeholder="Descripcion"
-              />
+            <div className="formSection">
+              <div className="sctionInput">
+                <label className="label" htmlFor="category">
+                  Descripción:
+                </label>
+                <Field
+                  className="textarea"
+                  name="description"
+                  as="textarea"
+                  placeholder="Descripcion"
+                />
+              </div>
               <ErrorMessage
                 name="description"
                 component={() => (

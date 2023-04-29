@@ -5,7 +5,6 @@ import Formulario from "../src/Views/Form/Form";
 import Home from "../src/Views/Home/Home";
 import "./App.css";
 import Landing from "./Views/Landing/Landing";
-import Error from "./componentes/Error/Error";
 import Nosotros1 from "./Views/Nosotros/Nosotros1";
 import Preguntas from "./Views/PreguntasFrecuentes/Preguntas";
 import Productos from "./Views/Productos/Productos";

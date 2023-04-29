@@ -38,7 +38,6 @@ export default function NavBar() {
 
   //CONSTANTE QUE ACTIVA O DESACTIVA EL BTN DEL CARRITO
   const [popupActive, setPopupActive] = useState(false);
-  const [active, setActive] = useState(false);
 
   //NAVBAR
   return (
@@ -53,25 +52,26 @@ export default function NavBar() {
           <div className="searchBarDiv">
             {location.pathname === "/catalogue" && <SearchBar />}
           </div>
-          <div className="userButtondiv" onClick={() => setActive(!active)}>
+          <div className="userButtondiv">
             {isAuthenticated && (
-              <div
-                className="Li"
-                onClick={() => {
-                  setPopupActive(!popupActive);
-                }}
-              >
-                <BiCart size={35} />
+              <>
+                <BiCart
+                  size={35}
+                  onClick={() => {
+                    setPopupActive(!popupActive);
+                  }}
+                />
                 <Modal
                   isOpen={popupActive}
                   onRequestClose={() => setPopupActive(false)}
+                  ariaHideApp={false}
                 >
                   <Carrito
                     popupActive={popupActive}
                     setPopupActive={setPopupActive}
                   />
                 </Modal>
-              </div>
+              </>
             )}
           </div>
           <div className="userButtondiv">

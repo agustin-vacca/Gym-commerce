@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import DetailReviews from "../../componentes/DetailComponents/DetailReviews/DetailReviews";
 import Footer from "../../componentes/Footer/Footer";
 import NavBar from "../../componentes/NavBar/NavBar";
-import { getProductById, getReviews, getUsers } from "../../redux/actions";
+import { deleteItemCarrito, getProductById, getReviews, getUsers } from "../../redux/actions";
 import {
   Description,
   Head,
@@ -21,31 +21,35 @@ const Detail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const product = useSelector((state) => state.detail);
-  // eslint-disable-next-line
 
+
+  const carrito = useSelector((state) => state.carrito);
+  // eslint-disable-next-line
+  const [orden, setOrden] = useState(0);
   const [promedio, setPromedio] = useState(null);
 
 
+  const [carritos, setCarritos] = useState(carrito);
+
   const promedioHandler = () => {
-    let promedio = "";
+    let promedio = 0;
     const cantLargo = product.reviews?.length;
     for (let i = 0; i < cantLargo; i++) {
       promedio = Number(promedio) + Number(product.reviews[i].rating);
     }
     return promedio;
-  }; 
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
     dispatch(getProductById(id));
     dispatch(getUsers());
-    dispatch(getReviews()); 
+    dispatch(getReviews());
   }, [dispatch, id]);
-
 
   useEffect(() => {
     const result = promedioHandler();
-    setPromedio(result); 
+    setPromedio(result);
   }, [product]);
 
   const buyClick = async () => {
@@ -56,9 +60,26 @@ const Detail = () => {
     return json;
   };
 
-  const handleClickCarrito = () => {
-    window.localStorage.setItem("carrito", JSON.stringify(product));
-    console.log("este es el boton funcionando");
+  const handleClickCarrito = (id) => {
+    const found = carrito.find((elem) => elem.id === id);
+    if (found) {
+      console.log("Ya esta el producto");
+    } else {
+      product.cantidad = 1;
+      carrito.push(product);
+      window.localStorage.setItem("carrito", JSON.stringify(carrito));
+      console.log("producto agregado");
+      setOrden(orden+1)
+    }
+  };
+
+  const handleRemoveItem = (id) => {
+    const filtro = carrito.filter((elem) => elem.id !== id);
+    setCarritos(filtro)
+    setOrden(orden+1)
+    dispatch(deleteItemCarrito(filtro));
+    console.log(carritos, "carritos");
+    console.log(filtro, "filtro");
   };
 
   return (
@@ -70,24 +91,43 @@ const Detail = () => {
         </Headimg>
         <Title>
           <h1> {product.name} </h1>
-          <h3>Precio: {product.price} U$D</h3>
+          <h3>Precio: {product.price} $ Arg</h3>
           <h3>Color: {product.color} </h3>
-          <h3>Promedio: {promedio / product.reviews?.length} </h3>       
-      <h2>Producto Disponible</h2>
+          {/*  {`${numberCheck=== String(2) ? "special" : ""}`} */}
+          <h3>
+            Promedio:{" "}
+            {`${
+              !promedio
+                ? "Se el primero en valorar este producto"
+                : (promedio / product.reviews?.length).toFixed(2) /* + "/5"  */
+            }`}{" "}
+          </h3>
+          {/*           <h3>Promedio: {promedio / product.reviews?.length} </h3>       */}
+          <h2>Producto Disponible</h2>
           <WalletContainer>
             <button className="botonCompra" onClick={buyClick}>
               Comprar
             </button>
-            <button className="botonCompra" onClick={handleClickCarrito}>
-              Agregar al Carrito
-            </button>
+
+            {
+              carrito.find((elem) => elem.id == id) ? 
+              <button className="compradoBtn" onClick={() =>handleRemoveItem(product.id)}>
+              EN CARRITO
+            </button> : 
+            <button
+              className="botonCarrito"
+              onClick={() => handleClickCarrito(product.id)}
+            >Agregar al Carrito</button>
+            }
+          
           </WalletContainer>
         </Title>
       </Head>
+
       <Description>
-        <h3>
-          Descripcion: <h5 className="prodDescr">{product.description}</h5>
-        </h3>
+        <h5>
+          Descripcion: <p className="prodDescr">{product.description}</p>
+        </h5>
       </Description>
       <Review>
         <DetailReviews />

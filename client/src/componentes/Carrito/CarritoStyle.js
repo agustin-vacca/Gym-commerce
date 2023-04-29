@@ -11,6 +11,13 @@ export const MyCarrito = styled.div`
   top: 0;
   transition: 0.3s;
 
+  .CarritoHeader {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+  }
+
   .btn-close {
     display: flex;
     justify-content: flex-end;
@@ -19,25 +26,16 @@ export const MyCarrito = styled.div`
     cursor: pointer;
   }
 
-  .CarritoHeader {
-    background-color: #000;
-    color: #fff;
-    justify-content: center;
-    align-items: center;
-    padding: 30px 0;
-    font-size: larger;
-  }
-
   .CarritoItem {
     display: flex;
-    align-items: center;
+    justify-content: space-around;
+    align-items: stretch;
     position: relative;
     border-bottom: 1px solid #333;
-    padding: 30px;
+    padding: 20px 30px;
   }
 
   .ItemImg {
-    margin-right: 20px;
     width: 15%;
   }
 
@@ -46,13 +44,13 @@ export const MyCarrito = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 40%;
+    width: 50%;
   }
 
   .ItemName {
     display: block;
     font-weight: bold;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     text-transform: uppercase;
     font-size: larger;
   }
@@ -72,7 +70,6 @@ export const MyCarrito = styled.div`
     margin-bottom: 20px;
   }
   .Itemquantity {
-    border: 1px solid red;
     border: none;
     font-size: 18px;
     background: transparent;
@@ -95,43 +92,44 @@ export const MyCarrito = styled.div`
 
   .ItemPrecio {
     display: flex;
+    width: 100%;
     font-weight: bold;
     font-size: 20px;
+    justify-content: center;
   }
 
   .btnEliminar {
     position: absolute;
-    right: 15px;
-    top: 15px;
+    right: 10px;
+    top: 10px;
     color: #000;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
     text-align: center;
     border-radius: 50%;
     border: 1px solid #000;
     cursor: pointer;
     display: block;
+    padding: 2px;
     background: transparent z-index 20;
   }
 
   .carritoTotal {
     background-color: #f3f3f3;
-    padding: 30px;
+    padding: 15px 30px;
   }
 
   .fila {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
     font-size: 22px;
     font-weight: bold;
-    margin-bottom: 10px;
   }
 
   .btnPagar {
-    display: block;
-    width: 100%;
+    width: 10%;
     border: none;
     background: #000;
     color: #fff;
@@ -139,13 +137,9 @@ export const MyCarrito = styled.div`
     font-size: 18px;
     padding: 20px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
     cursor: pointer;
     transition: 0.03;
+    margin-top: 1%;
   }
 `;
-
-export const CarritoItemDetalle = styled.div``;
-
-export const CarritoHeader = styled.div``;
