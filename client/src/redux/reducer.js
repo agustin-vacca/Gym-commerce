@@ -3,6 +3,7 @@ import {
   DELETE_REVIEW,
   FILTER_BY_CATEGORY,
   FILTER_REVIEWS,
+  GET_ADMIN_PRODUCTS,
   GET_CATEGORIES,
   GET_PRODUCTS,
   GET_PRODUCTS_BY_NAME,
@@ -24,6 +25,7 @@ const initialState = {
   detail: [],
   users: [],
   carrito: [],
+  adminProducts: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -144,6 +146,12 @@ const reducer = (state = initialState, action) => {
         ...state,
         carrito: action.payload,
       };
+    case GET_ADMIN_PRODUCTS:
+      return {
+        ...state,
+        adminProducts: action.payload,
+      };
+
     default:
       return { ...state };
   }

@@ -1,19 +1,20 @@
 import axios from "axios";
 import {
+  DELETE_ITEM_CARRITO,
   FILTER_BY_CATEGORY,
+  FILTER_REVIEWS,
+  GET_ADMIN_PRODUCTS,
   GET_CATEGORIES,
   GET_PRODUCTS,
   GET_PRODUCTS_BY_NAME,
   GET_PRODUCT_BY_ID,
+  GET_REVIEWS,
   GET_USERS,
   ORDER_BY_NAME,
   ORDER_BY_PRICE,
   POST_PRODUCTS,
-  POST_USERS,
-  GET_REVIEWS,
-  FILTER_REVIEWS,
   POST_REVIEW,
-  DELETE_ITEM_CARRITO,
+  POST_USERS,
 } from "./action-types";
 
 export function getProducts() {
@@ -184,19 +185,33 @@ export const createUsers = (obj) => {
   };
 };
 
-export function deleteReview(id){
-  return async function() {
-      try{       
-      const response = await axios.delete("http://localhost:3001/reviews/"+id)
-      return response
-  } catch (error){
+export function deleteReview(id) {
+  return async function () {
+    try {
+      const response = await axios.delete(
+        "http://localhost:3001/reviews/" + id
+      );
+      return response;
+    } catch (error) {
       console.log(error);
-  }
-  }
-} 
-export function deleteItemCarrito(items){
-  return ({
+    }
+  };
+}
+export function deleteItemCarrito(items) {
+  return {
     type: DELETE_ITEM_CARRITO,
     payload: items,
-  });
-} 
+  };
+}
+
+export function getAllProductsAdmin() {
+  return async function (dispatch) {
+    try {
+      let json = await axios.get("http://localhost:3001/admin/");
+      return dispatch({
+        type: GET_ADMIN_PRODUCTS,
+        payload: json.data,
+      });
+    } catch (error) {}
+  };
+}

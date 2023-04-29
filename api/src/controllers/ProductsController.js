@@ -55,6 +55,9 @@ const getProducts = (name) => {
     return product;
   } else {
     const products = Producto.findAll({
+      where: {
+        isactive: true,
+      },
       include: [
         {
           model: Categoria,
@@ -91,16 +94,12 @@ const getProductsById = (id) => {
 };
 
 const deleteProductById = (id) => {
-    Producto.destroy(
-    { where: { id: id }
-    });
+  Producto.destroy({ where: { id: id } });
 };
 
 module.exports = {
   createProducts,
   getProducts,
   getProductsById,
-  deleteProductById
+  deleteProductById,
 };
-
-
