@@ -13,6 +13,8 @@ import AdminProducts from "./Views/AdminViews/AdminProducts";
 import AdminUsers from "./Views/AdminViews/AdminUsers";
 import EditProduct from "./Views/AdminViews/EditProduct";
 import AdminReviews from "./Views/AdminViews/AdminReviews";
+import Error from "./componentes/Error/Error";
+
 
 function App() {
 	return (

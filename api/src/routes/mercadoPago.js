@@ -13,7 +13,7 @@ const getProductForPurchase = async (id) => {
   return prod
 }
 
-Mercadopago.use("/create_preferences/:id", async (req,res) => {
+Mercadopago.use("/payment/:id", async (req,res) => {
   const {id} = req.params
   const prod = await getProductForPurchase(id)
 let preference = {
@@ -57,9 +57,9 @@ Mercadopago.post("/create_preference", (req, res) => {
       category_id:"gim",
     })),
 		back_urls: {
-			"success": "http://localhost:8080/feedback",
-			"failure": "http://localhost:8080/feedback",
-			"pending": "http://localhost:8080/feedback"
+			"success": "http://localhost:3000/home",
+			"failure": "http://localhost:3000/home",
+			"pending": "http://localhost:3000/home"
 		},
  		auto_return: "approved",	
 };

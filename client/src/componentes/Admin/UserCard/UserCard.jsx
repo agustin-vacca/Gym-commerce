@@ -53,6 +53,7 @@ function UserCard({ id, name, email, admin }) {
     useEffect( () => {
       dispatch(getUserById(id))
       console.log("esto es el cambio:",usuario)
+      // eslint-disable-next-line
     },[role])
 
   return (

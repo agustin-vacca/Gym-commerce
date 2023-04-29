@@ -38,6 +38,7 @@ export default function AdminUsers(){
 
     useEffect( () => {
         dispatch(getUsers());
+        // eslint-disable-next-line
     },[change])
 
     return(
