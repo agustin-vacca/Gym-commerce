@@ -69,8 +69,8 @@ useEffect(() => {
 <br></br>
 {Array(5).fill().map((_,index)=>(
 number >= index +1 
-? (<AiFillStar key={(index+1)} style={{color:"orange"}} onClick={(e) => setNumbers(index+1)}/>) 
-: ( <AiOutlineStar  key={(index+1)} style={{color:"orange"}}  onClick={(e) => setNumbers(index+1)}/>)
+? (<AiFillStar key={(index+1)} style={{color:"orange", scale:"170%", margin:"5px"}} onClick={(e) => setNumbers(index+1)}/>) 
+: ( <AiOutlineStar  key={(index+1)} style={{color:"orange", scale:"170%", margin:"5px"}}  onClick={(e) => setNumbers(index+1)}/>)
 ))}
 
         </div>

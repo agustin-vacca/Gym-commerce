@@ -138,8 +138,6 @@ const Detail = () => {
                 Agregar al Carrito
               </button>
             )}
-
-            <div></div>
           </WalletContainer>
         </Title>
       </Head>

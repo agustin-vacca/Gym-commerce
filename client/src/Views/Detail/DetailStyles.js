@@ -127,6 +127,4 @@ export const WalletContainer = styled.div`
     -webkit-user-select: none;
     touch-action: manipulation;
   }
-
-
 `;
