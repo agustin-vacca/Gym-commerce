@@ -29,7 +29,7 @@ function Card({ id, name, price, image, isactive }) {
       <>
         {active === true ? (
           <>
-            <button onClick={() => handleClick(id)} className="addBtn">
+            <button className="deleteBtn" onClick={() => handleClick(id)}>
               Eliminar
             </button>
             <div className="TextName">{name}</div>
@@ -39,7 +39,7 @@ function Card({ id, name, price, image, isactive }) {
           </>
         ) : (
           <>
-            <button className="deleteBtn" onClick={() => handleClick(id)}>
+            <button className="addBtn" onClick={() => handleClick(id)}>
               Restaurar
             </button>
             <div className="TextName">{name}</div>

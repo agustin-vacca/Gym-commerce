@@ -58,33 +58,36 @@ export const CardDiv = styled.div`
     background: none;
     border-bottom: 1px solid #333;
     letter-spacing: 2px;
+    border-radius: 5px;
     cursor: pointer;
   }
 
   .deleteBtn:hover {
-    background: rgb(255, 0, 0);
+    background: rgb(255, 254, 254);
     background: linear-gradient(
-      0deg,
-      rgba(255, 0, 0, 1) 0%,
-      rgba(255, 125, 125, 1) 20%,
-      rgba(255, 255, 255, 1) 79%
+      265deg,
+      rgba(255, 254, 254, 1) 0%,
+      rgba(255, 0, 22, 1) 49%,
+      rgba(255, 255, 255, 1) 100%
     );
     transition: 1s;
   }
 
   .addBtn:hover {
-    background: rgb(255, 0, 0);
+    background: rgb(255, 254, 254);
     background: linear-gradient(
-      0deg,
-      rgba(255, 0, 0, 1) 0%,
-      rgba(255, 100, 120, 1) 20%,
-      rgba(255, 200, 55, 1) 79%
+      265deg,
+      rgba(255, 254, 254, 1) 0%,
+      rgba(35, 255, 0, 1) 49%,
+      rgba(255, 255, 255, 1) 100%
     );
     transition: 1s;
   }
   .restaurar {
-    width: 10rem;
-    height: 9rem;
+    width: 9rem;
+    height: 8rem;
     filter: grayscale(100%);
   }
 `;
+/*
+ */
