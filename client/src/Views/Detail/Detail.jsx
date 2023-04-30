@@ -2,11 +2,16 @@ import { initMercadoPago } from "@mercadopago/sdk-react";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import DetailReviews from "../../componentes/DetailComponents/DetailReviews/DetailReviews";
 import Footer from "../../componentes/Footer/Footer";
 import NavBar from "../../componentes/NavBar/NavBar";
-import { deleteItemCarrito, getProductById, getReviews, getUsers } from "../../redux/actions";
+import {
+  deleteItemCarrito,
+  getProductById,
+  getReviews,
+  getUsers,
+} from "../../redux/actions";
 import {
   Description,
   Head,
@@ -22,14 +27,13 @@ const Detail = () => {
   const dispatch = useDispatch();
   const product = useSelector((state) => state.detail);
 
-
   const carrito = useSelector((state) => state.carrito);
   // eslint-disable-next-line
   const [orden, setOrden] = useState(0);
   const [promedio, setPromedio] = useState(null);
-
-
   const [carritos, setCarritos] = useState(carrito);
+  const navigate = useNavigate();
+
 
   const promedioHandler = () => {
     let promedio = 0;
@@ -50,7 +54,12 @@ const Detail = () => {
   useEffect(() => {
     const result = promedioHandler();
     setPromedio(result);
+    // eslint-disable-next-line
   }, [product]);
+
+  const seguirComprando = () => {
+    navigate("/catalogue");
+  };
 
   const buyClick = async () => {
     const json = await axios.get(
@@ -69,14 +78,14 @@ const Detail = () => {
       carrito.push(product);
       window.localStorage.setItem("carrito", JSON.stringify(carrito));
       console.log("producto agregado");
-      setOrden(orden+1)
+      setOrden(orden + 1);
     }
   };
 
   const handleRemoveItem = (id) => {
     const filtro = carrito.filter((elem) => elem.id !== id);
-    setCarritos(filtro)
-    setOrden(orden+1)
+    setCarritos(filtro);
+    setOrden(orden + 1);
     dispatch(deleteItemCarrito(filtro));
     console.log(carritos, "carritos");
     console.log(filtro, "filtro");
@@ -105,21 +114,30 @@ const Detail = () => {
           {/*           <h3>Promedio: {promedio / product.reviews?.length} </h3>       */}
           <h2>Producto Disponible</h2>
           <WalletContainer>
-            <button className="botonCompra" onClick={buyClick}>
-              Comprar
-            </button>
-
-            {
-              carrito.find((elem) => elem.id == id) ? 
-              <button className="compradoBtn" onClick={() =>handleRemoveItem(product.id)}>
-              EN CARRITO
-            </button> : 
-            <button
-              className="botonCarrito"
-              onClick={() => handleClickCarrito(product.id)}
-            >Agregar al Carrito</button>
-            }
-          
+            {!carrito.length ? (
+              <button className="botonCompra" onClick={buyClick}>
+                Comprar
+              </button>
+            ) : (
+              <button className="seguirComprando" onClick={seguirComprando}>
+                Seguir comprando
+              </button>
+            )}
+            {carrito.find((elem) => elem.id === Number(id)) ? (
+              <button
+                className="compradoBtn"
+                onClick={() => handleRemoveItem(product.id)}
+              >
+                EN CARRITO
+              </button>
+            ) : (
+              <button
+                className="botonCarrito"
+                onClick={() => handleClickCarrito(product.id)}
+              >
+                Agregar al Carrito
+              </button>
+            )}
           </WalletContainer>
         </Title>
       </Head>

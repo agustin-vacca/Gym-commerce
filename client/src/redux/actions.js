@@ -10,11 +10,13 @@ import {
   GET_PRODUCT_BY_ID,
   GET_REVIEWS,
   GET_USERS,
+  GET_USER_BY_ID,
   ORDER_BY_NAME,
   ORDER_BY_PRICE,
   POST_PRODUCTS,
   POST_REVIEW,
   POST_USERS,
+  PUT_ADMIN_USER,
 } from "./action-types";
 
 export function getProducts() {
@@ -37,6 +39,20 @@ export function getProductById(id) {
       const json = await axios.get(`http://localhost:3001/productos/${id}`);
       return dispatch({
         type: GET_PRODUCT_BY_ID,
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function getUserById(id) {
+  return async function (dispatch) {
+    try {
+      const json = await axios.get(`http://localhost:3001/usuarios/${id}`);
+      return dispatch({
+        type: GET_USER_BY_ID,
         payload: json.data,
       });
     } catch (error) {
@@ -213,5 +229,20 @@ export function getAllProductsAdmin() {
         payload: json.data,
       });
     } catch (error) {}
+  };
+}
+
+export function putAdminUser(id) {
+  return async function (dispatch) {
+    try {
+      const response = await axios.put(`http://localhost:3001/usuarios/${id}`);
+      console.log(response);
+      return dispatch({
+        type: PUT_ADMIN_USER,
+        payload: response.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 }

@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import NavBarAdmin from "../../componentes/NavBarAdmin/NavBarAdmin";
 import styled from "styled-components";
-import "./Switch.css"
+import "./Switch.css";
+import { useDispatch, useSelector } from "react-redux";
+import UserCard from "../../componentes/Admin/UserCard/UserCard";
+import { getUsers } from "../../redux/actions";
 
 const Container = styled.div`
   background: #808080;
@@ -21,21 +24,19 @@ const Recuadros = styled.div`
     margin:3%;
     color:black;
 `
-const Productos =styled.div`
-   display:flex;
-   flex-direction:row;   
-   justify-content:center;
-   gap:20%;
-   border-bottom: 1px dashed  black;
-   margin-right:3%;
-   margin-left:3%;
-   align-items:baseline;
-`
-const PStyledProduct = styled.p`
-    width: 5%;
-    color:black;
-`
+
 export default function AdminUsers(){
+
+    const dispatch = useDispatch();
+    const usuarios = useSelector( state => state.users )
+
+    const [change, setChange] = useState(false)
+
+    useEffect( () => {
+        dispatch(getUsers());
+        // eslint-disable-next-line
+    },[change])
+
     return(
         <>
             <NavBarAdmin/>
@@ -46,15 +47,18 @@ export default function AdminUsers(){
                     <p>Mail:</p>
                     <p>Admin:</p>
                 </Recuadros>
-                <Productos>   
-                    <PStyledProduct>Lorem</PStyledProduct>
-                    <PStyledProduct>Lorem</PStyledProduct>             
-                    <PStyledProduct>Lorem</PStyledProduct>
-                <label class="switch">
-                    <input type="checkbox"/>
-                    <span class="slider round"></span>
-                </label>
-                </Productos>
+
+                {usuarios.map( e => {
+                        return(
+                            <UserCard 
+                            id={e.id}
+                            name={e.name}
+                            email={e.email}
+                            admin={e.admin}
+                            setChange = {setChange} 
+                            />
+                        );
+                    })}      
             </Container>
         </>
     )

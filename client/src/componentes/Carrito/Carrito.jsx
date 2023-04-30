@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BiTrashAlt, BiX } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
-import { MyCarrito } from "./CarritoStyle";
+import { BotonMas, BotonMenos, MyCarrito } from "./CarritoStyle";
 import axios from "axios";
 import { deleteItemCarrito } from "../../redux/actions";
 
@@ -28,16 +28,13 @@ const Carrito = ({ popupActive, setPopupActive }) => {
     const found = carritos.find(elem => elem.id === Number(num))
     found.cantidad++
     setQuantity(Quantity + 1 )
-    console.log(found.cantidad);
   };
 
   const hanleRest = (num) => {
-    console.log(num);
     const found = carritos.find(elem => elem.id === Number(num))
     if(found.cantidad > 1){
       found.cantidad--
       setQuantity(Quantity - 1 )
-     console.log(found.cantidad);
     } 
   return found
   };
@@ -76,9 +73,9 @@ const Carrito = ({ popupActive, setPopupActive }) => {
               <span className="ItemName">{name}</span>
 
               <div className="valorCantidad">
-              <button value={id} onClick={ (event) => hanleSum(event.target.value)}> + </button>
-                <input type="text" value={cantidad} className="Itemquantity" />
-                <button value={id} onClick={ (event) => hanleRest(event.target.value)}> - </button>
+                <BotonMenos value={id} onClick={ (event) => hanleRest(event.target.value)}>-</BotonMenos>
+                <div className="Itemquantity">{cantidad}</div>
+              <BotonMas value={id} onClick={ (event) => hanleSum(event.target.value)}>+</BotonMas>
               </div>
               <span className="ItemPrecio"> $ {price * cantidad} ARS</span>
             </div>

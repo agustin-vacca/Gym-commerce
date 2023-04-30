@@ -27,19 +27,21 @@ select{
 
 
 button{
-    border: none;
+  border: none;
   border-radius: 0 15px;
-  background: lightblue;
+  background: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 6px -1px;
   font-weight: 600;
   letter-spacing: 2px;
   font-size: 18px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 6px -1px;
+  cursor: pointer;
 
 }
 .special{
-    background: rgb(27,27,27);
+  background: rgb(27,27,27);
   color: rgb(208,208,208);
   transition: all 0.4s ease;
+  cursor: pointer;
 
 }
 `;

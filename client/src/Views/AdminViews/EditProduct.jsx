@@ -2,7 +2,6 @@ import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import NavBarAdmin from "../../componentes/NavBarAdmin/NavBarAdmin";
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 const FormularioNewProduct = styled.div`
     background: #808080;
     margin-left:25%;

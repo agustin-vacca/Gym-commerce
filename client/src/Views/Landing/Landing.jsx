@@ -32,6 +32,9 @@ function Landing() {
           alt="cardiganRectangulo"
         />
         <h1 className="h1">Bienvenido!</h1>
+        <button className="button" onClick={onClickButton}>
+          GO!
+        </button>
       </div>
       <div className="slider">
         <img src={discosRogue} alt="discosRogue" useMap="#discosRogue" />

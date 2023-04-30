@@ -61,4 +61,9 @@ export const Container = styled.section`
     color:#ff9c1a
   }
 }
+
+.estrellas{
+  background-color: #333333;
+}
+
 `;

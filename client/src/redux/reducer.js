@@ -10,6 +10,7 @@ import {
   GET_PRODUCT_BY_ID,
   GET_REVIEWS,
   GET_USERS,
+  GET_USER_BY_ID,
   ORDER_BY_NAME,
   ORDER_BY_PRICE,
   POST_REVIEW,
@@ -23,8 +24,10 @@ const initialState = {
   allProducts: [],
   productsOrder: [],
   detail: [],
-  users: [],
+  user: [],
   carrito: [],
+  users: [],
+  detailUser: [],
   adminProducts: [],
 };
 
@@ -48,14 +51,28 @@ const reducer = (state = initialState, action) => {
         allReviews: action.payload,
       };
     case GET_USERS:
+      const sortUser = action.payload.sort(function (a, b) {
+        if (a.id > b.id) {
+          return 1;
+        }
+        if (b.id > a.id) {
+          return -1;
+        }
+        return 0;
+      });
       return {
         ...state,
-        users: action.payload,
+        users: sortUser,
       };
     case GET_PRODUCT_BY_ID:
       return {
         ...state,
         detail: action.payload,
+      };
+    case GET_USER_BY_ID:
+      return {
+        ...state,
+        detailUser: action.payload,
       };
     case ORDER_BY_NAME:
       let sortedArr =
@@ -71,10 +88,10 @@ const reducer = (state = initialState, action) => {
             })
           : state.products.sort(function (a, b) {
               if (a.name > b.name) {
-                return -1;
+                return 1;
               }
               if (b.name > a.name) {
-                return 1;
+                return -1;
               }
               return 0;
             });

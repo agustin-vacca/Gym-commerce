@@ -27,8 +27,19 @@ const getUserById = (id) => {
   return product;
 };
 
+const adminUserById = async(id, admin) => {
+  await Usuario.update({
+    admin: admin
+  },{
+    where: {
+      id: id
+    }
+  });
+}
+
 module.exports = {
   createUser,
   getUser,
-  getUserById
+  getUserById,
+  adminUserById
 };
