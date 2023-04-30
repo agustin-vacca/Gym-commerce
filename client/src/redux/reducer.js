@@ -3,17 +3,17 @@ import {
   DELETE_REVIEW,
   FILTER_BY_CATEGORY,
   FILTER_REVIEWS,
+  GET_ADMIN_PRODUCTS,
   GET_CATEGORIES,
   GET_PRODUCTS,
   GET_PRODUCTS_BY_NAME,
   GET_PRODUCT_BY_ID,
   GET_REVIEWS,
-  ORDER_BY_NAME,
-  ORDER_BY_PRICE,
   GET_USERS,
   GET_USER_BY_ID,
+  ORDER_BY_NAME,
+  ORDER_BY_PRICE,
   POST_REVIEW,
-  ORDER_BY_USER
 } from "./action-types";
 
 const initialState = {
@@ -28,6 +28,7 @@ const initialState = {
   carrito: [],
   users: [],
   detailUser: [],
+  adminProducts: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -58,7 +59,7 @@ const reducer = (state = initialState, action) => {
           return -1;
         }
         return 0;
-      })
+      });
       return {
         ...state,
         users: sortUser,
@@ -71,7 +72,7 @@ const reducer = (state = initialState, action) => {
     case GET_USER_BY_ID:
       return {
         ...state,
-        detailUser: action.payload
+        detailUser: action.payload,
       };
     case ORDER_BY_NAME:
       let sortedArr =
@@ -157,12 +158,18 @@ const reducer = (state = initialState, action) => {
         reviews: action.payload,
         allReviews: action.payload,
       };
-      case DELETE_ITEM_CARRITO:
-        return {
-          ...state,
-          carrito: action.payload,
-        };
-      default:
+    case DELETE_ITEM_CARRITO:
+      return {
+        ...state,
+        carrito: action.payload,
+      };
+    case GET_ADMIN_PRODUCTS:
+      return {
+        ...state,
+        adminProducts: action.payload,
+      };
+
+    default:
       return { ...state };
   }
 };

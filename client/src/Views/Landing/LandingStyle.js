@@ -40,7 +40,8 @@ export const LandingDiv = styled.div`
     object-fit: cover;
     scroll-snap-align: center;
   }
-  map area {
+  map area,
+  .button {
     cursor: pointer;
   }
 
