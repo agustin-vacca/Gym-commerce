@@ -9,6 +9,7 @@ export default function Cards() {
 
   useEffect(() => {
     dispatch(getAllProductsAdmin());
+    // eslint-disable-next-line
   }, []);
 
   return (
