@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { createReview } from "../../../redux/actions";
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 
-const FormReview = () => {
+const FormReview = ({ setOrden }) => {
   const { id } = useParams();
   const dispatch = useDispatch();
 
@@ -55,7 +55,7 @@ useEffect(() => {
       user: "",
       item: "",
     });
-     window.location.reload(); 
+    setOrden(input); 
   };
   
 
