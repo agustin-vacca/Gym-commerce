@@ -15,7 +15,8 @@ import {
   POST_REVIEW,
   PUT_ADMIN_USER,
   GET_USER_BY_ID,
-  DELETE_ITEM_CARRITO
+  DELETE_ITEM_CARRITO,
+  ORDER_BY_USER
 } from "./action-types";
 
 export function getProducts() {
@@ -216,10 +217,10 @@ export function deleteItemCarrito(items){
     payload: items,
   });
 } 
-export function putAdminUser(id,admin){
+export function putAdminUser(id){
   return async function(dispatch){
     try {
-      const response = await axios.put("http://localhost:3001/usuarios/"+ id, admin)
+      const response = await axios.put(`http://localhost:3001/usuarios/${id}`)
       console.log(response)
       return dispatch({
         type: PUT_ADMIN_USER,

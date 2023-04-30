@@ -4,7 +4,7 @@ import styled from "styled-components";
 import "./Switch.css";
 import { useDispatch, useSelector } from "react-redux";
 import UserCard from "../../componentes/Admin/UserCard/UserCard";
-import { getUsers  } from "../../redux/actions";
+import { getUsers } from "../../redux/actions";
 
 const Container = styled.div`
   background: #808080;
@@ -30,10 +30,6 @@ export default function AdminUsers(){
     const dispatch = useDispatch();
     const usuarios = useSelector( state => state.users )
 
-    const mostrar = () => {
-        console.log("estos son los: ", usuarios)
-    }
-
     const [change, setChange] = useState(false)
 
     useEffect( () => {
@@ -45,7 +41,6 @@ export default function AdminUsers(){
         <>
             <NavBarAdmin/>
             <Container>
-            <button onClick={() => mostrar()}> ver2 </button>
                 <Recuadros>
                     <p>Id:</p>
                     <p>Nombre:</p>
