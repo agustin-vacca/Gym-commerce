@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { CardDiv } from "./CardStyle";
 
 function Card({ id, name, price, image, isactive }) {
-  const [active, setActive] = useState({ isactive });
+  const [active, setActive] = useState(isactive);
 
   const deleteProp = async (id, boolean) => {
     axios
@@ -26,28 +26,33 @@ function Card({ id, name, price, image, isactive }) {
 
   return (
     <CardDiv>
-      {active ? (
-        <>
-          <button onClick={() => handleClick(id)} className="addBtn">
-            Eliminar
-          </button>
-        </>
-      ) : (
-        <>
-          <button className="deleteBtn" onClick={() => handleClick(id)}>
-            Restaurar
-          </button>
-        </>
-      )}
-
-      <div className="TextName">{name}</div>
-      <div>
-        <img className="ProductImage" src={image} alt="imagen" />
-      </div>
-      <Link to={`/detail/${id}`}>
-        <div className="LinkText">VER MAS</div>
-      </Link>
-      <div className="TextPrice">Precio : {price} $</div>
+      <>
+        {active === true ? (
+          <>
+            <button onClick={() => handleClick(id)} className="addBtn">
+              Eliminar
+            </button>
+            <div className="TextName">{name}</div>
+            <div>
+              <img className="ProductImage" src={image} alt="imagen" />
+            </div>
+          </>
+        ) : (
+          <>
+            <button className="deleteBtn" onClick={() => handleClick(id)}>
+              Restaurar
+            </button>
+            <div className="TextName">{name}</div>
+            <div>
+              <img className="restaurar" src={image} alt="imagen" />
+            </div>
+          </>
+        )}
+        <Link to={`/detail/${id}`}>
+          <div className="LinkText">VER MAS</div>
+        </Link>
+        <div className="TextPrice">Precio : {price} $</div>
+      </>
     </CardDiv>
   );
 }

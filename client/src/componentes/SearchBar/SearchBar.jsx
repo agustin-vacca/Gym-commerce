@@ -20,13 +20,13 @@ export default function SearchBar() {
 
   /*
    * Verifica que exista el objeto landingName en el local storage, que viene del landing page y luego lo borra
-   */
   const HandleLandname = () => {
     dispatch(getProductsbyName(landName));
     //window.localStorage.removeItem("landingName");
   };
   const landName = JSON.parse(localStorage.getItem("landingName"));
   if (landName) HandleLandname();
+   */
 
   return (
     <SearchBarDiv>

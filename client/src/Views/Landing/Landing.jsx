@@ -1,11 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import accesorios from "../../accesorios.jpg";
-import box from "../../box.jpg";
+import accesorios from "../../accesorios.png";
+import box from "../../box.png";
 import cardiganRectangulo from "../../cardiganRectangulo.png";
 import casaGimnasio from "../../casaGimnasio.png";
-import discosRogue from "../../discosRogue.jpg";
-import gymMaquinas from "../../gymMaquinas.jpg";
+import discosRogue from "../../discosRogue.png";
+import gymMaquinas from "../../gymMaquinas.png";
 //import { getProductsbyName } from "../../redux/actions";
 import { LandingDiv } from "./LandingStyle.js";
 
