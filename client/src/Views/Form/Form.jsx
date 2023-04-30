@@ -81,7 +81,7 @@ const Formulario = () => {
           // Validación de descripción
           if (!values.description) {
             errors.description = "Ingrese una descripción";
-          } else if (!/^[a-zA-Z0-9]+$/.test(values.description)) {
+          } else if (!/^[a-zA-Z0-9 ]+$/.test(values.description)) {
             errors.description =
               "La descripción solo puede contener letras y números";
           }
