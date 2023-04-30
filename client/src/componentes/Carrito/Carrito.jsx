@@ -11,8 +11,10 @@ const Carrito = ({ popupActive, setPopupActive }) => {
   const [Quantity, setQuantity] = useState(1);
   const carrito = useSelector((state) => state.carrito);
   const [carritos, setCarritos] = useState(carrito);
+  const [sumaTotal, setSumaTota] = useState(0);
 
   //Formula para sacar el Pago Total
+  let PagoTotalArreglado = sumaTotal
   let PagoTotal = 0;
   carritos.forEach((numero) => {
     PagoTotal += numero.price;
@@ -28,6 +30,7 @@ const Carrito = ({ popupActive, setPopupActive }) => {
     const found = carritos.find(elem => elem.id === Number(num))
     found.cantidad++
     setQuantity(Quantity + 1 )
+    SumaTotal()
   };
 
   const hanleRest = (num) => {
@@ -35,9 +38,22 @@ const Carrito = ({ popupActive, setPopupActive }) => {
     if(found.cantidad > 1){
       found.cantidad--
       setQuantity(Quantity - 1 )
+      SumaTotal()
     } 
   return found
   };
+
+  const SumaTotal = () => {
+    let TotalValorItems = 0
+    carritos.forEach(elem =>{
+    let totalItem =  elem.price * elem.cantidad
+    TotalValorItems=TotalValorItems+totalItem
+    })
+    setSumaTota(TotalValorItems)
+  };
+
+
+
 
   const hanleSell = async() => {
   const items = carritos.map((elem) => ({
@@ -52,10 +68,11 @@ const Carrito = ({ popupActive, setPopupActive }) => {
   const headers = { "Content-Type": "text/plain" };
 
   
-  const json = await axios.post(`http://localhost:3001/mercadopago/create_preference`,items, headers)
+  const json = await axios.post(`https://api-mx1xp8s8p-santiaguero91.vercel.app/mercadopago/create_preference`,items, headers)
   window.location.assign(json.data) 
   return json; 
 };
+
 
   return (
     <MyCarrito>
@@ -66,7 +83,7 @@ const Carrito = ({ popupActive, setPopupActive }) => {
         <h2 className="Header">Tu carrito</h2>
       </div>
       {carritos &&
-        carritos.map(({ id, name, image, price, cantidad }) => (
+        carritos.map(({ id, name, image, price, cantidad}) => (
           <div key={id} className="CarritoItem">
             <img src={image} alt={name} className="ItemImg" />
             <div className="CarritoDetail">
@@ -89,7 +106,11 @@ const Carrito = ({ popupActive, setPopupActive }) => {
       <div className="carritoTotal">
         <div className="fila">
           <strong>Total</strong>
-          <span className="precioTotal">$ {PagoTotal * Quantity} ARS</span>
+          { 
+            !sumaTotal  
+            ? <span className="precioTotal">$ {PagoTotal * Quantity} ARS</span> 
+            : <span className="precioTotal">$ {PagoTotalArreglado} ARS</span>
+          }
           <button className="btnPagar" onClick={hanleSell} >Pagar</button>
         </div>
       </div>

@@ -54,21 +54,25 @@ function Landing() {
             className="pelota"
             shape="circle"
             coords="282,478,160"
+            alt="1"
             onClick={(e) => myFunction(e)}
           />
           <area
+            alt="2"
             className="banca"
             shape="rectangle"
             coords="991, 310, 1253, 546 "
             onClick={(e) => myFunction(e)}
           />
           <area
+            alt="3"
             className="barra"
             shape="rectangle"
             coords="922, 40, 1338, 119"
             onClick={(e) => myFunction(e)}
           />
           <area
+            alt="4"
             className="mancuernas"
             shape="circle"
             coords="718,482,75"
@@ -77,18 +81,21 @@ function Landing() {
         </map>
         <map name="discosRogue" className="discosRogue">
           <area
+            alt="5"
             className="discos"
             shape="circle"
             coords="195,385,220"
             onClick={(e) => myFunction(e)}
           />
           <area
+            alt="6"
             className="discos"
             shape="circle"
             coords="1095,15,220"
             onClick={(e) => myFunction(e)}
           />
           <area
+            alt="7"
             className="discos"
             shape="circle"
             coords="692,188,220"
@@ -97,12 +104,14 @@ function Landing() {
         </map>
         <map name="gymMaquinas" className="gymMaquinas">
           <area
+            alt="8"
             className="maquinas"
             shape="rectangle"
             coords="20,133,658,603"
             onClick={(e) => myFunction(e)}
           />
           <area
+            alt="9"
             className="banca"
             shape="rectangle"
             coords="1092,151,1292,393"
@@ -111,12 +120,14 @@ function Landing() {
         </map>
         <map name="guantes" className="guantes">
           <area
+            alt="10"
             className="accesorios"
             shape="rectangle"
             coords="380,0,965,115"
             onClick={(e) => myFunction(e)}
           />
           <area
+            alt="11"
             className="mancuernas"
             shape="rectangle"
             coords="270,426,1074,604"
