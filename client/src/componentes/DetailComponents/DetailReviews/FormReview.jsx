@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container} from "./FormReviewStyle";
-import {  useParams } from "react-router-dom";
+import {  useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { createReview } from "../../../redux/actions";
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
@@ -9,7 +9,7 @@ const FormReview = ({ setOrden }) => {
   const { id } = useParams();
   const dispatch = useDispatch();
 
-
+  const navigate = useNavigate();
 const [number, setNumbers] = useState(0)
 
 
@@ -55,7 +55,7 @@ useEffect(() => {
       user: "",
       item: "",
     });
-    setOrden(input); 
+    navigate(0); 
   };
   
 
