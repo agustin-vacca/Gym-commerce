@@ -2,8 +2,7 @@ import axios from "axios";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import Footer from "../../componentes/Footer/Footer";
-import NavBar from "../../componentes/NavBar/NavBar";
+import NavBarAdmin from "../../componentes/NavBarAdmin/NavBarAdmin";
 import { createProducts } from "../../redux/actions";
 import { FormStyle } from "./FormStyles";
 import { uploadFile } from "../../firebase/config";
@@ -34,8 +33,10 @@ const Formulario = () => {
   }, []);
 
   return (
+    <>
+    
+      <NavBarAdmin />
     <FormStyle>
-      <NavBar />
       <div>
         <h1>
           <u>Añade un producto al catalogo</u>
@@ -269,8 +270,9 @@ const Formulario = () => {
           </Form>
         )}
       </Formik>
-      <Footer />
+      
     </FormStyle>
+    </>
   );
 };
 

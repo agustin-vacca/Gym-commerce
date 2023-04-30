@@ -23,7 +23,7 @@ const ImageSlider = ({ slides }) => {
     return ()=> {
       clearTimeout(timer1)
     }
-
+  // eslint-disable-next-line
   }, [currentIndex]);
 
   const sliderStyles = {

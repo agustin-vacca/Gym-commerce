@@ -11,6 +11,7 @@ export default function CategoryDisplayer() {
   useEffect(() => {
     dispatch(getCategories());
     dispatch(getProducts());
+    // eslint-disable-next-line
   }, []);
 
   
