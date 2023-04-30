@@ -1,29 +1,40 @@
 import React from "react";
-/* import accesorios from "../../accesorios.jpg";
-import box from "../../box.jpg";
+import { useNavigate } from "react-router-dom";
+import accesorios from "../../accesorios.png";
+import box from "../../box.png";
 import cardiganRectangulo from "../../cardiganRectangulo.png";
 import casaGimnasio from "../../casaGimnasio.png";
-import discosRogue from "../../discosRogue.jpg";
-import gymMaquinas from "../../gymMaquinas.jpg"; */
+import discosRogue from "../../discosRogue.png";
+import gymMaquinas from "../../gymMaquinas.png";
+//import { getProductsbyName } from "../../redux/actions";
 import { LandingDiv } from "./LandingStyle.js";
 
 function Landing() {
-  //const navigate = useNavigate();
-/*   const myFunction = (e) => {
-    const name = e.target.className;
-    //if (name === "pelota")
-    alert(`Click en la imagen ${name}`);
-    //navigate("/productos/${id}`");
-  }; */
+  const navigate = useNavigate();
+
+  const myFunction = (e) => {
+    const landName = e.target.className;
+    if (landName) {
+      window.localStorage.setItem("landingName", JSON.stringify(landName));
+      navigate("/catalogue");
+    }
+  };
+
+  const onClickButton = () => {
+    return navigate("/home");
+  };
   return (
     <LandingDiv>
-{/*       <div className="logo">
+      <div className="logo">
         <img
           className="logoImg"
           src={cardiganRectangulo}
           alt="cardiganRectangulo"
         />
         <h1 className="h1">Bienvenido!</h1>
+        <button className="button" onClick={onClickButton}>
+          GO!
+        </button>
       </div>
       <div className="slider">
         <img src={discosRogue} alt="discosRogue" useMap="#discosRogue" />
@@ -34,7 +45,9 @@ function Landing() {
         <div className="divs">
           <h1 className="h1CARDIGAN">CARDIGAN</h1>
           Ingresar a la tienda
-          <button className="button">GO!</button>
+          <button className="button" onClick={onClickButton}>
+            GO!
+          </button>
         </div>
         <map name="casaGimnasio" className="workmap">
           <area
@@ -110,7 +123,7 @@ function Landing() {
             onClick={(e) => myFunction(e)}
           />
         </map>
-      </div> */}
+      </div>
     </LandingDiv>
   );
 }

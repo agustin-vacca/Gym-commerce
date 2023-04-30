@@ -1,28 +1,28 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import React, { useState } from "react";
 import { HiOutlineUserCircle } from "react-icons/hi";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { createUsers, getUsers } from "../../redux/actions";
 import Login from "../Login/Login";
 import Logout from "../Logout/Logout";
 import { UserBtnDiv } from "./UserButtonStyled";
-import { createUsers, getUsers } from "../../redux/actions";
-import { useDispatch, useSelector } from "react-redux";
 
 const UserButton = () => {
   const { user, isAuthenticated } = useAuth0();
   const [active, setActive] = useState(false);
 
   const dispatch = useDispatch();
-  const usuarios = useSelector(state => state.users);
+  const usuarios = useSelector((state) => state.users);
 
   const ver = () => {
     dispatch(createUsers(user));
     dispatch(getUsers());
-  }
+  };
 
   const mostrar = () => {
-    console.log("estos son los: ", usuarios)
-  }
+    console.log("estos son los: ", usuarios);
+  };
 
   return (
     <UserBtnDiv>
@@ -46,7 +46,7 @@ const UserButton = () => {
             <li>
               <Link
                 className="Li"
-                to="/dashboard"
+                to="/Admin/dashboard"
                 onClick={() => setActive(!active)}
               >
                 Dashboard

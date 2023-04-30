@@ -8,7 +8,7 @@ import React, { useEffect, useState } from "react";
 //   TextPrice,
 // } from "./CardStyle";
 import styled from "styled-components";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { putAdminUser, getUserById } from "../../../redux/actions";
 
 const Productos =styled.div`
@@ -40,19 +40,16 @@ const ChangeState = styled.div`
 function UserCard({ id, name, email, admin }) {
 
     const dispatch = useDispatch();
-    const usuario = useSelector( state => state.detailUser)
 
     const [role, setRole] = useState(admin);
 
     const adminHandler = (id) => {
-      console.log(role)
       setRole(!role)
-      dispatch(putAdminUser(id,role))
+      dispatch(putAdminUser(id))
     }
 
     useEffect( () => {
       dispatch(getUserById(id))
-      console.log("esto es el cambio:",usuario)
       // eslint-disable-next-line
     },[role])
 
@@ -62,7 +59,7 @@ function UserCard({ id, name, email, admin }) {
       <PStyledProduct> name: {name} </PStyledProduct>
       <PStyledProduct> email: {email} </PStyledProduct>
       <ChangeState setRole={role} onClick={() => adminHandler(id)}>
-        Este es el {role}
+        {role ? 'Admin' : 'Usuario' }
       </ChangeState>
     </Productos>
   );
