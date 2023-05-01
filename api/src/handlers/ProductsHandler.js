@@ -67,7 +67,7 @@ const getProductsDetailHandler = async (req, res) => {
 };
 
 const putProductsHandler = async (req, res) => {
-  const { id } = req.params;
+  const {id} = req.params;
   const {
     stock,
   } = req.body;
