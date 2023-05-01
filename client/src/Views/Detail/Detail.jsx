@@ -110,8 +110,16 @@ const Detail = () => {
             }`}{" "}
           </h3>
 
-          <h2>Producto Disponible</h2>
-          <WalletContainer>
+          
+
+          {
+            product.stock === 2 
+            ?<button
+            className="compradoBtn"
+          >
+           NO HAY STOCK
+          </button>
+            : <WalletContainer>
             {!carrito.length ? (
               <button className="botonCompra" onClick={()=>buyClick(product.stock)}>
                 Comprar
@@ -137,6 +145,9 @@ const Detail = () => {
               </button>
             )}
           </WalletContainer>
+
+          }
+          
         </Title>
       </Head>
 
