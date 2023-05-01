@@ -52,12 +52,14 @@ const Carrito = ({ popupActive, setPopupActive }) => {
     setSumaTota(TotalValorItems)
   };
 
-
-  const ver = () => {
-    console.log(carritos);
-  };
+  let filter = carritos.filter(elem => elem.stock < elem.cantidad)
 
   const hanleSell = async() => {
+    if(filter) {
+      window.alert("No poseemos suficiente stock de este producto")
+    } else  {
+
+    
     carritos.forEach(elem => 
       dispatch(putProduct(elem.id, elem.stock - elem.cantidad)))
 
@@ -76,6 +78,7 @@ const Carrito = ({ popupActive, setPopupActive }) => {
   const json = await axios.post(`http://localhost:3001/mercadopago/create_preference`,items, headers)
   window.location.assign(json.data) 
   return json; 
+}
 };
 
 
@@ -86,7 +89,6 @@ const Carrito = ({ popupActive, setPopupActive }) => {
           <BiX size={25} />
         </div>
         <h2 className="Header">Tu carrito</h2>
-        <button onClick={ver}>VER</button>
       </div>
       {carritos &&
         carritos.map(({ id, name, image, price, cantidad}) => (
