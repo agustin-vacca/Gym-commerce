@@ -113,7 +113,7 @@ const Detail = () => {
           
 
           {
-            product.stock === 2 
+            product.stock === 0 
             ?<button
             className="compradoBtn"
           >
