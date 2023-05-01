@@ -31,6 +31,7 @@ const Detail = () => {
   // eslint-disable-next-line
   const [orden, setOrden] = useState(0);
   const [promedio, setPromedio] = useState(null);
+  // eslint-disable-next-line
   const [carritos, setCarritos] = useState(carrito);
   const navigate = useNavigate();
 
@@ -72,12 +73,10 @@ const Detail = () => {
   const handleClickCarrito = (id) => {
     const found = carrito.find((elem) => elem.id === id);
     if (found) {
-      console.log("Ya esta el producto");
     } else {
       product.cantidad = 1;
       carrito.push(product);
       window.localStorage.setItem("carrito", JSON.stringify(carrito));
-      console.log("producto agregado");
       setOrden(orden + 1);
     }
   };
@@ -87,8 +86,7 @@ const Detail = () => {
     setCarritos(filtro);
     setOrden(orden + 1);
     dispatch(deleteItemCarrito(filtro));
-    console.log(carritos, "carritos");
-    console.log(filtro, "filtro");
+
   };
 
   return (
@@ -102,16 +100,15 @@ const Detail = () => {
           <h1> {product.name} </h1>
           <h3>Precio: {product.price} $ Arg</h3>
           <h3>Color: {product.color} </h3>
-          {/*  {`${numberCheck=== String(2) ? "special" : ""}`} */}
           <h3>
             Promedio:{" "}
             {`${
               !promedio
                 ? "Se el primero en valorar este producto"
-                : (promedio / product.reviews?.length).toFixed(2) /* + "/5"  */
+                : (promedio / product.reviews?.length).toFixed(2)
             }`}{" "}
           </h3>
-          {/*           <h3>Promedio: {promedio / product.reviews?.length} </h3>       */}
+
           <h2>Producto Disponible</h2>
           <WalletContainer>
             {!carrito.length ? (

@@ -23,6 +23,7 @@ export default function Cards() {
               name={el.name}
               price={el.price}
               image={el.image}
+              stock={el.stock}
               isactive={el.isactive}
             />
           );
