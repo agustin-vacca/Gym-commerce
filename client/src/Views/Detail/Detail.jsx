@@ -11,6 +11,7 @@ import {
   getProductById,
   getReviews,
   getUsers,
+  putProduct,
 } from "../../redux/actions";
 import {
   Description,
@@ -44,7 +45,6 @@ const Detail = () => {
     }
     return promedio;
   };
-
   useEffect(() => {
     window.scrollTo(0, 0);
     dispatch(getProductById(id));
@@ -62,7 +62,8 @@ const Detail = () => {
     navigate("/catalogue");
   };
 
-  const buyClick = async () => {
+  const buyClick = async (prodStock) => {
+    dispatch(putProduct(id, prodStock -1));
     const json = await axios.get(
       `http://localhost:3001/mercadopago/payment/${id}`
     );
@@ -112,7 +113,7 @@ const Detail = () => {
           <h2>Producto Disponible</h2>
           <WalletContainer>
             {!carrito.length ? (
-              <button className="botonCompra" onClick={buyClick}>
+              <button className="botonCompra" onClick={()=>buyClick(product.stock)}>
                 Comprar
               </button>
             ) : (
