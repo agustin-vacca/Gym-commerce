@@ -14,6 +14,7 @@ import {
   ORDER_BY_NAME,
   ORDER_BY_PRICE,
   POST_REVIEW,
+  PUT_PRODUCT,
 } from "./action-types";
 
 const initialState = {
@@ -168,7 +169,10 @@ const reducer = (state = initialState, action) => {
         ...state,
         adminProducts: action.payload,
       };
-
+      case PUT_PRODUCT:
+        return {
+          ...state
+        };
     default:
       return { ...state };
   }

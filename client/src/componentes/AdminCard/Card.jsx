@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { CardDiv } from "./CardStyle";
 
-function Card({ id, name, price, image, isactive }) {
+function Card({ id, name, price, image, isactive, stock }) {
   const [active, setActive] = useState(isactive);
 
   const deleteProp = async (id, boolean) => {
@@ -52,6 +52,7 @@ function Card({ id, name, price, image, isactive }) {
           <div className="LinkText">VER MAS</div>
         </Link>
         <div className="TextPrice">Precio : {price} $</div>
+        <div className="TextPrice">Stock : {stock}</div>
       </>
     </CardDiv>
   );
