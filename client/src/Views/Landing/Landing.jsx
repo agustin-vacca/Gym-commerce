@@ -1,12 +1,12 @@
 import React from "react";
+import { FiArrowRight } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import accesorios from "../../accesorios.png";
 import box from "../../box.png";
-import cardiganRectangulo from "../../cardiganRectangulo.png";
+import logoImage from "../../cardiganRectangulo.png";
 import casaGimnasio from "../../casaGimnasio.png";
 import discosRogue from "../../discosRogue.png";
 import gymMaquinas from "../../gymMaquinas.png";
-//import { getProductsbyName } from "../../redux/actions";
 import { LandingDiv } from "./LandingStyle.js";
 
 function Landing() {
@@ -25,105 +25,105 @@ function Landing() {
   };
   return (
     <LandingDiv>
-      <div className="logo">
-        <img
-          className="logoImg"
-          src={cardiganRectangulo}
-          alt="cardiganRectangulo"
-        />
+      <div className="slider">
+        <img src={box} alt="box" />
+        <img src={gymMaquinas} alt="gymMaquinas" useMap="#gymMaquinas" />
+        <img src={discosRogue} alt="discosRogue" useMap="#discosRogue" />
+        <img src={casaGimnasio} alt="casaGimnasio.png" useMap="#casaGimnasio" />
+        <img src={accesorios} alt="accesorios" useMap="#guantes" />
+      </div>
+      <div className="Logo">
+        <img src={logoImage} alt="logoImg" className="logoImg" />
         <h1 className="h1">Bienvenido!</h1>
+        <button className="button1" onClick={onClickButton}>
+          Ir a la Tienda!
+          <FiArrowRight className="arrow" />
+        </button>
+      </div>
+      {/* 
+
+      <div className="divs">
+        <h1 className="h1CARDIGAN">CARDIGAN</h1>
+        Ingresar a la tienda
         <button className="button" onClick={onClickButton}>
           GO!
         </button>
       </div>
-      <div className="slider">
-        <img src={discosRogue} alt="discosRogue" useMap="#discosRogue" />
-        <img src={gymMaquinas} alt="gymMaquinas" useMap="#gymMaquinas" />
-        <img src={casaGimnasio} alt="casaGimnasio.png" useMap="#casaGimnasio" />
-        <img src={accesorios} alt="accesorios" useMap="#guantes" />
-        <img src={box} alt="box" />
-        <div className="divs">
-          <h1 className="h1CARDIGAN">CARDIGAN</h1>
-          Ingresar a la tienda
-          <button className="button" onClick={onClickButton}>
-            GO!
-          </button>
-        </div>
-        <map name="casaGimnasio" className="workmap">
-          <area
-            className="pelota"
-            shape="circle"
-            coords="282,478,160"
-            onClick={(e) => myFunction(e)}
-          />
-          <area
-            className="banca"
-            shape="rectangle"
-            coords="991, 310, 1253, 546 "
-            onClick={(e) => myFunction(e)}
-          />
-          <area
-            className="barra"
-            shape="rectangle"
-            coords="922, 40, 1338, 119"
-            onClick={(e) => myFunction(e)}
-          />
-          <area
-            className="mancuernas"
-            shape="circle"
-            coords="718,482,75"
-            onClick={(e) => myFunction(e)}
-          />
-        </map>
-        <map name="discosRogue" className="discosRogue">
-          <area
-            className="discos"
-            shape="circle"
-            coords="195,385,220"
-            onClick={(e) => myFunction(e)}
-          />
-          <area
-            className="discos"
-            shape="circle"
-            coords="1095,15,220"
-            onClick={(e) => myFunction(e)}
-          />
-          <area
-            className="discos"
-            shape="circle"
-            coords="692,188,220"
-            onClick={(e) => myFunction(e)}
-          />
-        </map>
-        <map name="gymMaquinas" className="gymMaquinas">
-          <area
-            className="maquinas"
-            shape="rectangle"
-            coords="20,133,658,603"
-            onClick={(e) => myFunction(e)}
-          />
-          <area
-            className="banca"
-            shape="rectangle"
-            coords="1092,151,1292,393"
-            onClick={(e) => myFunction(e)}
-          />
-        </map>
-        <map name="guantes" className="guantes">
-          <area
-            className="accesorios"
-            shape="rectangle"
-            coords="380,0,965,115"
-            onClick={(e) => myFunction(e)}
-          />
-          <area
-            className="mancuernas"
-            shape="rectangle"
-            coords="270,426,1074,604"
-            onClick={(e) => myFunction(e)}
-          />
-        </map>
-      </div>
+      <map name="casaGimnasio" className="workmap">
+        <area
+          className="pelota"
+          shape="circle"
+          coords="282,478,160"
+          onClick={(e) => myFunction(e)}
+        />
+        <area
+          className="banca"
+          shape="rectangle"
+          coords="991, 310, 1253, 546 "
+          onClick={(e) => myFunction(e)}
+        />
+        <area
+          className="barra"
+          shape="rectangle"
+          coords="922, 40, 1338, 119"
+          onClick={(e) => myFunction(e)}
+        />
+        <area
+          className="mancuernas"
+          shape="circle"
+          coords="718,482,75"
+          onClick={(e) => myFunction(e)}
+        />
+      </map>
+      <map name="discosRogue" className="discosRogue">
+        <area
+          className="discos"
+          shape="circle"
+          coords="195,385,220"
+          onClick={(e) => myFunction(e)}
+        />
+        <area
+          className="discos"
+          shape="circle"
+          coords="1095,15,220"
+          onClick={(e) => myFunction(e)}
+        />
+        <area
+          className="discos"
+          shape="circle"
+          coords="692,188,220"
+          onClick={(e) => myFunction(e)}
+        />
+      </map>
+      <map name="gymMaquinas" className="gymMaquinas">
+        <area
+          className="maquinas"
+          shape="rectangle"
+          coords="20,133,658,603"
+          onClick={(e) => myFunction(e)}
+        />
+        <area
+          className="banca"
+          shape="rectangle"
+          coords="1092,151,1292,393"
+          onClick={(e) => myFunction(e)}
+        />
+      </map>
+      <map name="guantes" className="guantes">
+        <area
+          className="accesorios"
+          shape="rectangle"
+          coords="380,0,965,115"
+          onClick={(e) => myFunction(e)}
+        />
+        <area
+          className="mancuernas"
+          shape="rectangle"
+          coords="270,426,1074,604"
+          onClick={(e) => myFunction(e)}
+        />
+      </map>
+        */}
     </LandingDiv>
   );
 }

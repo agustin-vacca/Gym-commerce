@@ -5,40 +5,75 @@ export const LandingDiv = styled.div`
   width: 100vw;
   display: flex;
   flex-direction: column;
-  background: black;
+  background: white;
 
-  .logo {
+  .Logo {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 7%;
     display: flex;
-    margin-left: 2%;
-    margin-right: 2%;
-    opacity: 0.5;
-    height: 50px;
     justify-content: space-between;
-    align-items: center;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(56, 50, 50, 1) 35%,
+      rgba(0, 0, 0, 1) 95%
+    );
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 30px 60px -12px inset,
+      rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
   }
 
   .logoImg {
-    height: 100%;
+    border-radius: 10px;
   }
+
   .h1 {
+    display: flex;
+    color: aliceblue;
+    justify-content: center;
+    align-items: center;
+  }
+  .button1 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: forestgreen;
+    width: 200px;
     color: white;
-    height: fit-content;
+    font-size: medium;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+  }
+  .arrow {
+    margin: 20px;
   }
 
   .slider {
-    display: flex;
+    position: absolute;
+    top: 0;
     flex-direction: column;
     width: 100%;
-    height: 100vh;
+    height: 89%;
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
     overflow-x: hidden;
+    background: white;
   }
+
   .slider img {
     flex: 0 0 100%;
     height: 100%;
+    width: 98%;
     object-fit: cover;
     scroll-snap-align: center;
+    box-shadow: rgba(0, 0, 0, 0.9) 0px 19px 38px,
+      rgba(0, 0, 0, 0.9) 0px 15px 12px;
   }
   map area,
   .button {
@@ -48,7 +83,7 @@ export const LandingDiv = styled.div`
   .h1CARDIGAN {
     font-size: 150px;
     -webkit-text-fill-color: transparent;
-    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-width: 4px;
     -webkit-text-stroke-color: olivedrab;
     background-color: rgba(0, 0, 0, 0.5);
   }
