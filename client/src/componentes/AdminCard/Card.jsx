@@ -52,7 +52,12 @@ function Card({ id, name, price, image, isactive, stock }) {
           <div className="LinkText">VER MAS</div>
         </Link>
         <div className="TextPrice">Precio : {price} $</div>
-        <div className="TextPrice">Stock : {stock}</div>
+
+        {
+          stock 
+          ? <div className="stockblack">Stock : {stock}</div>
+          : <div className="stockred">Stock : {stock}</div>
+        }
       </>
     </CardDiv>
   );
