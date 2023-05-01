@@ -58,7 +58,7 @@ const Formulario = () => {
           // Validación de nombre
           if (!values.name) {
             errors.name = "Ingrese un nombre";
-          } else if (!/^[a-zA-Z0-9_ ]{3,20}$/.test(values.name)) {
+          } else if (!/^[a-zA-Z0-9_ ]{3,40}$/.test(values.name)) {
             errors.name = "El nombre solo puede contener letras y números";
           }
           // Validación de precio
@@ -81,7 +81,7 @@ const Formulario = () => {
           // Validación de descripción
           if (!values.description) {
             errors.description = "Ingrese una descripción";
-          } else if (!/^[a-zA-Z0-9 ]+$/.test(values.description)) {
+          } else if (!/^[A-Za-z0-9_ @;,./#&+-]+$/.test(values.description)) {
             errors.description =
               "La descripción solo puede contener letras y números";
           }
