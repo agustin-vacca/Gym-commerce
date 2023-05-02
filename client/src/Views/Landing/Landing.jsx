@@ -1,12 +1,8 @@
 import React from "react";
 import { FiArrowRight } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
-import accesorios from "../../accesorios.png";
 import box from "../../box.png";
 import logoImage from "../../cardiganRectangulo.png";
-import casaGimnasio from "../../casaGimnasio.png";
-import discosRogue from "../../discosRogue.png";
-import gymMaquinas from "../../gymMaquinas.png";
 import { LandingDiv } from "./LandingStyle.js";
 
 function Landing() {
@@ -27,10 +23,6 @@ function Landing() {
     <LandingDiv>
       <div className="slider">
         <img src={box} alt="box" />
-        <img src={gymMaquinas} alt="gymMaquinas" useMap="#gymMaquinas" />
-        <img src={discosRogue} alt="discosRogue" useMap="#discosRogue" />
-        <img src={casaGimnasio} alt="casaGimnasio.png" useMap="#casaGimnasio" />
-        <img src={accesorios} alt="accesorios" useMap="#guantes" />
       </div>
       <div className="Logo">
         <img src={logoImage} alt="logoImg" className="logoImg" />
@@ -40,92 +32,6 @@ function Landing() {
           <FiArrowRight className="arrow" />
         </button>
       </div>
-
-      <map name="casaGimnasio" className="workmap">
-        <area
-          alt=" 1"
-          className="pelota"
-          shape="circle"
-          coords="282,478,160"
-          onClick={(e) => myFunction(e)}
-        />
-        <area
-          alt=" 2"
-          className="banca"
-          shape="rectangle"
-          coords="991, 310, 1253, 546 "
-          onClick={(e) => myFunction(e)}
-        />
-        <area
-          alt="3 "
-          className="barra"
-          shape="rectangle"
-          coords="922, 40, 1338, 119"
-          onClick={(e) => myFunction(e)}
-        />
-        <area
-          alt=" 4"
-          className="mancuernas"
-          shape="circle"
-          coords="718,482,75"
-          onClick={(e) => myFunction(e)}
-        />
-      </map>
-      <map name="discosRogue" className="discosRogue">
-        <area
-          alt=" 5"
-          className="discos"
-          shape="circle"
-          coords="195,385,220"
-          onClick={(e) => myFunction(e)}
-        />
-        <area
-          alt="6"
-          className="discos"
-          shape="circle"
-          coords="1095,15,220"
-          onClick={(e) => myFunction(e)}
-        />
-        <area
-          alt="7 "
-          className="discos"
-          shape="circle"
-          coords="692,188,220"
-          onClick={(e) => myFunction(e)}
-        />
-      </map>
-      <map name="gymMaquinas" className="gymMaquinas">
-        <area
-          alt=" 8"
-          className="maquinas"
-          shape="rectangle"
-          coords="20,133,658,603"
-          onClick={(e) => myFunction(e)}
-        />
-        <area
-          alt=" 9"
-          className="banca"
-          shape="rectangle"
-          coords="1092,151,1292,393"
-          onClick={(e) => myFunction(e)}
-        />
-      </map>
-      <map name="guantes" className="guantes">
-        <area
-          alt=" 10"
-          className="accesorios"
-          shape="rectangle"
-          coords="380,0,965,115"
-          onClick={(e) => myFunction(e)}
-        />
-        <area
-          alt=" 11"
-          className="mancuernas"
-          shape="rectangle"
-          coords="270,426,1074,604"
-          onClick={(e) => myFunction(e)}
-        />
-      </map>
     </LandingDiv>
   );
 }
