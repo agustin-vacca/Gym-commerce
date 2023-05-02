@@ -1,14 +1,22 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { HiOutlineUserCircle } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import Login from "../Login/Login";
 import Logout from "../Logout/Logout";
 import { UserBtnDiv } from "./UserButtonStyled";
+import { createUsers } from "../../redux/actions";
+import { useDispatch } from "react-redux";
 
 const UserButton = () => {
   const { user, isAuthenticated } = useAuth0();
   const [active, setActive] = useState(false);
+
+  const dispatch = useDispatch();
+
+  useEffect( () => {
+    dispatch(createUsers(user))
+  },[])
 
   return (
     <UserBtnDiv>
