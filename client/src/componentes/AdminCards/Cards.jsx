@@ -65,9 +65,9 @@ const linksArray = [
     to: "/home",
   },
   {
-    label: "Estadisticas",
+    label: "Reviews",
     icon: <ImStatsBars size={30} />,
-    to: "/Admin/dashboard",
+    to: "/Admin/reviews",
   },
   {
     label: "Productos",

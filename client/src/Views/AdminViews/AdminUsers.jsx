@@ -40,24 +40,24 @@ export default function AdminUsers() {
         </div>
         <div className="contenidoDash">
           <Componente>
-            <div className="title">
-              <div className="eachTitleId" key="id">
+            <div key="title" className="title">
+              <div key="id" className="eachTitleId">
                 <p key="id">Id</p>
               </div>
-              <div className="eachTitle" key="nombre">
+              <div key="nombre" className="eachTitle">
                 <p key="nombre">Nombre</p>
               </div>
-              <div className="eachTitle" key="mail">
+              <div key="mail" className="eachTitle">
                 <p key="mail">Mail</p>
               </div>
-              <div className="eachTitleAdmin" key="admin">
+              <div key="admin" className="eachTitleAdmin">
                 <p key="admin">Admin</p>
               </div>
             </div>
             <div className="marcoCards">
               {usuarios.map((e) => {
                 return (
-                  <div className="userCards">
+                  <div key={e.id} className="userCards">
                     <UserCard
                       key={e.id}
                       id={e.id}
@@ -84,9 +84,9 @@ const linksArray = [
     to: "/home",
   },
   {
-    label: "Estadisticas",
+    label: "Reviews",
     icon: <ImStatsBars size={30} />,
-    to: "/Admin/dashboard",
+    to: "/Admin/reviews",
   },
   {
     label: "Productos",

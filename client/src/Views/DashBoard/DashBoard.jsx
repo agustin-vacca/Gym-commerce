@@ -3,7 +3,6 @@ import { AiFillHome, AiOutlineForm } from "react-icons/ai";
 import { ImStatsBars } from "react-icons/im";
 import { Link } from "react-router-dom";
 import logoImage from "../../cardiganRectangulo.png";
-import Statistics from "../../componentes/AdminStatistics/Statistics";
 import { Sidebar } from "./DashBoardStyles";
 
 const Dash = () => {
@@ -28,10 +27,6 @@ const Dash = () => {
               </Link>
             ))}
         </div>
-        {}
-        <div className="contenidoDash">
-          <Statistics />
-        </div>
       </div>
     </Sidebar>
   );
@@ -48,7 +43,7 @@ const linksArray = [
   {
     label: "Reviews",
     icon: <ImStatsBars size={30} />,
-    to: "/Admin/dashboard",
+    to: "/Admin/reviews",
   },
   {
     label: "Productos",
