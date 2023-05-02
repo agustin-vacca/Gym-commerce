@@ -8,13 +8,13 @@ import { LandingDiv } from "./LandingStyle.js";
 function Landing() {
   const navigate = useNavigate();
 
-  const myFunction = (e) => {
-    const landName = e.target.className;
-    if (landName) {
-      window.localStorage.setItem("landingName", JSON.stringify(landName));
-      navigate("/catalogue");
-    }
-  };
+  // const myFunction = (e) => {
+  //   const landName = e.target.className;
+  //   if (landName) {
+  //     window.localStorage.setItem("landingName", JSON.stringify(landName));
+  //     navigate("/catalogue");
+  //   }
+  // };
 
   const onClickButton = () => {
     return navigate("/home");

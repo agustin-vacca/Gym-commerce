@@ -4,32 +4,32 @@ import { useDispatch, useSelector } from "react-redux";
 import { AiFillHome, AiOutlineForm } from "react-icons/ai";
 import { ImStatsBars } from "react-icons/im";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+//import styled from "styled-components";
 import logoImage from "../../cardiganRectangulo.png";
 import ReviewsCard from "../../componentes/Admin/ReviewsCard/ReviewsCard";
 import { getReviews } from "../../redux/actions";
 import { Sidebar } from "../DashBoard/DashBoardStyles";
 import { Componente } from "./AdminReviewsStyles";
 
-const Container = styled.div`
-  background: #808080;
-  border-radius: 15px;
-  max-height: 600px;
-  min-height: 600px;
-  overflow-y: auto;
-  margin-left: 10%;
-  margin-right: 10%;
-`;
+// const Container = styled.div`
+//   background: #808080;
+//   border-radius: 15px;
+//   max-height: 600px;
+//   min-height: 600px;
+//   overflow-y: auto;
+//   margin-left: 10%;
+//   margin-right: 10%;
+// `;
 
-const Recuadros = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 20%;
-  border-bottom: 1px solid black;
-  margin: 3%;
-  color: black;
-`;
+// const Recuadros = styled.div`
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+//   gap: 20%;
+//   border-bottom: 1px solid black;
+//   margin: 3%;
+//   color: black;
+// `;
 
 export default function AdminReviews() {
   const dispatch = useDispatch();
