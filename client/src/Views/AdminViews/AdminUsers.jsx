@@ -14,11 +14,12 @@ export default function AdminUsers() {
   const usuarios = useSelector((state) => state.users);
 
   const [change, setChange] = useState(false);
+  console.log(change)
 
   useEffect(() => {
     dispatch(getUsers());
-  }, [change]);
-
+  }, [dispatch,change]);
+  
   return (
     <Sidebar>
       <div className="Logo">
