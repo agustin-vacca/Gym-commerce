@@ -3,7 +3,7 @@ import { BiTrashAlt, BiX } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import { BotonMas, BotonMenos, MyCarrito } from "./CarritoStyle";
 import axios from "axios";
-import { deleteItemCarrito } from "../../redux/actions";
+import { deleteItemCarrito, putProduct } from "../../redux/actions";
 
 const Carrito = ({ popupActive, setPopupActive }) => {
   const dispatch = useDispatch();
@@ -52,10 +52,17 @@ const Carrito = ({ popupActive, setPopupActive }) => {
     setSumaTota(TotalValorItems)
   };
 
-
-
+  let filter = carritos.filter(elem => elem.stock < elem.cantidad)
 
   const hanleSell = async() => {
+    if(filter) {
+      window.alert("No poseemos suficiente stock de este producto")
+    } else  {
+
+    
+    carritos.forEach(elem => 
+      dispatch(putProduct(elem.id, elem.stock - elem.cantidad)))
+
   const items = carritos.map((elem) => ({
     key:elem.id,
     id:elem.id,
@@ -68,9 +75,10 @@ const Carrito = ({ popupActive, setPopupActive }) => {
   const headers = { "Content-Type": "text/plain" };
 
   
-  const json = await axios.post(`https://api-mx1xp8s8p-santiaguero91.vercel.app/mercadopago/create_preference`,items, headers)
+  const json = await axios.post(`http://localhost:3001/mercadopago/create_preference`,items, headers)
   window.location.assign(json.data) 
   return json; 
+}
 };
 
 

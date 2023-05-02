@@ -14,6 +14,7 @@ import {
   ORDER_BY_NAME,
   ORDER_BY_PRICE,
   POST_REVIEW,
+  PUT_PRODUCT,
 } from "./action-types";
 
 const initialState = {
@@ -153,10 +154,11 @@ const reducer = (state = initialState, action) => {
         ...state,
       };
     case DELETE_REVIEW:
+      const filter = state.reviews.filter( e => e.id !== action.payload)
       return {
         ...state,
-        reviews: action.payload,
-        allReviews: action.payload,
+        reviews: filter,
+        allReviews: filter,
       };
     case DELETE_ITEM_CARRITO:
       return {
@@ -168,7 +170,10 @@ const reducer = (state = initialState, action) => {
         ...state,
         adminProducts: action.payload,
       };
-
+      case PUT_PRODUCT:
+        return {
+          ...state
+        };
     default:
       return { ...state };
   }

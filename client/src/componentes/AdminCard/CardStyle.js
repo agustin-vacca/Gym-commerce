@@ -24,7 +24,15 @@ export const CardDiv = styled.div`
   .TextPrice {
     font-size: small;
   }
-
+  .stockblack{
+    font-size: small;
+    color: black;
+  }
+  .stockred{
+    font-size: small;
+    color: rgb(162, 67, 0);
+  }
+  
   .TextName {
     font-size: large;
     font-family: "Plus Jakarta Sans";

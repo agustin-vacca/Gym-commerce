@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Footer from "../../componentes/Footer/Footer";
 import ImageSlider from "../../componentes/ImageSlider/ImageSlider";
 import NavBar from "../../componentes/NavBar/NavBar";
@@ -25,8 +25,7 @@ const Home = () => {
     { url: img4, title: "city" },
     { url: img5, title: "italy" },
   ];
-  // eslint-disable-next-line
-  const [orden, setOrden] = useState("");
+
 
   useEffect(() => {
     dispatch ( getReviews());
