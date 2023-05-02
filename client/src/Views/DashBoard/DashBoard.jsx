@@ -3,37 +3,10 @@ import { AiFillHome, AiOutlineForm } from "react-icons/ai";
 import { ImStatsBars } from "react-icons/im";
 import { Link } from "react-router-dom";
 import logoImage from "../../cardiganRectangulo.png";
+import Statistics from "../../componentes/AdminStatistics/Statistics";
 import { Sidebar } from "./DashBoardStyles";
 
 const Dash = () => {
-  const linksArray = [
-    {
-      label: "Home Page",
-      icon: <AiFillHome size={30} />,
-      to: "/home",
-    },
-    {
-      label: "Estadisticas",
-      icon: <ImStatsBars size={30} />,
-      to: "/Admin/dashboard",
-    },
-    {
-      label: "Productos",
-      icon: <AiOutlineForm size={30} />,
-      to: "/Admin/myProducts",
-    },
-    {
-      label: "Administradores",
-      icon: <AiFillHome size={30} />,
-      to: "/Admins",
-    },
-    {
-      label: "Crear Producto",
-      icon: <AiFillHome size={30} />,
-      to: "/Admin/form",
-    },
-  ];
-
   return (
     <Sidebar>
       <div className="Logo">
@@ -44,7 +17,11 @@ const Dash = () => {
           {linksArray &&
             linksArray.map(({ label, icon, to }) => (
               <Link className="linklabel" to={to} key={label}>
-                <div className="label">
+                <div
+                  className={
+                    label === "Estadisticas" ? "labelComponente" : "label"
+                  }
+                >
                   <div>{label}</div>
                   <div>{icon}</div>
                 </div>
@@ -53,7 +30,7 @@ const Dash = () => {
         </div>
         {}
         <div className="contenidoDash">
-          <h1>este es el home del dash</h1>
+          <Statistics />
         </div>
       </div>
     </Sidebar>
@@ -61,3 +38,31 @@ const Dash = () => {
 };
 
 export default Dash;
+
+const linksArray = [
+  {
+    label: "Home Page",
+    icon: <AiFillHome size={30} />,
+    to: "/home",
+  },
+  {
+    label: "Reviews",
+    icon: <ImStatsBars size={30} />,
+    to: "/Admin/dashboard",
+  },
+  {
+    label: "Productos",
+    icon: <AiOutlineForm size={30} />,
+    to: "/Admin/myProducts",
+  },
+  {
+    label: "Crear Producto",
+    icon: <AiFillHome size={30} />,
+    to: "/Admin/form",
+  },
+  {
+    label: "Usuarios",
+    icon: <AiFillHome size={30} />,
+    to: "/Admin/usuarios",
+  },
+];
