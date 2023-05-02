@@ -1,7 +1,11 @@
-import React from "react";
 import styled from "styled-components";
 import NavBarAdmin from "../../componentes/NavBarAdmin/NavBarAdmin";
-import borrar from "./trash3.svg"
+import React, { useEffect, useState } from "react";
+import "./Switch.css";
+import { useDispatch, useSelector } from "react-redux";
+import ReviewsCard from "../../componentes/Admin/ReviewsCard/ReviewsCard";
+import { getReviews } from "../../redux/actions";
+
 const Container = styled.div`
   background: #808080;
   border-radius: 15px;
@@ -21,43 +25,43 @@ const Recuadros = styled.div`
     margin:3%;
     color:black;
 `
-const Productos =styled.div`
-   display:flex;
-   flex-direction:row;   
-   justify-content:center;
-   gap:20%;
-   border-bottom: 1px dashed  black;
-   margin-right:3%;
-   margin-left:3%;
-   align-items:baseline;
-`
-const PStyledProduct = styled.p`
-    width: 5%;
-`    
-const ImgGrande = styled.img`
-    width:3%;
-    background: #9f9f9f;
-    padding: 2px;
-    border-radius: 5px;
-`
 
 export default function AdminReviews(){
+
+    const dispatch = useDispatch();
+    const reviews = useSelector( state => state.reviews )
+
+    const [change, setChange] = useState(false)
+
+    useEffect( () => {
+        dispatch(getReviews());
+        // eslint-disable-next-line
+    },[change])
+
     return(
         <>
             <NavBarAdmin/>  
             <Container>
                 <Recuadros>
-                    <p>User:</p>
+                    {/* <p>User:</p> */}
+                    <p>ID:</p>
                     <p>Opinion:</p>
                     <p>Rating:</p>
                     <p>Estado:</p>
                 </Recuadros>
-                <Productos>   
-                    <PStyledProduct>Lorem</PStyledProduct>
-                    <PStyledProduct>Lorem</PStyledProduct>             
-                    <PStyledProduct>Lorem</PStyledProduct>
-                    <ImgGrande src={borrar}/>
-                </Productos>
+
+                {reviews.map( e => {
+                        return(
+                            <ReviewsCard 
+                            id={e.id}
+                            //user={e.user}
+                            opinion={e.opinion}
+                            rating={e.rating}
+                            setChange = {setChange} 
+                            />
+                        );
+                    })} 
+                
             </Container>         
         </>
     )
