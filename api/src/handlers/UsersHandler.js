@@ -38,16 +38,6 @@ const getUserHandler = async (req, res) => {
   }
 };
 
-// const AdminUserHandler = async (req,res) => {
-//   try {
-//     const { id } = req.params;
-//     const { admin } = req.body
-//     adminUserById(id, admin);
-//     res.status(200).send("El usuario fue admitido como administrador");
-//   } catch (error) {
-//     res.status(400).json({ error: error.message });
-//   }
-// };
 
 const AdminUserHandler = async (req,res) => {
   try {

@@ -154,10 +154,11 @@ const reducer = (state = initialState, action) => {
         ...state,
       };
     case DELETE_REVIEW:
+      const filter = state.reviews.filter( e => e.id !== action.payload)
       return {
         ...state,
-        reviews: action.payload,
-        allReviews: action.payload,
+        reviews: filter,
+        allReviews: filter,
       };
     case DELETE_ITEM_CARRITO:
       return {

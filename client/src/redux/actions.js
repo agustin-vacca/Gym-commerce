@@ -1,6 +1,7 @@
 import axios from "axios";
 import {
   DELETE_ITEM_CARRITO,
+  DELETE_REVIEW,
   FILTER_BY_CATEGORY,
   FILTER_REVIEWS,
   GET_ADMIN_PRODUCTS,
@@ -202,12 +203,15 @@ export const createUsers = (obj) => {
 };
 
 export function deleteReview(id) {
-  return async function () {
+  return async function (dispatch) {
     try {
-      const response = await axios.delete(
+      await axios.delete(
         "http://localhost:3001/reviews/" + id
       );
-      return response;
+      return dispatch({
+        type: DELETE_REVIEW,
+        payload: id,
+      });
     } catch (error) {
       console.log(error);
     }
