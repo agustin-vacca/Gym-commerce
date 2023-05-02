@@ -3,35 +3,34 @@ import { AiFillHome, AiOutlineForm } from "react-icons/ai";
 import { ImStatsBars } from "react-icons/im";
 import { Link } from "react-router-dom";
 import logoImage from "../../cardiganRectangulo.png";
-import Cards from "../../componentes/AdminCards/Cards";
 import { Sidebar } from "./DashBoardStyles";
 
 const Dash = () => {
   const linksArray = [
     {
-      label: "Home",
+      label: "Home Page",
       icon: <AiFillHome size={30} />,
       to: "/home",
     },
     {
       label: "Estadisticas",
       icon: <ImStatsBars size={30} />,
-      to: "/stats",
+      to: "/Admin/dashboard",
     },
     {
       label: "Productos",
       icon: <AiOutlineForm size={30} />,
-      to: "/mypublic",
+      to: "/Admin/myProducts",
     },
     {
-      label: "Comentarios",
+      label: "Administradores",
       icon: <AiFillHome size={30} />,
-      to: "/comments",
+      to: "/Admins",
     },
     {
       label: "Crear Producto",
       icon: <AiFillHome size={30} />,
-      to: "/form",
+      to: "/Admin/form",
     },
   ];
 
@@ -52,8 +51,9 @@ const Dash = () => {
               </Link>
             ))}
         </div>
+        {}
         <div className="contenidoDash">
-          <Cards />
+          <h1>este es el home del dash</h1>
         </div>
       </div>
     </Sidebar>
