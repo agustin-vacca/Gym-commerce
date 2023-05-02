@@ -9,4 +9,13 @@ export const FoterDiv = styled.div`
     display: flex;
     align-items: flex-start;
     justify-content: center;
+    bottom: 0;
+    width: 100%;
+
+    .link{
+        color: white; 
+    }
+    .link:hover{
+        color: grey; 
+    }
 `;

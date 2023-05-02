@@ -1,62 +1,67 @@
-import React, { useState } from "react";
-import { HiMenu, HiOutlineUserCircle } from "react-icons/hi";
-import Modal from "react-modal";
+import { useAuth0 } from "@auth0/auth0-react";
+import React, { useEffect, useState } from "react";
+import { HiOutlineUserCircle } from "react-icons/hi";
 import { Link } from "react-router-dom";
-import Popup from "../Popup/Popup";
+import Login from "../Login/Login";
+import Logout from "../Logout/Logout";
 import { UserBtnDiv } from "./UserButtonStyled";
+import { createUsers } from "../../redux/actions";
+import { useDispatch } from "react-redux";
 
 const UserButton = () => {
+  const { user, isAuthenticated } = useAuth0();
   const [active, setActive] = useState(false);
-  const [popup, setPopup] = useState(false);
-  const [isAuthenticated, SetAuthenticated] = useState(false);
+
+  const dispatch = useDispatch();
+
+  useEffect( () => {
+    dispatch(createUsers(user))
+  },[])
 
   return (
     <UserBtnDiv>
       <div onClick={() => setActive(!active)}>
-        <HiOutlineUserCircle size={25} />
+        {isAuthenticated ? (
+          <img className="profileImg" src={user.picture} alt={user.nickname} />
+        ) : (
+          <HiOutlineUserCircle size={45} />
+        )}
       </div>
       <div className="Menu" style={active ? null : { display: "none" }}>
         {isAuthenticated ? (
           <ul className="Ul">
-            <div>
-              <img src={HiMenu} alt="User_image" />
-              <h2>User_name</h2>
-              <h2>User.family_name</h2>
+            <div className="profile">
+              <h3 className="profileName">{user.given_name}</h3>
             </div>
-            <hr />
-            <Link to="/dashboard">
-              <li className="Li" onClick={() => setActive(!active)}>
+            <li>
+            </li>
+            <li>
+              <Link
+                className="Li"
+                to="/Admin/dashboard"
+                onClick={() => setActive(!active)}
+              >
                 Dashboard
-              </li>
-            </Link>
-            <hr />
-            <li className="Li">
-              <Link to="/form" onClick={() => setActive(!active)}>
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="Li"
+                to="/Admin/form"
+                onClick={() => setActive(!active)}
+              >
                 Crear producto
               </Link>
             </li>
-            <li className="Li">
-              <Link to="/home" onClick={() => SetAuthenticated(false)}>
-                Cerrar Sesion
-              </Link>
+            <li>
+              <Logout />
             </li>
           </ul>
         ) : (
           <ul className="Ul">
-            <li
-              className="Li"
-              onClick={() => {
-                setPopup(!popup);
-                setActive(false);
-              }}
-            >
-              <Modal isOpen={popup} onRequestClose={() => setPopup(false)}>
-                <Popup popup={popup} setPopup={setPopup} />
-              </Modal>
-              Iniciar Sesion/Registrarse
+            <li className="Li">
+              <Login />
             </li>
-            <hr />
-            <li className="Li">Ayuda</li>
           </ul>
         )}
       </div>
@@ -64,27 +69,3 @@ const UserButton = () => {
   );
 };
 export default UserButton;
-
-/* : isAuthenticated === "User" ? (
-          <ul>
-            <div>
-              <img
-                src={user.picture ? user.picture : HiMenu}
-                alt={"image_active"}
-              />
-              <h2>{user.given_name}</h2>
-              <h2>{user.family_name}</h2>
-            </div>
-            <hr />
-            <li>
-              <Link to="/compras">Mis Compras</Link>
-            </li>
-            <li
-              onClick={() => {
-                logout();
-              }}
-            >
-              Cerrar Sesion
-            </li>
-          </ul>
-        */

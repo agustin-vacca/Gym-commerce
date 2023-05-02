@@ -6,13 +6,19 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import store from "./redux/store";
 import { Provider } from "react-redux";
-
+import { Auth0Provider } from "@auth0/auth0-react";
+//const { DOMAIN, CLIENTID } = process.env
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
     <BrowserRouter>
       <React.StrictMode>
-        <App />
+        <Auth0Provider 
+          domain="dev-a26zs0z2za6hq3cq.us.auth0.com"
+          clientId= "bIFzZHia1gmJSmx7WPlNON4QLSpzVLcY"
+          redirectUri={ window.location.origin }>
+          <App />
+        </Auth0Provider>
       </React.StrictMode>
     </BrowserRouter>
   </Provider>

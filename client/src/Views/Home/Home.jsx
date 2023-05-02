@@ -1,28 +1,52 @@
-import React from "react";
-import Cards from "../../componentes/Cards/Cards";
+import React, { useEffect } from "react";
 import Footer from "../../componentes/Footer/Footer";
+import ImageSlider from "../../componentes/ImageSlider/ImageSlider";
 import NavBar from "../../componentes/NavBar/NavBar";
-import ImageSlider from "../../componentes/ImageSlider/ImageSlider"
-import { Layout, ContainerStyles } from "./commonStyles";
+import { Layout } from "./commonStyles";
+import CategoryDisplayer from "../../componentes/HomeComponents/CategoryDisplayer/CategoryDisplayer";
+import ReviewDisplayer from "../../componentes/HomeComponents/Reviews/ReviewDisplayer";
+import { useDispatch } from "react-redux";
+import { getReviews } from "../../redux/actions";
+import img1  from "../../componentes/Imagenes/image-1.jpg";
+import img2  from "../../componentes/Imagenes/image-2.jpg";
+import img3  from "../../componentes/Imagenes/image-3.jpg";
+import img4  from "../../componentes/Imagenes/image-4.jpg";
+import img5  from "../../componentes/Imagenes/image-5.jpg";
+
+
 
 const Home = () => {
-  const slides=[
-    { url: "http://localhost:3000/image-1.jpg", title: "beach" },
-    { url: "http://localhost:3000/image-2.jpg", title: "boat" },
-    { url: "http://localhost:3000/image-3.jpg", title: "forest" },
-    { url: "http://localhost:3000/image-4.jpg", title: "city" },
-    { url: "http://localhost:3000/image-5.jpg", title: "italy" },
-  ]
+  const dispatch = useDispatch();
+
+  const slides = [
+    { url: img1, title: "beach" },
+    { url: img2, title: "boat" },
+    { url: img3, title: "forest" },
+    { url: img4, title: "city" },
+    { url: img5, title: "italy" },
+  ];
+
+
+  useEffect(() => {
+    dispatch ( getReviews());
+  }, [dispatch]);
 
   return (
     <Layout>
       <NavBar />
-      <ContainerStyles>
-          <ImageSlider slides={slides} />
-      </ContainerStyles>
-      <Cards />
-      <Footer />
-
+      <div className="content">
+        <div className="ContainerStyles">
+          <ImageSlider slides={slides} /></div>
+          <h1>Nuestros Productos</h1>
+          <CategoryDisplayer/>
+          <br></br>
+          <hr></hr>
+          <h1>Algunas Reviews</h1>
+          <ReviewDisplayer/>
+      </div>
+      <div className="footerDiv">
+       <Footer />  
+       </div>
     </Layout>
   );
 };

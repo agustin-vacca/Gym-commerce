@@ -3,13 +3,16 @@ import styled from "styled-components";
 export const Layout = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 100vh;
-`;
+  min-height: 100vh;
 
-export const ContainerStyles = styled.div`
-    width: 900px;
-    height: 300px;
-    margin: 0 auto ;
-`;
+  .ContainerStyles {
+    padding: 1%;
+    width: 95%;
+    height: 100%;
+  }
+  .footerDiv{
+    bottom: 0;
+  }
 
+
+`;

@@ -2,13 +2,21 @@ require("dotenv").config();
 const { Sequelize } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
-const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
+//const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
+const { DB_DEPLOY } = process.env;
 
 const sequelize = new Sequelize(
-  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`,
+  //`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`,
+  DB_DEPLOY,
   {
     logging: false, // set to console.log to see the raw SQL queries
     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false // Esta propiedad es necesaria si estás usando SSL con un certificado autofirmado
+      }
+    }
   }
 );
 const basename = path.basename(__filename);
@@ -37,16 +45,21 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { Producto, Usuario, Categoria } = sequelize.models;
+const { Producto, Usuario, Categoria, Reviews } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
 
-Producto.belongsToMany(Usuario, { through: "producto_usuario" });
-Usuario.belongsToMany(Producto, { through: "producto_usuario" });
+//Producto.belongsToMany(Usuario, { through: "producto_usuario" });
+//Usuario.belongsToMany(Producto, { through: "producto_usuario" });
 
 Producto.belongsToMany(Categoria, { through: "producto_categoria" });
 Categoria.belongsToMany(Producto, { through: "producto_categoria" });
+
+Reviews.belongsToMany(Producto, { through: "producto_reviews" });
+Producto.belongsToMany(Reviews, { through: "producto_reviews" });
+//Reviews.belongsToMany(Usuario, { through: "usuario_reviews" });
+//Usuario.belongsToMany(Reviews, { through: "usuario_reviews" });
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
