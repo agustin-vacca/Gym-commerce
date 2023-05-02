@@ -18,6 +18,7 @@ import {
   POST_REVIEW,
   POST_USERS,
   PUT_ADMIN_USER,
+  FILTER_BY_ADMIN
 } from "./action-types";
 
 export function getProducts() {
@@ -59,6 +60,12 @@ export function getUserById(id) {
     } catch (error) {
       console.log(error);
     }
+  };
+}
+
+export function filterByAdmin() {
+  return {
+    type: FILTER_BY_ADMIN,
   };
 }
 
@@ -184,14 +191,12 @@ export const createReview = (obj) => {
 };
 
 export const createUsers = (obj) => {
-  console.log(obj);
   return async function (dispatch) {
     try {
       let response = await axios.post(
         "http://localhost:3001/usuarios/create",
         obj
       );
-      console.log(response);
       return dispatch({
         type: POST_USERS,
         payload: response.data,
