@@ -36,7 +36,6 @@ const Detail = () => {
   const [carritos, setCarritos] = useState(carrito);
   const navigate = useNavigate();
 
-
   const promedioHandler = () => {
     let promedio = 0;
     const cantLargo = product.reviews?.length;
@@ -99,7 +98,7 @@ const Detail = () => {
         </Headimg>
         <Title>
           <h1> {product.name} </h1>
-          <h3>Precio: {product.price} $ Arg</h3>
+          <h3>Precio: $ {product.price} Arg</h3>
           <h3>Color: {product.color} </h3>
           <h3>
             Promedio:{" "}
