@@ -205,9 +205,7 @@ export const createUsers = (obj) => {
 export function deleteReview(id) {
   return async function (dispatch) {
     try {
-      await axios.delete(
-        "http://localhost:3001/reviews/" + id
-      );
+      await axios.delete("http://localhost:3001/reviews/" + id);
       return dispatch({
         type: DELETE_REVIEW,
         payload: id,
@@ -251,14 +249,17 @@ export function putAdminUser(id) {
   };
 }
 
-export function putProduct(id , obj){
+export function putProduct(id, obj) {
   console.log(obj);
-  return async function() {
-      try{       
-      const response = await axios.put(`http://localhost:3001/productos/change/${id}` , {"stock": obj})
-      return response
-  } catch (error){
+  return async function () {
+    try {
+      const response = await axios.put(
+        `http://localhost:3001/productos/change/${id}`,
+        obj
+      );
+      return response;
+    } catch (error) {
       console.log(error);
-  }
-  }
-} 
+    }
+  };
+}
