@@ -55,7 +55,7 @@ const Carrito = ({ popupActive, setPopupActive }) => {
   let filter = carritos.filter(elem => elem.stock < elem.cantidad)
 
   const hanleSell = async() => {
-    if(filter) {
+    if(filter.length !== 0) {
       window.alert("No poseemos suficiente stock de este producto")
     } else  {
 
@@ -80,7 +80,6 @@ const Carrito = ({ popupActive, setPopupActive }) => {
   return json; 
 }
 };
-
 
   return (
     <MyCarrito>
