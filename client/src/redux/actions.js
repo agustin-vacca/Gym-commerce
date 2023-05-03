@@ -64,10 +64,20 @@ export function getUserById(id) {
 }
 
 export function filterByAdmin() {
-  return {
-    type: FILTER_BY_ADMIN,
-  };
-}
+  return async function (dispatch) {
+    try {
+      let json = await axios.get("http://localhost:3001/usuarios");
+      const response = json.data.filter(e => e.admin === true )
+      //console.log("esto es el response",response)
+      return dispatch({
+        type: FILTER_BY_ADMIN,
+        payload: response,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+};
 
 export function getCategories() {
   return async function (dispatch) {
@@ -202,7 +212,7 @@ export const createUsers = (obj) => {
         payload: response.data,
       });
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
 };
