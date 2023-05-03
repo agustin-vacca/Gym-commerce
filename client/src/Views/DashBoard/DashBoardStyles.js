@@ -56,6 +56,19 @@ export const Sidebar = styled.div`
     text-decoration: none;
   }
 
+  .labelComponente {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4%;
+    margin-bottom: 1%;
+    margin-left: 1%;
+    margin-right: 1%;
+    border: 1px solid #999;
+    color: mediumturquoise;
+    text-decoration: none;
+  }
+
   .divShow {
     width: fit-content;
     height: fit-content;

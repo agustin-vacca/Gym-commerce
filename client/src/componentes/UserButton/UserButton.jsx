@@ -1,28 +1,22 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { HiOutlineUserCircle } from "react-icons/hi";
-import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { createUsers, getUsers } from "../../redux/actions";
 import Login from "../Login/Login";
 import Logout from "../Logout/Logout";
 import { UserBtnDiv } from "./UserButtonStyled";
+import { createUsers } from "../../redux/actions";
+import { useDispatch } from "react-redux";
 
 const UserButton = () => {
   const { user, isAuthenticated } = useAuth0();
   const [active, setActive] = useState(false);
 
   const dispatch = useDispatch();
-  const usuarios = useSelector((state) => state.users);
 
-  const ver = () => {
-    dispatch(createUsers(user));
-    dispatch(getUsers());
-  };
-
-  const mostrar = () => {
-    console.log("estos son los: ", usuarios);
-  };
+  useEffect( () => {
+    dispatch(createUsers(user))
+  },[])
 
   return (
     <UserBtnDiv>
@@ -40,8 +34,6 @@ const UserButton = () => {
               <h3 className="profileName">{user.given_name}</h3>
             </div>
             <li>
-              <button onClick={() => ver()}> ver </button>
-              <button onClick={() => mostrar()}> ver2 </button>
             </li>
             <li>
               <Link
@@ -55,7 +47,7 @@ const UserButton = () => {
             <li>
               <Link
                 className="Li"
-                to="/form"
+                to="/Admin/form"
                 onClick={() => setActive(!active)}
               >
                 Crear producto

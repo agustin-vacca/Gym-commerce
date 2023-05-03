@@ -1,8 +1,19 @@
 const { Usuario } = require("../db");
 
-const createUser = (name, given_name, family_name, email, email_verified, picture, sub, admin) => {
-  admin = false;
-  const newUser = Usuario.create({ name, given_name, family_name, email, email_verified, picture, sub, admin });
+const createUser = async(name, given_name, family_name, email, email_verified, picture, sub, admin) => {
+  const newUser = await Usuario.findOrCreate({
+    where: { email: email },
+    defaults: {
+      name: name,
+      picture: picture,
+      given_name: given_name,
+      family_name: family_name,
+      email: email,
+      admin: false,
+      email_verified: email_verified,
+      sub: sub,
+    },
+  });
   return newUser;
 }
 
