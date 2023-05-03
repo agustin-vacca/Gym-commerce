@@ -7,7 +7,7 @@ import Logout from "../Logout/Logout";
 import { UserBtnDiv } from "./UserButtonStyled";
 //import { createUsers, filterByAdmin } from "../../redux/actions";
 import { createUsers } from "../../redux/actions";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const UserButton = () => {
   const { user, isAuthenticated } = useAuth0();

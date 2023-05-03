@@ -16,7 +16,6 @@ import Productos from "./Views/Productos/Productos";
 import Cards from "./componentes/AdminCards/Cards";
 import Error from "./componentes/Error/Error";
 import RutasAdmin from "./componentes/RutasProtegidas/RutasAdmin";
-import RutasUser from "./componentes/RutasProtegidas/RutasProtegidas";
 function App() {
   return (
     <div className="App">
