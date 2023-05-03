@@ -35,8 +35,6 @@ const UserButton = () => {
     }
   },[user])
 
-
-
   return (
     <UserBtnDiv>
       <div onClick={() => setActive(!active)}>
