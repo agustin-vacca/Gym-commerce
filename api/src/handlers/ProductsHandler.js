@@ -67,15 +67,35 @@ const getProductsDetailHandler = async (req, res) => {
 };
 
 const putProductsHandler = async (req, res) => {
-  const {id} = req.params;
+  const { id } = req.params;
   const {
+    name,
+    price,
+    weight,
+    description,
+    image,
     stock,
+    create_date,
+    category,
+    isactive,
+    offer,
+    color,
   } = req.body;
   try {
     if (id) {
       await Producto.update(
         {
-          stock: stock,
+          name,
+          price,
+          weight,
+          description,
+          image,
+          stock,
+          create_date,
+          category,
+          isactive,
+          offer,
+          color,
         },
         { where: { id: Number(id) } }
       );
@@ -103,5 +123,5 @@ module.exports = {
   postProductsHandler,
   getProductsDetailHandler,
   deleteProductsHandler,
-  putProductsHandler
+  putProductsHandler,
 };

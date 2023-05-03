@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { AiFillHome, AiOutlineForm } from "react-icons/ai";
-import { ImStatsBars } from "react-icons/im";
+import {
+  AiFillHome,
+  AiOutlineComment,
+  AiOutlineForm,
+  AiOutlineUser,
+} from "react-icons/ai";
+import { FaDumbbell } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import logoImage from "../../cardiganRectangulo.png";
@@ -80,7 +85,7 @@ export default function AdminReviews() {
             <div className="marcoCards">
               {reviews.map((e) => {
                 return (
-                  <div className="userCards">
+                  <div key={e.id} className="userCards">
                     <ReviewsCard
                       key={e.id}
                       id={e.id}
@@ -108,22 +113,22 @@ const linksArray = [
   },
   {
     label: "Reviews",
-    icon: <ImStatsBars size={30} />,
+    icon: <AiOutlineComment size={30} />,
     to: "/Admin/reviews",
   },
   {
     label: "Productos",
-    icon: <AiOutlineForm size={30} />,
+    icon: <FaDumbbell size={30} />,
     to: "/Admin/myProducts",
   },
   {
     label: "Crear Producto",
-    icon: <AiFillHome size={30} />,
+    icon: <AiOutlineForm size={30} />,
     to: "/Admin/form",
   },
   {
     label: "Usuarios",
-    icon: <AiFillHome size={30} />,
+    icon: <AiOutlineUser size={30} />,
     to: "/Admin/usuarios",
   },
 ];

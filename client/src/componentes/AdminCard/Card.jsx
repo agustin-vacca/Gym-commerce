@@ -48,16 +48,16 @@ function Card({ id, name, price, image, isactive, stock }) {
             </div>
           </>
         )}
-        <Link to={`/detail/${id}`}>
-          <div className="LinkText">VER MAS</div>
+        <Link to={`/Admin/edit_products/${id}`}>
+          <div className="LinkText">Editar</div>
         </Link>
         <div className="TextPrice">Precio : {price} $</div>
 
-        {
-          stock 
-          ? <div className="stockblack">Stock : {stock}</div>
-          : <div className="stockred">Stock : {stock}</div>
-        }
+        {stock ? (
+          <div className="stockblack">Stock : {stock}</div>
+        ) : (
+          <div className="stockred">Stock : {stock}</div>
+        )}
       </>
     </CardDiv>
   );
