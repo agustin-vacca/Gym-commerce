@@ -61,9 +61,25 @@ const AdminUserHandler = async (req,res) => {
   }
 };
 
+const deleteUser = async (req,res) => {
+  try {
+    const {id} = req.params;
+    if(id){
+        Usuario.destroy(
+        { where: { id: id }
+        });
+    res.status(200).send("El usuario borrado");
+  }
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+  
+}
+
 module.exports = {
   getUsersHandler,
   postUsersHandler,
   getUserHandler,
-  AdminUserHandler
+  AdminUserHandler,
+  deleteUser
 };

@@ -5,19 +5,29 @@ import { Link } from "react-router-dom";
 import Login from "../Login/Login";
 import Logout from "../Logout/Logout";
 import { UserBtnDiv } from "./UserButtonStyled";
+//import { createUsers, filterByAdmin } from "../../redux/actions";
 import { createUsers } from "../../redux/actions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const UserButton = () => {
   const { user, isAuthenticated } = useAuth0();
   const [active, setActive] = useState(false);
-
   const dispatch = useDispatch();
+  // const [admin, setAdmin] = useState("");
+  // const admins = useSelector( e => e.admins)
 
   useEffect( () => {
     dispatch(createUsers(user))
-  },[])
+  },[dispatch,user])
 
+  // useEffect( () => {
+  //   filterByAdmin()
+  //   console.log(admins)
+  //   const nose = admins.includes("agus")
+  //   console.log(nose);
+  //   setAdmin(nose)
+  // },[user])
+  
   return (
     <UserBtnDiv>
       <div onClick={() => setActive(!active)}>
@@ -31,28 +41,34 @@ const UserButton = () => {
         {isAuthenticated ? (
           <ul className="Ul">
             <div className="profile">
-              <h3 className="profileName">{user.given_name}</h3>
+              <h3 className="profileName">{user.name}</h3>
             </div>
-            <li>
-            </li>
-            <li>
-              <Link
-                className="Li"
-                to="/Admin/dashboard"
-                onClick={() => setActive(!active)}
-              >
-                Dashboard
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="Li"
-                to="/Admin/form"
-                onClick={() => setActive(!active)}
-              >
-                Crear producto
-              </Link>
-            </li>
+            {
+              isAuthenticated ? 
+              <div>
+                <li>
+                  <Link
+                    className="Li"
+                    to="/Admin/dashboard"
+                    onClick={() => setActive(!active)}
+                  >
+                    Dashboard
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="Li"
+                    to="/Admin/form"
+                    onClick={() => setActive(!active)}
+                  >
+                    Crear producto
+                  </Link>
+                </li>
+              </div>
+            :
+              null
+            }
+            
             <li>
               <Logout />
             </li>

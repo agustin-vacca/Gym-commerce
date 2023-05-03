@@ -15,6 +15,7 @@ import {
   ORDER_BY_PRICE,
   POST_REVIEW,
   PUT_PRODUCT,
+  FILTER_BY_ADMIN
 } from "./action-types";
 
 const initialState = {
@@ -29,6 +30,7 @@ const initialState = {
   carrito: [],
   users: [],
   detailUser: [],
+  admins: [],
   adminProducts: [],
 };
 
@@ -134,6 +136,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         reviews: reviewsFiltered,
       };
+    case FILTER_BY_ADMIN:
+      const allUsers = state.users;
+      const allAdmins = allUsers.filter( e => e.admin === true)
+      return {...state,
+      admins: allAdmins};
     case FILTER_BY_CATEGORY:
       const allProducts = state.allProducts;
       const categoryFiltered =
