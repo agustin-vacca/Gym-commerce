@@ -66,6 +66,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         users: sortUser,
+        admins: sortUser
       };
     case GET_PRODUCT_BY_ID:
       return {
@@ -137,10 +138,9 @@ const reducer = (state = initialState, action) => {
         reviews: reviewsFiltered,
       };
     case FILTER_BY_ADMIN:
-      const allUsers = state.users;
-      const allAdmins = allUsers.filter( e => e.admin === true)
       return {...state,
-      admins: allAdmins};
+      admins: action.payload,
+    };
     case FILTER_BY_CATEGORY:
       const allProducts = state.allProducts;
       const categoryFiltered =

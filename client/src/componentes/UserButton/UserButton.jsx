@@ -5,29 +5,38 @@ import { Link } from "react-router-dom";
 import Login from "../Login/Login";
 import Logout from "../Logout/Logout";
 import { UserBtnDiv } from "./UserButtonStyled";
-//import { createUsers, filterByAdmin } from "../../redux/actions";
-import { createUsers } from "../../redux/actions";
+import { createUsers, filterByAdmin } from "../../redux/actions";
+//import { createUsers } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 
 const UserButton = () => {
   const { user, isAuthenticated } = useAuth0();
   const [active, setActive] = useState(false);
   const dispatch = useDispatch();
-  // const [admin, setAdmin] = useState("");
-  // const admins = useSelector( e => e.admins)
+  const [admin, setAdmin] = useState(false);
+  const admins = useSelector( e => e.admins)
 
   useEffect( () => {
     dispatch(createUsers(user))
+    dispatch(filterByAdmin())
   },[dispatch,user])
 
-  // useEffect( () => {
-  //   filterByAdmin()
-  //   console.log(admins)
-  //   const nose = admins.includes("agus")
-  //   console.log(nose);
-  //   setAdmin(nose)
-  // },[user])
-  
+  useEffect( () => {
+    if( user ) {
+      const localActual = localStorage.getItem("usuario")
+      const objParseado = JSON.parse(localActual)
+      const newLocal = objParseado;
+      const coincidente = newLocal.admins.map( e => ( e.email === user.email)) 
+      const isAdmin = coincidente.find( e => e === true)
+      setAdmin(isAdmin)
+      newLocal.user = admins;
+      localStorage.setItem("usuario",JSON.stringify(newLocal))
+      // const ultimoLocal = localStorage.getItem("usuario")
+    }
+  },[user])
+
+
+
   return (
     <UserBtnDiv>
       <div onClick={() => setActive(!active)}>
@@ -44,7 +53,7 @@ const UserButton = () => {
               <h3 className="profileName">{user.name}</h3>
             </div>
             {
-              isAuthenticated ? 
+              admin === true ? 
               <div>
                 <li>
                   <Link
