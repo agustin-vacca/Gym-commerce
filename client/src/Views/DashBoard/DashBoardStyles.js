@@ -108,3 +108,106 @@ export const Sidebar = styled.div`
 `;
 
 //border: 2px solid red;
+
+export const LandingDiv = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 80vh;
+  width: 100vw;
+
+  .card {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: white;
+  }
+
+  .card .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: 0.5s;
+    background: white;
+  }
+
+  .map_img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .entrada {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    color: white;
+  }
+
+  .entrada:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: #333;
+    text-decoration-style: solid;
+  }
+
+  .letters {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+  }
+
+  .card .front {
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px black;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card .back {
+    transform: perspective(600px) rotateY(180deg);
+    box-shadow: 0 5px 10px whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card:hover .front {
+    transform: perspective(600px) rotateY(180deg);
+  }
+
+  .card:hover .back {
+    transform: perspective(600px) rotateY(360deg);
+  }
+
+  .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5%;
+  }
+
+  .tag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .linklabel {
+    text-decoration: none;
+  }
+`;
