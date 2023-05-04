@@ -28,12 +28,11 @@ function App() {
           <Route path="/Admin/edit_products/:id" element={<AdminDetail />} />
         </Route>
 
-        {/* <Route element={<RutasUser />}>
-        
-        </Route> */}
+        <Route element={<RutasUser />}>
+          <Route path="/nosotros" element={<Nosotros1 />} />
+        </Route>
 
         <Route path="/detail/:id" element={<Detail />} />
-        <Route path="/nosotros" element={<Nosotros1 />} />
         <Route path="/catalogue" element={<Productos />} />
         <Route path="/preguntasfrecuentes" element={<Preguntas />} />
         <Route path="/home" element={<Home />} />
