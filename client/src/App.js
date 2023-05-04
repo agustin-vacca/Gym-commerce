@@ -15,7 +15,6 @@ import Productos from "./Views/Productos/Productos";
 import Cards from "./componentes/AdminCards/Cards";
 import Error from "./componentes/Error/Error";
 import RutasAdmin from "./componentes/RutasProtegidas/RutasAdmin";
-import RutasUser from "./componentes/RutasProtegidas/RutasProtegidas";
 function App() {
   return (
     <div className="App">
@@ -29,7 +28,9 @@ function App() {
           <Route path="/Admin/edit_products/:id" element={<AdminDetail />} />
         </Route>
 
-        <Route element={<RutasUser />}></Route>
+        {/* <Route element={<RutasUser />}>
+        
+        </Route> */}
 
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="/nosotros" element={<Nosotros1 />} />
@@ -38,6 +39,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/" element={<Landing />} />
         <Route path="*" element={<Error />} />
+        <Route path="/Admin/productos/editar" element={<EditProduct />} />
       </Routes>
     </div>
   );

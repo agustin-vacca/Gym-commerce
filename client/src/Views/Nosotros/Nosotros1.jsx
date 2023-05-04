@@ -11,10 +11,7 @@ import twitter from "./imagenes/twitter.svg";
 import twitch from "./imagenes/twitch.svg";
 import agus from "./imagenes/agus.png";
 import santi from "./imagenes/santi.png";
-import fred from "./imagenes/fred.png";
-import moa from "./imagenes/moa.png";
 import javier from "./imagenes/javier.png";
-import brian from "./imagenes/brian.png";
 
 const ImgGrande = styled.img`
   width: 15%;
@@ -124,45 +121,6 @@ export default function Nosotros1() {
           </div>
           <div className="card1">
             <div className="conteiner2">
-              <img src={fred} alt="img"></img>
-            </div>
-            <div className="info">
-              <p>Alfredo Egremy</p>
-              <Link to="https://www.instagram.com/kunaguero/">
-                <ImgGrande src={insta} />
-              </Link>
-              <Link to="https://twitter.com/aguerosergiokun">
-                <ImgGrande src={twitter} />
-              </Link>
-              <Link to="https://www.twitch.tv/slakun10">
-                <ImgGrande src={twitch} />
-              </Link>
-              <p>Besto PM y ta mamadisimo</p>
-            </div>
-          </div>
-          <div className="card1">
-            <div className="conteiner2">
-              <img src={moa} alt="img"></img>
-            </div>
-            <div className="info">
-              <p>Mateo Ossorio Arana</p>
-              <Link to="https://www.instagram.com/kunaguero/">
-                <ImgGrande src={insta} />
-              </Link>
-              <Link to="https://twitter.com/aguerosergiokun">
-                <ImgGrande src={twitter} />
-              </Link>
-              <Link to="https://www.twitch.tv/slakun10">
-                <ImgGrande src={twitch} />
-              </Link>
-              <p>
-                No es lo mismo tomar una clase en linea, que tomarse una linea
-                en clase
-              </p>
-            </div>
-          </div>
-          <div className="card1">
-            <div className="conteiner2">
               <img src={javier} alt="img"></img>
             </div>
             <div className="info">
@@ -177,24 +135,6 @@ export default function Nosotros1() {
                 <ImgGrande src={twitch} />
               </Link>
               <p>Hola tarolas</p>
-            </div>
-          </div>
-          <div className="card1">
-            <div className="conteiner2">
-              <img src={brian} alt="img"></img>
-            </div>
-            <div className="info">
-              <p>Brian</p>
-              <Link to="https://www.instagram.com/kunaguero/">
-                <ImgGrande src={insta} />
-              </Link>
-              <Link to="https://twitter.com/aguerosergiokun">
-                <ImgGrande src={twitter} />
-              </Link>
-              <Link to="https://www.twitch.tv/slakun10">
-                <ImgGrande src={twitch} />
-              </Link>
-              <p>Ñom ñom ñom</p>
             </div>
           </div>
         </div>

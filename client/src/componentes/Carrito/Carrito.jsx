@@ -3,7 +3,7 @@ import { BiTrashAlt, BiX } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import { BotonMas, BotonMenos, MyCarrito } from "./CarritoStyle";
 import axios from "axios";
-import { deleteItemCarrito, putProduct } from "../../redux/actions";
+import { ApiUrl, deleteItemCarrito, putProduct } from "../../redux/actions";
 
 const Carrito = ({ popupActive, setPopupActive }) => {
   const dispatch = useDispatch();
@@ -55,7 +55,7 @@ const Carrito = ({ popupActive, setPopupActive }) => {
   let filter = carritos.filter(elem => elem.stock < elem.cantidad)
 
   const hanleSell = async() => {
-    if(filter) {
+    if(filter.length !== 0) {
       window.alert("No poseemos suficiente stock de este producto")
     } else  {
 
@@ -75,12 +75,11 @@ const Carrito = ({ popupActive, setPopupActive }) => {
   const headers = { "Content-Type": "text/plain" };
 
   
-  const json = await axios.post(`http://localhost:3001/mercadopago/create_preference`,items, headers)
+  const json = await axios.post(`${ApiUrl}/mercadopago/create_preference`,items, headers)
   window.location.assign(json.data) 
   return json; 
 }
 };
-
 
   return (
     <MyCarrito>

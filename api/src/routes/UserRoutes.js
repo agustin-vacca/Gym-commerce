@@ -8,12 +8,14 @@ const {
   getUsersHandler,
   postUsersHandler,
   getUserHandler,
-  AdminUserHandler
+  AdminUserHandler, deleteUser
 } = require("../handlers/UsersHandler");
 
 UserRoutes.get("/", getUsersHandler);
 UserRoutes.post("/create", postUsersHandler);
 UserRoutes.get("/:id", getUserHandler);
-UserRoutes.put("/:id", AdminUserHandler)
+UserRoutes.put("/:id", AdminUserHandler);
+UserRoutes.delete("/:id", deleteUser);
+
 
 module.exports = UserRoutes;

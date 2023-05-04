@@ -20,7 +20,7 @@ export default function DetailReviews() {
     useEffect(() => {
       dispatch ( filterReviewsByProduct(id));
       // eslint-disable-next-line
-      }, []);
+      }, [orden]);
 
 return ( 
     <Container>

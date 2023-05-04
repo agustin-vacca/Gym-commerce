@@ -12,8 +12,8 @@ const FormReview = ({ setOrden }) => {
   const navigate = useNavigate();
 const [number, setNumbers] = useState(0)
 
-
 useEffect(() => {
+  setOrden(number+1)
   setInput({
     ...input,
     rating: number,
@@ -55,7 +55,7 @@ useEffect(() => {
       user: "",
       item: "",
     });
-    navigate(0); 
+    setTimeout(() => {navigate(0); }, 2500);
   };
   
 

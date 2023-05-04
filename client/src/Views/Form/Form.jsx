@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 import logoImage from "../../cardiganRectangulo.png";
 import Card from "../../componentes/Card/Card";
 import { uploadFile } from "../../firebase/config";
-import { createProducts } from "../../redux/actions";
+import { ApiUrl, createProducts } from "../../redux/actions";
 import { Sidebar } from "../DashBoard/DashBoardStyles";
 import { FormStyle } from "./FormStyles";
 
@@ -25,7 +25,7 @@ const Formulario = () => {
   const [dataCard, setDataCard] = useState("");
 
   const Handlercategory = async () => {
-    const categoria = await axios(`http://localhost:3001/categorias`);
+    const categoria = await axios(`${ApiUrl}/categorias`);
     setCategoria(categoria.data);
   };
 
@@ -81,7 +81,7 @@ const Formulario = () => {
                   // Validación de nombre
                   if (!values.name) {
                     errors.name = "Ingrese un nombre";
-                  } else if (!/^[a-zA-Z0-9_ ]{3,20}$/.test(values.name)) {
+                  } else if (!/^[a-zA-Z0-9_ ]{3,50}$/.test(values.name)) {
                     errors.name =
                       "El nombre solo puede contener letras y números";
                   }
@@ -106,7 +106,7 @@ const Formulario = () => {
                   if (!values.description) {
                     errors.description = "Ingrese una descripción";
                   } else if (
-                    !/^[a-zA-Z0-9_ ]{3,20}$/.test(values.description)
+                    !/^[a-zA-Z0-9_ ]{3,150}$/.test(values.description)
                   ) {
                     errors.description =
                       "La descripción solo puede contener letras y números";

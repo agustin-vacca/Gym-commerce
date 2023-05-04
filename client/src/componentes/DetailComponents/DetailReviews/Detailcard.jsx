@@ -1,17 +1,9 @@
 import React from "react";
 import { Container } from "./DetailcardStyle";
-import { useDispatch } from "react-redux";
-import { deleteReview } from "../../../redux/actions";
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 
-function Detailcard({ rating, opinion, id }) {
-  const dispatch = useDispatch();
+function Detailcard({ rating, opinion }) {
 
-  function closeReview(event) {
-    event.preventDefault();
-    dispatch(deleteReview(id));
-    window.location.reload();
-  }
 
   return (
     <Container>
@@ -28,9 +20,7 @@ function Detailcard({ rating, opinion, id }) {
       <div className="secondRow">
         <p>{opinion}</p>
       </div>
-      <button className="delButton" onClick={closeReview}>
-        X
-      </button>
+
     </Container>
   );
 }

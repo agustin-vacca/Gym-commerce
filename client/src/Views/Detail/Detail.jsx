@@ -7,6 +7,7 @@ import DetailReviews from "../../componentes/DetailComponents/DetailReviews/Deta
 import Footer from "../../componentes/Footer/Footer";
 import NavBar from "../../componentes/NavBar/NavBar";
 import {
+  ApiUrl,
   deleteItemCarrito,
   getProductById,
   getReviews,
@@ -44,6 +45,7 @@ const Detail = () => {
     }
     return promedio;
   };
+
   useEffect(() => {
     window.scrollTo(0, 0);
     dispatch(getProductById(id));
@@ -64,7 +66,7 @@ const Detail = () => {
   const buyClick = async (prodStock) => {
     dispatch(putProduct(id, prodStock -1));
     const json = await axios.get(
-      `http://localhost:3001/mercadopago/payment/${id}`
+      `${ApiUrl}/mercadopago/payment/${id}`
     );
     window.location.assign(json.data);
     return json;
@@ -99,7 +101,13 @@ const Detail = () => {
         <Title>
           <h1> {product.name} </h1>
           <h3>Precio: $ {product.price} Arg</h3>
-          <h3>Color: {product.color} </h3>
+          { product.color == null ?
+            <h3>Color: Negro </h3>
+           :
+           <h3>Color: {product.color} </h3>
+          }
+          <h3> Stock: Disponible </h3>
+          <p> ({product.stock} unidades disponibles) </p>
           <h3>
             Promedio:{" "}
             {`${
@@ -109,9 +117,7 @@ const Detail = () => {
             }`}{" "}
           </h3>
 
-          
-
-          {
+          { // TERNARIO DE STOCK
             product.stock === 0 
             ?<button
             className="compradoBtn"
@@ -119,7 +125,8 @@ const Detail = () => {
            NO HAY STOCK
           </button>
             : <WalletContainer>
-            {!carrito.length ? (
+            { // TERNARIO SI TIENE EL PROD EN EL CARRITO
+            !carrito.length ? (
               <button className="botonCompra" onClick={()=>buyClick(product.stock)}>
                 Comprar
               </button>
@@ -128,7 +135,9 @@ const Detail = () => {
                 Seguir comprando
               </button>
             )}
-            {carrito.find((elem) => elem.id === Number(id)) ? (
+              
+            { // TERNARIO PARA AGREGAR AL CARRITO
+            carrito.find((elem) => elem.id === Number(id)) ? (
               <button
                 className="compradoBtn"
                 onClick={() => handleRemoveItem(product.id)}
