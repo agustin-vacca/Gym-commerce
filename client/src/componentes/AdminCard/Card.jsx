@@ -2,13 +2,14 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { CardDiv } from "./CardStyle";
+import { ApiUrl } from "../../redux/actions";
 
 function Card({ id, name, price, image, isactive, stock }) {
   const [active, setActive] = useState(isactive);
 
   const deleteProp = async (id, boolean) => {
     axios
-      .put(`http://localhost:3001/admin/product/${id}?isactive=${boolean}`)
+      .put(`${ApiUrl}/admin/product/${id}?isactive=${boolean}`)
       .then((response) => {
         console.log("esta es la respuesta del axios", response.data);
       });
@@ -30,7 +31,7 @@ function Card({ id, name, price, image, isactive, stock }) {
         {active === true ? (
           <>
             <button className="deleteBtn" onClick={() => handleClick(id)}>
-              Eliminar
+            Desactivar
             </button>
             <div className="TextName">{name}</div>
             <div>
@@ -40,7 +41,7 @@ function Card({ id, name, price, image, isactive, stock }) {
         ) : (
           <>
             <button className="addBtn" onClick={() => handleClick(id)}>
-              Restaurar
+            Activar
             </button>
             <div className="TextName">{name}</div>
             <div>

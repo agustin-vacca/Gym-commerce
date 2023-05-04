@@ -55,7 +55,7 @@ useEffect(() => {
       user: "",
       item: "",
     });
-    navigate(0); 
+    setTimeout(() => {navigate(0); }, 2500);
   };
   
 

@@ -7,6 +7,7 @@ import DetailReviews from "../../componentes/DetailComponents/DetailReviews/Deta
 import Footer from "../../componentes/Footer/Footer";
 import NavBar from "../../componentes/NavBar/NavBar";
 import {
+  ApiUrl,
   deleteItemCarrito,
   getProductById,
   getReviews,
@@ -65,7 +66,7 @@ const Detail = () => {
   const buyClick = async (prodStock) => {
     dispatch(putProduct(id, prodStock -1));
     const json = await axios.get(
-      `http://localhost:3001/mercadopago/payment/${id}`
+      `${ApiUrl}/mercadopago/payment/${id}`
     );
     window.location.assign(json.data);
     return json;
