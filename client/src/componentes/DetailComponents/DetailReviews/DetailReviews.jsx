@@ -16,12 +16,11 @@ export default function DetailReviews() {
     const verReviews = async () => {
       dispatch ( filterReviewsByProduct(id));
     }
-    console.log(orden)
 
     useEffect(() => {
       dispatch ( filterReviewsByProduct(id));
       // eslint-disable-next-line
-      }, []);
+      }, [orden]);
 
 return ( 
     <Container>

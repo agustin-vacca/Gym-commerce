@@ -11,10 +11,10 @@ function RutasAdmin() {
   const admins = useSelector( e => e.admins)
   const correos = []
   let arrayCorreos = admins.map( e => correos.push(e.email) );
-
+ console.log(arrayCorreos);
   useEffect( () => {
     dispatch(filterByAdmin())
-  },[user])
+  },[user, dispatch])
 
   if (isAuthenticated) {
     if (!correos.includes(user.email)) {

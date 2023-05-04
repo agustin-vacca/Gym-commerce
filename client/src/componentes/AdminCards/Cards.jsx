@@ -49,6 +49,7 @@ export default function Cards() {
                   price={el.price}
                   image={el.image}
                   isactive={el.isactive}
+                  stock={el.stock}
                 />
               );
             })}

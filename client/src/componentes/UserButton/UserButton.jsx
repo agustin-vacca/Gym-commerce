@@ -33,7 +33,7 @@ const UserButton = () => {
       localStorage.setItem("usuario",JSON.stringify(newLocal))
       // const ultimoLocal = localStorage.getItem("usuario")
     }
-  },[user])
+  },[user, admins])
 
   return (
     <UserBtnDiv>
