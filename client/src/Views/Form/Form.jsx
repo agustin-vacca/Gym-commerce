@@ -1,8 +1,13 @@
 import axios from "axios";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import React, { useEffect, useState } from "react";
-import { AiFillHome, AiOutlineForm } from "react-icons/ai";
-import { ImStatsBars } from "react-icons/im";
+import {
+  AiFillHome,
+  AiOutlineComment,
+  AiOutlineForm,
+  AiOutlineUser,
+} from "react-icons/ai";
+import { FaDumbbell } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import logoImage from "../../cardiganRectangulo.png";
@@ -27,11 +32,8 @@ const Formulario = () => {
   const handlerImage = async (e) => {
     try {
       const result = await uploadFile(e);
-      console.log(result);
       setFile(result);
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {
@@ -320,22 +322,22 @@ const linksArray = [
   },
   {
     label: "Reviews",
-    icon: <ImStatsBars size={30} />,
+    icon: <AiOutlineComment size={30} />,
     to: "/Admin/reviews",
   },
   {
     label: "Productos",
-    icon: <AiOutlineForm size={30} />,
+    icon: <FaDumbbell size={30} />,
     to: "/Admin/myProducts",
   },
   {
     label: "Crear Producto",
-    icon: <AiFillHome size={30} />,
+    icon: <AiOutlineForm size={30} />,
     to: "/Admin/form",
   },
   {
     label: "Usuarios",
-    icon: <AiFillHome size={30} />,
+    icon: <AiOutlineUser size={30} />,
     to: "/Admin/usuarios",
   },
 ];

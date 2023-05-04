@@ -1,9 +1,14 @@
 import React from "react";
-import { AiFillHome, AiOutlineForm } from "react-icons/ai";
-import { ImStatsBars } from "react-icons/im";
+import {
+  AiFillHome,
+  AiOutlineComment,
+  AiOutlineForm,
+  AiOutlineUser,
+} from "react-icons/ai";
+import { FaDumbbell } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import logoImage from "../../cardiganRectangulo.png";
-import { Sidebar } from "./DashBoardStyles";
+import { LandingDiv, Sidebar } from "./DashBoardStyles";
 
 const Dash = () => {
   return (
@@ -11,22 +16,25 @@ const Dash = () => {
       <div className="Logo">
         <img src={logoImage} alt="logoImg" />
       </div>
-      <div className="Contenido">
-        <div className="DivLabelEmergente">
+      <div>
+        <LandingDiv>
           {linksArray &&
             linksArray.map(({ label, icon, to }) => (
-              <Link className="linklabel" to={to} key={label}>
-                <div
-                  className={
-                    label === "Estadisticas" ? "labelComponente" : "label"
-                  }
-                >
-                  <div>{label}</div>
-                  <div>{icon}</div>
+              <div key={label} className="card">
+                <div className="face front">
+                  <div className="icon">{icon}</div>
+                  <div className="tag">{label}</div>
                 </div>
-              </Link>
+                <div className="face back">
+                  <div className="letters">
+                    <Link className="linklabel" to={to} key={label}>
+                      <h3 className="entrada">IR</h3>
+                    </Link>
+                  </div>
+                </div>
+              </div>
             ))}
-        </div>
+        </LandingDiv>
       </div>
     </Sidebar>
   );
@@ -37,27 +45,27 @@ export default Dash;
 const linksArray = [
   {
     label: "Home Page",
-    icon: <AiFillHome size={30} />,
+    icon: <AiFillHome size={50} />,
     to: "/home",
   },
   {
     label: "Reviews",
-    icon: <ImStatsBars size={30} />,
+    icon: <AiOutlineComment size={50} />,
     to: "/Admin/reviews",
   },
   {
     label: "Productos",
-    icon: <AiOutlineForm size={30} />,
+    icon: <FaDumbbell size={50} />,
     to: "/Admin/myProducts",
   },
   {
     label: "Crear Producto",
-    icon: <AiFillHome size={30} />,
+    icon: <AiOutlineForm size={50} />,
     to: "/Admin/form",
   },
   {
     label: "Usuarios",
-    icon: <AiFillHome size={30} />,
+    icon: <AiOutlineUser size={50} />,
     to: "/Admin/usuarios",
   },
 ];

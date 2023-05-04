@@ -2,6 +2,7 @@ import axios from "axios";
 import {
   DELETE_ITEM_CARRITO,
   DELETE_REVIEW,
+  FILTER_BY_ADMIN,
   FILTER_BY_CATEGORY,
   FILTER_REVIEWS,
   GET_ADMIN_PRODUCTS,
@@ -18,12 +19,9 @@ import {
   POST_REVIEW,
   POST_USERS,
   PUT_ADMIN_USER,
-  FILTER_BY_ADMIN
 } from "./action-types";
 
-
-export const ApiUrl = "https://deployapi-p7icb5ugb-santiaguero91.vercel.app"
-
+export const ApiUrl = "https://deployapi-p7icb5ugb-santiaguero91.vercel.app";
 
 export function getProducts() {
   return async function (dispatch) {
@@ -71,7 +69,7 @@ export function filterByAdmin() {
   return async function (dispatch) {
     try {
       let json = await axios.get(`${ApiUrl}/usuarios`);
-      const response = json.data.filter(e => e.admin === true )
+      const response = json.data.filter((e) => e.admin === true);
       //console.log("esto es el response",response)
       return dispatch({
         type: FILTER_BY_ADMIN,
@@ -80,8 +78,8 @@ export function filterByAdmin() {
     } catch (error) {
       console.log(error);
     }
-  }
-};
+  };
+}
 
 export function getCategories() {
   return async function (dispatch) {
@@ -114,10 +112,7 @@ export const createProducts = (obj) => {
   console.log(obj);
   return async function (dispatch) {
     try {
-      let response = await axios.post(
-        `${ApiUrl}/productos/create`,
-        obj
-      );
+      let response = await axios.post(`${ApiUrl}/productos/create`, obj);
       console.log(response);
       return dispatch({
         type: POST_PRODUCTS,
@@ -158,9 +153,7 @@ export function filterReviewsByProduct(payload) {
 export function getProductsbyName(name) {
   return async function (dispatch) {
     try {
-      let json = await axios.get(
-        `${ApiUrl}/productos/?name=${name}`
-      );
+      let json = await axios.get(`${ApiUrl}/productos/?name=${name}`);
       return dispatch({
         type: GET_PRODUCTS_BY_NAME,
         payload: json.data,
@@ -189,10 +182,7 @@ export const createReview = (obj) => {
   console.log(obj);
   return async function (dispatch) {
     try {
-      let response = await axios.post(
-        `${ApiUrl}/reviews/create`,
-        obj
-      );
+      let response = await axios.post(`${ApiUrl}/reviews/create`, obj);
       console.log(response);
       return dispatch({
         type: POST_REVIEW,
@@ -207,10 +197,7 @@ export const createReview = (obj) => {
 export const createUsers = (obj) => {
   return async function (dispatch) {
     try {
-      let response = await axios.post(
-        `${ApiUrl}/usuarios/create`,
-        obj
-      );
+      let response = await axios.post(`${ApiUrl}/usuarios/create`, obj);
       return dispatch({
         type: POST_USERS,
         payload: response.data,
@@ -224,9 +211,7 @@ export const createUsers = (obj) => {
 export function deleteReview(id) {
   return async function (dispatch) {
     try {
-      await axios.delete(
-        `${ApiUrl}/reviews/` + id
-      );
+      await axios.delete(`${ApiUrl}/reviews/` + id);
       return dispatch({
         type: DELETE_REVIEW,
         payload: id,
@@ -270,14 +255,16 @@ export function putAdminUser(id) {
   };
 }
 
-export function putProduct(id , obj){
+export function putProduct(id, obj) {
   console.log(obj);
-  return async function() {
-      try{       
-      const response = await axios.put(`${ApiUrl}/productos/change/${id}` , {"stock": obj})
-      return response
-  } catch (error){
+  return async function () {
+    try {
+      const response = await axios.put(`${ApiUrl}/productos/change/${id}`, {
+        stock: obj,
+      });
+      return response;
+    } catch (error) {
       console.log(error);
-  }
-  }
-} 
+    }
+  };
+}
